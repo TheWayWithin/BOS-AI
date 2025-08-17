@@ -8,6 +8,18 @@
 
 ---
 
+## 🚀 Quick Start - Deploy in 30 Seconds
+
+```bash
+# Navigate to your project folder
+cd "path/to/your/project"
+
+# Install BOS-AI with 30 AI agents
+curl -sSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s full
+```
+
+**That's it!** You now have 30 specialized AI agents ready to use in Claude Code. See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed instructions.
+
 ## The Complete Solopreneur Business Operating System
 
 BOS-AI represents the evolution of business management from fragmented tools and processes into a unified, AI-augmented framework that enables individual entrepreneurs to compete through **systematic excellence** rather than resource accumulation. This system integrates the continuous innovation cycle of **Discovery-Creation-Delivery-Growth** with the mathematical precision of **Business Chassis optimization** while incorporating comprehensive AI agent coordination.
@@ -31,6 +43,33 @@ Prospects × Lead Conversion × Client Conversion × Average Spend × Transactio
 - 100% improvement in each component = **6,400% increase in profit**
 
 The genius lies in the **fix-the-holes methodology**: start improvements with margin (bottom of the bucket) and work upward. There's no point attracting more prospects if your margins are terrible or your conversion rates are broken.
+
+---
+
+## 🤖 30 Specialized AI Agents for Claude Code
+
+BOS-AI includes 30 professionally designed agents that work in your Claude Code sessions:
+
+### Using Agents in Claude Code
+Simply reference any agent with @ in your Claude Code session:
+- `@chassis-intelligence` - Optimize your Business Chassis
+- `@market-intelligence` - Analyze market opportunities  
+- `@solution-design` - Design 10x value solutions
+- `@customer-success` - Improve customer satisfaction
+
+### Agent Categories (30 Total)
+- **Central Intelligence (3):** Strategic coordination and optimization
+- **Discovery Engine (3):** Market research and opportunity validation
+- **Creation Engine (3):** Solution design and development
+- **Delivery Engine (3):** Customer success and quality assurance
+- **Growth Engine (3):** Scaling and revenue optimization
+- **Marketing (3):** Brand, campaigns, and content
+- **Sales (3):** Pipeline, conversion, and revenue operations
+- **Customer Service (3):** Support, satisfaction, and retention
+- **Financial (3):** Budget, analysis, and investment
+- **Legal (3):** Compliance, risk, and contracts
+
+See [agents/README.md](agents/README.md) for complete agent documentation.
 
 ---
 
