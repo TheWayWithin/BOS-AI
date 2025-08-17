@@ -6,12 +6,22 @@
 
 set -e
 
-# Colors for output
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-BLUE='\033[0;34m'
-YELLOW='\033[1;33m'
-NC='\033[0m' # No Color
+# Colors for output - check if terminal supports colors
+if [ -t 1 ] && command -v tput >/dev/null 2>&1; then
+    # Terminal supports colors
+    RED=$(tput setaf 1)
+    GREEN=$(tput setaf 2)
+    BLUE=$(tput setaf 4)
+    YELLOW=$(tput setaf 3)
+    NC=$(tput sgr0) # No Color
+else
+    # No color support or not in terminal
+    RED=''
+    GREEN=''
+    BLUE=''
+    YELLOW=''
+    NC=''
+fi
 
 # Configuration
 REPO_URL="https://github.com/TheWayWithin/BOS-AI.git"
@@ -19,40 +29,39 @@ TEMP_DIR="/tmp/bos-ai-install-$$"
 DEPLOYMENT_TYPE="${1:-full}"
 
 # Print banner
-echo -e "${BLUE}"
-echo "╔══════════════════════════════════════════════════════════════╗"
-echo "║                                                              ║"
-echo "║     BOS-AI: Business Operating System AI Agent Suite        ║"
-echo "║     One framework. Four engines. Exponential results.       ║"
-echo "║                                                              ║"
-echo "╚══════════════════════════════════════════════════════════════╝"
-echo -e "${NC}"
+printf "%s\n" "${BLUE}╔══════════════════════════════════════════════════════════════╗${NC}"
+printf "%s\n" "${BLUE}║                                                              ║${NC}"
+printf "%s\n" "${BLUE}║     BOS-AI: Business Operating System AI Agent Suite        ║${NC}"
+printf "%s\n" "${BLUE}║     One framework. Four engines. Exponential results.       ║${NC}"
+printf "%s\n" "${BLUE}║                                                              ║${NC}"
+printf "%s\n" "${BLUE}╚══════════════════════════════════════════════════════════════╝${NC}"
+echo ""
 
-echo -e "${GREEN}🚀 Starting BOS-AI deployment (${DEPLOYMENT_TYPE} configuration)...${NC}"
+printf "%s\n" "${GREEN}🚀 Starting BOS-AI deployment (${DEPLOYMENT_TYPE} configuration)...${NC}"
 
 # Create temporary directory
-echo -e "${BLUE}📁 Creating temporary installation directory...${NC}"
+printf "%s\n" "${BLUE}📁 Creating temporary installation directory...${NC}"
 mkdir -p "$TEMP_DIR"
 cd "$TEMP_DIR"
 
 # Clone repository
-echo -e "${BLUE}📥 Downloading BOS-AI framework...${NC}"
+printf "%s\n" "${BLUE}📥 Downloading BOS-AI framework...${NC}"
 git clone --quiet --depth 1 "$REPO_URL" .
 
 # Determine what to install based on deployment type
-echo -e "${BLUE}🔧 Configuring deployment type: ${DEPLOYMENT_TYPE}${NC}"
+printf "%s\n" "${BLUE}🔧 Configuring deployment type: ${DEPLOYMENT_TYPE}${NC}"
 
 case "$DEPLOYMENT_TYPE" in
     "core")
-        echo -e "${YELLOW}→ Installing Core System (4 Engines + Central Intelligence)${NC}"
+        printf "%s\n" "${YELLOW}→ Installing Core System (4 Engines + Central Intelligence)${NC}"
         INCLUDE_DIRS="agents/coordination agents/discovery agents/creation agents/delivery agents/growth"
         ;;
     "business")
-        echo -e "${YELLOW}→ Installing Business System (Core + Business Functions)${NC}"
+        printf "%s\n" "${YELLOW}→ Installing Business System (Core + Business Functions)${NC}"
         INCLUDE_DIRS="agents/coordination agents/discovery agents/creation agents/delivery agents/growth agents/marketing agents/sales agents/customer-service"
         ;;
     "full"|*)
-        echo -e "${YELLOW}→ Installing Full System (All Components)${NC}"
+        printf "%s\n" "${YELLOW}→ Installing Full System (All Components)${NC}"
         INCLUDE_DIRS="agents documents missions templates frameworks"
         ;;
 esac
@@ -63,10 +72,10 @@ if [ ! -z "$OLDPWD" ]; then
     INSTALL_DIR="$OLDPWD"
 fi
 
-echo -e "${BLUE}📂 Installing to: ${INSTALL_DIR}${NC}"
+printf "%s\n" "${BLUE}📂 Installing to: ${INSTALL_DIR}${NC}"
 
 # Create BOS-AI directory structure
-echo -e "${GREEN}🏗️  Creating BOS-AI structure...${NC}"
+printf "%s\n" "${GREEN}🏗️  Creating BOS-AI structure...${NC}"
 
 # Copy core documentation
 cp -f README.md "$INSTALL_DIR/" 2>/dev/null || true
@@ -79,7 +88,7 @@ mkdir -p "$INSTALL_DIR/.bos-ai"
 mkdir -p "$INSTALL_DIR/.claude/agents"
 
 # Copy all agents to .claude/agents for Claude Code
-echo -e "  → Installing agents to .claude/agents..."
+printf "  → Installing agents to .claude/agents...\n"
 if [ -d "agents" ]; then
     # Copy all agent markdown files maintaining structure
     find agents -name "*.md" -type f | while read agent_file; do
@@ -90,13 +99,13 @@ if [ -d "agents" ]; then
             cp "$agent_file" "$INSTALL_DIR/.claude/agents/$filename"
         fi
     done
-    echo -e "  → Installed $(find agents -name "*.md" -type f | grep -v README | wc -l) agents"
+    printf "  → Installed %s agents\n" "$(find agents -name "*.md" -type f | grep -v README | wc -l)"
 fi
 
 # Copy selected components to .bos-ai
 for dir in $INCLUDE_DIRS; do
     if [ -d "$dir" ]; then
-        echo -e "  → Installing ${dir}..."
+        printf "  → Installing %s...\n" "${dir}"
         mkdir -p "$INSTALL_DIR/.bos-ai/$(dirname $dir)"
         cp -r "$dir" "$INSTALL_DIR/.bos-ai/$(dirname $dir)/"
     fi
@@ -104,24 +113,24 @@ done
 
 # Copy missions
 if [[ "$DEPLOYMENT_TYPE" == "full" ]] || [[ "$DEPLOYMENT_TYPE" == "business" ]]; then
-    echo -e "  → Installing mission workflows..."
+    printf "  → Installing mission workflows...\n"
     mkdir -p "$INSTALL_DIR/.bos-ai/missions"
     cp -r missions/* "$INSTALL_DIR/.bos-ai/missions/" 2>/dev/null || true
 fi
 
 # Copy templates for full deployment
 if [[ "$DEPLOYMENT_TYPE" == "full" ]]; then
-    echo -e "  → Installing templates..."
+    printf "  → Installing templates...\n"
     mkdir -p "$INSTALL_DIR/.bos-ai/templates"
     cp -r templates/* "$INSTALL_DIR/.bos-ai/templates/" 2>/dev/null || true
     
-    echo -e "  → Installing frameworks..."
+    printf "  → Installing frameworks...\n"
     mkdir -p "$INSTALL_DIR/.bos-ai/frameworks"
     cp -r frameworks/* "$INSTALL_DIR/.bos-ai/frameworks/" 2>/dev/null || true
 fi
 
 # Create project structure
-echo -e "${GREEN}📚 Creating project structure...${NC}"
+printf "%s\n" "${GREEN}📚 Creating project structure...${NC}"
 mkdir -p "$INSTALL_DIR/assets/business-bibles"
 mkdir -p "$INSTALL_DIR/assets/client-success-blueprint"
 mkdir -p "$INSTALL_DIR/assets/strategic-plans"
@@ -131,7 +140,7 @@ mkdir -p "$INSTALL_DIR/intelligence/client-intelligence"
 mkdir -p "$INSTALL_DIR/intelligence/market-intelligence"
 
 # Create initial configuration
-echo -e "${GREEN}⚙️  Creating initial configuration...${NC}"
+printf "%s\n" "${GREEN}⚙️  Creating initial configuration...${NC}"
 cat > "$INSTALL_DIR/.bos-ai/config.json" << EOF
 {
   "version": "1.0.0",
@@ -156,7 +165,7 @@ cat > "$INSTALL_DIR/.bos-ai/config.json" << EOF
 EOF
 
 # Create CLAUDE.md for Claude Code integration
-echo -e "${GREEN}🤖 Setting up Claude Code integration...${NC}"
+printf "%s\n" "${GREEN}🤖 Setting up Claude Code integration...${NC}"
 cat > "$INSTALL_DIR/CLAUDE.md" << 'EOF'
 # BOS-AI Agent Suite for Business Operations
 
@@ -182,7 +191,7 @@ Prospects × Lead Conversion × Client Conversion × Average Spend × Transactio
 EOF
 
 # Create initialization script
-echo -e "${GREEN}📝 Creating initialization script...${NC}"
+printf "%s\n" "${GREEN}📝 Creating initialization script...${NC}"
 cat > "$INSTALL_DIR/bos-ai-init.sh" << 'EOF'
 #!/bin/bash
 # BOS-AI Initialization Script
@@ -204,23 +213,22 @@ EOF
 chmod +x "$INSTALL_DIR/bos-ai-init.sh"
 
 # Clean up
-echo -e "${BLUE}🧹 Cleaning up installation files...${NC}"
+printf "%s\n" "${BLUE}🧹 Cleaning up installation files...${NC}"
 cd "$INSTALL_DIR"
 rm -rf "$TEMP_DIR"
 
 # Success message
-echo -e "${GREEN}"
-echo "╔══════════════════════════════════════════════════════════════╗"
-echo "║                                                              ║"
-echo "║        ✅ BOS-AI Successfully Installed!                    ║"
-echo "║                                                              ║"
-echo "╚══════════════════════════════════════════════════════════════╝"
-echo -e "${NC}"
+printf "%s\n" "${GREEN}╔══════════════════════════════════════════════════════════════╗${NC}"
+printf "%s\n" "${GREEN}║                                                              ║${NC}"
+printf "%s\n" "${GREEN}║        ✅ BOS-AI Successfully Installed!                    ║${NC}"
+printf "%s\n" "${GREEN}║                                                              ║${NC}"
+printf "%s\n" "${GREEN}╚══════════════════════════════════════════════════════════════╝${NC}"
 
-echo -e "${YELLOW}📋 Next Steps:${NC}"
-echo "1. Run ${GREEN}./bos-ai-init.sh${NC} to initialize your Business Chassis"
-echo "2. Create your Client Success Blueprint in ${GREEN}assets/client-success-blueprint/${NC}"
-echo "3. Begin tracking Business Chassis metrics in ${GREEN}intelligence/business-chassis/${NC}"
 echo ""
-echo -e "${BLUE}Your AI-powered Business Operating System is ready!${NC}"
-echo -e "${GREEN}Start with daily chassis optimization for exponential growth.${NC}"
+echo "📋 Next Steps:"
+echo "1. Run ./bos-ai-init.sh to initialize your Business Chassis"
+echo "2. Create your Client Success Blueprint in assets/client-success-blueprint/"
+echo "3. Begin tracking Business Chassis metrics in intelligence/business-chassis/"
+echo ""
+echo "Your AI-powered Business Operating System is ready!"
+echo "Start with daily chassis optimization for exponential growth."
