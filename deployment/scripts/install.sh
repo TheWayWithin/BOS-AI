@@ -75,7 +75,25 @@ cp -f LICENSE "$INSTALL_DIR/" 2>/dev/null || true
 # Create .bos-ai directory for agent configurations
 mkdir -p "$INSTALL_DIR/.bos-ai"
 
-# Copy selected components
+# Create .claude directory for Claude Code integration
+mkdir -p "$INSTALL_DIR/.claude/agents"
+
+# Copy all agents to .claude/agents for Claude Code
+echo -e "  → Installing agents to .claude/agents..."
+if [ -d "agents" ]; then
+    # Copy all agent markdown files maintaining structure
+    find agents -name "*.md" -type f | while read agent_file; do
+        # Get just the filename without path
+        filename=$(basename "$agent_file")
+        # Skip README files
+        if [ "$filename" != "README.md" ]; then
+            cp "$agent_file" "$INSTALL_DIR/.claude/agents/$filename"
+        fi
+    done
+    echo -e "  → Installed $(find agents -name "*.md" -type f | grep -v README | wc -l) agents"
+fi
+
+# Copy selected components to .bos-ai
 for dir in $INCLUDE_DIRS; do
     if [ -d "$dir" ]; then
         echo -e "  → Installing ${dir}..."
