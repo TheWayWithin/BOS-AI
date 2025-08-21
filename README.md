@@ -8,17 +8,18 @@
 
 ---
 
-## 🚀 Quick Start - Deploy in 30 Seconds
+## 🚀 Quick Start - Deploy in Claude Code
 
 ```bash
-# Navigate to your project folder
-cd "path/to/your/project"
+# Clone the repository
+git clone https://github.com/jamiewatters/BOS-AI.git
+cd BOS-AI
 
-# Install BOS-AI with 30 AI agents
-curl -sSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s full
+# The agents are automatically available in Claude Code
+# Just use @ to invoke any agent
 ```
 
-**That's it!** You now have 30 specialized AI agents ready to use in Claude Code. See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed instructions.
+**That's it!** You now have 29 specialized AI agents ready to use in Claude Code.
 
 ## The Complete Solopreneur Business Operating System
 
@@ -46,18 +47,18 @@ The genius lies in the **fix-the-holes methodology**: start improvements with ma
 
 ---
 
-## 🤖 30 Specialized AI Agents for Claude Code
+## 🤖 29 Specialized AI Agents for Claude Code
 
-BOS-AI includes 30 professionally designed agents that work in your Claude Code sessions:
+BOS-AI includes 29 professionally designed agents that work in your Claude Code sessions:
 
 ### Using Agents in Claude Code
 Simply reference any agent with @ in your Claude Code session:
-- `@chassis-intelligence` - Optimize your Business Chassis
+- `@chassis-intelligence` - Central orchestration and Business Chassis optimization
 - `@market-intelligence` - Analyze market opportunities  
 - `@solution-design` - Design 10x value solutions
 - `@customer-success` - Improve customer satisfaction
 
-### Agent Categories (30 Total)
+### Agent Categories (29 Total)
 - **Central Intelligence (3):** Strategic coordination and optimization
 - **Discovery Engine (3):** Market research and opportunity validation
 - **Creation Engine (3):** Solution design and development
@@ -69,7 +70,7 @@ Simply reference any agent with @ in your Claude Code session:
 - **Financial (3):** Budget, analysis, and investment
 - **Legal (3):** Compliance, risk, and contracts
 
-See [agents/README.md](agents/README.md) for complete agent documentation.
+All agents are located in `.claude/agents/` for automatic Claude Code integration.
 
 ---
 
@@ -145,36 +146,24 @@ BOS-AI creates and maintains comprehensive business assets that serve as the ope
 
 ---
 
-## Quick Start
+## How to Use BOS-AI
 
-### Installation
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/BOS-AI.git
-cd BOS-AI
+### With Claude Code
+Once cloned, the agents are automatically available in Claude Code:
 
-# Install dependencies
-npm install
-
-# Setup environment
-cp .env.example .env
-
-# Choose deployment option
-./deployment/scripts/setup-core.sh     # Core Business Squad
-./deployment/scripts/setup-full.sh     # Full Agent Suite  
-./deployment/scripts/setup-minimal.sh  # Minimal Setup
+```
+# Example conversations with agents:
+@chassis-intelligence "Analyze my business metrics and identify optimization opportunities"
+@market-intelligence "Research the AI automation market for solopreneurs"
+@customer-success "Help me design an onboarding process"
+@revenue-optimization "Analyze my pricing strategy"
 ```
 
-### First Mission
-```bash
-# Initialize your Business Chassis
-/coord mission-foundation chassis-setup
+### Agent Coordination
+The `@chassis-intelligence` agent serves as the central orchestrator. It can coordinate multiple agents for complex tasks:
 
-# Create your Client Success Blueprint  
-/coord mission-foundation blueprint-creation
-
-# Deploy your first engine team
-/coord mission-engine discovery-setup
+```
+@chassis-intelligence "I need to launch a new product - coordinate the necessary agents to help me with market research, solution design, and go-to-market strategy"
 ```
 
 ---
