@@ -2,7 +2,7 @@
 
 # BOS-AI Installation Script
 # Deploys the Business Operating System AI Agent Suite to your project
-# Usage: curl -sSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s [core|business|full]
+# Usage: curl -sSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s [minimal|business|full]
 
 set -e
 
@@ -52,17 +52,20 @@ git clone --quiet --depth 1 "$REPO_URL" .
 printf "%s\n" "${BLUE}🔧 Configuring deployment type: ${DEPLOYMENT_TYPE}${NC}"
 
 case "$DEPLOYMENT_TYPE" in
-    "core")
-        printf "%s\n" "${YELLOW}→ Installing Core System (4 Engines + Central Intelligence)${NC}"
-        INCLUDE_DIRS="agents/coordination agents/discovery agents/creation agents/delivery agents/growth"
+    "minimal")
+        printf "%s\n" "${YELLOW}→ Installing Minimal System (5 Core Agents)${NC}"
+        AGENT_COUNT="5"
+        AGENT_LIST="chassis-intelligence market-intelligence customer-success revenue-optimization solution-design"
         ;;
     "business")
-        printf "%s\n" "${YELLOW}→ Installing Business System (Core + Business Functions)${NC}"
-        INCLUDE_DIRS="agents/coordination agents/discovery agents/creation agents/delivery agents/growth agents/marketing agents/sales agents/customer-service"
+        printf "%s\n" "${YELLOW}→ Installing Business System (15 Business-Critical Agents)${NC}"
+        AGENT_COUNT="15"
+        AGENT_LIST="chassis-intelligence client-success-intelligence multiplication-engine market-intelligence customer-success revenue-optimization solution-design brand-strategy campaign-execution pipeline-management conversion-optimization support-management satisfaction-optimization budget-planning performance-analysis"
         ;;
     "full"|*)
-        printf "%s\n" "${YELLOW}→ Installing Full System (All Components)${NC}"
-        INCLUDE_DIRS="agents documents missions templates frameworks"
+        printf "%s\n" "${YELLOW}→ Installing Full System (All 29 Agents + Complete Framework)${NC}"
+        AGENT_COUNT="29"
+        AGENT_LIST="ALL"
         ;;
 esac
 
@@ -87,46 +90,55 @@ mkdir -p "$INSTALL_DIR/.bos-ai"
 # Create .claude directory for Claude Code integration
 mkdir -p "$INSTALL_DIR/.claude/agents"
 
-# Copy all agents to .claude/agents for Claude Code
+# Copy agents to .claude/agents for Claude Code
 printf "  → Installing agents to .claude/agents...\n"
-if [ -d "agents" ]; then
-    # Copy all agent markdown files maintaining structure
-    find agents -name "*.md" -type f | while read agent_file; do
-        # Get just the filename without path
-        filename=$(basename "$agent_file")
-        # Skip README files
-        if [ "$filename" != "README.md" ]; then
-            cp "$agent_file" "$INSTALL_DIR/.claude/agents/$filename"
-        fi
-    done
-    printf "  → Installed %s agents\n" "$(find agents -name "*.md" -type f | grep -v README | wc -l)"
-fi
-
-# Copy selected components to .bos-ai
-for dir in $INCLUDE_DIRS; do
-    if [ -d "$dir" ]; then
-        printf "  → Installing %s...\n" "${dir}"
-        mkdir -p "$INSTALL_DIR/.bos-ai/$(dirname $dir)"
-        cp -r "$dir" "$INSTALL_DIR/.bos-ai/$(dirname $dir)/"
+if [ -d ".claude/agents" ]; then
+    if [ "$AGENT_LIST" = "ALL" ]; then
+        # Copy all agent files for full deployment
+        cp .claude/agents/*.md "$INSTALL_DIR/.claude/agents/" 2>/dev/null || true
+        printf "  → Installed all 29 agents\n"
+    else
+        # Copy specific agents for minimal/business deployment
+        for agent in $AGENT_LIST; do
+            if [ -f ".claude/agents/${agent}.md" ]; then
+                cp ".claude/agents/${agent}.md" "$INSTALL_DIR/.claude/agents/"
+            fi
+        done
+        printf "  → Installed %s agents\n" "$AGENT_COUNT"
     fi
-done
-
-# Copy missions
-if [[ "$DEPLOYMENT_TYPE" == "full" ]] || [[ "$DEPLOYMENT_TYPE" == "business" ]]; then
-    printf "  → Installing mission workflows...\n"
-    mkdir -p "$INSTALL_DIR/.bos-ai/missions"
-    cp -r missions/* "$INSTALL_DIR/.bos-ai/missions/" 2>/dev/null || true
+    
+    # Always copy README for agent documentation
+    cp .claude/agents/README.md "$INSTALL_DIR/.claude/agents/" 2>/dev/null || true
 fi
 
-# Copy templates for full deployment
-if [[ "$DEPLOYMENT_TYPE" == "full" ]]; then
-    printf "  → Installing templates...\n"
+# Copy missions to .claude/missions for all deployment types
+printf "  → Installing mission workflows...\n"
+mkdir -p "$INSTALL_DIR/.claude/missions"
+if [ -d ".claude/missions" ]; then
+    cp -r .claude/missions/* "$INSTALL_DIR/.claude/missions/" 2>/dev/null || true
+fi
+
+# Copy additional resources for business and full deployments
+if [[ "$DEPLOYMENT_TYPE" == "business" ]] || [[ "$DEPLOYMENT_TYPE" == "full" ]]; then
+    printf "  → Installing business templates...\n"
     mkdir -p "$INSTALL_DIR/.bos-ai/templates"
-    cp -r templates/* "$INSTALL_DIR/.bos-ai/templates/" 2>/dev/null || true
-    
-    printf "  → Installing frameworks...\n"
+    if [ -d "templates" ]; then
+        cp -r templates/* "$INSTALL_DIR/.bos-ai/templates/" 2>/dev/null || true
+    fi
+fi
+
+# Copy frameworks for full deployment only
+if [[ "$DEPLOYMENT_TYPE" == "full" ]]; then
+    printf "  → Installing complete framework documentation...\n"
     mkdir -p "$INSTALL_DIR/.bos-ai/frameworks"
-    cp -r frameworks/* "$INSTALL_DIR/.bos-ai/frameworks/" 2>/dev/null || true
+    if [ -d "frameworks" ]; then
+        cp -r frameworks/* "$INSTALL_DIR/.bos-ai/frameworks/" 2>/dev/null || true
+    fi
+    
+    mkdir -p "$INSTALL_DIR/.bos-ai/documents"
+    if [ -d "documents" ]; then
+        cp -r documents/* "$INSTALL_DIR/.bos-ai/documents/" 2>/dev/null || true
+    fi
 fi
 
 # Create project structure
@@ -164,31 +176,36 @@ cat > "$INSTALL_DIR/.bos-ai/config.json" << EOF
 }
 EOF
 
-# Create CLAUDE.md for Claude Code integration
-printf "%s\n" "${GREEN}🤖 Setting up Claude Code integration...${NC}"
-cat > "$INSTALL_DIR/CLAUDE.md" << 'EOF'
-# BOS-AI Agent Suite for Business Operations
+# Copy CLAUDE.md for command system
+printf "%s\n" "${GREEN}🤖 Setting up Claude Code command system...${NC}"
+if [ -f ".claude/CLAUDE.md" ]; then
+    cp ".claude/CLAUDE.md" "$INSTALL_DIR/.claude/CLAUDE.md"
+else
+    # Create basic CLAUDE.md if not found in repo
+    cat > "$INSTALL_DIR/.claude/CLAUDE.md" << 'EOF'
+# BOS-AI Command System
 
-This project uses the BOS-AI framework for systematic business operations.
+## 🎯 Quick Commands
 
-## Available Agents
+### /coord - Business Orchestration
+When you type `/coord`, I become your Business Chassis Intelligence coordinator. Use:
+- `/coord` - Interactive mission selection
+- `/coord optimize` - Optimize Business Chassis metrics
+- `/coord daily` - Daily business review
+- `/coord launch [product]` - Product launch coordination
 
-- **@chassis-intelligence** - Business Chassis optimization coordinator
-- **@market-intelligence** - Market research and competitive analysis
-- **@solution-design** - 10x value solution architecture
-- **@customer-success** - Customer success management
+### /meeting - Agent Consultation
+Direct conversations with specialized agents:
+- `/meeting @revenue-optimization "pricing strategy"`
+- `/meeting @customer-success "onboarding process"`
+- `/meeting @brand-strategy "marketing campaign"`
 
-## Quick Commands
-
-- `bos-ai status` - Check Business Chassis metrics
-- `bos-ai optimize` - Run chassis optimization analysis
-- `bos-ai mission` - Execute business missions
-
-## Business Focus
-
-All operations are focused on optimizing the Business Chassis:
+## 📊 Business Chassis Formula
 Prospects × Lead Conversion × Client Conversion × Average Spend × Transaction Frequency × Margin = Profit
+
+10% improvement in each = 77% profit increase!
 EOF
+fi
 
 # Create initialization script
 printf "%s\n" "${GREEN}📝 Creating initialization script...${NC}"
@@ -226,9 +243,14 @@ printf "%s\n" "${GREEN}╚══════════════════
 
 echo ""
 echo "📋 Next Steps:"
-echo "1. Run ./bos-ai-init.sh to initialize your Business Chassis"
-echo "2. Create your Client Success Blueprint in assets/client-success-blueprint/"
-echo "3. Begin tracking Business Chassis metrics in intelligence/business-chassis/"
+echo "1. Open Claude Code in this directory"
+echo "2. Type /coord to start business orchestration"
+echo "3. Or use @chassis-intelligence directly"
+echo ""
+printf "%s\n" "${BLUE}Available Commands:${NC}"
+echo "  /coord         - Business orchestration mode"
+echo "  /meeting       - Consult with specific agents"
+echo "  @agent-name    - Direct agent interaction"
 echo ""
 echo "Your AI-powered Business Operating System is ready!"
-echo "Start with daily chassis optimization for exponential growth."
+echo "Start optimizing your Business Chassis for exponential growth!"

@@ -8,18 +8,25 @@
 
 ---
 
-## 🚀 Quick Start - Deploy in Claude Code
+## 🚀 Quick Start - One-Line Deployment
 
+### Instant Installation (Recommended)
 ```bash
-# Clone the repository
-git clone https://github.com/jamiewatters/BOS-AI.git
-cd BOS-AI
-
-# The agents are automatically available in Claude Code
-# Just use @ to invoke any agent
+curl -sSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s business
 ```
 
-**That's it!** You now have 29 specialized AI agents ready to use in Claude Code.
+### Deployment Options
+- `minimal` - 5 core agents for essential operations
+- `business` - 15 agents for comprehensive business management (recommended)
+- `full` - All 29 agents plus complete framework documentation
+
+### Alternative: Manual Installation
+```bash
+git clone https://github.com/TheWayWithin/BOS-AI.git
+cd BOS-AI
+```
+
+**That's it!** Your AI-powered Business Operating System is ready. Open Claude Code and type `/coord` to begin!
 
 ## The Complete Solopreneur Business Operating System
 
@@ -146,24 +153,31 @@ BOS-AI creates and maintains comprehensive business assets that serve as the ope
 
 ---
 
-## How to Use BOS-AI
+## 🎮 Command System
 
-### With Claude Code
-Once cloned, the agents are automatically available in Claude Code:
-
+### `/coord` - Business Orchestration Mode
+Activate the central coordinator for multi-agent operations:
 ```
-# Example conversations with agents:
-@chassis-intelligence "Analyze my business metrics and identify optimization opportunities"
-@market-intelligence "Research the AI automation market for solopreneurs"
-@customer-success "Help me design an onboarding process"
-@revenue-optimization "Analyze my pricing strategy"
+/coord                    # Interactive mission menu
+/coord optimize           # Optimize Business Chassis
+/coord daily              # Daily business review
+/coord launch "product"   # Product launch coordination
 ```
 
-### Agent Coordination
-The `@chassis-intelligence` agent serves as the central orchestrator. It can coordinate multiple agents for complex tasks:
-
+### `/meeting` - Agent Consultation
+Direct conversations with specialized agents:
 ```
-@chassis-intelligence "I need to launch a new product - coordinate the necessary agents to help me with market research, solution design, and go-to-market strategy"
+/meeting @revenue-optimization "pricing strategy"
+/meeting @customer-success "reduce churn"
+/meeting @brand-strategy "Q1 campaign"
+```
+
+### Direct Agent Access
+Use @ to work with any agent directly:
+```
+@chassis-intelligence "analyze my business"
+@market-intelligence "research competitors"
+@solution-design "design MVP features"
 ```
 
 ---
