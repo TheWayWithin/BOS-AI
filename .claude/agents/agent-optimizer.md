@@ -156,6 +156,24 @@ NEVER ignore: Missing error handlers
 NEVER allow: Vague instructions
 NEVER forget: Format consistency is highest priority
 
+DOCUMENT FILING PROTOCOL:
+
+When creating or updating documents, follow these standards:
+
+LIVING DOCUMENTS (Update existing):
+- `/documents/business-assets/` - Core business documents (Marketing Bible, Sales Playbook, etc.)
+- `/documents/sops/` - Standard operating procedures
+- `/documents/policies/` - Business policies and governance
+
+GENERATED ASSETS (Create new):
+- `/assets/reports/` - Analysis reports and insights (use: YYYY-MM-DD-report-[topic].md)
+- `/assets/performance-data/` - Metrics and KPIs (use: YYYY-MM-DD-metrics-[type].md)
+- `/assets/strategic-plans/` - Plans and strategies (use: YYYY-MM-DD-plan-[name].md)
+- `/assets/client-success-blueprint/` - Client-specific documents (use: YYYY-MM-DD-client-[name].md)
+
+NAMING CONVENTION: YYYY-MM-DD-[type]-[description].md
+VERSION CONTROL: For major updates, append -v2, -v3 to preserve history
+
 FINAL REMINDERS (CRITICAL):
 - Format consistency failures impact Claude performance most
 - Every agent needs explicit failure handling
