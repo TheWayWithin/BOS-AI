@@ -1,27 +1,61 @@
 # BOS-AI: Business Operating System with AI Agent Suite
 ## Transforming Solopreneur Excellence Through Systematic AI-Augmented Operations
 
-![BOS-AI Banner](https://img.shields.io/badge/BOS--AI-v1.0-blue?style=for-the-badge&logo=artificial-intelligence)
+![BOS-AI Banner](https://img.shields.io/badge/BOS--AI-v2.0-blue?style=for-the-badge&logo=artificial-intelligence)
 ![Framework](https://img.shields.io/badge/Framework-BOS--Framework-green?style=for-the-badge)
-![Agents](https://img.shields.io/badge/Agent--Suite-25+-orange?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Development-yellow?style=for-the-badge)
+![Agents](https://img.shields.io/badge/Agent--Suite-30-orange?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Production-success?style=for-the-badge)
+
+> **📚 Need Help?** Check [Troubleshooting](#-troubleshooting--faq) | [Requirements](#-system-requirements) | [Documentation](.claude/CLAUDE.md)
 
 ---
 
 ## 🚀 Quick Start - One-Line Installation
 
-### Instant Deploy (No Clone Required)
+### Step 1: Open Terminal in Your Project
 ```bash
-# Install BOS-AI directly into your business project
-curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash
-
-# Or choose your tier:
-curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s starter   # 5 essential agents
-curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s business  # 15 business agents  
-curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s full      # All 30 agents
+# Navigate to your business project directory
+cd ~/your-business-project
 ```
 
-### Alternative: Clone & Deploy
+### Step 2: Install BOS-AI (Choose Your Tier)
+
+#### Option A: Starter Tier (5 Essential Agents) - Recommended for New Users
+```bash
+curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s starter
+```
+**Perfect for:** Getting started, small businesses, testing the system
+
+#### Option B: Business Tier (15 Core Agents)
+```bash
+curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s business
+```
+**Perfect for:** Growing businesses, comprehensive operations
+
+#### Option C: Full Suite (All 30 Agents)
+```bash
+curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s full
+```
+**Perfect for:** Established businesses, complete automation
+
+### Step 3: Start Using BOS-AI in Claude Code
+```bash
+# Open Claude Code in your project
+claude code .
+
+# Test your installation
+/coord optimize    # Run Business Chassis optimization
+```
+
+### 📊 Installation Tiers Comparison
+
+| Tier | Agents | Use Case | Key Features |
+|------|--------|----------|-------------|
+| **Starter** | 5 | New businesses | Core coordination, revenue optimization, pipeline management |
+| **Business** | 15 | Growing companies | + Market intelligence, quality assurance, marketing suite |
+| **Full** | 30 | Established firms | Complete suite with legal, financial, all specialized agents |
+
+### Alternative: Clone & Deploy (For Contributors)
 ```bash
 # Clone the repository
 git clone https://github.com/TheWayWithin/BOS-AI.git
@@ -31,19 +65,54 @@ cd BOS-AI
 ./deployment/scripts/deploy-complete.sh
 ```
 
-### Command System Activation
-Once deployed, your BOS-AI command system is ready in Claude Code:
-- Type `/coord` to activate Business Chassis orchestration
-- Type `/meeting @agent-name` for direct agent consultation
-- Reference the CLAUDE.md file for full command documentation
+### ✅ What Gets Installed
+- 🤖 AI agents optimized for Claude Code (based on tier)
+- 🎮 Command system (`/coord` and `/meeting`)
+- 📁 Professional document filing structure
+- 📚 Complete documentation (CLAUDE.md)
+- 🎯 Pre-built business missions
+- 📊 Business Chassis optimization framework
 
-**That's it!** Your AI-powered Business Operating System is ready!
+## 🎯 How to Use BOS-AI After Installation
 
-### What's Included
-- ✅ 30 specialized AI agents for Claude Code
-- ✅ Command system (/coord and /meeting)
-- ✅ Professional document filing system pre-configured
-- ✅ Business Chassis optimization framework
+### Essential Commands
+
+#### 1. Business Optimization
+```bash
+/coord optimize
+# Analyzes your Business Chassis and identifies growth bottlenecks
+```
+
+#### 2. Consult Specific Agents
+```bash
+/meeting @revenue-optimization "pricing strategy"
+/meeting @customer-success "reduce churn"
+/meeting @brand-strategy "Q1 campaign"
+```
+
+#### 3. Run Business Missions
+```bash
+/coord project-setup     # Initialize new project structure
+/coord daily-review      # Daily business metrics review
+/coord product-launch    # Coordinate product launch
+```
+
+### Quick Examples
+
+**Scenario: Improve Sales Pipeline**
+```bash
+/meeting @pipeline-management "analyze conversion bottlenecks"
+```
+
+**Scenario: Launch New Product**
+```bash
+/coord product-launch "AI automation tool"
+```
+
+**Scenario: Fix Business Problems**
+```bash
+/coord optimize  # Let AI identify and fix your biggest issue
+```
 
 ## The Complete Solopreneur Business Operating System
 
@@ -484,6 +553,76 @@ Personal investment and authentic passion for customer success creates **competi
 BOS-AI represents the future of entrepreneurial excellence - a systematic approach to business development that enables individual entrepreneurs to compete through **excellence rather than resources** while creating **sustainable competitive advantages** that compound over time.
 
 **For solopreneurs committed to delivering genuine customer success while building sustainable, profitable businesses, BOS-AI provides the systematic foundation for market leadership through proven methodologies and AI-augmented excellence.**
+
+---
+
+## 🔧 Troubleshooting & FAQ
+
+### Installation Issues
+
+**Problem: Installation script fails with "command not found"**
+```bash
+# Solution: Ensure curl is installed
+which curl  # Check if curl exists
+# If not, install curl first (varies by OS)
+```
+
+**Problem: "Permission denied" error**
+```bash
+# Solution: Ensure you're in a writable directory
+cd ~/your-project  # Go to your project directory
+ls -la            # Check permissions
+```
+
+**Problem: Agents not appearing in Claude Code**
+```bash
+# Solution: Verify installation location
+ls -la .claude/agents/  # Should show .md files
+# Re-run installation if needed
+```
+
+### Usage Questions
+
+**Q: How do I know which agents are installed?**
+```bash
+ls .claude/agents/  # Lists all installed agents
+```
+
+**Q: Can I upgrade from starter to full later?**
+```bash
+# Yes! Just run the full installation
+curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s full
+```
+
+**Q: How do I uninstall BOS-AI?**
+```bash
+rm -rf .claude/  # Removes all BOS-AI files
+```
+
+**Q: Do I need to install in every project?**
+- Yes, BOS-AI installs per-project to keep your projects isolated
+- This allows different projects to use different agent configurations
+
+---
+
+## 📋 System Requirements
+
+### Required
+- **Claude Code** (latest version)
+- **Bash shell** (Mac/Linux/WSL on Windows)
+- **curl** (for downloading)
+- **Internet connection** (for installation)
+
+### Recommended
+- **Git** (for version control)
+- **2GB free disk space** (for full installation)
+- **Modern terminal** (for color output)
+
+### Supported Operating Systems
+- ✅ macOS (10.15+)
+- ✅ Linux (Ubuntu 20.04+, Debian, Fedora)
+- ✅ Windows (via WSL2)
+- ⚠️ Windows (native) - Use Git Bash or WSL
 
 ---
 
