@@ -1,256 +1,332 @@
 #!/bin/bash
 
-# BOS-AI Installation Script
-# Deploys the Business Operating System AI Agent Suite to your project
-# Usage: curl -sSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s [minimal|business|full]
+# BOS-AI One-Line Installation Script
+# Downloads and installs BOS-AI agents directly from GitHub without cloning
+# Usage: curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s [tier]
+# Tiers: starter (5 agents), business (15 agents), full (30 agents)
 
 set -e
 
-# Colors for output - check if terminal supports colors
-if [ -t 1 ] && command -v tput >/dev/null 2>&1; then
-    # Terminal supports colors
-    RED=$(tput setaf 1)
-    GREEN=$(tput setaf 2)
-    BLUE=$(tput setaf 4)
-    YELLOW=$(tput setaf 3)
-    NC=$(tput sgr0) # No Color
-else
-    # No color support or not in terminal
-    RED=''
-    GREEN=''
-    BLUE=''
-    YELLOW=''
-    NC=''
-fi
-
 # Configuration
-REPO_URL="https://github.com/TheWayWithin/BOS-AI.git"
-TEMP_DIR="/tmp/bos-ai-install-$$"
-DEPLOYMENT_TYPE="${1:-full}"
+GITHUB_RAW_BASE="https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main"
+TIER="${1:-starter}"  # Default to starter tier
 
-# Print banner
-printf "%s\n" "${BLUE}╔══════════════════════════════════════════════════════════════╗${NC}"
-printf "%s\n" "${BLUE}║                                                              ║${NC}"
-printf "%s\n" "${BLUE}║     BOS-AI: Business Operating System AI Agent Suite        ║${NC}"
-printf "%s\n" "${BLUE}║     One framework. Four engines. Exponential results.       ║${NC}"
-printf "%s\n" "${BLUE}║                                                              ║${NC}"
-printf "%s\n" "${BLUE}╚══════════════════════════════════════════════════════════════╝${NC}"
-echo ""
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+YELLOW='\033[1;33m'
+PURPLE='\033[0;35m'
+CYAN='\033[0;36m'
+NC='\033[0m' # No Color
 
-printf "%s\n" "${GREEN}🚀 Starting BOS-AI deployment (${DEPLOYMENT_TYPE} configuration)...${NC}"
+# Banner
+echo -e "${BLUE}"
+echo "╔══════════════════════════════════════════════════════════════╗"
+echo "║                                                              ║"
+echo "║   BOS-AI: One-Line Installation                             ║"
+echo "║   Business Operating System AI Framework                     ║"
+echo "║                                                              ║"
+echo "╚══════════════════════════════════════════════════════════════╝"
+echo -e "${NC}"
 
-# Create temporary directory
-printf "%s\n" "${BLUE}📁 Creating temporary installation directory...${NC}"
-mkdir -p "$TEMP_DIR"
-cd "$TEMP_DIR"
-
-# Clone repository
-printf "%s\n" "${BLUE}📥 Downloading BOS-AI framework...${NC}"
-git clone --quiet --depth 1 "$REPO_URL" .
-
-# Determine what to install based on deployment type
-printf "%s\n" "${BLUE}🔧 Configuring deployment type: ${DEPLOYMENT_TYPE}${NC}"
-
-case "$DEPLOYMENT_TYPE" in
-    "minimal")
-        printf "%s\n" "${YELLOW}→ Installing Minimal System (5 Core Agents)${NC}"
-        AGENT_COUNT="5"
-        AGENT_LIST="chassis-intelligence market-intelligence customer-success revenue-optimization solution-design"
+# Validate tier
+case $TIER in
+    starter|business|full)
+        echo -e "${GREEN}✓ Installing $TIER tier${NC}"
         ;;
-    "business")
-        printf "%s\n" "${YELLOW}→ Installing Business System (15 Business-Critical Agents)${NC}"
-        AGENT_COUNT="15"
-        AGENT_LIST="chassis-intelligence client-success-intelligence multiplication-engine market-intelligence customer-success revenue-optimization solution-design brand-strategy campaign-execution pipeline-management conversion-optimization support-management satisfaction-optimization budget-planning performance-analysis"
-        ;;
-    "full"|*)
-        printf "%s\n" "${YELLOW}→ Installing Full System (All 29 Agents + Complete Framework)${NC}"
-        AGENT_COUNT="29"
-        AGENT_LIST="ALL"
+    *)
+        echo -e "${RED}✗ Invalid tier: $TIER${NC}"
+        echo "Usage: curl -fsSL [URL] | bash -s [starter|business|full]"
+        exit 1
         ;;
 esac
 
-# Get the original directory where script was called
-INSTALL_DIR="$(pwd -P)"
-if [ ! -z "$OLDPWD" ]; then
-    INSTALL_DIR="$OLDPWD"
-fi
+# Create directory structure
+echo -e "${BLUE}📁 Creating directory structure...${NC}"
+mkdir -p .claude/agents
+mkdir -p .claude/commands
+mkdir -p .claude/missions
+mkdir -p documents/business-assets
+mkdir -p documents/sops
+mkdir -p assets/reports
 
-printf "%s\n" "${BLUE}📂 Installing to: ${INSTALL_DIR}${NC}"
-
-# Create BOS-AI directory structure
-printf "%s\n" "${GREEN}🏗️  Creating BOS-AI structure...${NC}"
-
-# Copy core documentation
-cp -f README.md "$INSTALL_DIR/" 2>/dev/null || true
-cp -f LICENSE "$INSTALL_DIR/" 2>/dev/null || true
-
-# Create .bos-ai directory for agent configurations
-mkdir -p "$INSTALL_DIR/.bos-ai"
-
-# Create .claude directory for Claude Code integration
-mkdir -p "$INSTALL_DIR/.claude/agents"
-
-# Copy agents to .claude/agents for Claude Code
-printf "  → Installing agents to .claude/agents...\n"
-if [ -d ".claude/agents" ]; then
-    if [ "$AGENT_LIST" = "ALL" ]; then
-        # Copy all agent files for full deployment
-        cp .claude/agents/*.md "$INSTALL_DIR/.claude/agents/" 2>/dev/null || true
-        printf "  → Installed all 29 agents\n"
-    else
-        # Copy specific agents for minimal/business deployment
-        for agent in $AGENT_LIST; do
-            if [ -f ".claude/agents/${agent}.md" ]; then
-                cp ".claude/agents/${agent}.md" "$INSTALL_DIR/.claude/agents/"
-            fi
-        done
-        printf "  → Installed %s agents\n" "$AGENT_COUNT"
-    fi
+# Function to download file with retry
+download_file() {
+    local url=$1
+    local dest=$2
+    local max_retries=3
+    local retry_count=0
     
-    # Always copy README for agent documentation
-    cp .claude/agents/README.md "$INSTALL_DIR/.claude/agents/" 2>/dev/null || true
-fi
-
-# Copy missions to .claude/missions for all deployment types
-printf "  → Installing mission workflows...\n"
-mkdir -p "$INSTALL_DIR/.claude/missions"
-if [ -d ".claude/missions" ]; then
-    cp -r .claude/missions/* "$INSTALL_DIR/.claude/missions/" 2>/dev/null || true
-fi
-
-# Copy additional resources for business and full deployments
-if [[ "$DEPLOYMENT_TYPE" == "business" ]] || [[ "$DEPLOYMENT_TYPE" == "full" ]]; then
-    printf "  → Installing business templates...\n"
-    mkdir -p "$INSTALL_DIR/.bos-ai/templates"
-    if [ -d "templates" ]; then
-        cp -r templates/* "$INSTALL_DIR/.bos-ai/templates/" 2>/dev/null || true
-    fi
-fi
-
-# Copy frameworks for full deployment only
-if [[ "$DEPLOYMENT_TYPE" == "full" ]]; then
-    printf "  → Installing complete framework documentation...\n"
-    mkdir -p "$INSTALL_DIR/.bos-ai/frameworks"
-    if [ -d "frameworks" ]; then
-        cp -r frameworks/* "$INSTALL_DIR/.bos-ai/frameworks/" 2>/dev/null || true
-    fi
-    
-    mkdir -p "$INSTALL_DIR/.bos-ai/documents"
-    if [ -d "documents" ]; then
-        cp -r documents/* "$INSTALL_DIR/.bos-ai/documents/" 2>/dev/null || true
-    fi
-fi
-
-# Create project structure
-printf "%s\n" "${GREEN}📚 Creating project structure...${NC}"
-mkdir -p "$INSTALL_DIR/assets/business-bibles"
-mkdir -p "$INSTALL_DIR/assets/client-success-blueprint"
-mkdir -p "$INSTALL_DIR/assets/strategic-plans"
-mkdir -p "$INSTALL_DIR/assets/reports"
-mkdir -p "$INSTALL_DIR/intelligence/business-chassis"
-mkdir -p "$INSTALL_DIR/intelligence/client-intelligence"
-mkdir -p "$INSTALL_DIR/intelligence/market-intelligence"
-
-# Create initial configuration
-printf "%s\n" "${GREEN}⚙️  Creating initial configuration...${NC}"
-cat > "$INSTALL_DIR/.bos-ai/config.json" << EOF
-{
-  "version": "1.0.0",
-  "deployment_type": "${DEPLOYMENT_TYPE}",
-  "business_name": "$(basename "$INSTALL_DIR")",
-  "installed_date": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
-  "engines": {
-    "discovery": true,
-    "creation": true,
-    "delivery": true,
-    "growth": true
-  },
-  "business_chassis": {
-    "prospects": 0,
-    "lead_conversion": 0,
-    "client_conversion": 0,
-    "average_spend": 0,
-    "transaction_frequency": 0,
-    "margin": 0
-  }
+    while [ $retry_count -lt $max_retries ]; do
+        if curl -fsSL "$url" -o "$dest" 2>/dev/null; then
+            return 0
+        fi
+        retry_count=$((retry_count + 1))
+        sleep 1
+    done
+    return 1
 }
-EOF
 
-# Copy CLAUDE.md for command system
-printf "%s\n" "${GREEN}🤖 Setting up Claude Code command system...${NC}"
-if [ -f ".claude/CLAUDE.md" ]; then
-    cp ".claude/CLAUDE.md" "$INSTALL_DIR/.claude/CLAUDE.md"
+# Download CLAUDE.md documentation
+echo -e "${PURPLE}📚 Installing documentation...${NC}"
+if download_file "$GITHUB_RAW_BASE/CLAUDE.md" ".claude/CLAUDE.md"; then
+    echo -e "${GREEN}✓ CLAUDE.md installed${NC}"
 else
-    # Create basic CLAUDE.md if not found in repo
-    cat > "$INSTALL_DIR/.claude/CLAUDE.md" << 'EOF'
-# BOS-AI Command System
-
-## 🎯 Quick Commands
-
-### /coord - Business Orchestration
-When you type `/coord`, I become your Business Chassis Intelligence coordinator. Use:
-- `/coord` - Interactive mission selection
-- `/coord optimize` - Optimize Business Chassis metrics
-- `/coord daily` - Daily business review
-- `/coord launch [product]` - Product launch coordination
-
-### /meeting - Agent Consultation
-Direct conversations with specialized agents:
-- `/meeting @revenue-optimization "pricing strategy"`
-- `/meeting @customer-success "onboarding process"`
-- `/meeting @brand-strategy "marketing campaign"`
-
-## 📊 Business Chassis Formula
-Prospects × Lead Conversion × Client Conversion × Average Spend × Transaction Frequency × Margin = Profit
-
-10% improvement in each = 77% profit increase!
-EOF
+    echo -e "${YELLOW}⚠ Failed to download CLAUDE.md${NC}"
 fi
 
-# Create initialization script
-printf "%s\n" "${GREEN}📝 Creating initialization script...${NC}"
-cat > "$INSTALL_DIR/bos-ai-init.sh" << 'EOF'
-#!/bin/bash
-# BOS-AI Initialization Script
+# Download commands
+echo -e "${CYAN}🎮 Installing command system...${NC}"
+if download_file "$GITHUB_RAW_BASE/.claude/commands/coord.md" ".claude/commands/coord.md"; then
+    echo -e "${GREEN}✓ /coord command installed${NC}"
+else
+    echo -e "${YELLOW}⚠ Failed to download coord.md${NC}"
+fi
 
-echo "🚀 Initializing BOS-AI for your business..."
-echo ""
-echo "Business Chassis Components:"
-echo "1. Prospects - Your market reach"
-echo "2. Lead Conversion - Interest to lead rate"
-echo "3. Client Conversion - Lead to client rate"
-echo "4. Average Spend - Revenue per transaction"
-echo "5. Transaction Frequency - Purchases per period"
-echo "6. Margin - Profit percentage"
-echo ""
-echo "Remember: 10% improvement in each = 77% profit increase!"
-echo ""
-echo "Run 'bos-ai help' for available commands"
+if download_file "$GITHUB_RAW_BASE/.claude/commands/meeting.md" ".claude/commands/meeting.md"; then
+    echo -e "${GREEN}✓ /meeting command installed${NC}"
+else
+    echo -e "${YELLOW}⚠ Failed to download meeting.md${NC}"
+fi
+
+# Download missions
+echo -e "${YELLOW}🎯 Installing missions...${NC}"
+missions=(
+    "project-setup"
+    "chassis-optimization"
+    "daily-review"
+    "customer-acquisition"
+    "product-launch"
+    "revenue-optimization"
+)
+
+for mission in "${missions[@]}"; do
+    if download_file "$GITHUB_RAW_BASE/missions/$mission.md" ".claude/missions/$mission.md"; then
+        echo -e "${GREEN}✓ $mission mission installed${NC}"
+    else
+        echo -e "${YELLOW}⚠ Failed to download $mission mission${NC}"
+    fi
+done
+
+# Define agent lists by tier
+declare -a STARTER_AGENTS=(
+    "coordination/chassis-intelligence"
+    "coordination/multiplication-engine"
+    "growth/revenue-optimization"
+    "sales/pipeline-management"
+    "delivery/customer-success"
+)
+
+declare -a BUSINESS_AGENTS=(
+    # All starter agents
+    "${STARTER_AGENTS[@]}"
+    # Additional business agents
+    "coordination/client-success-intelligence"
+    "discovery/market-intelligence"
+    "creation/solution-design"
+    "delivery/quality-assurance"
+    "growth/scaling-strategy"
+    "marketing/brand-strategy"
+    "marketing/campaign-execution"
+    "sales/conversion-optimization"
+    "customer-service/satisfaction-optimization"
+    "financial/budget-planning"
+)
+
+declare -a FULL_AGENTS=(
+    # Core coordination (3)
+    "coordination/chassis-intelligence"
+    "coordination/client-success-intelligence"
+    "coordination/multiplication-engine"
+    # Discovery engine (3)
+    "discovery/market-intelligence"
+    "discovery/opportunity-validation"
+    "discovery/strategic-opportunity"
+    # Creation engine (3)
+    "creation/solution-design"
+    "creation/rapid-development"
+    "creation/value-optimization"
+    # Delivery engine (3)
+    "delivery/customer-success"
+    "delivery/quality-assurance"
+    "delivery/delivery-optimization"
+    # Growth engine (3)
+    "growth/scaling-strategy"
+    "growth/market-expansion"
+    "growth/revenue-optimization"
+    # Marketing function (3)
+    "marketing/brand-strategy"
+    "marketing/campaign-execution"
+    "marketing/content-creation"
+    # Sales function (3)
+    "sales/pipeline-management"
+    "sales/conversion-optimization"
+    "sales/revenue-operations"
+    # Customer service (3)
+    "customer-service/support-management"
+    "customer-service/satisfaction-optimization"
+    "customer-service/retention-strategy"
+    # Financial management (3)
+    "financial/budget-planning"
+    "financial/performance-analysis"
+    "financial/investment-strategy"
+    # Legal compliance (3)
+    "legal/compliance-management"
+    "legal/risk-assessment"
+    "legal/contract-management"
+)
+
+# Select agents based on tier
+case $TIER in
+    starter)
+        AGENTS=("${STARTER_AGENTS[@]}")
+        echo -e "${BLUE}🤖 Installing 5 essential agents...${NC}"
+        ;;
+    business)
+        AGENTS=("${BUSINESS_AGENTS[@]}")
+        echo -e "${BLUE}🤖 Installing 15 business agents...${NC}"
+        ;;
+    full)
+        AGENTS=("${FULL_AGENTS[@]}")
+        echo -e "${BLUE}🤖 Installing all 30 agents...${NC}"
+        ;;
+esac
+
+# Install agents
+AGENT_COUNT=0
+FAILED_COUNT=0
+
+for agent_path in "${AGENTS[@]}"; do
+    agent_name=$(basename "$agent_path")
+    if download_file "$GITHUB_RAW_BASE/agents/$agent_path.md" ".claude/agents/$agent_name.md"; then
+        echo -e "${GREEN}✓ $agent_name installed${NC}"
+        AGENT_COUNT=$((AGENT_COUNT + 1))
+    else
+        echo -e "${YELLOW}⚠ Failed to install $agent_name${NC}"
+        FAILED_COUNT=$((FAILED_COUNT + 1))
+    fi
+done
+
+# Create starter documents
+echo -e "${BLUE}📄 Creating starter documents...${NC}"
+
+# Create filing system SOP
+cat > documents/sops/document-filing-sop.md << 'EOF'
+# Document Filing Standard Operating Procedure
+
+## Filing System v2.0
+- Living Documents: `/documents/business-assets/` and `/documents/sops/`
+- Generated Assets: `/assets/reports/`
+- Naming Convention: `YYYY-MM-DD-[type]-[description].md`
+
+## Agent Filing Rules
+All agents follow this protocol for consistent document management.
 EOF
-chmod +x "$INSTALL_DIR/bos-ai-init.sh"
 
-# Clean up
-printf "%s\n" "${BLUE}🧹 Cleaning up installation files...${NC}"
-cd "$INSTALL_DIR"
-rm -rf "$TEMP_DIR"
+# Create project README
+cat > documents/business-assets/README.md << 'EOF'
+# Business Assets
 
-# Success message
-printf "%s\n" "${GREEN}╔══════════════════════════════════════════════════════════════╗${NC}"
-printf "%s\n" "${GREEN}║                                                              ║${NC}"
-printf "%s\n" "${GREEN}║        ✅ BOS-AI Successfully Installed!                    ║${NC}"
-printf "%s\n" "${GREEN}║                                                              ║${NC}"
-printf "%s\n" "${GREEN}╚══════════════════════════════════════════════════════════════╝${NC}"
+This directory contains living business documents that are continuously updated:
+- Strategic plans
+- Business models
+- Client documentation
+- Partnership agreements
 
+All documents follow the YYYY-MM-DD naming convention.
+EOF
+
+# Create installation summary
+echo -e "${GREEN}✅ Creating installation summary...${NC}"
+
+cat > .claude/INSTALLATION_SUMMARY.md << EOF
+# BOS-AI Installation Summary
+
+## Installation Date: $(date)
+## Installation Tier: $TIER
+
+### 📊 Installed Components
+- **Agents**: $AGENT_COUNT successfully installed
+- **Commands**: 2 (/coord and /meeting)
+- **Missions**: 6 core missions
+- **Documentation**: CLAUDE.md reference
+
+### 🚀 Quick Start
+
+1. **Test the system**:
+   \`\`\`
+   /coord optimize
+   \`\`\`
+
+2. **Consult an agent**:
+   \`\`\`
+   /meeting @chassis-intelligence "business strategy"
+   \`\`\`
+
+3. **Run a mission**:
+   \`\`\`
+   /coord project-setup
+   \`\`\`
+
+### 📖 Documentation
+- See \`.claude/CLAUDE.md\` for complete command reference
+- Visit https://github.com/TheWayWithin/BOS-AI for full documentation
+
+### 🔧 Upgrade Options
+- **Current**: $TIER tier
+- **Upgrade to business**: \`curl -fsSL [URL] | bash -s business\`
+- **Upgrade to full**: \`curl -fsSL [URL] | bash -s full\`
+
+---
+*BOS-AI v2.0 - Business Operating System AI Framework*
+EOF
+
+# Display summary
+echo -e "${BLUE}"
+echo "╔══════════════════════════════════════════════════════════════╗"
+echo "║                 INSTALLATION COMPLETE                        ║"
+echo "╠══════════════════════════════════════════════════════════════╣"
+echo "║  📊 Tier:        $TIER                                         "
+echo "║  🤖 Agents:      $AGENT_COUNT installed                         "
+echo "║  ⚠️  Failed:      $FAILED_COUNT                                 "
+echo "║  🎮 Commands:    2 installed                                 ║"
+echo "║  🎯 Missions:    6 installed                                 ║"
+echo "╚══════════════════════════════════════════════════════════════╝"
+echo -e "${NC}"
+
+if [ $FAILED_COUNT -gt 0 ]; then
+    echo -e "${YELLOW}⚠️  Some components failed to install. This may be due to network issues.${NC}"
+    echo -e "${YELLOW}   You can re-run the installation to retry failed components.${NC}"
+fi
+
+echo -e "${GREEN}🎉 BOS-AI installation complete!${NC}"
+echo -e "${CYAN}📚 Type '/coord' to start using BOS-AI${NC}"
 echo ""
-echo "📋 Next Steps:"
-echo "1. Open Claude Code in this directory"
-echo "2. Type /coord to start business orchestration"
-echo "3. Or use @chassis-intelligence directly"
-echo ""
-printf "%s\n" "${BLUE}Available Commands:${NC}"
-echo "  /coord         - Business orchestration mode"
-echo "  /meeting       - Consult with specific agents"
-echo "  @agent-name    - Direct agent interaction"
-echo ""
-echo "Your AI-powered Business Operating System is ready!"
-echo "Start optimizing your Business Chassis for exponential growth!"
+echo -e "${PURPLE}🚀 Your AI-powered Business Operating System is ready!${NC}"
+
+# Create activation hint file
+cat > .claude/ACTIVATE.md << 'EOF'
+# 🚀 BOS-AI is Installed!
+
+## Quick Start Commands
+
+### Business Optimization
+```
+/coord optimize
+```
+
+### Agent Consultation
+```
+/meeting @chassis-intelligence "help me grow my business"
+```
+
+### Project Setup
+```
+/coord project-setup
+```
+
+See `.claude/CLAUDE.md` for full documentation.
+EOF
+
+exit 0

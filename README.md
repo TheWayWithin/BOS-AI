@@ -8,16 +8,27 @@
 
 ---
 
-## 🚀 Quick Start - Deploy Command Library
+## 🚀 Quick Start - One-Line Installation
 
-### Installation & Deployment
+### Instant Deploy (No Clone Required)
+```bash
+# Install BOS-AI directly into your business project
+curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash
+
+# Or choose your tier:
+curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s starter   # 5 essential agents
+curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s business  # 15 business agents  
+curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s full      # All 30 agents
+```
+
+### Alternative: Clone & Deploy
 ```bash
 # Clone the repository
 git clone https://github.com/TheWayWithin/BOS-AI.git
 cd BOS-AI
 
-# Deploy the agent suite to Claude Code
-./deployment/scripts/deploy-optimized-agents.sh
+# Deploy everything to Claude Code
+./deployment/scripts/deploy-complete.sh
 ```
 
 ### Command System Activation
@@ -26,7 +37,7 @@ Once deployed, your BOS-AI command system is ready in Claude Code:
 - Type `/meeting @agent-name` for direct agent consultation
 - Reference the CLAUDE.md file for full command documentation
 
-**That's it!** Your AI-powered Business Operating System with 30 specialized agents is ready!
+**That's it!** Your AI-powered Business Operating System is ready!
 
 ### What's Included
 - ✅ 30 specialized AI agents for Claude Code
