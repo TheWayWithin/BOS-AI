@@ -93,27 +93,75 @@ fi
 # Download missions
 echo -e "${YELLOW}🎯 Installing missions...${NC}"
 
-# Define mission categories and files
-declare -A mission_categories=(
-    ["business-setup"]="chassis-implementation client-success-blueprint core-asset-creation"
-    ["discovery"]="market-research opportunity-validation competitive-analysis"
-    ["creation"]="solution-development mvp-creation value-optimization"
-    ["delivery"]="customer-onboarding quality-assurance delivery-optimization"
-    ["growth"]="scaling-strategy market-expansion revenue-optimization"
-    ["operations"]="daily-chassis-review weekly-optimization quarterly-strategy"
-    ["optimization"]="chassis-optimization multiplication-analysis performance-enhancement"
-)
+# Download missions from each category (compatible with older bash)
+# Business Setup missions
+echo -e "${CYAN}  📁 Installing business-setup missions...${NC}"
+for mission in chassis-implementation client-success-blueprint core-asset-creation; do
+    if download_file "$GITHUB_RAW_BASE/missions/business-setup/$mission.md" ".claude/missions/$mission.md"; then
+        echo -e "${GREEN}    ✓ $mission installed${NC}"
+    else
+        echo -e "${YELLOW}    ⚠ Failed to download $mission${NC}"
+    fi
+done
 
-# Download missions from each category
-for category in "${!mission_categories[@]}"; do
-    echo -e "${CYAN}  📁 Installing ${category} missions...${NC}"
-    for mission in ${mission_categories[$category]}; do
-        if download_file "$GITHUB_RAW_BASE/missions/$category/$mission.md" ".claude/missions/$mission.md"; then
-            echo -e "${GREEN}    ✓ $mission installed${NC}"
-        else
-            echo -e "${YELLOW}    ⚠ Failed to download $mission${NC}"
-        fi
-    done
+# Discovery missions
+echo -e "${CYAN}  📁 Installing discovery missions...${NC}"
+for mission in market-research opportunity-validation competitive-analysis; do
+    if download_file "$GITHUB_RAW_BASE/missions/discovery/$mission.md" ".claude/missions/$mission.md"; then
+        echo -e "${GREEN}    ✓ $mission installed${NC}"
+    else
+        echo -e "${YELLOW}    ⚠ Failed to download $mission${NC}"
+    fi
+done
+
+# Creation missions
+echo -e "${CYAN}  📁 Installing creation missions...${NC}"
+for mission in solution-development mvp-creation value-optimization; do
+    if download_file "$GITHUB_RAW_BASE/missions/creation/$mission.md" ".claude/missions/$mission.md"; then
+        echo -e "${GREEN}    ✓ $mission installed${NC}"
+    else
+        echo -e "${YELLOW}    ⚠ Failed to download $mission${NC}"
+    fi
+done
+
+# Delivery missions
+echo -e "${CYAN}  📁 Installing delivery missions...${NC}"
+for mission in customer-onboarding quality-assurance delivery-optimization; do
+    if download_file "$GITHUB_RAW_BASE/missions/delivery/$mission.md" ".claude/missions/$mission.md"; then
+        echo -e "${GREEN}    ✓ $mission installed${NC}"
+    else
+        echo -e "${YELLOW}    ⚠ Failed to download $mission${NC}"
+    fi
+done
+
+# Growth missions
+echo -e "${CYAN}  📁 Installing growth missions...${NC}"
+for mission in scaling-strategy market-expansion revenue-optimization; do
+    if download_file "$GITHUB_RAW_BASE/missions/growth/$mission.md" ".claude/missions/$mission.md"; then
+        echo -e "${GREEN}    ✓ $mission installed${NC}"
+    else
+        echo -e "${YELLOW}    ⚠ Failed to download $mission${NC}"
+    fi
+done
+
+# Operations missions
+echo -e "${CYAN}  📁 Installing operations missions...${NC}"
+for mission in daily-chassis-review weekly-optimization quarterly-strategy; do
+    if download_file "$GITHUB_RAW_BASE/missions/operations/$mission.md" ".claude/missions/$mission.md"; then
+        echo -e "${GREEN}    ✓ $mission installed${NC}"
+    else
+        echo -e "${YELLOW}    ⚠ Failed to download $mission${NC}"
+    fi
+done
+
+# Optimization missions
+echo -e "${CYAN}  📁 Installing optimization missions...${NC}"
+for mission in chassis-optimization multiplication-analysis performance-enhancement; do
+    if download_file "$GITHUB_RAW_BASE/missions/optimization/$mission.md" ".claude/missions/$mission.md"; then
+        echo -e "${GREEN}    ✓ $mission installed${NC}"
+    else
+        echo -e "${YELLOW}    ⚠ Failed to download $mission${NC}"
+    fi
 done
 
 # Also download any root-level missions
