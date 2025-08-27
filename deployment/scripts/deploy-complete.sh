@@ -61,12 +61,27 @@ fi
 # Deploy Missions
 echo -e "${YELLOW}🎯 Deploying mission workflows...${NC}"
 
-# Deploy existing missions from missions directory
+# Deploy missions from root missions directory
 for mission in missions/*.md; do
     if [ -f "$mission" ]; then
         filename=$(basename "$mission")
         cp "$mission" .claude/missions/
         echo -e "${GREEN}✅ $filename deployed${NC}"
+    fi
+done
+
+# Deploy missions from category subdirectories
+for category in missions/*/; do
+    if [ -d "$category" ]; then
+        category_name=$(basename "$category")
+        echo -e "${CYAN}  📁 Deploying ${category_name} missions...${NC}"
+        for mission in "$category"*.md; do
+            if [ -f "$mission" ]; then
+                filename=$(basename "$mission")
+                cp "$mission" .claude/missions/
+                echo -e "${GREEN}    ✅ $filename deployed${NC}"
+            fi
+        done
     fi
 done
 

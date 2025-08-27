@@ -92,20 +92,44 @@ fi
 
 # Download missions
 echo -e "${YELLOW}🎯 Installing missions...${NC}"
-missions=(
+
+# Define mission categories and files
+declare -A mission_categories=(
+    ["business-setup"]="chassis-implementation client-success-blueprint core-asset-creation"
+    ["discovery"]="market-research opportunity-validation competitive-analysis"
+    ["creation"]="solution-development mvp-creation value-optimization"
+    ["delivery"]="customer-onboarding quality-assurance delivery-optimization"
+    ["growth"]="scaling-strategy market-expansion revenue-optimization"
+    ["operations"]="daily-chassis-review weekly-optimization quarterly-strategy"
+    ["optimization"]="chassis-optimization multiplication-analysis performance-enhancement"
+)
+
+# Download missions from each category
+for category in "${!mission_categories[@]}"; do
+    echo -e "${CYAN}  📁 Installing ${category} missions...${NC}"
+    for mission in ${mission_categories[$category]}; do
+        if download_file "$GITHUB_RAW_BASE/missions/$category/$mission.md" ".claude/missions/$mission.md"; then
+            echo -e "${GREEN}    ✓ $mission installed${NC}"
+        else
+            echo -e "${YELLOW}    ⚠ Failed to download $mission${NC}"
+        fi
+    done
+done
+
+# Also download any root-level missions
+root_missions=(
     "project-setup"
-    "chassis-optimization"
     "daily-review"
     "customer-acquisition"
     "product-launch"
     "revenue-optimization"
 )
 
-for mission in "${missions[@]}"; do
-    if download_file "$GITHUB_RAW_BASE/missions/$mission.md" ".claude/missions/$mission.md"; then
-        echo -e "${GREEN}✓ $mission mission installed${NC}"
-    else
-        echo -e "${YELLOW}⚠ Failed to download $mission mission${NC}"
+for mission in "${root_missions[@]}"; do
+    if [ -f "$GITHUB_RAW_BASE/missions/$mission.md" ]; then
+        if download_file "$GITHUB_RAW_BASE/missions/$mission.md" ".claude/missions/$mission.md"; then
+            echo -e "${GREEN}✓ $mission mission installed${NC}"
+        fi
     fi
 done
 

@@ -105,4 +105,4 @@ chassis-tracking/
 *.backup
 *.bak
 backup/
-backups/
+backups/.env.mcp
