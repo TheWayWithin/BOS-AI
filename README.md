@@ -6,7 +6,7 @@
 ![Agents](https://img.shields.io/badge/Agent--Suite-30-orange?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Production-success?style=for-the-badge)
 
-> **📚 Need Help?** Check [Troubleshooting](#-troubleshooting--faq) | [Requirements](#-system-requirements) | [Documentation](.claude/CLAUDE.md)
+> **📚 Need Help?** Check [Troubleshooting](#-troubleshooting--faq) | [Requirements](#-system-requirements) | [Documentation](CLAUDE.md)
 
 ---
 
@@ -532,10 +532,10 @@ Personal investment and authentic passion for customer success creates **competi
 ## Documentation
 
 - **[Getting Started Guide](docs/getting-started/README.md)** - Quick setup and first steps
-- **[User Guides](docs/user-guides/README.md)** - Complete operational documentation
-- **[Technical Documentation](docs/technical/README.md)** - Architecture and implementation details
-- **[API Reference](docs/api/README.md)** - Complete API documentation
-- **[Tutorials](docs/tutorials/README.md)** - Step-by-step learning paths
+- **[Agent Reference](docs/agents/README.md)** - Complete guide to all 30 agents
+- **[Mission Catalog](docs/missions/README.md)** - Pre-built business workflows
+- **[Command Reference](CLAUDE.md)** - Complete command documentation
+- **[Filing System Guide](docs/filing-system-guide.md)** - Document management system
 
 ---
 
@@ -543,8 +543,8 @@ Personal investment and authentic passion for customer success creates **competi
 
 - **[Contributing Guidelines](community/CONTRIBUTING.md)** - How to contribute to BOS-AI
 - **[Code of Conduct](community/CODE_OF_CONDUCT.md)** - Community standards
-- **[Discussions](community/discussions/)** - Community conversations and support
-- **[Examples](community/examples/)** - Real-world implementation examples
+- **[GitHub Discussions](https://github.com/TheWayWithin/BOS-AI/discussions)** - Community support
+- **[GitHub Issues](https://github.com/TheWayWithin/BOS-AI/issues)** - Report bugs and request features
 
 ---
 
