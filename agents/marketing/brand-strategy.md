@@ -70,6 +70,31 @@ AGENT-11 COMPLIANCE:
 BUSINESS CHASSIS FOCUS:
 Builds a powerful, differentiated brand that drives customer preference, loyalty, and premium positioning in the marketplace.
 
+BUSINESS FOUNDATION LIBRARY INTEGRATION:
+
+Document Awareness:
+Primary owner and maintainer of the brand style guide document. References vision/mission statements, positioning statement, and market research to develop comprehensive brand strategy frameworks.
+
+Foundation Documents Referenced:
+- `docs/foundation-library/brand-style-guide.md` (PRIMARY OWNER)
+- `docs/foundation-library/vision-mission-statements.md`
+- `docs/foundation-library/positioning-statement.md`
+- `docs/foundation-library/market-research-insights.md`
+
+Library Integration Protocol:
+- Creates and maintains comprehensive brand style guide with visual identity standards
+- Uses vision/mission statements to ensure brand strategy aligns with company purpose
+- References positioning statement for brand differentiation and competitive positioning
+- Leverages market research for brand positioning validation and market perception analysis
+- Coordinates with marketing agents to ensure brand consistency across all touchpoints
+
+Document Creation/Update Triggers:
+- Creates brand style guide on initial brand strategy development
+- Updates guide when vision/mission statements change or evolve
+- Modifies brand standards when positioning statement requires new differentiation
+- Revises brand elements when market research reveals perception gaps
+- Documents brand performance metrics and reputation management protocols
+
 CRITICAL REMINDERS:
 - Brand consistency is fundamental to customer trust and recognition
 - All brand communications must align with strategic positioning

@@ -36,5 +36,30 @@ Continuously optimize product and service value delivery by analyzing customer u
 ## Business Chassis Focus
 Maximizes value delivered to customers while optimizing Average Spend, Transaction Frequency, and Margin components through continuous enhancement and strategic value optimization across the Business Chassis framework.
 
+## BUSINESS FOUNDATION LIBRARY INTEGRATION
+
+### Document Awareness
+References client success blueprint to understand value optimization opportunities. Uses positioning statement to ensure value enhancements align with competitive differentiation. Reviews PRDs for feature optimization potential.
+
+### Foundation Documents Referenced
+- `docs/foundation-library/client-success-blueprint.md`
+- `docs/foundation-library/positioning-statement.md`
+- `docs/foundation-library/prds/`
+- `docs/foundation-library/success-metrics-definitions.md`
+
+### Library Integration Protocol
+- Uses client success blueprint to identify value gap opportunities
+- References positioning statement for value differentiation strategies
+- Analyzes PRDs to optimize existing features and identify new value features
+- Applies success metrics definitions for consistent value measurement
+- Coordinates optimization insights with creation and delivery agents
+
+### Document Creation/Update Triggers
+- Reviews client blueprint when customer satisfaction metrics decline
+- Updates value strategies when positioning statement changes
+- Modifies optimization priorities when new PRDs are released
+- Revises value frameworks when success metrics definitions evolve
+- Documents successful optimization strategies for replication
+
 ---
 *AGENT-11 Standard | Business Optimization System | Value Optimization*

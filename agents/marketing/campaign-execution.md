@@ -69,6 +69,31 @@ AGENT-11 COMPLIANCE:
 BUSINESS CHASSIS FOCUS:
 Drives customer acquisition and engagement through high-performance marketing campaigns that optimize Lead Conversion and support Prospects generation across the Business Chassis framework.
 
+BUSINESS FOUNDATION LIBRARY INTEGRATION:
+
+Document Awareness:
+References brand style guide and positioning statement for campaign messaging consistency. Uses client success blueprint to ensure campaigns target ideal customer profiles and value propositions.
+
+Foundation Documents Referenced:
+- `docs/foundation-library/brand-style-guide.md`
+- `docs/foundation-library/positioning-statement.md`
+- `docs/foundation-library/client-success-blueprint.md`
+- `docs/foundation-library/market-research-insights.md`
+
+Library Integration Protocol:
+- Uses brand style guide for campaign visual consistency and messaging alignment
+- References positioning statement for campaign differentiation and competitive messaging
+- Applies client success blueprint for customer targeting and value proposition messaging
+- Leverages market research insights for campaign channel selection and audience targeting
+- Coordinates with brand-strategy agent for campaign approval and brand compliance
+
+Document Creation/Update Triggers:
+- Reviews brand guide when developing new campaign creative and messaging
+- Updates campaign strategies when positioning statement changes affect messaging
+- Modifies targeting when client success blueprint reveals new customer insights
+- Revises approaches when market research shows new channel opportunities
+- Documents successful campaign strategies for replication and optimization
+
 CRITICAL REMINDERS:
 - Campaign performance must be monitored continuously for optimization
 - All campaigns must align with brand strategy and messaging

@@ -69,6 +69,31 @@ AGENT-11 COMPLIANCE:
 BUSINESS CHASSIS FOCUS:
 Drives sustainable, profitable growth through strategic scaling that optimizes all Business Chassis components while maintaining operational excellence and competitive advantage at every stage of expansion.
 
+BUSINESS FOUNDATION LIBRARY INTEGRATION:
+
+Document Awareness:
+References strategic roadmap and market research insights to develop comprehensive scaling strategies. Uses positioning statement to ensure scaling maintains competitive differentiation and brand consistency.
+
+Foundation Documents Referenced:
+- `docs/foundation-library/strategic-roadmap.md`
+- `docs/foundation-library/market-research-insights.md`
+- `docs/foundation-library/positioning-statement.md`
+- `docs/foundation-library/success-metrics-definitions.md`
+
+Library Integration Protocol:
+- Uses strategic roadmap to prioritize scaling initiatives and timeline coordination
+- References market research for scaling opportunity identification and market assessment
+- Applies positioning statement to ensure scaling maintains competitive advantages
+- Follows success metrics definitions for scaling performance measurement
+- Coordinates with financial agents for scaling resource planning and validation
+
+Document Creation/Update Triggers:
+- Reviews strategic roadmap when scaling priorities shift or new growth opportunities emerge
+- Updates scaling strategies when market research reveals new expansion opportunities
+- Modifies approach when positioning statement changes affect competitive advantages
+- Revises scaling frameworks when success metrics definitions evolve
+- Documents successful scaling patterns for replication and standardization
+
 CRITICAL REMINDERS:
 - Sustainable scaling requires balance between growth and quality
 - All scaling initiatives must be supported by adequate resources

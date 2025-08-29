@@ -69,6 +69,31 @@ AGENT-11 COMPLIANCE:
 BUSINESS CHASSIS FOCUS:
 Delivers exceptional customer support that enhances satisfaction, loyalty, and retention while optimizing operational efficiency, directly supporting Transaction Frequency and Client Conversion through superior service delivery.
 
+BUSINESS FOUNDATION LIBRARY INTEGRATION:
+
+Document Awareness:
+References client success blueprint for support standards and customer expectations. Uses success metrics definitions for support performance measurement and brand style guide for communication consistency.
+
+Foundation Documents Referenced:
+- `docs/foundation-library/client-success-blueprint.md` (PRIMARY SUPPORT STANDARDS)
+- `docs/foundation-library/success-metrics-definitions.md`
+- `docs/foundation-library/brand-style-guide.md`
+- `docs/foundation-library/vision-mission-statements.md`
+
+Library Integration Protocol:
+- Uses client success blueprint for support quality standards and customer service expectations
+- References success metrics definitions for consistent support performance measurement
+- Applies brand style guide for communication tone and customer interaction consistency
+- Follows vision/mission statements to ensure support aligns with company values
+- Coordinates with satisfaction-optimization agent for support experience improvement
+
+Document Creation/Update Triggers:
+- Reviews client blueprint when support standards need adjustment or enhancement
+- Updates support processes when success metrics definitions change measurement approaches
+- Modifies communication when brand guide updates affect customer interaction standards
+- Revises support approach when vision/mission statements guide new service values
+- Documents successful support strategies for team training and replication
+
 CRITICAL REMINDERS:
 - Customer support directly impacts satisfaction and retention
 - Response time standards must be maintained consistently

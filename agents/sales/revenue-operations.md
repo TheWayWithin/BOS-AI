@@ -69,6 +69,31 @@ AGENT-11 COMPLIANCE:
 BUSINESS CHASSIS FOCUS:
 Enables revenue growth through operational excellence that provides accurate insights, efficient processes, and optimized systems supporting all Business Chassis revenue-generating components with data-driven optimization.
 
+BUSINESS FOUNDATION LIBRARY INTEGRATION:
+
+Document Awareness:
+References strategic roadmap for revenue operations priorities and success metrics definitions for accurate performance measurement. Creates and maintains sales playbooks and operational documentation.
+
+Foundation Documents Referenced:
+- `docs/foundation-library/strategic-roadmap.md`
+- `docs/foundation-library/success-metrics-definitions.md`
+- `docs/foundation-library/client-success-blueprint.md`
+- Sales playbooks and operational procedures (created and maintained)
+
+Library Integration Protocol:
+- Uses strategic roadmap for revenue operations priority setting and resource allocation
+- References success metrics definitions for consistent revenue measurement and reporting standards
+- Applies client success blueprint for operational process alignment with customer success
+- Creates and maintains sales playbooks for standardized operational procedures
+- Coordinates with financial agents for revenue reporting accuracy and integration
+
+Document Creation/Update Triggers:
+- Reviews strategic roadmap when revenue operations priorities shift
+- Updates measurement systems when success metrics definitions change
+- Modifies operations when client success blueprint affects revenue processes
+- Creates new playbooks when operational procedures are standardized
+- Documents system improvements and automation for replication and training
+
 CRITICAL REMINDERS:
 - Data accuracy is fundamental to all revenue decisions
 - System efficiency directly impacts sales productivity

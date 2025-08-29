@@ -84,16 +84,31 @@ The filing system separates documents into two primary categories:
 
 ```
 /documents/
+├── foundation/           # Business Foundation Library
+│   ├── vision-mission.md
+│   ├── market-research.md
+│   ├── client-success-blueprint.md
+│   ├── positioning-statement.md
+│   ├── strategic-roadmap.md
+│   ├── brand-style-guide.md
+│   └── prds/
+│       └── [product-name]-prd.md
 ├── business-assets/      # Core business documents
 │   ├── marketing-bible.md
 │   ├── sales-playbook.md
 │   ├── financial-dashboard.md
 │   ├── operations-manual.md
-│   ├── client-success-blueprint.md
 │   └── strategic-plan.md
 ├── sops/                 # Standard Operating Procedures
 │   ├── document-filing-sop.md
 │   ├── chassis-optimization-sop.md
+│   ├── vision-mission-sop.md
+│   ├── market-research-sop.md
+│   ├── client-blueprint-sop.md
+│   ├── positioning-sop.md
+│   ├── strategic-roadmap-sop.md
+│   ├── brand-guide-sop.md
+│   ├── prd-creation-sop.md
 │   └── [other SOPs]
 ├── policies/             # Business policies
 │   ├── data-governance.md
@@ -101,6 +116,7 @@ The filing system separates documents into two primary categories:
 │   └── quality-standards.md
 └── references/           # Methodology guides
     ├── business-chassis-guide.md
+    ├── business-foundation-library-guide.md
     ├── 10x-philosophy.md
     └── multiplication-principle.md
 ```
@@ -124,6 +140,8 @@ The filing system separates documents into two primary categories:
 
 | Directory | Update Frequency | Agent Action | Version Control |
 |-----------|-----------------|--------------|-----------------|
+| `/documents/foundation/` | Quarterly/Annually | UPDATE | Version PRDs |
+| `/documents/foundation/prds/` | Per product | CREATE/UPDATE | Version required |
 | `/documents/business-assets/` | Weekly/Monthly | UPDATE | Overwrite |
 | `/documents/sops/` | Quarterly | UPDATE/CREATE | Version on major |
 | `/documents/policies/` | Annually | UPDATE | Version required |
@@ -306,6 +324,8 @@ YYYY-MM-DD-[type]-[description].md
 | `blueprint` | Client docs | `2025-08-25-blueprint-acmecorp.md` |
 | `guide` | References | `2025-08-25-guide-implementation.md` |
 | `dashboard` | Tracking | `2025-08-25-dashboard-kpis.md` |
+| `prd` | Product requirements | `2025-08-25-prd-customer-portal.md` |
+| `foundation` | Core business docs | `2025-08-25-foundation-vision-mission.md` |
 
 ### Description Best Practices
 
@@ -534,6 +554,8 @@ We welcome improvements to the filing system:
 
 ### Directory Quick Reference
 ```
+/documents/foundation/          → Foundation library (UPDATE)
+/documents/foundation/prds/     → Product requirements (CREATE/UPDATE + version)
 /documents/business-assets/     → Core docs (UPDATE)
 /documents/sops/                → Procedures (UPDATE/CREATE)
 /documents/policies/            → Policies (UPDATE + version)
@@ -548,7 +570,7 @@ We welcome improvements to the filing system:
 ```
 Format: YYYY-MM-DD-[type]-[description].md
 
-Types: report | metrics | plan | sop | policy | blueprint | guide | dashboard
+Types: report | metrics | plan | sop | policy | blueprint | guide | dashboard | prd | foundation
 ```
 
 ### Command Quick Reference

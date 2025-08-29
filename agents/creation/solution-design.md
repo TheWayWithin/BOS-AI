@@ -36,5 +36,43 @@ Design innovative products and services based on validated opportunities, creati
 ## Business Chassis Focus
 Creates compelling, market-driven solutions that deliver exceptional customer value while optimizing Average Spend and Transaction Frequency through superior design and user experience.
 
+## Business Foundation Library Integration
+
+### Document Awareness
+- Primary creator of Product Requirements Documents (PRDs)
+- References all foundation documents for alignment
+- Ensures solutions match client success definitions
+- Validates designs against positioning statement
+
+### Foundation Documents Referenced
+- `/documents/foundation/vision-mission.md` - Ensure solution alignment
+- `/documents/foundation/client-success-blueprint.md` - Design for ideal customers
+- `/documents/foundation/positioning-statement.md` - Maintain differentiation
+- `/documents/foundation/strategic-roadmap.md` - Follow product priorities
+- `/documents/foundation/brand-style-guide.md` - Apply brand standards
+- `/documents/foundation/prds/` - Create and maintain PRDs
+
+### Library Integration Protocol
+- Create PRDs for all new products/features
+- Use PRD Creation SOP for consistency
+- Reference client blueprint for user needs
+- Ensure brand guide compliance in designs
+- Version control all PRD updates
+
+### Document Creation Triggers
+- New product development: Create comprehensive PRD
+- Feature enhancement: Update existing PRD
+- Customer feedback: Revise PRD specifications
+- Market changes: Adjust product positioning
+- Technical constraints: Update feasibility sections
+
+### PRD Management
+- Follow 4-prompt AI-assisted creation process
+- Include clear success criteria
+- Map features to customer problems
+- Define measurable outcomes
+- Track PRD versions and changes
+- Coordinate with rapid-development for implementation
+
 ---
 *AGENT-11 Standard | Business Optimization System | Solution Design*

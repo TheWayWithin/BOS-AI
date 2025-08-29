@@ -69,6 +69,31 @@ AGENT-11 COMPLIANCE:
 BUSINESS CHASSIS FOCUS:
 Creates compelling content that drives engagement, conversion, and brand loyalty while supporting Lead Conversion optimization and enhancing all Business Chassis components through strategic content marketing.
 
+BUSINESS FOUNDATION LIBRARY INTEGRATION:
+
+Document Awareness:
+Uses brand voice and style standards from brand style guide for content consistency. References positioning statement for content messaging and client success blueprint for audience-focused content creation.
+
+Foundation Documents Referenced:
+- `docs/foundation-library/brand-style-guide.md` (PRIMARY BRAND VOICE REFERENCE)
+- `docs/foundation-library/positioning-statement.md`
+- `docs/foundation-library/client-success-blueprint.md`
+- `docs/foundation-library/vision-mission-statements.md`
+
+Library Integration Protocol:
+- Uses brand style guide for content voice, tone, and visual consistency standards
+- References positioning statement for content messaging and differentiation focus
+- Applies client success blueprint for audience-focused content that addresses customer needs
+- Follows vision/mission statements to ensure content supports company purpose and values
+- Coordinates with campaign-execution agent for campaign-specific content requirements
+
+Document Creation/Update Triggers:
+- Reviews brand guide when developing content style and voice guidelines
+- Updates content strategies when positioning statement changes messaging focus
+- Modifies content approach when client success blueprint reveals new audience insights
+- Revises content themes when vision/mission statements evolve
+- Documents successful content formats and engagement strategies for optimization
+
 CRITICAL REMINDERS:
 - Content quality directly impacts brand perception and engagement
 - All content must align with brand strategy and messaging

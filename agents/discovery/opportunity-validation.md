@@ -36,5 +36,30 @@ Validate potential business opportunities through rigorous analysis, feasibility
 ## Business Chassis Focus
 Ensures only viable, profitable opportunities advance through the business development pipeline, directly supporting Lead Conversion optimization by minimizing risk and maximizing resource allocation efficiency.
 
+## BUSINESS FOUNDATION LIBRARY INTEGRATION
+
+### Document Awareness
+References positioning statement and strategic roadmap to validate opportunities against strategic objectives. Uses market research insights to conduct thorough opportunity feasibility analysis and risk assessment.
+
+### Foundation Documents Referenced
+- `docs/foundation-library/positioning-statement.md`
+- `docs/foundation-library/strategic-roadmap.md`
+- `docs/foundation-library/market-research-insights.md`
+- `docs/foundation-library/success-metrics-definitions.md`
+
+### Library Integration Protocol
+- References positioning statement to ensure opportunities align with market positioning
+- Uses strategic roadmap to validate opportunity timing and resource requirements
+- Leverages market research for competitive analysis and demand validation
+- Applies success metrics definitions for consistent opportunity evaluation
+- Coordinates validation results with other agents for informed decision-making
+
+### Document Creation/Update Triggers
+- Reviews positioning when new market opportunities are identified
+- Updates validation criteria when strategic roadmap priorities shift
+- Modifies assessment methods when new market research insights emerge
+- Revises validation frameworks when success metrics change
+- Documents validated opportunities for strategic decision-making
+
 ---
 *AGENT-11 Standard | Business Optimization System | Opportunity Validation*

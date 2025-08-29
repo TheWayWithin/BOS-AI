@@ -69,6 +69,31 @@ AGENT-11 COMPLIANCE:
 BUSINESS CHASSIS FOCUS:
 Ensures all business deliverables meet or exceed quality standards, protecting brand reputation and customer satisfaction while minimizing quality-related risks across all Business Chassis components.
 
+BUSINESS FOUNDATION LIBRARY INTEGRATION:
+
+Document Awareness:
+Uses Product Requirements Documents (PRDs) for validation criteria and testing specifications. References client success blueprint for quality standards alignment and success metrics definitions for quality measurement.
+
+Foundation Documents Referenced:
+- `docs/foundation-library/prds/` (PRIMARY VALIDATION SPECS)
+- `docs/foundation-library/client-success-blueprint.md`
+- `docs/foundation-library/success-metrics-definitions.md`
+- `docs/foundation-library/brand-style-guide.md`
+
+Library Integration Protocol:
+- Uses PRDs as authoritative quality validation criteria and testing specifications
+- References client success blueprint to ensure quality standards meet customer expectations
+- Applies success metrics definitions for consistent quality measurement across deliverables
+- Follows brand style guide for quality consistency in customer-facing deliverables
+- Coordinates quality feedback with solution-design for PRD improvements
+
+Document Creation/Update Triggers:
+- Reviews PRDs when developing new testing protocols and validation criteria
+- Updates quality standards when client success blueprint evolves
+- Modifies measurement approaches when success metrics definitions change
+- Revises quality processes when brand style guide updates affect deliverables
+- Documents quality issues for PRD enhancement and prevention strategies
+
 CRITICAL REMINDERS:
 - Quality is non-negotiable and directly impacts customer satisfaction
 - All deliverables must pass comprehensive testing before release

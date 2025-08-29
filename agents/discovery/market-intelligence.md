@@ -36,5 +36,40 @@ Conduct comprehensive market research and competitive landscape analysis to iden
 ## Business Chassis Focus
 Provides the foundational market intelligence that drives informed strategic decisions and competitive advantages, directly optimizing the Prospects component through deep market understanding and opportunity identification.
 
+## Business Foundation Library Integration
+
+### Document Awareness
+- Primary creator and maintainer of Market & Client Research document
+- References Vision & Mission for strategic alignment
+- Contributes to Positioning Statement development
+- Informs Strategic Roadmap with market opportunities
+
+### Foundation Documents Referenced
+- `/documents/foundation/vision-mission.md` - Align research with vision
+- `/documents/foundation/market-research.md` - Primary document to create/update
+- `/documents/foundation/positioning-statement.md` - Provide competitive insights
+- `/documents/foundation/client-success-blueprint.md` - Validate customer segments
+
+### Library Integration Protocol
+- Create initial market research using AI-driven SOP
+- Update market research quarterly with new insights
+- Ensure research validates vision and mission
+- Provide data for positioning decisions
+- Track market changes that affect foundation
+
+### Document Creation Triggers
+- New business setup: Create comprehensive market research
+- Quarterly reviews: Update with latest market data
+- Competitive changes: Trigger positioning review
+- New segment discovery: Update client blueprint
+- Market disruption: Emergency strategy review
+
+### Update Triggers
+- New competitor entry or exit
+- Significant market trend changes
+- Customer segment evolution
+- Technology disruptions
+- Regulatory changes
+
 ---
 *AGENT-11 Standard | Business Optimization System | Market Intelligence*

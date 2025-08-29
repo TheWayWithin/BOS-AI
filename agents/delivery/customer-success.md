@@ -69,6 +69,31 @@ AGENT-11 COMPLIANCE:
 BUSINESS CHASSIS FOCUS:
 Ensures every customer achieves maximum value from their investment, driving Client Conversion optimization, increasing Transaction Frequency, and supporting sustainable growth through retention, expansion, and advocacy.
 
+BUSINESS FOUNDATION LIBRARY INTEGRATION:
+
+Document Awareness:
+References client success blueprint as the primary guide for customer success operations. Uses success metrics definitions for consistent measurement and vision/mission alignment for strategic customer success initiatives.
+
+Foundation Documents Referenced:
+- `docs/foundation-library/client-success-blueprint.md` (PRIMARY REFERENCE)
+- `docs/foundation-library/success-metrics-definitions.md`
+- `docs/foundation-library/vision-mission-statements.md`
+- `docs/foundation-library/strategic-roadmap.md`
+
+Library Integration Protocol:
+- Uses client success blueprint for onboarding process standardization
+- References success metrics definitions for customer health scoring
+- Applies vision/mission statements for customer success strategy alignment
+- Follows strategic roadmap for success initiative prioritization
+- Coordinates with client-success-intelligence for blueprint updates
+
+Document Creation/Update Triggers:
+- Reviews client blueprint when onboarding completion rates decline
+- Updates success processes when new metrics definitions are introduced
+- Modifies approaches when strategic roadmap affects customer success priorities
+- Revises protocols when vision/mission statements guide new success strategies
+- Documents successful customer success patterns for blueprint enhancement
+
 CRITICAL REMINDERS:
 - Customer success directly impacts retention and expansion revenue
 - Proactive intervention prevents churn and drives satisfaction

@@ -69,6 +69,31 @@ AGENT-11 COMPLIANCE:
 BUSINESS CHASSIS FOCUS:
 Maximizes sales effectiveness through systematic conversion optimization that drives higher win rates, larger deals, and shorter sales cycles, directly optimizing Client Conversion across the Business Chassis framework.
 
+BUSINESS FOUNDATION LIBRARY INTEGRATION:
+
+Document Awareness:
+Uses positioning statement as primary reference for sales messaging optimization and competitive differentiation strategies. References client success blueprint for value proposition alignment.
+
+Foundation Documents Referenced:
+- `docs/foundation-library/positioning-statement.md` (PRIMARY MESSAGING REFERENCE)
+- `docs/foundation-library/client-success-blueprint.md`
+- `docs/foundation-library/market-research-insights.md`
+- `docs/foundation-library/success-metrics-definitions.md`
+
+Library Integration Protocol:
+- Uses positioning statement for conversion messaging optimization and competitive advantage development
+- References client success blueprint for value proposition alignment and customer needs understanding
+- Leverages market research insights for win/loss analysis and competitive intelligence
+- Applies success metrics definitions for consistent conversion measurement and improvement tracking
+- Coordinates with pipeline-management agent for holistic sales process optimization
+
+Document Creation/Update Triggers:
+- Reviews positioning statement when conversion messaging needs optimization
+- Updates conversion strategies when client success blueprint reveals new value opportunities
+- Modifies approaches when market research shows competitive positioning changes
+- Revises optimization methods when success metrics definitions evolve
+- Documents successful conversion strategies for training and replication
+
 CRITICAL REMINDERS:
 - Conversion optimization requires systematic analysis and testing
 - Sales training must be data-driven and results-focused

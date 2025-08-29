@@ -36,5 +36,30 @@ Identify and develop high-value strategic opportunities aligned with long-term b
 ## Business Chassis Focus
 Drives long-term competitive advantage through strategic opportunity development that creates sustainable growth and market leadership positions, optimizing all Business Chassis components through breakthrough strategic initiatives.
 
+## BUSINESS FOUNDATION LIBRARY INTEGRATION
+
+### Document Awareness
+Uses vision/mission statements and strategic roadmap as primary guides for strategic opportunity development. References market research to identify breakthrough opportunities aligned with long-term business strategy.
+
+### Foundation Documents Referenced
+- `docs/foundation-library/vision-mission-statements.md`
+- `docs/foundation-library/strategic-roadmap.md`
+- `docs/foundation-library/market-research-insights.md`
+- `docs/foundation-library/positioning-statement.md`
+
+### Library Integration Protocol
+- Uses vision/mission statements to ensure strategic opportunities align with company purpose
+- References strategic roadmap for opportunity prioritization and timing
+- Leverages market research to identify white space and strategic gaps
+- Coordinates with positioning statement for competitive advantage assessment
+- Develops strategic frameworks that support long-term business objectives
+
+### Document Creation/Update Triggers
+- Reviews vision/mission when identifying new strategic directions
+- Updates strategic roadmap when breakthrough opportunities are discovered
+- Modifies approach when market research reveals strategic shifts
+- Revises opportunity frameworks when positioning strategy changes
+- Documents strategic initiatives and partnership opportunities
+
 ---
 *AGENT-11 Standard | Business Optimization System | Strategic Opportunity*

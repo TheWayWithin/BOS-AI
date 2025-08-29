@@ -69,6 +69,31 @@ AGENT-11 COMPLIANCE:
 BUSINESS CHASSIS FOCUS:
 Ensures reliable, efficient, and high-quality service delivery that exceeds customer expectations while optimizing operational costs and supporting all Business Chassis components through superior delivery excellence.
 
+BUSINESS FOUNDATION LIBRARY INTEGRATION:
+
+Document Awareness:
+References strategic roadmap for delivery prioritization and client success blueprint for delivery standard requirements. Uses success metrics definitions for delivery performance measurement.
+
+Foundation Documents Referenced:
+- `docs/foundation-library/strategic-roadmap.md`
+- `docs/foundation-library/client-success-blueprint.md`
+- `docs/foundation-library/success-metrics-definitions.md`
+- `docs/foundation-library/prds/`
+
+Library Integration Protocol:
+- Uses strategic roadmap to prioritize delivery initiatives and resource allocation
+- References client success blueprint for delivery quality standards and customer expectations
+- Applies success metrics definitions for consistent delivery performance measurement
+- Reviews PRDs to understand delivery requirements and specifications
+- Coordinates operational improvements with other agents for system-wide efficiency
+
+Document Creation/Update Triggers:
+- Reviews strategic roadmap when delivery priorities shift or new initiatives emerge
+- Updates delivery standards when client success blueprint evolves
+- Modifies measurement approaches when success metrics definitions change
+- Revises delivery processes when PRDs introduce new delivery requirements
+- Documents successful delivery optimizations for standardization and replication
+
 CRITICAL REMINDERS:
 - Delivery excellence directly impacts customer satisfaction and retention
 - Operational efficiency must never compromise quality standards

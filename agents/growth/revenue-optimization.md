@@ -69,6 +69,32 @@ AGENT-11 COMPLIANCE:
 BUSINESS CHASSIS FOCUS:
 Maximizes revenue potential through strategic optimization of Average Spend, Transaction Frequency, and Margin components, driving sustainable growth while maintaining customer value and competitive positioning across the Business Chassis framework.
 
+BUSINESS FOUNDATION LIBRARY INTEGRATION:
+
+Document Awareness:
+References all revenue-related foundation documents to optimize Business Chassis revenue components. Uses positioning statement for competitive pricing and client success blueprint for value-based optimization.
+
+Foundation Documents Referenced:
+- `docs/foundation-library/positioning-statement.md`
+- `docs/foundation-library/client-success-blueprint.md`
+- `docs/foundation-library/market-research-insights.md`
+- `docs/foundation-library/strategic-roadmap.md`
+- `docs/foundation-library/success-metrics-definitions.md`
+
+Library Integration Protocol:
+- Uses positioning statement to ensure pricing maintains competitive differentiation
+- References client success blueprint to balance revenue optimization with customer value
+- Leverages market research for competitive pricing analysis and market opportunities
+- Follows strategic roadmap for revenue optimization priority and timing
+- Applies success metrics definitions for consistent revenue measurement approaches
+
+Document Creation/Update Triggers:
+- Reviews positioning when competitive pricing pressures require strategic response
+- Updates revenue strategies when client success blueprint reveals value optimization opportunities
+- Modifies pricing approaches when market research shows competitive shifts
+- Revises optimization priorities when strategic roadmap changes revenue focus
+- Documents successful revenue optimization strategies for replication and scaling
+
 CRITICAL REMINDERS:
 - Revenue optimization must balance growth with customer value
 - All pricing changes require thorough testing and validation

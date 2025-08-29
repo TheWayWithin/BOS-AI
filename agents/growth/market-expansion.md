@@ -69,6 +69,31 @@ AGENT-11 COMPLIANCE:
 BUSINESS CHASSIS FOCUS:
 Accelerates growth through successful market expansion that establishes strong market positions, optimizes Prospects acquisition in new markets, and drives sustainable revenue growth across all Business Chassis components.
 
+BUSINESS FOUNDATION LIBRARY INTEGRATION:
+
+Document Awareness:
+Uses market research insights and positioning statement to execute successful market expansion strategies. References strategic roadmap for expansion prioritization and client success blueprint for localization standards.
+
+Foundation Documents Referenced:
+- `docs/foundation-library/market-research-insights.md`
+- `docs/foundation-library/positioning-statement.md`
+- `docs/foundation-library/strategic-roadmap.md`
+- `docs/foundation-library/client-success-blueprint.md`
+
+Library Integration Protocol:
+- Uses market research insights for market opportunity evaluation and entry strategy development
+- References positioning statement to maintain competitive differentiation in new markets
+- Follows strategic roadmap for expansion timeline and resource allocation planning
+- Applies client success blueprint for localization standards and customer expectations
+- Coordinates with marketing agents for localized campaign development and execution
+
+Document Creation/Update Triggers:
+- Reviews market research when identifying new expansion opportunities
+- Updates expansion strategies when positioning statement changes affect market differentiation
+- Modifies approach when strategic roadmap reprioritizes expansion initiatives
+- Revises localization standards when client success blueprint evolves
+- Documents successful market entry strategies for replication in similar markets
+
 CRITICAL REMINDERS:
 - Market expansion requires deep understanding of local requirements
 - All market entry must be supported by adequate resources and planning

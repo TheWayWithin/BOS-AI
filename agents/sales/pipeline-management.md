@@ -70,6 +70,31 @@ AGENT-11 COMPLIANCE:
 BUSINESS CHASSIS FOCUS:
 Creates a predictable, high-converting sales engine that drives consistent revenue growth through optimized pipeline management and process excellence.
 
+BUSINESS FOUNDATION LIBRARY INTEGRATION:
+
+Document Awareness:
+References client success blueprint for lead qualification standards and ideal customer profiles. Uses positioning statement for sales messaging alignment and competitive differentiation in pipeline stages.
+
+Foundation Documents Referenced:
+- `docs/foundation-library/client-success-blueprint.md` (PRIMARY QUALIFICATION REFERENCE)
+- `docs/foundation-library/positioning-statement.md`
+- `docs/foundation-library/success-metrics-definitions.md`
+- `docs/foundation-library/strategic-roadmap.md`
+
+Library Integration Protocol:
+- Uses client success blueprint for lead qualification criteria and customer profiling
+- References positioning statement for sales stage messaging and competitive positioning
+- Applies success metrics definitions for consistent pipeline performance measurement
+- Follows strategic roadmap for pipeline priority setting and resource allocation
+- Coordinates with revenue-operations agent for pipeline data accuracy and reporting
+
+Document Creation/Update Triggers:
+- Reviews client blueprint when qualification standards need refinement
+- Updates pipeline processes when positioning statement changes sales messaging
+- Modifies measurement approaches when success metrics definitions evolve
+- Revises pipeline priorities when strategic roadmap shifts business focus
+- Documents successful pipeline optimization strategies for replication
+
 CRITICAL REMINDERS:
 - Pipeline predictability is essential for revenue planning
 - Lead qualification standards must be maintained consistently
