@@ -1,153 +1,100 @@
-# Mission Briefings 🎖️
+# BOS-AI Mission Library 🎯
 
-Pre-configured workflows for common development scenarios. Each mission coordinates multiple agents to achieve specific objectives.
+**IMPORTANT**: BOS-AI missions focus on BUSINESS operations, not technical implementation. We create PRDs, not code.
 
-## Quick Start
+## Mission Categories
 
-```bash
-# Launch a mission
-/coord [mission-name] [inputs...]
+### 📊 Business Strategy
+Missions focused on business planning, market analysis, and strategic decisions.
 
-# Examples
-/coord build requirements.md
-/coord fix bug-report.md
-/coord mvp vision.md
-/coord operation-recon PR-123  # NEW!
+### 💼 Business Setup
+- `foundation-setup` - Establish business foundation documents
+- `foundation-bootstrap` - Quick startup foundation
+- `foundation-migration` - Migrate existing business to BOS framework
+- `chassis-implementation` - Implement Business Chassis optimization
+- `client-success-blueprint` - Design customer success framework
+- `core-asset-creation` - Create essential business assets
+
+### 🔍 Discovery
+- `market-research` - Comprehensive market analysis
+- `competitive-analysis` - Competitor assessment
+- `opportunity-validation` - Validate business opportunities
+
+### 📈 Growth
+- `market-expansion` - Enter new markets
+- `revenue-optimization` - Maximize revenue streams
+- `scaling-strategy` - Plan business scaling
+
+### 💡 Creation (Business Requirements)
+- `mvp-creation` - Define MVP requirements and PRD
+- `solution-development` - Design business solutions
+- `value-optimization` - Optimize value proposition
+
+### 🚀 Delivery (Business Operations)
+- `customer-onboarding` - Design onboarding process
+- `delivery-optimization` - Optimize service delivery
+- `quality-assurance` - Define quality standards
+
+### 🔄 Operations
+- `daily-chassis-review` - Daily business metrics review
+- `weekly-optimization` - Weekly performance optimization
+- `quarterly-strategy` - Quarterly strategic planning
+
+### 🎯 Optimization
+- `chassis-optimization` - Optimize Business Chassis multipliers
+- `multiplication-analysis` - Analyze growth multipliers
+- `performance-enhancement` - Enhance business performance
+
+## How Missions Work
+
+1. **Business Focus**: All missions output business documents (PRDs, strategies, plans)
+2. **No Technical Work**: Missions create requirements, not implementations
+3. **PRD Handoff**: Technical requirements go to separate dev projects with AGENT-11
+4. **Clear Boundaries**: See BOUNDARIES.md for separation guidelines
+
+## Mission Execution Flow
+
+```
+BOS-AI Mission → Business Analysis → PRD Creation → Handoff to Dev Team
+                                                          ↓
+                  Operate Solution ← Product Delivery ← AGENT-11 Project
 ```
 
-## Available Missions
+## Available Agents for Missions
 
-### Core Operations
+BOS-AI has 29 specialized business agents:
 
-| Mission | Code | Duration | Description |
-|---------|------|----------|-------------|
-| [Build](mission-build.md) | `build` | 2-4 hours | Build new feature from requirements |
-| [Fix](mission-fix.md) | `fix` | 1-2 hours | Emergency bug resolution |
-| [Refactor](mission-refactor.md) | `refactor` | 2-3 hours | Code improvement and optimization |
-| [MVP](mission-mvp.md) | `mvp` | 1-3 days | Rapid MVP development |
-| [Deploy](mission-deploy.md) | `deploy` | 1-2 hours | Production deployment |
+### Central Intelligence
+- `chassis-intelligence` - Central orchestration
+- `client-success-intelligence` - Customer operations
+- `multiplication-engine` - Business optimization
 
-### Quality & Review (NEW!)
+### Business Functions
+- `market-intelligence`, `opportunity-validation`, `strategic-opportunity`
+- `solution-design`, `rapid-development`, `value-optimization`
+- `customer-success`, `quality-assurance`, `delivery-optimization`
+- `scaling-strategy`, `market-expansion`, `revenue-optimization`
+- `brand-strategy`, `campaign-execution`, `content-creation`
+- `pipeline-management`, `conversion-optimization`, `revenue-operations`
+- `support-management`, `satisfaction-optimization`, `retention-strategy`
+- `budget-planning`, `performance-analysis`, `investment-strategy`
+- `compliance-management`, `risk-assessment`, `contract-management`
 
-| Mission | Code | Duration | Description |
-|---------|------|----------|-------------|
-| [Operation RECON](operation-recon.md) | `operation-recon` | 2-4 hours | **UI/UX reconnaissance with RECON Protocol** |
-| [Document](mission-document.md) | `document` | 2-3 hours | Comprehensive documentation |
-| [Optimize](mission-optimize.md) | `optimize` | 2-4 hours | Performance optimization |
-| [Security](mission-security.md) | `security` | 3-4 hours | Security audit and hardening |
+## Creating New Missions
 
-### Integration & Migration
+New missions must:
+1. Focus on business operations and strategy
+2. Output business documents (not code)
+3. Use only BOS-AI's 29 business agents
+4. Respect the BOS-AI/AGENT-11 boundary
+5. Create PRDs for any technical needs
 
-| Mission | Code | Duration | Description |
-|---------|------|----------|-------------|
-| [Integrate](mission-integrate.md) | `integrate` | 2-4 hours | Third-party integration |
-| [Migrate](mission-migrate.md) | `migrate` | 3-5 hours | System/database migration |
-| [Release](mission-release.md) | `release` | 2-3 hours | Version release preparation |
+## Archived Technical Missions
 
-### Project Setup
-
-| Mission | Code | Duration | Description |
-|---------|------|----------|-------------|
-| [Dev Setup](dev-setup.md) | `dev-setup` | 30-45 min | Initialize greenfield project |
-| [Dev Alignment](dev-alignment.md) | `dev-alignment` | 20-30 min | Understand existing project |
-| [Connect MCP](connect-mcp.md) | `connect-mcp` | 15-20 min | Connect MCP tools |
-| [Operation Genesis](operation-genesis.md) | `genesis` | 4-6 hours | Complete project initialization |
-
-## NEW: Enhanced Review Capabilities
-
-### Operation RECON
-The most comprehensive review mission, combining:
-- **RECON Protocol** (Designer) - 8-phase UI/UX assessment
-- **SENTINEL Mode** (Tester) - 7-phase functional validation
-- **PARALLEL STRIKE** (Coordinator) - Simultaneous operations
-
-```bash
-# Quick UI review
-/recon
-
-# Full operation
-/coord operation-recon
-
-# With specific target
-/coord operation-recon feature-branch
-
-# Full spectrum with all specialists
-/coord operation-recon PR-456 --full-spectrum
-```
-
-## Mission Structure
-
-Each mission follows this structure:
-
-1. **Briefing** - Objectives and requirements
-2. **Phases** - Step-by-step execution
-3. **Specialists** - Agents involved
-4. **Deliverables** - Expected outputs
-5. **Success Criteria** - Completion metrics
-
-## Choosing the Right Mission
-
-### For New Features
-- Small feature: Use `build`
-- Large feature: Use `mvp` then `build`
-- With design needs: Use `operation-recon` after `build`
-
-### For Quality Assurance
-- UI/UX review: Use `operation-recon`
-- Performance issues: Use `optimize`
-- Security concerns: Use `security`
-- General bugs: Use `fix`
-
-### For Project Setup
-- New project: Use `dev-setup`
-- Existing project: Use `dev-alignment`
-- Add tools: Use `connect-mcp`
-
-## Custom Missions
-
-Create your own missions by copying a template:
-
-```bash
-cp missions/mission-template.md missions/mission-custom.md
-```
-
-Edit to define:
-- Phases and timing
-- Agent coordination
-- Success criteria
-- Deliverables
-
-## Mission Coordination
-
-The Coordinator manages all missions with:
-- Task delegation to specialists
-- Progress tracking in `project-plan.md`
-- Issue resolution in `progress.md`
-- MCP tool assignment
-
-### PARALLEL STRIKE Capability (NEW!)
-Missions can now execute with simultaneous agent operations:
-- 50-70% faster completion
-- Better issue detection
-- Synchronized reporting
-- Unified evidence collection
-
-## Pro Tips
-
-1. **Start Small**: Begin with `fix` or `build` missions
-2. **Document First**: Run `dev-alignment` on existing projects
-3. **Review Often**: Use `operation-recon` before releases
-4. **Combine Missions**: Chain missions for complex workflows
-5. **Track Progress**: Check `project-plan.md` for status
-
-## Mission Success Metrics
-
-Track your mission effectiveness:
-- Completion time vs estimate
-- Issues detected/prevented
-- Code quality improvements
-- User satisfaction scores
+The following missions violated boundaries and have been archived:
+- Technical implementation missions (build, deploy, fix, etc.)
+- These belong in AGENT-11 development projects, not BOS-AI
 
 ---
 
-*"Every mission is a step toward shipping excellence."*
+*Remember: BOS-AI runs the business. AGENT-11 builds the software.*
