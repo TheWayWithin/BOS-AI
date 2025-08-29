@@ -2,6 +2,14 @@
 
 Welcome to BOS-AI - Your AI-powered Business Operating System focused on exponential growth through Business Chassis optimization.
 
+## ⚠️ CRITICAL: BOS-AI vs AGENT-11 Separation
+
+**BOS-AI** is a BUSINESS OPERATING SYSTEM - it runs your business, NOT your code.
+- **BOS-AI**: Creates PRDs, defines requirements, manages business operations
+- **AGENT-11**: Separate system that builds software from BOS-AI's PRDs
+- **NEVER**: BOS-AI agents do NOT write code, test software, or handle deployment
+- **See BOUNDARIES.md** for complete separation guidelines
+
 ## 🎯 Command System
 
 ### `/coord` - Business Orchestration Mode

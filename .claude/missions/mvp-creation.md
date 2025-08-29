@@ -21,12 +21,12 @@ Rapidly create minimum viable product to validate market fit and gather customer
 - Create development plan
 **Deliverable**: MVP specification
 
-### Phase 2: Rapid Prototyping (Days 3-5)
-- Build core functionality
-- Create basic interface
-- Implement key workflows
-- Setup data structure
-**Deliverable**: Working prototype
+### Phase 2: PRD Development (Days 3-5)
+- Create detailed Product Requirements Document
+- Define user stories and acceptance criteria
+- Specify business logic and workflows
+- Document data requirements (business perspective)
+**Deliverable**: Complete PRD for development team handoff
 
 ### Phase 3: User Testing Setup (Days 6-7)
 - Identify test users
