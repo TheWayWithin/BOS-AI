@@ -35,6 +35,7 @@ echo -e "${GREEN}📁 Creating directory structure...${NC}"
 mkdir -p .claude/agents
 mkdir -p .claude/commands  
 mkdir -p .claude/missions
+mkdir -p workspace
 
 # Deploy core documentation
 echo -e "${BLUE}📚 Deploying core documentation...${NC}"
@@ -95,7 +96,7 @@ for mission in missions/*.md; do
 done
 
 # Deploy missions from category subdirectories (business-focused)
-for category in business-setup creation delivery discovery growth operations optimization; do
+for category in business-setup creation delivery discovery growth operations optimization sequences; do
     if [ -d "missions/$category" ]; then
         echo -e "${CYAN}  📁 Deploying ${category} missions...${NC}"
         for mission in missions/"$category"/*.md; do
@@ -110,6 +111,26 @@ for category in business-setup creation delivery discovery growth operations opt
 done
 
 echo -e "${GREEN}📊 Deployed ${MISSION_COUNT} business missions${NC}"
+
+# Deploy Workspace Context Templates
+echo -e "${PURPLE}📋 Deploying workspace context templates...${NC}"
+if [ -d "workspace" ]; then
+    CONTEXT_COUNT=$(ls workspace/*.md 2>/dev/null | wc -l)
+    if [ "$CONTEXT_COUNT" -gt 0 ]; then
+        echo -e "${GREEN}✅ Workspace context templates deployed (${CONTEXT_COUNT} files)${NC}"
+        echo -e "${CYAN}   Location: workspace/${NC}"
+    fi
+else
+    echo -e "${YELLOW}⚠️  Creating empty workspace directory${NC}"
+    mkdir -p workspace
+fi
+
+# Deploy BOS-AI Orchestration Guide
+echo -e "${BLUE}📖 Deploying orchestration documentation...${NC}"
+if [ -f "docs/bos-ai-orchestration-guide.md" ]; then
+    echo -e "${GREEN}✅ BOS-AI Orchestration Guide available${NC}"
+    echo -e "${CYAN}   Location: docs/bos-ai-orchestration-guide.md${NC}"
+fi
 
 # Deploy Document Library
 echo -e "${CYAN}📚 Deploying Document Library...${NC}"
@@ -129,6 +150,8 @@ echo "╠═══════════════════════�
 echo "║  ✅ Core Documentation: CLAUDE.md, BOUNDARIES.md            ║"
 echo "║  ✅ Business Agents: ${AGENT_COUNT} agents (NO technical agents)     ║"
 echo "║  ✅ Business Missions: ${MISSION_COUNT} missions                      ║"
+echo "║  ✅ Workspace Context: Sequential orchestration templates   ║"
+echo "║  ✅ Orchestration Guide: docs/bos-ai-orchestration-guide.md ║"
 echo "║  ✅ Document Library: Business foundation documents         ║"
 echo "║                                                              ║"
 echo "║  🚫 BOUNDARIES ENFORCED:                                    ║"
