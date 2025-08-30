@@ -46,6 +46,49 @@ Direct strategic discussions with specialized agents for focused expertise.
 - `/meeting @scaling-strategy "expand to new market"`
 - `/meeting @budget-planning "optimize operational costs"`
 
+### `/report` - Business Operations Progress Tracking
+Generate comprehensive progress reports for BOS-AI business operations and strategic initiatives.
+
+#### Usage Format:
+- `/report` - Generate report of all activities since last report
+- `/report [date]` - Progress since specific date (e.g., `/report 2025-08-20`)
+- `/report [period]` - Report for specific period (daily, weekly, monthly)
+
+#### Report Contents:
+- Completed business initiatives with impact
+- Active strategic projects and status
+- Issues encountered and resolutions
+- Business Chassis performance metrics
+- Process improvements and changes
+- Strategic insights and recommendations
+
+#### Examples:
+- `/report` - Get comprehensive business operations status
+- `/report weekly` - Generate weekly business review
+- `/report 2025-08-20` - See all business progress since August 20th
+
+### `/pmd` - Post Mortem Diagnostic
+Conduct root cause analysis for BOS-AI operational issues and process improvements.
+
+#### Usage Format:
+- `/pmd` - General system and process analysis
+- `/pmd "issue description"` - Specific problem investigation
+- `/pmd [component]` - Analyze specific area (e.g., "sales", "marketing")
+
+#### Analysis Coverage:
+- Business process bottlenecks
+- Operational efficiency gaps
+- Business Chassis performance issues
+- Strategic alignment problems
+- Communication and coordination breakdowns
+- Resource utilization optimization
+
+#### Examples:
+- `/pmd` - Analyze overall business health
+- `/pmd "low conversion rate"` - Investigate conversion issues
+- `/pmd "slow decision making"` - Root cause analysis for delays
+- `/pmd sales` - Deep dive into sales process effectiveness
+
 ## 📊 Business Chassis Formula
 
 The mathematical foundation of exponential growth:
@@ -170,6 +213,8 @@ Full scaling analysis with growth strategies across all Business Chassis compone
 3. **Chain commands** - Start with /coord for strategy, then /meeting for execution
 4. **Track metrics** - Always measure Business Chassis improvements
 5. **Focus on multiplication** - Small improvements in multiple areas = exponential growth
+6. **Monitor development progress** - Use `/report` to track PRD implementation status
+7. **Analyze bottlenecks** - Use `/pmd` when projects face delays or alignment issues
 
 ## 📈 Success Metrics
 
