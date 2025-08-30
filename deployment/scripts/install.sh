@@ -1,15 +1,15 @@
 #!/bin/bash
 
 # BOS-AI One-Line Installation Script
-# Downloads and installs BOS-AI agents directly from GitHub without cloning
-# Usage: curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s [tier]
+# Downloads and installs BOS-AI complete system directly from GitHub
+# Usage: curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s full
 # Tiers: starter (5 agents), business (15 agents), full (30 agents)
 
 set -e
 
 # Configuration
 GITHUB_RAW_BASE="https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main"
-TIER="${1:-starter}"  # Default to starter tier
+TIER="${1:-full}"  # Default to full tier for complete system
 
 # Colors for output
 RED='\033[0;31m'
@@ -24,8 +24,8 @@ NC='\033[0m' # No Color
 echo -e "${BLUE}"
 echo "╔══════════════════════════════════════════════════════════════╗"
 echo "║                                                              ║"
-echo "║   BOS-AI: One-Line Installation                             ║"
-echo "║   Business Operating System AI Framework                     ║"
+echo "║   BOS-AI: Business Operating System Installation            ║"
+echo "║   Complete Document Library + Agents + Missions             ║"
 echo "║                                                              ║"
 echo "╚══════════════════════════════════════════════════════════════╝"
 echo -e "${NC}"
@@ -42,11 +42,17 @@ case $TIER in
         ;;
 esac
 
-# Create directory structure
+# Create complete directory structure
 echo -e "${BLUE}📁 Creating directory structure...${NC}"
 mkdir -p .claude/agents
 mkdir -p .claude/commands
 mkdir -p .claude/missions
+mkdir -p .claude/document-library
+mkdir -p workspace
+mkdir -p documents/foundation/prds
+mkdir -p documents/operations
+mkdir -p documents/archive
+mkdir -p documents/assets
 mkdir -p documents/business-assets
 mkdir -p documents/sops
 mkdir -p assets/reports
@@ -68,39 +74,109 @@ download_file() {
     return 1
 }
 
-# Download CLAUDE.md documentation
-echo -e "${PURPLE}📚 Installing documentation...${NC}"
+# Download core documentation
+echo -e "${PURPLE}📚 Installing core documentation...${NC}"
 if download_file "$GITHUB_RAW_BASE/CLAUDE.md" ".claude/CLAUDE.md"; then
     echo -e "${GREEN}✓ CLAUDE.md installed${NC}"
 else
     echo -e "${YELLOW}⚠ Failed to download CLAUDE.md${NC}"
 fi
 
+if download_file "$GITHUB_RAW_BASE/BOUNDARIES.md" ".claude/BOUNDARIES.md"; then
+    echo -e "${GREEN}✓ BOUNDARIES.md installed${NC}"
+else
+    echo -e "${YELLOW}⚠ Failed to download BOUNDARIES.md${NC}"
+fi
+
+# Download Document Library templates and SOPs
+echo -e "${CYAN}📚 Installing Document Library (templates & SOPs)...${NC}"
+LIBRARY_COUNT=0
+
+# List of all Document Library files
+declare -a DOCUMENT_LIBRARY_FILES=(
+    "Vision and Mission.md"
+    "Vision and Mission Development SOP (Rapid AI-Driven).md"
+    "Market and Client Research Template.md"
+    "Market and Client Research SOP (Rapid AI-Driven).md"
+    "Client Success Blueprint.md"
+    "Client Success Blueprint Creation SOP (Revised).md"
+    "Positioning Statement Template.md"
+    "Positioning Statement SOP: 3-Hour Sprint.md"
+    "Positioning AI Prompts for Statement Development.md"
+    "Strategic Roadmap_ Vision to Great.md"
+    "Strategic Roadmap Creation SOP (AI-Driven).md"
+    "Brand Style Guide.md"
+    "Brand Style Guide Creation SOP (AI-Driven).md"
+    "Product Requirements Document (PRD).md"
+    "Product Requirements Document (PRD) Creation SOP.md"
+    "business_foundation_library_guide.md"
+    "FILING-STANDARDS.md"
+)
+
+for doc in "${DOCUMENT_LIBRARY_FILES[@]}"; do
+    # URL encode the filename (replace spaces with %20)
+    encoded_doc=$(echo "$doc" | sed 's/ /%20/g')
+    if download_file "$GITHUB_RAW_BASE/docs/Document%20Library/$encoded_doc" ".claude/document-library/$doc"; then
+        echo -e "${GREEN}  ✓ $doc${NC}"
+        LIBRARY_COUNT=$((LIBRARY_COUNT + 1))
+    else
+        echo -e "${YELLOW}  ⚠ Failed: $doc${NC}"
+    fi
+done
+
+echo -e "${GREEN}✓ Installed $LIBRARY_COUNT Document Library files${NC}"
+
+# Download workspace templates
+echo -e "${PURPLE}📋 Installing workspace templates...${NC}"
+WORKSPACE_COUNT=0
+
+declare -a WORKSPACE_FILES=(
+    "business-plan.md"
+    "chassis-metrics.md"
+    "agent-context.md"
+    "handoff-notes.md"
+    "decision-log.md"
+)
+
+for file in "${WORKSPACE_FILES[@]}"; do
+    if download_file "$GITHUB_RAW_BASE/workspace/$file" "workspace/$file"; then
+        echo -e "${GREEN}  ✓ $file${NC}"
+        WORKSPACE_COUNT=$((WORKSPACE_COUNT + 1))
+    else
+        echo -e "${YELLOW}  ⚠ Failed: $file${NC}"
+    fi
+done
+
 # Download commands
 echo -e "${CYAN}🎮 Installing command system...${NC}"
+COMMAND_COUNT=0
+
 if download_file "$GITHUB_RAW_BASE/.claude/commands/coord.md" ".claude/commands/coord.md"; then
     echo -e "${GREEN}✓ /coord command installed${NC}"
+    COMMAND_COUNT=$((COMMAND_COUNT + 1))
 else
     echo -e "${YELLOW}⚠ Failed to download coord.md${NC}"
 fi
 
 if download_file "$GITHUB_RAW_BASE/.claude/commands/meeting.md" ".claude/commands/meeting.md"; then
     echo -e "${GREEN}✓ /meeting command installed${NC}"
+    COMMAND_COUNT=$((COMMAND_COUNT + 1))
 else
     echo -e "${YELLOW}⚠ Failed to download meeting.md${NC}"
 fi
 
 # Download missions
 echo -e "${YELLOW}🎯 Installing missions...${NC}"
+MISSION_COUNT=0
 
-# Download missions from each category (compatible with older bash)
 # Business Setup missions
 echo -e "${CYAN}  📁 Installing business-setup missions...${NC}"
-for mission in chassis-implementation client-success-blueprint core-asset-creation; do
+for mission in chassis-implementation client-success-blueprint core-asset-creation foundation-setup foundation-migration foundation-bootstrap; do
     if download_file "$GITHUB_RAW_BASE/missions/business-setup/$mission.md" ".claude/missions/$mission.md"; then
-        echo -e "${GREEN}    ✓ $mission installed${NC}"
+        echo -e "${GREEN}    ✓ $mission${NC}"
+        MISSION_COUNT=$((MISSION_COUNT + 1))
     else
-        echo -e "${YELLOW}    ⚠ Failed to download $mission${NC}"
+        echo -e "${YELLOW}    ⚠ Failed: $mission${NC}"
     fi
 done
 
@@ -108,9 +184,10 @@ done
 echo -e "${CYAN}  📁 Installing discovery missions...${NC}"
 for mission in market-research opportunity-validation competitive-analysis; do
     if download_file "$GITHUB_RAW_BASE/missions/discovery/$mission.md" ".claude/missions/$mission.md"; then
-        echo -e "${GREEN}    ✓ $mission installed${NC}"
+        echo -e "${GREEN}    ✓ $mission${NC}"
+        MISSION_COUNT=$((MISSION_COUNT + 1))
     else
-        echo -e "${YELLOW}    ⚠ Failed to download $mission${NC}"
+        echo -e "${YELLOW}    ⚠ Failed: $mission${NC}"
     fi
 done
 
@@ -118,67 +195,59 @@ done
 echo -e "${CYAN}  📁 Installing creation missions...${NC}"
 for mission in solution-development mvp-creation value-optimization; do
     if download_file "$GITHUB_RAW_BASE/missions/creation/$mission.md" ".claude/missions/$mission.md"; then
-        echo -e "${GREEN}    ✓ $mission installed${NC}"
+        echo -e "${GREEN}    ✓ $mission${NC}"
+        MISSION_COUNT=$((MISSION_COUNT + 1))
     else
-        echo -e "${YELLOW}    ⚠ Failed to download $mission${NC}"
-    fi
-done
-
-# Delivery missions
-echo -e "${CYAN}  📁 Installing delivery missions...${NC}"
-for mission in customer-onboarding quality-assurance delivery-optimization; do
-    if download_file "$GITHUB_RAW_BASE/missions/delivery/$mission.md" ".claude/missions/$mission.md"; then
-        echo -e "${GREEN}    ✓ $mission installed${NC}"
-    else
-        echo -e "${YELLOW}    ⚠ Failed to download $mission${NC}"
-    fi
-done
-
-# Growth missions
-echo -e "${CYAN}  📁 Installing growth missions...${NC}"
-for mission in scaling-strategy market-expansion revenue-optimization; do
-    if download_file "$GITHUB_RAW_BASE/missions/growth/$mission.md" ".claude/missions/$mission.md"; then
-        echo -e "${GREEN}    ✓ $mission installed${NC}"
-    else
-        echo -e "${YELLOW}    ⚠ Failed to download $mission${NC}"
+        echo -e "${YELLOW}    ⚠ Failed: $mission${NC}"
     fi
 done
 
 # Operations missions
 echo -e "${CYAN}  📁 Installing operations missions...${NC}"
-for mission in daily-chassis-review weekly-optimization quarterly-strategy; do
+for mission in daily-chassis-review weekly-optimization quarterly-strategy foundation-review vision-mission-update; do
     if download_file "$GITHUB_RAW_BASE/missions/operations/$mission.md" ".claude/missions/$mission.md"; then
-        echo -e "${GREEN}    ✓ $mission installed${NC}"
+        echo -e "${GREEN}    ✓ $mission${NC}"
+        MISSION_COUNT=$((MISSION_COUNT + 1))
     else
-        echo -e "${YELLOW}    ⚠ Failed to download $mission${NC}"
+        echo -e "${YELLOW}    ⚠ Failed: $mission${NC}"
     fi
 done
 
-# Optimization missions
-echo -e "${CYAN}  📁 Installing optimization missions...${NC}"
-for mission in chassis-optimization multiplication-analysis performance-enhancement; do
-    if download_file "$GITHUB_RAW_BASE/missions/optimization/$mission.md" ".claude/missions/$mission.md"; then
-        echo -e "${GREEN}    ✓ $mission installed${NC}"
+# Sequence missions
+echo -e "${CYAN}  📁 Installing sequence missions...${NC}"
+for mission in chassis-optimization-sequence product-launch-sequence customer-acquisition-sequence retention-improvement-sequence weekly-review-sequence; do
+    if download_file "$GITHUB_RAW_BASE/missions/sequences/$mission.md" ".claude/missions/$mission.md"; then
+        echo -e "${GREEN}    ✓ $mission${NC}"
+        MISSION_COUNT=$((MISSION_COUNT + 1))
     else
-        echo -e "${YELLOW}    ⚠ Failed to download $mission${NC}"
+        echo -e "${YELLOW}    ⚠ Failed: $mission${NC}"
     fi
 done
 
-# Also download any root-level missions
-root_missions=(
-    "project-setup"
-    "daily-review"
-    "customer-acquisition"
-    "product-launch"
-    "revenue-optimization"
-)
-
-for mission in "${root_missions[@]}"; do
-    if [ -f "$GITHUB_RAW_BASE/missions/$mission.md" ]; then
-        if download_file "$GITHUB_RAW_BASE/missions/$mission.md" ".claude/missions/$mission.md"; then
-            echo -e "${GREEN}✓ $mission mission installed${NC}"
+# Other category missions (delivery, growth, optimization)
+for category in delivery growth optimization; do
+    echo -e "${CYAN}  📁 Installing $category missions...${NC}"
+    
+    case $category in
+        delivery)
+            missions="customer-onboarding quality-assurance delivery-optimization"
+            ;;
+        growth)
+            missions="scaling-strategy market-expansion revenue-optimization"
+            ;;
+        optimization)
+            missions="chassis-optimization multiplication-analysis performance-enhancement"
+            ;;
+    esac
+    
+    for mission in $missions; do
+        if download_file "$GITHUB_RAW_BASE/missions/$category/$mission.md" ".claude/missions/$mission.md"; then
+            echo -e "${GREEN}    ✓ $mission${NC}"
+            MISSION_COUNT=$((MISSION_COUNT + 1))
+        else
+            echo -e "${YELLOW}    ⚠ Failed: $mission${NC}"
         fi
-    fi
+    done
 done
 
 # Define agent lists by tier
@@ -272,42 +341,31 @@ FAILED_COUNT=0
 for agent_path in "${AGENTS[@]}"; do
     agent_name=$(basename "$agent_path")
     if download_file "$GITHUB_RAW_BASE/agents/$agent_path.md" ".claude/agents/$agent_name.md"; then
-        echo -e "${GREEN}✓ $agent_name installed${NC}"
+        echo -e "${GREEN}✓ $agent_name${NC}"
         AGENT_COUNT=$((AGENT_COUNT + 1))
     else
-        echo -e "${YELLOW}⚠ Failed to install $agent_name${NC}"
+        echo -e "${YELLOW}⚠ Failed: $agent_name${NC}"
         FAILED_COUNT=$((FAILED_COUNT + 1))
     fi
 done
 
-# Create starter documents
-echo -e "${BLUE}📄 Creating starter documents...${NC}"
+# Create project CLAUDE.md if it doesn't exist
+if [ ! -f "CLAUDE.md" ]; then
+    echo -e "${BLUE}📝 Creating project CLAUDE.md...${NC}"
+    cat > CLAUDE.md << 'EOF'
+# Project with BOS-AI
 
-# Create filing system SOP
-cat > documents/sops/document-filing-sop.md << 'EOF'
-# Document Filing Standard Operating Procedure
+This project uses BOS-AI for business operations management.
 
-## Filing System v2.0
-- Living Documents: `/documents/business-assets/` and `/documents/sops/`
-- Generated Assets: `/assets/reports/`
-- Naming Convention: `YYYY-MM-DD-[type]-[description].md`
+## Quick Start
+- Use `/coord` for business orchestration
+- Templates in `.claude/document-library/`
+- Save documents to `documents/foundation/`
 
-## Agent Filing Rules
-All agents follow this protocol for consistent document management.
+See `.claude/CLAUDE.md` for full BOS-AI documentation.
 EOF
-
-# Create project README
-cat > documents/business-assets/README.md << 'EOF'
-# Business Assets
-
-This directory contains living business documents that are continuously updated:
-- Strategic plans
-- Business models
-- Client documentation
-- Partnership agreements
-
-All documents follow the YYYY-MM-DD naming convention.
-EOF
+    echo -e "${GREEN}✓ Created project CLAUDE.md${NC}"
+fi
 
 # Create installation summary
 echo -e "${GREEN}✅ Creating installation summary...${NC}"
@@ -319,39 +377,44 @@ cat > .claude/INSTALLATION_SUMMARY.md << EOF
 ## Installation Tier: $TIER
 
 ### 📊 Installed Components
-- **Agents**: $AGENT_COUNT successfully installed
-- **Commands**: 2 (/coord and /meeting)
-- **Missions**: 6 core missions
-- **Documentation**: CLAUDE.md reference
+- **Document Library**: $LIBRARY_COUNT templates & SOPs
+- **Agents**: $AGENT_COUNT business agents
+- **Missions**: $MISSION_COUNT missions
+- **Commands**: $COMMAND_COUNT commands
+- **Workspace**: $WORKSPACE_COUNT context templates
+
+### 📁 Directory Structure
+- \`.claude/document-library/\` → Templates & SOPs
+- \`.claude/agents/\` → Business agents  
+- \`.claude/missions/\` → Business missions
+- \`documents/foundation/\` → Your business documents
+- \`documents/archive/\` → Version history
+- \`workspace/\` → Mission context
 
 ### 🚀 Quick Start
 
-1. **Test the system**:
+1. **Create your Vision & Mission**:
+   \`\`\`
+   /coord vision-mission-update
+   \`\`\`
+
+2. **Run Business Chassis optimization**:
    \`\`\`
    /coord optimize
    \`\`\`
 
-2. **Consult an agent**:
+3. **Review all foundation documents**:
    \`\`\`
-   /meeting @chassis-intelligence "business strategy"
-   \`\`\`
-
-3. **Run a mission**:
-   \`\`\`
-   /coord project-setup
+   /coord foundation-review
    \`\`\`
 
-### 📖 Documentation
-- See \`.claude/CLAUDE.md\` for complete command reference
-- Visit https://github.com/TheWayWithin/BOS-AI for full documentation
-
-### 🔧 Upgrade Options
-- **Current**: $TIER tier
-- **Upgrade to business**: \`curl -fsSL [URL] | bash -s business\`
-- **Upgrade to full**: \`curl -fsSL [URL] | bash -s full\`
+### 📖 Key Documents
+- Filing Standards: \`.claude/document-library/FILING-STANDARDS.md\`
+- Library Guide: \`.claude/document-library/business_foundation_library_guide.md\`
+- BOS-AI Commands: \`.claude/CLAUDE.md\`
 
 ---
-*BOS-AI v2.0 - Business Operating System AI Framework*
+*BOS-AI v2.0 - Business Operating System*
 EOF
 
 # Display summary
@@ -359,46 +422,27 @@ echo -e "${BLUE}"
 echo "╔══════════════════════════════════════════════════════════════╗"
 echo "║                 INSTALLATION COMPLETE                        ║"
 echo "╠══════════════════════════════════════════════════════════════╣"
-echo "║  📊 Tier:        $TIER                                         "
-echo "║  🤖 Agents:      $AGENT_COUNT installed                         "
-echo "║  ⚠️  Failed:      $FAILED_COUNT                                 "
-echo "║  🎮 Commands:    2 installed                                 ║"
-echo "║  🎯 Missions:    6 installed                                 ║"
+printf "║  📚 Document Library: %-3s templates & SOPs              ║\n" "$LIBRARY_COUNT"
+printf "║  🤖 Agents:          %-3s business agents                ║\n" "$AGENT_COUNT"
+printf "║  🎯 Missions:        %-3s available                      ║\n" "$MISSION_COUNT"
+printf "║  🎮 Commands:        %-3s installed                      ║\n" "$COMMAND_COUNT"
+printf "║  📋 Workspace:       %-3s context templates              ║\n" "$WORKSPACE_COUNT"
+echo "║  📁 Directories:     All created                            ║"
 echo "╚══════════════════════════════════════════════════════════════╝"
 echo -e "${NC}"
 
 if [ $FAILED_COUNT -gt 0 ]; then
-    echo -e "${YELLOW}⚠️  Some components failed to install. This may be due to network issues.${NC}"
-    echo -e "${YELLOW}   You can re-run the installation to retry failed components.${NC}"
+    echo -e "${YELLOW}⚠️  Some components failed to install. Re-run to retry.${NC}"
 fi
 
 echo -e "${GREEN}🎉 BOS-AI installation complete!${NC}"
 echo -e "${CYAN}📚 Type '/coord' to start using BOS-AI${NC}"
 echo ""
-echo -e "${PURPLE}🚀 Your AI-powered Business Operating System is ready!${NC}"
-
-# Create activation hint file
-cat > .claude/ACTIVATE.md << 'EOF'
-# 🚀 BOS-AI is Installed!
-
-## Quick Start Commands
-
-### Business Optimization
-```
-/coord optimize
-```
-
-### Agent Consultation
-```
-/meeting @chassis-intelligence "help me grow my business"
-```
-
-### Project Setup
-```
-/coord project-setup
-```
-
-See `.claude/CLAUDE.md` for full documentation.
-EOF
+echo -e "${PURPLE}Key locations:${NC}"
+echo "  • Templates: .claude/document-library/"
+echo "  • Your docs: documents/foundation/"
+echo "  • Archives:  documents/archive/"
+echo ""
+echo -e "${GREEN}🚀 Your Business Operating System is ready!${NC}"
 
 exit 0
