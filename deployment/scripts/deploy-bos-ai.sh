@@ -35,8 +35,12 @@ echo -e "${GREEN}📁 Creating directory structure...${NC}"
 mkdir -p .claude/agents
 mkdir -p .claude/commands  
 mkdir -p .claude/missions
+mkdir -p .claude/document-library
 mkdir -p workspace
 mkdir -p documents/foundation/prds
+mkdir -p documents/operations
+mkdir -p documents/archive
+mkdir -p documents/assets
 
 # Deploy core documentation
 echo -e "${BLUE}📚 Deploying core documentation...${NC}"
@@ -50,6 +54,30 @@ echo -e "${PURPLE}🎮 Deploying command system...${NC}"
 if [ -d ".claude/commands" ]; then
     cp .claude/commands/*.md .claude/commands/ 2>/dev/null || true
     echo -e "${GREEN}✅ Commands deployed${NC}"
+fi
+
+# Deploy Document Library Templates and SOPs
+echo -e "${CYAN}📚 Deploying Document Library templates and SOPs...${NC}"
+if [ -d "docs/Document Library" ]; then
+    # Copy all markdown files from Document Library to .claude/document-library
+    find "docs/Document Library" -maxdepth 1 -name "*.md" -type f -exec cp {} .claude/document-library/ \;
+    
+    LIBRARY_COUNT=$(ls .claude/document-library/*.md 2>/dev/null | wc -l)
+    if [ "$LIBRARY_COUNT" -gt 0 ]; then
+        echo -e "${GREEN}✅ Deployed ${LIBRARY_COUNT} templates and SOPs to .claude/document-library/${NC}"
+        
+        # List what was deployed
+        echo -e "${PURPLE}   📄 Key documents deployed:${NC}"
+        [ -f ".claude/document-library/Vision and Mission.md" ] && echo -e "${GREEN}      ✓ Vision and Mission template${NC}"
+        [ -f ".claude/document-library/Market and Client Research Template.md" ] && echo -e "${GREEN}      ✓ Market Research template${NC}"
+        [ -f ".claude/document-library/Client Success Blueprint.md" ] && echo -e "${GREEN}      ✓ Client Success Blueprint template${NC}"
+        [ -f ".claude/document-library/Positioning Statement Template.md" ] && echo -e "${GREEN}      ✓ Positioning Statement template${NC}"
+        [ -f ".claude/document-library/Strategic Roadmap_ Vision to Great.md" ] && echo -e "${GREEN}      ✓ Strategic Roadmap template${NC}"
+        [ -f ".claude/document-library/Brand Style Guide.md" ] && echo -e "${GREEN}      ✓ Brand Style Guide template${NC}"
+        [ -f ".claude/document-library/Product Requirements Document (PRD).md" ] && echo -e "${GREEN}      ✓ PRD template${NC}"
+    fi
+else
+    echo -e "${YELLOW}⚠️  Document Library source not found${NC}"
 fi
 
 # Deploy Business Agents (29 total - NO AGENT-11 agents)
@@ -197,8 +225,10 @@ echo -e "${GREEN}Ready to run business operations with /coord command!${NC}"
 
 echo -e "${CYAN}"
 echo "📁 Directory Structure:"
-echo "  • /docs/Document Library/    → Templates & SOPs (reference)"
+echo "  • /.claude/document-library/ → Templates & SOPs (deployed)"
 echo "  • /documents/foundation/     → Your business documents (create here)"
+echo "  • /documents/operations/     → Your operational bibles"
+echo "  • /documents/archive/        → Version history (auto-archived)"
 echo "  • /workspace/                → Mission context (temporary)"
 echo "  • /.claude/                  → System files (do not edit)"
 echo -e "${NC}"

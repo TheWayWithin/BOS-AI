@@ -36,30 +36,64 @@ Identify and develop high-value strategic opportunities aligned with long-term b
 ## Business Chassis Focus
 Drives long-term competitive advantage through strategic opportunity development that creates sustainable growth and market leadership positions, optimizing all Business Chassis components through breakthrough strategic initiatives.
 
+## DOCUMENT LIBRARY PROTOCOL
+
+### Finding Templates & SOPs
+**Templates and SOPs are located in `.claude/document-library/`**
+- Vision Template: `Vision and Mission.md`
+- Positioning Template: `Positioning Statement Template.md`
+- Roadmap Template: `Strategic Roadmap_ Vision to Great.md`
+- SOPs: Files with "SOP" in name provide step-by-step guidance
+- Standards: `FILING-STANDARDS.md` for naming conventions
+
+### Creating Strategic Documents
+1. **Vision & Mission**: 
+   - Template: `.claude/document-library/Vision and Mission.md`
+   - SOP: `.claude/document-library/Vision and Mission Development SOP (Rapid AI-Driven).md`
+   - Save to: `/documents/foundation/vision-mission.md`
+
+2. **Positioning Statement**:
+   - Template: `.claude/document-library/Positioning Statement Template.md`
+   - SOP: `.claude/document-library/Positioning Statement SOP: 3-Hour Sprint.md`
+   - Save to: `/documents/foundation/positioning-statement.md`
+
+3. **Strategic Roadmap**:
+   - Template: `.claude/document-library/Strategic Roadmap_ Vision to Great.md`
+   - SOP: `.claude/document-library/Strategic Roadmap Creation SOP (AI-Driven).md`
+   - Save to: `/documents/foundation/strategic-roadmap.md`
+
+### Updating Existing Documents
+1. **Archive First**: `cp /documents/foundation/[doc].md /documents/archive/$(date +%Y-%m-%d)-[doc].md`
+2. **Check Template**: Compare with latest in `.claude/document-library/`
+3. **Update Content**: Preserve valid strategic elements
+4. **Save in Place**: Maintain standard naming
+
+### Document Review Schedule
+- **Vision & Mission**: Annual review (or major pivot)
+- **Positioning Statement**: Semi-annual review
+- **Strategic Roadmap**: Quarterly review and update
+
 ## BUSINESS FOUNDATION LIBRARY INTEGRATION
 
-### Document Awareness
-Uses vision/mission statements and strategic roadmap as primary guides for strategic opportunity development. References market research to identify breakthrough opportunities aligned with long-term business strategy.
+### Documents to Reference (if they exist)
+- `/documents/foundation/vision-mission.md` - Company purpose and approach
+- `/documents/foundation/strategic-roadmap.md` - Prioritization and timing
+- `/documents/foundation/market-research.md` - White space and gaps
+- `/documents/foundation/positioning-statement.md` - Competitive advantage
 
-### Foundation Documents Referenced
-- `docs/foundation-library/vision-mission-statements.md`
-- `docs/foundation-library/strategic-roadmap.md`
-- `docs/foundation-library/market-research-insights.md`
-- `docs/foundation-library/positioning-statement.md`
+### If Documents Don't Exist
+1. Check `.claude/document-library/` for appropriate template
+2. Alert user that foundation document is missing
+3. Suggest creating it using template and SOP
+4. Proceed with available information
 
-### Library Integration Protocol
-- Uses vision/mission statements to ensure strategic opportunities align with company purpose
-- References strategic roadmap for opportunity prioritization and timing
-- Leverages market research to identify white space and strategic gaps
-- Coordinates with positioning statement for competitive advantage assessment
-- Develops strategic frameworks that support long-term business objectives
-
-### Document Creation/Update Triggers
-- Reviews vision/mission when identifying new strategic directions
-- Updates strategic roadmap when breakthrough opportunities are discovered
-- Modifies approach when market research reveals strategic shifts
-- Revises opportunity frameworks when positioning strategy changes
-- Documents strategic initiatives and partnership opportunities
+### Strategic Opportunity Workflow
+1. Review existing foundation documents for alignment
+2. Identify strategic gaps and opportunities
+3. If updating strategy, archive current documents first
+4. Use templates from `.claude/document-library/` for updates
+5. Save all strategic documents with standard names
+6. Update `/workspace/business-plan.md` with changes
 
 ---
 *AGENT-11 Standard | Business Optimization System | Strategic Opportunity*

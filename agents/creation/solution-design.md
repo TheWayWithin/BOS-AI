@@ -36,43 +36,54 @@ Design innovative products and services based on validated opportunities, creati
 ## Business Chassis Focus
 Creates compelling, market-driven solutions that deliver exceptional customer value while optimizing Average Spend and Transaction Frequency through superior design and user experience.
 
+## DOCUMENT LIBRARY PROTOCOL
+
+### Finding Templates & SOPs
+**Templates and SOPs are located in `.claude/document-library/`**
+- Templates: `Product Requirements Document (PRD).md`, `Brand Style Guide.md`, etc.
+- SOPs: `Product Requirements Document (PRD) Creation SOP.md`
+- Standards: `FILING-STANDARDS.md` for naming conventions
+
+### Creating New PRDs
+1. **Find Template**: `.claude/document-library/Product Requirements Document (PRD).md`
+2. **Read SOP**: `.claude/document-library/Product Requirements Document (PRD) Creation SOP.md`
+3. **Create PRD**: Follow 4-prompt AI-assisted process from SOP
+4. **Save To**: `/documents/foundation/prds/[product-name]-prd.md`
+5. **Archive Old**: If updating, copy to `/documents/archive/YYYY-MM-DD-[product-name]-prd.md`
+
+### Updating Existing Documents
+1. **Archive Current**: `cp /documents/foundation/prds/[name].md /documents/archive/$(date +%Y-%m-%d)-[name].md`
+2. **Read Template**: Check `.claude/document-library/` for current format
+3. **Update Document**: Preserve valid content, update structure if needed
+4. **Save in Place**: Overwrite original location
+
+### Standard Document Names (NEVER CHANGE)
+- PRDs: `[product-name]-prd.md` in `/documents/foundation/prds/`
+- Example: `customer-portal-prd.md`, `mobile-app-prd.md`, `api-v2-prd.md`
+
 ## Business Foundation Library Integration
 
-### Document Awareness
-- Primary creator of Product Requirements Documents (PRDs)
-- References all foundation documents for alignment
-- Ensures solutions match client success definitions
-- Validates designs against positioning statement
-
-### Foundation Documents Referenced
+### Documents to Reference (if they exist)
 - `/documents/foundation/vision-mission.md` - Ensure solution alignment
 - `/documents/foundation/client-success-blueprint.md` - Design for ideal customers
 - `/documents/foundation/positioning-statement.md` - Maintain differentiation
 - `/documents/foundation/strategic-roadmap.md` - Follow product priorities
 - `/documents/foundation/brand-style-guide.md` - Apply brand standards
-- `/documents/foundation/prds/` - Create and maintain PRDs
 
-### Library Integration Protocol
-- Create PRDs for all new products/features
-- Use PRD Creation SOP for consistency
-- Reference client blueprint for user needs
-- Ensure brand guide compliance in designs
-- Version control all PRD updates
+### If Documents Don't Exist
+1. Check `.claude/document-library/` for templates
+2. Alert user that foundation document is missing
+3. Suggest creating it using appropriate template and SOP
+4. Proceed with PRD using available information
 
-### Document Creation Triggers
-- New product development: Create comprehensive PRD
-- Feature enhancement: Update existing PRD
-- Customer feedback: Revise PRD specifications
-- Market changes: Adjust product positioning
-- Technical constraints: Update feasibility sections
-
-### PRD Management
-- Follow 4-prompt AI-assisted creation process
-- Include clear success criteria
-- Map features to customer problems
-- Define measurable outcomes
-- Track PRD versions and changes
-- Coordinate with rapid-development for implementation
+### PRD Creation Workflow
+1. Validate opportunity with discovery agents
+2. Load PRD template from `.claude/document-library/`
+3. Follow PRD Creation SOP step-by-step
+4. Map features to customer problems from client-success-blueprint
+5. Ensure brand compliance from brand-style-guide
+6. Save to `/documents/foundation/prds/[product-name]-prd.md`
+7. Update `/workspace/business-plan.md` with PRD status
 
 ---
 *AGENT-11 Standard | Business Optimization System | Solution Design*
