@@ -36,6 +36,7 @@ mkdir -p .claude/agents
 mkdir -p .claude/commands  
 mkdir -p .claude/missions
 mkdir -p workspace
+mkdir -p documents/foundation/prds
 
 # Deploy core documentation
 echo -e "${BLUE}📚 Deploying core documentation...${NC}"
@@ -132,6 +133,19 @@ if [ -f "docs/bos-ai-orchestration-guide.md" ]; then
     echo -e "${CYAN}   Location: docs/bos-ai-orchestration-guide.md${NC}"
 fi
 
+# Prepare User Document Directories
+echo -e "${PURPLE}📂 Preparing user document directories...${NC}"
+if [ ! -d "documents/foundation" ]; then
+    echo -e "${GREEN}✅ Created documents/foundation/ for your business documents${NC}"
+else
+    EXISTING_DOCS=$(find documents/foundation -name "*.md" -type f | wc -l)
+    if [ "$EXISTING_DOCS" -gt 0 ]; then
+        echo -e "${GREEN}✅ Found ${EXISTING_DOCS} existing foundation documents${NC}"
+    else
+        echo -e "${YELLOW}📝 documents/foundation/ ready for your business documents${NC}"
+    fi
+fi
+
 # Verify Document Library Availability
 echo -e "${CYAN}📚 Verifying Document Library...${NC}"
 if [ -d "docs/Document Library" ]; then
@@ -180,3 +194,11 @@ echo "╚═══════════════════════�
 echo -e "${NC}"
 
 echo -e "${GREEN}Ready to run business operations with /coord command!${NC}"
+
+echo -e "${CYAN}"
+echo "📁 Directory Structure:"
+echo "  • /docs/Document Library/    → Templates & SOPs (reference)"
+echo "  • /documents/foundation/     → Your business documents (create here)"
+echo "  • /workspace/                → Mission context (temporary)"
+echo "  • /.claude/                  → System files (do not edit)"
+echo -e "${NC}"
