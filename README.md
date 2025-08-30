@@ -55,14 +55,14 @@ claude code .
 | **Business** | 15 | Growing companies | + Market intelligence, quality assurance, marketing suite |
 | **Full** | 30 | Established firms | Complete suite with legal, financial, all specialized agents |
 
-### Alternative: Clone & Deploy (For Contributors)
+### Alternative: Clone Repository (For Contributors)
 ```bash
 # Clone the repository
 git clone https://github.com/TheWayWithin/BOS-AI.git
 cd BOS-AI
 
-# Deploy everything to Claude Code
-./deployment/scripts/deploy-complete.sh
+# View source code and contribute
+# To install in a project, use the one-line installer above
 ```
 
 ### ✅ What Gets Installed
@@ -92,9 +92,9 @@ cd BOS-AI
 
 #### 3. Run Business Missions
 ```bash
-/coord project-setup     # Initialize new project structure
-/coord daily-review      # Daily business metrics review
-/coord product-launch    # Coordinate product launch
+/coord vision-mission-update  # Update vision & mission docs
+/coord foundation-review      # Review all foundation documents
+/coord weekly-optimization    # Weekly business optimization
 ```
 
 ### Quick Examples
@@ -163,35 +163,46 @@ Simply reference any agent with @ in your Claude Code session:
 - **Financial (3):** Budget, analysis, and investment
 - **Legal (3):** Compliance, risk, and contracts
 
-All agents are located in `.claude/agents/` for automatic Claude Code integration.
+All agents are installed to `.claude/agents/` where Claude Code automatically discovers them. Just type `@agent-name` to use any agent.
 
-## 🗂️ Advanced Document Filing System v2.0
+## 📁 What Gets Installed - Directory Structure
 
-**Major Upgrade**: All 31 BOS-AI agents now follow consistent document filing protocols with 100% compliance.
+BOS-AI creates a clean, organized structure in your project:
 
-### What's New
-- ✅ **Embedded Filing Protocols** - Every agent knows exactly where to save documents
-- ✅ **Standardized Naming** - YYYY-MM-DD format for chronological organization  
-- ✅ **Automated Setup** - New `project-setup` mission creates complete structure
-- ✅ **Professional SOP** - Comprehensive standards ensure consistency
-
-### Quick Example
-```bash
-# When you run optimization
-/coord optimize
-
-# Agents automatically:
-→ UPDATE: /documents/business-assets/financial-dashboard.md
-→ CREATE: /assets/reports/2025-08-25-report-chassis-analysis.md
-→ APPEND: /assets/performance-data/2025-08-25-metrics-revenue.md
+```
+your-project/
+├── .claude/                     # BOS-AI System Files
+│   ├── CLAUDE.md               # Command documentation
+│   ├── agents/                 # 30 specialized business agents
+│   ├── missions/               # Pre-built workflows
+│   ├── commands/               # /coord and /meeting commands
+│   └── document-library/       # 17 templates & SOPs
+├── workspace/                   # Mission context files
+├── documents/                   # Your business documents
+│   ├── foundation/             # Core business docs
+│   │   └── prds/              # Product requirements
+│   ├── operations/            # Operational docs
+│   ├── archive/               # Version history
+│   └── [created as needed]    # Other categories
+└── assets/                      # Generated reports & analysis
+    └── reports/                # Analysis outputs
 ```
 
-### Business Impact
-- **24% Profit Improvement** through operational efficiency
-- **80% Faster** project setup with automated mission
-- **5+ Hours/Week** saved on document management
+### 📚 Document Library - Professional Templates & SOPs
 
-📚 **[View Complete Filing System Guide](docs/filing-system-guide.md)** - Comprehensive documentation of the v2.0 filing system
+The `.claude/document-library/` contains **17 professional business templates** with rapid AI-driven creation guides:
+
+| Template | Paired SOP | Time to Complete |
+|----------|------------|------------------|
+| **Vision and Mission.md** | Rapid AI-Driven Development SOP | 3 hours |
+| **Market and Client Research.md** | Rapid AI-Driven Research SOP | 4 hours |
+| **Client Success Blueprint.md** | Creation SOP (Revised) | 4 hours |
+| **Positioning Statement.md** | 3-Hour Sprint SOP | 3 hours |
+| **Strategic Roadmap.md** | AI-Driven Creation SOP | 5 hours |
+| **Brand Style Guide.md** | AI-Driven Creation SOP | 4 hours |
+| **Product Requirements Document.md** | PRD Creation SOP | 3 hours |
+
+**Plus:** Filing standards guide showing exactly how to name and organize your documents for professional presentation.
 
 ---
 
@@ -305,208 +316,120 @@ Reference any of the 30 agents directly with @:
 
 ---
 
-## 📁 Document Management & Asset Structure
+## 📝 How Agents Use Documents
 
-### Why BOS-AI Organizes by Document Type (Not Business Function)
+BOS-AI agents know exactly where to find templates and where to save your documents:
 
-Unlike traditional business systems that scatter documents across functional silos, BOS-AI intentionally organizes all documents by **type** rather than department. This design serves solopreneurs who need quick access to all their SOPs, all their policies, or all their core documents without hunting through multiple directories.
+### Template Library Location
+**All templates are in `.claude/document-library/`** - This is where agents look for templates and SOPs when creating or updating your business documents.
 
-**Key Benefits:**
-- **Single Source of Truth** - All similar documents in one location
-- **Cross-Functional Access** - Agents work across all business functions seamlessly
-- **Business Chassis Optimization** - Supports the multiplication formula that requires holistic visibility
-- **Solopreneur Optimized** - One person managing everything needs simplicity, not silos
+### Your Document Locations
+Agents organize YOUR documents in these locations:
+- **`documents/foundation/`** - Your vision, mission, market research, positioning
+- **`documents/foundation/prds/`** - Product requirements documents
+- **`documents/operations/`** - Operational documents
+- **`documents/archive/`** - Version history
+- **`assets/reports/`** - Generated analysis and reports
 
-### Two-Part Document Architecture
-
-#### 📝 Living Documents (`/documents/`)
-Core business documentation that agents maintain and update:
-- **Templates** that define your business
-- **Version controlled** for tracking changes
-- **Agent-updated** during optimization missions
-- **Professional quality** for acquisition readiness
-
-#### 📊 Generated Assets (`/assets/`)
-Output created by agent operations:
-- **Reports** from analysis missions
-- **Performance data** from tracking
-- **Client deliverables** from projects
-- **Strategic plans** from planning sessions
-
-### Document Directory Reference
-
-| Directory | Purpose | Agent Actions | Example Contents |
-|-----------|---------|---------------|------------------|
-| `/documents/business-assets/` | Core business documents | Update during optimization | Marketing Bible, Sales Playbook, Financial Dashboard |
-| `/documents/sops/` | Standard procedures | Create & maintain processes | Chassis Optimization SOP, Quality Assurance SOP |
-| `/documents/policies/` | Business policies | Ensure compliance | Data Governance, Security Policy, Quality Standards |
-| `/documents/references/` | Methodology guides | Reference during operations | Business Chassis Guide, 10x Philosophy |
-| `/assets/reports/` | Analysis outputs | Generate new insights | Market Analysis, Competitive Intelligence |
-| `/assets/performance-data/` | Metrics & KPIs | Track chassis metrics | Revenue Metrics, Conversion Data |
-| `/assets/strategic-plans/` | Planning documents | Create strategies | Growth Plans, Campaign Strategies |
-| `/assets/client-success-blueprint/` | Client documents | Customize per client | Client Blueprints, Success Plans |
-
-### How Agents Use the Document Structure
+### How It Works in Practice
 
 ```bash
-# Example: Business Chassis Optimization
-/coord optimize
-→ Reads: /documents/business-assets/financial-dashboard.md
-→ Updates: Same file with new metrics and insights
-→ Creates: /assets/reports/chassis-analysis-2025-08.md
+# Example: Update your Vision & Mission
+/coord vision-mission-update
 
-# Example: Marketing Campaign Development  
-/meeting @campaign-execution "Q4 product launch"
-→ References: /documents/business-assets/marketing-bible.md
-→ Uses: /documents/sops/campaign-execution-sop.md
-→ Creates: /assets/strategic-plans/q4-campaign-strategy.md
-
-# Example: Client Onboarding
-/coord onboard "NewClient Corp"
-→ Template: /documents/business-assets/client-success-blueprint.md
-→ Creates: /assets/client-success-blueprint/newclient-blueprint.md
-→ Updates: /assets/performance-data/client-metrics.md
+# Agent workflow:
+1. Reads template from: .claude/document-library/Vision and Mission.md
+2. Follows SOP from: .claude/document-library/Vision and Mission Development SOP (Rapid AI-Driven).md
+3. Creates/updates your document: documents/foundation/vision-mission.md
 ```
 
-### Document Management Best Practices
+```bash
+# Example: Create Strategic Roadmap
+/coord strategic-roadmap
 
-1. **Core Documents** (`/documents/business-assets/`) are your single source of truth - keep them current
-2. **SOPs** (`/documents/sops/`) ensure consistency - agents follow these automatically
-3. **Generated Reports** (`/assets/reports/`) provide insights - review regularly
-4. **Performance Data** (`/assets/performance-data/`) tracks your Business Chassis metrics
+# Agent workflow:
+1. Uses template: .claude/document-library/Strategic Roadmap_ Vision to Great.md
+2. Follows process: .claude/document-library/Strategic Roadmap Creation SOP (AI-Driven).md
+3. Saves your roadmap: documents/foundation/strategic-roadmap.md
+```
 
-The structure ensures that whether you're optimizing your Business Chassis, launching a campaign, or onboarding a client, all relevant documents are logically organized and easily accessible.
+### Document Naming Convention
+Agents use the YYYY-MM-DD format for generated reports:
+- Reports: `2025-08-30-report-market-analysis.md`
+- Metrics: `2025-08-30-metrics-revenue.md`
+- Plans: `2025-08-30-plan-q4-launch.md`
+
+This ensures chronological organization and easy retrieval.
 
 ---
 
-## Mission Workflows
+## 🎯 Mission Workflows
 
-BOS-AI includes **20+ predefined mission workflows** for systematic business development:
+BOS-AI includes **31 pre-built missions** that coordinate your agents to accomplish complex business tasks:
 
-### Foundation Missions
-- **Chassis Implementation** - Set up Business Chassis tracking and optimization
-- **Blueprint Creation** - Develop comprehensive Client Success Blueprint
-- **Intelligence Setup** - Deploy central coordination and analysis systems
+### Quick Mission Examples
+```bash
+/coord vision-mission-update    # Update your vision & mission docs
+/coord foundation-review        # Review all foundation documents
+/coord chassis-optimization     # Full Business Chassis analysis
+/coord product-launch          # Coordinate product launch
+/coord weekly-review-sequence  # Complete weekly business review
+```
 
-### Engine Deployment Missions
-- **Discovery Engine Setup** - Market intelligence and opportunity validation
-- **Creation Engine Setup** - Solution development and value optimization
-- **Delivery Engine Setup** - Customer success and quality management
-- **Growth Engine Setup** - Scaling and expansion strategies
+### Mission Categories
+- **Business Setup** (6 missions) - Foundation, migration, bootstrap
+- **Discovery** (3 missions) - Market research, competitive analysis
+- **Creation** (3 missions) - Solution development, MVP creation
+- **Operations** (5 missions) - Daily/weekly/quarterly reviews
+- **Sequences** (5 missions) - Multi-step coordinated workflows
+- **Delivery** (3 missions) - Customer onboarding, quality assurance
+- **Growth** (3 missions) - Scaling, expansion, revenue optimization
+- **Optimization** (3 missions) - Performance enhancement, analysis
 
-### Business Integration Missions
-- **Marketing Integration** - Complete marketing system deployment
-- **Sales Integration** - Systematic sales process implementation
-- **Service Integration** - Customer success and support optimization
-- **Financial Integration** - Business Chassis financial tracking
-- **Legal Integration** - Compliance and risk management
+All missions are stored in `.claude/missions/` and automatically available through the `/coord` command.
 
 ---
 
-## Repository Structure
+## 📚 Source Repository Structure
+
+**Note:** This is the BOS-AI source repository structure. When you install BOS-AI in your project, you get a clean subset (see "What Gets Installed" above).
 
 ```
-BOS-AI/
-├── documents/                 # Standard Document Library
-│   ├── business-assets/       # Core business documents
-│   │   ├── client-success-blueprint.md
-│   │   ├── marketing-bible.md
-│   │   ├── sales-playbook.md
-│   │   ├── operations-manual.md
-│   │   ├── financial-dashboard.md
-│   │   └── strategic-plan.md
-│   ├── sops/                  # Standard Operating Procedures
-│   │   ├── chassis-optimization-sop.md
-│   │   ├── client-success-sop.md
-│   │   ├── asset-creation-sop.md
-│   │   ├── mission-coordination-sop.md
-│   │   └── quality-assurance-sop.md
-│   ├── policies/              # Business policies
-│   │   ├── data-governance.md
-│   │   ├── security-policy.md
-│   │   ├── quality-standards.md
-│   │   └── coordination-protocols.md
-│   └── references/            # Reference materials
-│       ├── business-chassis-guide.md
-│       ├── four-engine-framework.md
-│       ├── 10x-philosophy.md
-│       └── multiplication-principle.md
-├── agents/                    # Empire-11 Agent Ecosystem
+BOS-AI/ (GitHub Repository)
+├── agents/                    # 30 Agent source files
 │   ├── coordination/          # Central coordination agents
-│   │   ├── chassis-intelligence.md
-│   │   ├── client-success-intelligence.md
-│   │   └── multiplication-engine.md
-│   ├── discovery/             # Discovery Engine agents
-│   │   ├── market-intelligence.md
-│   │   ├── opportunity-validation.md
-│   │   └── strategic-opportunity.md
-│   ├── creation/              # Creation Engine agents
-│   │   ├── solution-design.md
-│   │   ├── rapid-development.md
-│   │   └── value-optimization.md
-│   ├── delivery/              # Delivery Engine agents
-│   │   ├── customer-success.md
-│   │   ├── quality-assurance.md
-│   │   └── delivery-optimization.md
-│   ├── growth/                # Growth Engine agents
-│   │   ├── scaling-strategy.md
-│   │   ├── market-expansion.md
-│   │   └── revenue-optimization.md
-│   ├── marketing/             # Marketing function agents
-│   │   ├── brand-strategy.md
-│   │   ├── campaign-execution.md
-│   │   └── content-creation.md
-│   ├── sales/                 # Sales function agents
-│   │   ├── pipeline-management.md
-│   │   ├── conversion-optimization.md
-│   │   └── revenue-operations.md
-│   ├── customer-service/      # Customer Service agents
-│   │   ├── support-management.md
-│   │   ├── satisfaction-optimization.md
-│   │   └── retention-strategy.md
-│   ├── financial/             # Financial Management agents
-│   │   ├── budget-planning.md
-│   │   ├── performance-analysis.md
-│   │   └── investment-strategy.md
-│   └── legal/                 # Legal Compliance agents
-│       ├── compliance-management.md
-│       ├── risk-assessment.md
-│       └── contract-management.md
-├── missions/                  # Comprehensive Mission Workflows
-│   ├── business-setup/        # Business foundation missions
-│   │   ├── chassis-implementation.md
-│   │   ├── client-success-blueprint.md
-│   │   └── core-asset-creation.md
-│   ├── discovery/             # Discovery missions
-│   │   ├── market-research.md
-│   │   ├── opportunity-validation.md
-│   │   └── competitive-analysis.md
-│   ├── creation/              # Creation missions
-│   │   ├── solution-development.md
-│   │   ├── mvp-creation.md
-│   │   └── value-optimization.md
+│   ├── discovery/             # Market research agents
+│   ├── creation/              # Solution design agents
+│   ├── delivery/              # Customer success agents
+│   ├── growth/                # Scaling strategy agents
+│   ├── marketing/             # Marketing agents
+│   ├── sales/                 # Sales agents
+│   ├── customer-service/      # Support agents
+│   ├── financial/             # Financial agents
+│   └── legal/                 # Compliance agents
+├── missions/                  # Mission workflows
+│   ├── business-setup/        # Foundation missions
+│   ├── discovery/             # Research missions
+│   ├── creation/              # Development missions
 │   ├── delivery/              # Delivery missions
-│   │   ├── customer-onboarding.md
-│   │   ├── quality-assurance.md
-│   │   └── delivery-optimization.md
 │   ├── growth/                # Growth missions
-│   │   ├── scaling-strategy.md
-│   │   ├── market-expansion.md
-│   │   └── revenue-optimization.md
 │   ├── operations/            # Daily operations
-│   │   ├── daily-chassis-review.md
-│   │   ├── weekly-optimization.md
-│   │   └── quarterly-strategy.md
-│   └── optimization/          # Optimization missions
-│       ├── chassis-optimization.md
-│       ├── multiplication-analysis.md
-│       └── performance-enhancement.md
-├── frameworks/                # BOS methodology implementation
-├── templates/                 # Business asset templates
-├── assets/                    # Generated business documentation
-├── intelligence/              # Central coordination systems
-├── deployment/                # Installation and configuration
-└── docs/                      # Comprehensive documentation
+│   ├── optimization/          # Optimization missions
+│   └── sequences/             # Multi-step sequences
+├── docs/                      # Documentation
+│   ├── Document Library/      # 17 templates & SOPs
+│   └── filing-system-guide.md # Filing system docs
+├── deployment/                # Installation scripts
+│   └── scripts/
+│       └── install.sh         # One-line installer
+├── workspace/                 # Context templates
+├── .claude/                   # Command definitions
+│   └── commands/
+│       ├── coord.md
+│       └── meeting.md
+├── CLAUDE.md                  # Main documentation
+├── BOUNDARIES.md              # BOS-AI vs AGENT-11
+└── README.md                  # This file
 ```
 
 ---
@@ -529,13 +452,18 @@ Personal investment and authentic passion for customer success creates **competi
 
 ---
 
-## Documentation
+## 📚 Documentation
 
-- **[Getting Started Guide](docs/getting-started/README.md)** - Quick setup and first steps
-- **[Agent Reference](docs/agents/README.md)** - Complete guide to all 30 agents
-- **[Mission Catalog](docs/missions/README.md)** - Pre-built business workflows
-- **[Command Reference](CLAUDE.md)** - Complete command documentation
-- **[Filing System Guide](docs/filing-system-guide.md)** - Document management system
+### In Your Project After Installation
+- **`.claude/CLAUDE.md`** - Complete command reference and agent list
+- **`.claude/BOUNDARIES.md`** - BOS-AI vs AGENT-11 separation
+- **`.claude/document-library/FILING-STANDARDS.md`** - Document naming conventions
+- **`.claude/document-library/business_foundation_library_guide.md`** - Template usage guide
+- **`.claude/INSTALLATION_SUMMARY.md`** - What was installed in your project
+
+### In GitHub Repository
+- **[Filing System Guide](docs/filing-system-guide.md)** - Comprehensive filing system documentation
+- **[Source Code](https://github.com/TheWayWithin/BOS-AI)** - Full source repository
 
 ---
 
