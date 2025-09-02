@@ -2,6 +2,36 @@
 
 Welcome to BOS-AI - Your AI-powered Business Operating System focused on exponential growth through Business Chassis optimization.
 
+## 🔴 RULE #1: AGENT DEVELOPMENT DIRECTORY STRUCTURE
+
+**CRITICAL - ALWAYS FOLLOW THIS STRUCTURE:**
+
+### Source Directory (EDIT HERE):
+📁 `/agents/` - **THIS IS WHERE YOU WORK ON AGENTS**
+- All agent development happens in `/agents/` directory
+- Organized by category (coordination, creation, delivery, etc.)
+- This is the SOURCE OF TRUTH for all agents
+- **NEVER edit agents in `.claude/agents/` directly**
+
+### Deployment Directory (READ-ONLY):
+📁 `.claude/agents/` - **DO NOT EDIT HERE**
+- This is the DEPLOYED location for Claude Code to use
+- Automatically populated by deployment scripts
+- Any manual edits here will be overwritten
+- Treat as read-only runtime directory
+
+### Correct Workflow:
+1. **EDIT** agents in `/agents/[category]/[agent-name].md`
+2. **TEST** locally if needed
+3. **DEPLOY** using installation scripts
+4. **VERIFY** agents appear in `.claude/agents/`
+
+### Example:
+```
+✅ CORRECT: Edit /agents/discovery/market-intelligence.md
+❌ WRONG: Edit .claude/agents/market-intelligence.md
+```
+
 ## ⚠️ CRITICAL: BOS-AI vs AGENT-11 Separation
 
 **BOS-AI** is a BUSINESS OPERATING SYSTEM - it runs your business, NOT your code.
