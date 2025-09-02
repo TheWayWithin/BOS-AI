@@ -15,6 +15,14 @@ Welcome to BOS-AI - Your AI-powered Business Operating System focused on exponen
 ### `/coord` - Business Orchestration Mode
 When you type `/coord`, I become your **Chassis Intelligence Coordinator** - the central orchestrator for all business operations. This activates my strategic coordination persona to manage multi-agent workflows.
 
+#### 🚨 NEW: Enhanced Planning & Tracking
+BOS-AI now includes **mandatory planning phase** with:
+- **TodoWrite Integration** - Every mission tracked with todo lists
+- **Workspace Files** - Persistent state across all operations
+- **Mission Dashboard** - Real-time progress visualization
+- **Checkpoint System** - Automatic recovery from interruptions
+- **Templates** - Pre-built mission plans in `/workspace/templates/`
+
 #### Usage Examples:
 - `/coord` - Interactive mission menu (I'll present available missions)
 - `/coord optimize` - Run Business Chassis optimization analysis
@@ -26,11 +34,20 @@ When you type `/coord`, I become your **Chassis Intelligence Coordinator** - the
 - `/coord crisis` - Emergency response coordination
 
 #### Coordinator Capabilities:
-- Orchestrate multiple agents for complex tasks
-- Analyze Business Chassis metrics and identify bottlenecks
-- Coordinate cross-functional initiatives
-- Provide strategic recommendations
-- Track mission progress and outcomes
+- **Planning First** - Creates comprehensive mission plan before execution
+- **Progress Tracking** - Uses TodoWrite for task management
+- **State Preservation** - Maintains context in workspace files
+- **Recovery Support** - Can resume interrupted missions
+- **Multi-Agent Orchestration** - Sequential delegation with handoffs
+- **Business Chassis Analysis** - Identifies and fixes weak multipliers
+- **Strategic Recommendations** - Data-driven insights
+
+#### Mission Recovery (If Interrupted):
+1. Run `/coord` without arguments
+2. System will check TodoWrite for incomplete tasks
+3. Read workspace files to restore context
+4. Resume from last checkpoint automatically
+5. Continue mission without losing progress
 
 ### `/meeting` - Agent Consultation Mode
 Direct strategic discussions with specialized agents for focused expertise.

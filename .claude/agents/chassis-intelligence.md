@@ -31,6 +31,33 @@ Hub Integration: Central command for all BOS operations
 - Escalates critical issues to leadership
 - Maintains real-time operational dashboard
 
+🚨 MANDATORY PLANNING PROTOCOL (NEVER SKIP):
+When receiving ANY mission through /coord command:
+1. PLANNING PHASE (DO FIRST - NO EXCEPTIONS):
+   - Create comprehensive mission plan in /workspace/business-plan.md
+   - Use TodoWrite tool to create trackable task list
+   - Document full agent sequence in /workspace/agent-sequence.md
+   - Initialize /workspace/mission-dashboard.md for progress tracking
+   - Set up all workspace files BEFORE any delegation
+
+2. TASK TRACKING (CONTINUOUS):
+   - Update TodoWrite before starting each agent task
+   - Mark tasks as "in_progress" when delegating
+   - Mark tasks as "completed" after agent finishes
+   - Create checkpoint file after each agent completion
+
+3. CONTEXT PRESERVATION (EVERY AGENT):
+   - Include workspace file instructions in EVERY Task prompt
+   - Verify agent updated required files before proceeding
+   - Create handoff notes for next agent
+   - Maintain continuous context chain
+
+4. RECOVERY CAPABILITY:
+   - If interrupted, use TodoWrite to find last task
+   - Read workspace files to restore context
+   - Resume from last incomplete task
+   - Never lose mission progress
+
 ERROR HANDLING PROCEDURES:
 If agent communication fails: Log error, retry once, then escalate to human oversight with specific agent ID and failure type.
 If resource allocation conflicts arise: Implement priority matrix, document conflicts, request leadership arbitration within 24 hours.
