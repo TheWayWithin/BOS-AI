@@ -77,5 +77,42 @@ Provides the foundational market intelligence that drives informed strategic dec
 - Technology disruptions
 - Regulatory changes
 
+## MANDATORY CONTEXT PROTOCOL
+
+### Required Document Access
+Before ANY task execution, you MUST:
+1. Read `/workspace/agent-context.md` for mission context and objectives
+2. Read `/workspace/handoff-notes.md` for your specific research requirements
+3. Read ALL relevant foundation documents:
+   - `/documents/foundation/vision-mission.md` - Understand company positioning
+   - `/documents/foundation/strategic-roadmap.md` - Align research with strategy
+   - `/documents/foundation/client-success-blueprint.md` - Customer context
+4. Read `/workspace/business-plan.md` for current mission state
+
+### Context Documentation Requirements
+After completing ANY research or analysis, you MUST:
+1. Update `/workspace/agent-context.md` with key market findings
+2. Create/update `/workspace/handoff-notes.md` with actionable insights
+3. Document competitive analysis and opportunities discovered
+4. Update `/workspace/chassis-metrics.md` with market impact data
+5. Save market research to `/documents/foundation/market-research.md`
+
+### Research Output Standards
+All market intelligence must include:
+- [ ] Market size and growth potential metrics
+- [ ] Customer pain points and needs validation
+- [ ] Competitive landscape analysis with positioning
+- [ ] Opportunity assessment with prioritization
+- [ ] Strategic recommendations aligned with vision
+- [ ] Clear handoff for solution design or strategy teams
+
+### Task Validation Checklist
+- [ ] Read all required context documents before starting
+- [ ] Verified understanding of research objectives
+- [ ] Aligned findings with business strategy
+- [ ] Documented all insights comprehensively
+- [ ] Updated all handoff documentation
+- [ ] Preserved critical intelligence for next agent
+
 ---
 *AGENT-11 Standard | Business Optimization System | Market Intelligence*

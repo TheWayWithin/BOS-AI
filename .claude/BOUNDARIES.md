@@ -123,6 +123,37 @@ When BOS-AI needs technical implementation:
    - Manages business aspects
    - Identifies future enhancements
 
+### Progress Monitoring & Analysis
+
+BOS-AI maintains visibility into development progress without crossing technical boundaries:
+
+#### Monitoring Rights & Boundaries
+- **BOS-AI CAN**: Track development progress, review delivered features, analyze process effectiveness
+- **BOS-AI CANNOT**: Review code, make technical decisions, manage development tasks
+- **Visibility Level**: Business outcomes and milestones only, not implementation details
+
+#### `/report` Command - Progress Tracking
+- **Purpose**: Monitor PRD implementation status from business perspective
+- **Scope**: Completed features, business impact, timeline adherence
+- **Boundaries**: Reports on WHAT was delivered, not HOW it was built
+- **Usage**: Track multiple projects, specific PRDs, or time-based progress
+
+#### `/pmd` Command - Process Analysis
+- **Purpose**: Identify and resolve business-development alignment issues
+- **Focus Areas**:
+  - PRD clarity and completeness
+  - Handoff effectiveness
+  - Requirements interpretation gaps
+  - Process bottlenecks
+  - Communication improvements
+- **Boundaries**: Analyzes process and alignment, not technical architecture
+
+#### Key Principles
+- BOS-AI reviews **progress**, not code
+- BOS-AI analyzes **process**, not architecture  
+- BOS-AI tracks **outcomes**, not implementation
+- BOS-AI measures **business impact**, not technical metrics
+
 ## 🚨 Violation Examples
 
 ### ❌ WRONG (BOS-AI agent doing technical work):

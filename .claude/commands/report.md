@@ -1,182 +1,109 @@
 ---
 name: report
-description: Generate business operations progress reports for BOS-AI activities
-model: sonnet
+description: Generate progress report for stakeholders
 ---
 
-# BOS-AI OPERATIONS REPORTER
+# PROGRESS REPORT GENERATION 📊
 
-You are the BUSINESS OPERATIONS REPORTER for BOS-AI, tracking and reporting on all business activities, strategic initiatives, and operational progress.
+**Command**: `/report [since_date]`
 
-## CORE MISSION
+**Purpose**: Generate a structured progress report documenting completed tasks, issues encountered, and project status for external stakeholders (BOS-AI, clients, or management).
 
-Generate comprehensive progress reports on BOS-AI business operations, documenting completed work, issues encountered, changes made, and strategic progress since the last report.
+## KEY FEATURES
 
-## COMMAND SYNTAX
+- **Automated Data Collection**: Pulls from project-plan.md, progress.md, and git history
+- **Time-Based Reporting**: Reports changes since last report or specified date
+- **Stakeholder-Ready Format**: Professional structure suitable for external communication
+- **BOS-AI Integration**: Special sections when integrated with BOS-AI documents
+- **Issue Tracking**: Documents problems encountered and their resolutions
 
-- `/report` - Generate report of all activities since last report
-- `/report [date]` - Progress since specific date (e.g., 2025-08-20)
-- `/report [period]` - Report for specific period (daily, weekly, monthly)
+## USAGE EXAMPLES
 
-## REPORT STRUCTURE
+```bash
+# Generate report for last 7 days (default)
+/report
 
-### 1. EXECUTIVE SUMMARY
-- Period covered
-- Key business accomplishments
-- Major decisions made
-- Critical issues addressed
+# Generate report since specific date
+/report 2025-08-20
 
-### 2. COMPLETED WORK
-For each completed business activity:
-- Business initiative/task completed
-- Impact on Business Chassis metrics
-- Strategic value delivered
-- Date completed
-
-### 3. ACTIVE INITIATIVES
-For each ongoing business activity:
-- Current status and progress
-- Next steps planned
-- Resources required
-- Expected outcomes
-
-### 4. ISSUES & RESOLUTIONS
-- Business challenges encountered
-- Resolution strategies implemented
-- Process improvements made
-- Lessons learned
-
-### 5. BUSINESS CHASSIS METRICS
-- Prospects pipeline changes
-- Lead conversion improvements
-- Client conversion updates
-- Average spend trends
-- Transaction frequency changes
-- Margin optimizations
-
-### 6. STRATEGIC CHANGES
-- Process modifications
-- New strategies adopted
-- Operational improvements
-- System optimizations
-
-## DATA SOURCES
-
-Check these locations for business activity information:
-- `/workspace/agent-context.md` - Current business context
-- `/workspace/decision-log.md` - Strategic decisions made
-- `/assets/reports/` - Previous business reports
-- `/documents/business-assets/` - Business documentation updates
-- `/documents/sops/` - Process and procedure changes
-- `/missions/` - Completed mission activities
-
-## REPORT GENERATION PROTOCOL
-
-1. **Gather Data**:
-   - Review workspace files for recent activities
-   - Check decision logs for strategic decisions
-   - Scan mission completions
-   - Review document updates and changes
-   - Analyze Business Chassis metrics if available
-
-2. **Analyze Progress**:
-   - Identify key accomplishments
-   - Assess business impact of activities
-   - Evaluate strategic progress
-   - Document process improvements
-
-3. **Format Report**:
-   - Use clear business language
-   - Focus on strategic outcomes
-   - Highlight value delivered
-   - Include actionable insights
-   - Document lessons learned
-
-4. **Save Report**:
-   - Generate report in `/assets/reports/YYYY-MM-DD-report-operations.md`
-   - Update last report date tracker
-   - Flag critical issues for attention
-   - Archive for future reference
-
-## BOUNDARIES & SCOPE
-
-This command tracks BOS-AI business operations:
-- Strategic planning activities
-- Business process improvements
-- Customer success initiatives
-- Revenue optimization efforts
-- Market analysis and positioning
-- Operational efficiency gains
-
-Focus areas include:
-- Business Chassis optimization
-- Strategic decision tracking
-- Mission execution results
-- Process improvement documentation
-- Operational metrics tracking
-
-## OUTPUT FORMAT
-
-```markdown
-# BOS-AI Operations Report - [Date]
-
-## Executive Summary
-[High-level overview of business operations]
-
-## Period: [Start Date] to [End Date]
-
-### ✅ Completed Work This Period
-- [Business initiative] - [Impact/Result]
-- [Strategic task] - [Value delivered]
-- [Process improvement] - [Efficiency gained]
-
-### 🔄 Active Initiatives
-- [Initiative] - [Status] - [Next steps]
-- [Project] - [Progress] - [Expected outcome]
-
-### ⚠️ Issues & Resolutions
-- [Issue encountered]: [How it was resolved]
-- [Challenge]: [Mitigation strategy]
-
-### 📊 Business Chassis Performance
-- Prospects: [Change/Status]
-- Lead Conversion: [Improvement/Status]
-- Client Conversion: [Update]
-- Average Spend: [Trend]
-- Transaction Frequency: [Change]
-- Margin: [Optimization]
-
-### 🔄 Process Changes
-- [Process modified]: [Reason and impact]
-- [New procedure]: [Expected benefit]
-
-### 🎯 Next Period Focus
-- [Priority 1]: [Objective]
-- [Priority 2]: [Goal]
-
-### 💡 Strategic Insights
-- [Key learning or insight]
-- [Recommendation for improvement]
+# Generate report since last report (automatic detection)
+/report
 ```
+
+## REPORT SECTIONS
+
+### 1. Executive Summary
+Brief overview of progress and current status
+
+### 2. Tasks Completed
+Table of completed tasks with dates and business impact
+
+### 3. Issues & Resolutions
+Documentation of problems encountered and how they were resolved
+
+### 4. Current Status
+Overall project health and active phase
+
+### 5. Metrics
+Key performance indicators and trends
+
+### 6. Next Milestones
+Upcoming deliverables and target dates
+
+### 7. Resource Needs
+Decisions, resources, or clarifications needed from stakeholders
+
+### 8. Business Alignment (BOS-AI Integration)
+How development aligns with business vision and requirements
+
+## OUTPUT
+
+Generates `progress-report.md` with:
+- Structured markdown format
+- Tables for easy scanning
+- Visual indicators (✅, ⚠️, 📈, 📉)
+- Clear action items for stakeholders
+- Timestamp and next report date
+
+## BENEFITS
+
+- **Transparency**: Clear visibility into development progress
+- **Accountability**: Documented completion and issue resolution
+- **Communication**: Bridge between technical work and business stakeholders
+- **Tracking**: Historical record of project evolution
+- **Planning**: Identifies resource needs and blockers early
+
+## INTEGRATION WITH BOS-AI
+
+When BOS-AI documents are present in the ideation folder:
+- Reports PRD requirement coverage percentage
+- Shows alignment with Vision and Mission.md
+- References Strategic Roadmap milestones
+- Translates technical progress to business value
+
+## BEST PRACTICES
+
+1. **Regular Cadence**: Generate reports weekly for active projects
+2. **Accurate Dating**: Always verify dates against actual completion
+3. **Business Language**: Translate technical achievements to business value
+4. **Action Items**: Clearly identify what stakeholders need to provide
+5. **Trend Analysis**: Show whether project is improving or declining
 
 ## ERROR HANDLING
 
-If unable to find activity data:
-- Check alternative file locations
-- Generate report based on available information
-- Clearly note data gaps in report
-- Suggest establishing better tracking mechanisms
+- **Missing project-plan.md**: Falls back to git commit history
+- **Missing progress.md**: Reports only completed tasks
+- **No activity**: Generates "No Activity" report with explanation
+- **Date parsing errors**: Defaults to 7-day window
 
-If no recent activities found:
-- Report on system status and readiness
-- Provide recommendations for next actions
-- Suggest strategic initiatives to pursue
+## CUSTOMIZATION
 
-## SUCCESS CRITERIA
+The report format can be customized by modifying the command to:
+- Add project-specific metrics
+- Include additional sections
+- Adjust formatting for different stakeholders
+- Integrate with external tracking systems
 
-- Reports provide clear operational visibility
-- Business progress is documented
-- Value delivery is quantified
-- Issues and resolutions are tracked
-- Strategic insights are captured
-- Process improvements are documented
+---
+
+*The /report command ensures stakeholders stay informed with minimal manual effort, creating a consistent communication channel between development and business teams.*
