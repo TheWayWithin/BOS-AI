@@ -49,11 +49,17 @@ echo -e "${GREEN}✅ CLAUDE.md deployed${NC}"
 cp BOUNDARIES.md .claude/
 echo -e "${GREEN}✅ BOUNDARIES.md deployed (enforces separation)${NC}"
 
-# Deploy Commands
+# Deploy Commands from BOS-AI source
 echo -e "${PURPLE}🎮 Deploying command system...${NC}"
-if [ -d ".claude/commands" ]; then
-    cp .claude/commands/*.md .claude/commands/ 2>/dev/null || true
-    echo -e "${GREEN}✅ Commands deployed${NC}"
+if [ -d "commands" ]; then
+    cp commands/*.md .claude/commands/ 2>/dev/null || true
+    echo -e "${GREEN}✅ Commands deployed from /commands/${NC}"
+else
+    echo -e "${YELLOW}⚠️  Commands directory not found - using backup${NC}"
+    if [ -d ".claude/backups/agent-11/20250904_220106/commands" ]; then
+        cp .claude/backups/agent-11/20250904_220106/commands/{coord,meeting,report,pmd}.md .claude/commands/ 2>/dev/null || true
+        echo -e "${GREEN}✅ Commands deployed from backup${NC}"
+    fi
 fi
 
 # Deploy Document Library Templates and SOPs
@@ -83,21 +89,27 @@ fi
 # Deploy Business Agents (29 total - NO AGENT-11 agents)
 echo -e "${BLUE}🤖 Deploying 29 BOS-AI business agents...${NC}"
 
-# Deploy from .claude/agents (already has correct 29 agents)
+# Deploy from agents source directory
 AGENT_COUNT=0
-for agent in .claude/agents/*.md; do
-    if [ -f "$agent" ]; then
-        filename=$(basename "$agent")
-        # Skip README and any AGENT-11 agents if they somehow exist
-        if [[ "$filename" == "README.md" ]] || \
-           [[ "$filename" =~ ^(developer|tester|architect|designer|operator|documenter|analyst|coordinator|strategist|marketer|support)\.md$ ]]; then
-            if [[ "$filename" != "README.md" ]]; then
-                echo -e "${YELLOW}⚠️  Skipping AGENT-11 agent: $filename${NC}"
+# Process all category directories
+for category in agents/*/; do
+    if [ -d "$category" ]; then
+        for agent in "$category"*.md; do
+            if [ -f "$agent" ]; then
+                filename=$(basename "$agent")
+                # Skip README and any AGENT-11 agents if they somehow exist
+                if [[ "$filename" == "README.md" ]] || \
+                   [[ "$filename" =~ ^(developer|tester|architect|designer|operator|documenter|analyst|coordinator|strategist|marketer|support)\.md$ ]]; then
+                    if [[ "$filename" != "README.md" ]]; then
+                        echo -e "${YELLOW}⚠️  Skipping AGENT-11 agent: $filename${NC}"
+                    fi
+                else
+                    cp "$agent" .claude/agents/
+                    ((AGENT_COUNT++))
+                    echo -e "${GREEN}✅ Deployed: $filename${NC}"
+                fi
             fi
-        else
-            ((AGENT_COUNT++))
-            echo -e "${GREEN}✅ Deployed: $filename${NC}"
-        fi
+        done
     fi
 done
 
@@ -224,11 +236,16 @@ echo -e "${NC}"
 echo -e "${GREEN}Ready to run business operations with /coord command!${NC}"
 
 echo -e "${CYAN}"
-echo "📁 Directory Structure:"
-echo "  • /.claude/document-library/ → Templates & SOPs (deployed)"
+echo "📁 Source → Deployment Structure:"
+echo "  • /agents/         → /.claude/agents/       (BOS-AI agents)"
+echo "  • /commands/       → /.claude/commands/     (BOS-AI commands)"
+echo "  • /missions/       → /.claude/missions/     (BOS-AI missions)"
+echo "  • /docs/Document Library/ → /.claude/document-library/"
+echo ""
+echo "📁 Working Directories:"
 echo "  • /documents/foundation/     → Your business documents (create here)"
 echo "  • /documents/operations/     → Your operational bibles"
 echo "  • /documents/archive/        → Version history (auto-archived)"
 echo "  • /workspace/                → Mission context (temporary)"
-echo "  • /.claude/                  → System files (do not edit)"
+echo "  • /.claude/                  → Deployed files (do not edit)"
 echo -e "${NC}"

@@ -96,6 +96,63 @@ Document Creation Triggers:
 - New product development: PRD creation workflow
 - Strategic changes: Document consistency review
 
+## MANDATORY MISSION STATE PROTOCOL
+
+### Mission File Creation (REQUIRED FOR EVERY /coord)
+For ANY /coord invocation, you MUST:
+
+1. **Check for Active Missions First**
+   ```
+   If active missions exist in /workspace/missions/active/:
+      - Show user the active missions
+      - Ask if they want to resume or pause current
+      - Handle accordingly before proceeding
+   ```
+
+2. **Create Mission State File**
+   ```
+   Path: /workspace/missions/active/[timestamp]-[mission-name].md
+   
+   MUST include:
+   - Mission ID (timestamp-based)
+   - Objective from user request
+   - Task breakdown with TodoWrite
+   - Status tracking
+   - Checkpoint data
+   ```
+
+3. **Update Mission Index**
+   ```
+   Update /workspace/missions/mission-index.md with:
+   - New mission entry
+   - Status changes
+   - Completion records
+   ```
+
+### Mission State Updates
+**Before EACH agent delegation**:
+- Update mission file with current status
+- Mark task as in_progress in mission file
+- Create checkpoint before delegation
+
+**After EACH agent completion**:
+- Update execution log in mission file
+- Mark task completed in mission file
+- Save checkpoint with recovery data
+- Update mission-index.md
+
+### Mission Recovery Protocol
+When /coord is invoked:
+1. ALWAYS check `/workspace/missions/active/` first
+2. If active missions exist:
+   - Load mission state
+   - Show progress to user
+   - Offer to resume or start new
+3. For resume:
+   - Read mission file
+   - Load TodoWrite state
+   - Continue from checkpoint
+
 ## CONTEXT ENFORCEMENT PROTOCOL
 
 ### Pre-Delegation Verification
