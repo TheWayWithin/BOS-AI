@@ -79,11 +79,11 @@ Primary Revenue Framework:
 Utilizes comprehensive Sales Bible as operational foundation and Sales Plan as tactical execution guide. Creates and maintains complete sales framework documentation following customer-success focused operational excellence.
 
 Operations Documents Referenced:
-- `docs/Operations Library/Sales/Sales Bible.md` (PRIMARY OPERATIONAL FOUNDATION)
-- `docs/Operations Library/Sales/Sales Plan.md` (PRIMARY TACTICAL EXECUTION)
-- `docs/Operations Library/Sales/Sales Documentation Creation SOP (AI-Driven).md`
-- `docs/foundation-library/strategic-roadmap.md` (strategic alignment)
-- `docs/foundation-library/client-success-blueprint.md` (customer success integration)
+- `docs/Document Library/Operations/Sales/Sales Bible.md` (PRIMARY OPERATIONAL FOUNDATION)
+- `docs/Document Library/Operations/Sales/Sales Plan.md` (PRIMARY TACTICAL EXECUTION)
+- `docs/Document Library/Operations/Sales/Sales Documentation Creation SOP (AI-Driven).md`
+- `docs/Document Library/Foundation/strategic-roadmap.md` (strategic alignment)
+- `docs/Document Library/Foundation/client-success-blueprint.md` (customer success integration)
 
 Sales Framework Integration:
 - Uses Sales Bible operational standards for revenue process optimization and consistency

@@ -65,22 +65,32 @@ fi
 # Deploy Document Library Templates and SOPs
 echo -e "${CYAN}📚 Deploying Document Library templates and SOPs...${NC}"
 if [ -d "docs/Document Library" ]; then
-    # Copy all markdown files from Document Library to .claude/document-library
-    find "docs/Document Library" -maxdepth 1 -name "*.md" -type f -exec cp {} .claude/document-library/ \;
+    # Copy entire Document Library structure preserving directories
+    cp -r "docs/Document Library/"* .claude/document-library/
     
-    LIBRARY_COUNT=$(ls .claude/document-library/*.md 2>/dev/null | wc -l)
+    # Count all deployed markdown files
+    LIBRARY_COUNT=$(find .claude/document-library -name "*.md" -type f | wc -l)
+    FOUNDATION_COUNT=$(find .claude/document-library/Foundation -name "*.md" -type f 2>/dev/null | wc -l)
+    OPERATIONS_COUNT=$(find .claude/document-library/Operations -name "*.md" -type f 2>/dev/null | wc -l)
+    
     if [ "$LIBRARY_COUNT" -gt 0 ]; then
         echo -e "${GREEN}✅ Deployed ${LIBRARY_COUNT} templates and SOPs to .claude/document-library/${NC}"
+        echo -e "${CYAN}   📂 Foundation: ${FOUNDATION_COUNT} documents${NC}"
+        echo -e "${CYAN}   📂 Operations: ${OPERATIONS_COUNT} documents${NC}"
         
         # List what was deployed
-        echo -e "${PURPLE}   📄 Key documents deployed:${NC}"
-        [ -f ".claude/document-library/Vision and Mission.md" ] && echo -e "${GREEN}      ✓ Vision and Mission template${NC}"
-        [ -f ".claude/document-library/Market and Client Research Template.md" ] && echo -e "${GREEN}      ✓ Market Research template${NC}"
-        [ -f ".claude/document-library/Client Success Blueprint.md" ] && echo -e "${GREEN}      ✓ Client Success Blueprint template${NC}"
-        [ -f ".claude/document-library/Positioning Statement Template.md" ] && echo -e "${GREEN}      ✓ Positioning Statement template${NC}"
-        [ -f ".claude/document-library/Strategic Roadmap_ Vision to Great.md" ] && echo -e "${GREEN}      ✓ Strategic Roadmap template${NC}"
-        [ -f ".claude/document-library/Brand Style Guide.md" ] && echo -e "${GREEN}      ✓ Brand Style Guide template${NC}"
-        [ -f ".claude/document-library/Product Requirements Document (PRD).md" ] && echo -e "${GREEN}      ✓ PRD template${NC}"
+        echo -e "${PURPLE}   📄 Key Foundation documents:${NC}"
+        [ -f ".claude/document-library/Foundation/Vision and Mission.md" ] && echo -e "${GREEN}      ✓ Vision and Mission template${NC}"
+        [ -f ".claude/document-library/Foundation/Market and Client Research Template.md" ] && echo -e "${GREEN}      ✓ Market Research template${NC}"
+        [ -f ".claude/document-library/Foundation/Client Success Blueprint.md" ] && echo -e "${GREEN}      ✓ Client Success Blueprint template${NC}"
+        [ -f ".claude/document-library/Foundation/Strategic Roadmap_ Vision to Great.md" ] && echo -e "${GREEN}      ✓ Strategic Roadmap template${NC}"
+        [ -f ".claude/document-library/Foundation/Product Requirements Document (PRD).md" ] && echo -e "${GREEN}      ✓ PRD template${NC}"
+        
+        echo -e "${PURPLE}   📄 Key Operations documents:${NC}"
+        [ -f ".claude/document-library/Operations/Marketing/Marketing Bible.md" ] && echo -e "${GREEN}      ✓ Marketing Bible template${NC}"
+        [ -f ".claude/document-library/Operations/Marketing/Marketing Plan.md" ] && echo -e "${GREEN}      ✓ Marketing Plan template${NC}"
+        [ -f ".claude/document-library/Operations/Sales/Sales Bible.md" ] && echo -e "${GREEN}      ✓ Sales Bible template${NC}"
+        [ -f ".claude/document-library/Operations/Sales/Sales Plan.md" ] && echo -e "${GREEN}      ✓ Sales Plan template${NC}"
     fi
 else
     echo -e "${YELLOW}⚠️  Document Library source not found${NC}"

@@ -79,11 +79,11 @@ Primary Conversion Framework:
 Utilizes Sales Bible objection handling and closing methodology as primary reference for conversion optimization. Implements Sales Plan conversion activities for systematic improvement through customer-success focused sales approach.
 
 Operations Documents Referenced:
-- `docs/Operations Library/Sales/Sales Bible.md` (PRIMARY CONVERSION REFERENCE)
-- `docs/Operations Library/Sales/Sales Plan.md` (PRIMARY TACTICAL OPTIMIZATION)
-- `docs/Operations Library/Sales/Sales Documentation Creation SOP (AI-Driven).md`
-- `docs/foundation-library/positioning-statement.md` (messaging alignment)
-- `docs/foundation-library/client-success-blueprint.md` (customer success integration)
+- `docs/Document Library/Operations/Sales/Sales Bible.md` (PRIMARY CONVERSION REFERENCE)
+- `docs/Document Library/Operations/Sales/Sales Plan.md` (PRIMARY TACTICAL OPTIMIZATION)
+- `docs/Document Library/Operations/Sales/Sales Documentation Creation SOP (AI-Driven).md`
+- `docs/Document Library/Foundation/positioning-statement.md` (messaging alignment)
+- `docs/Document Library/Foundation/client-success-blueprint.md` (customer success integration)
 
 Sales Framework Integration:
 - Uses Sales Bible objection handling frameworks for systematic conversion improvement

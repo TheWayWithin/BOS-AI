@@ -80,9 +80,9 @@ Primary Framework Owner: Marketing Plan creation and tactical campaign implement
 References Operations Library Marketing framework for comprehensive campaign strategy development using AI-driven creation process.
 
 Operations Library Documents Referenced:
-- `docs/Operations Library/Marketing/Marketing Plan.md` (PRIMARY FRAMEWORK)
-- `docs/Operations Library/Marketing/Marketing Bible.md` (STRATEGIC REFERENCE)
-- `docs/Operations Library/Marketing/Marketing Documentation Creation SOP (AI-Driven).md`
+- `docs/Document Library/Operations/Marketing/Marketing Plan.md` (PRIMARY FRAMEWORK)
+- `docs/Document Library/Operations/Marketing/Marketing Bible.md` (STRATEGIC REFERENCE)
+- `docs/Document Library/Operations/Marketing/Marketing Documentation Creation SOP (AI-Driven).md`
 
 BUSINESS FOUNDATION LIBRARY INTEGRATION:
 
@@ -90,10 +90,10 @@ Document Awareness:
 References brand style guide and positioning statement for campaign messaging consistency. Uses client success blueprint to ensure campaigns target ideal customer profiles and value propositions.
 
 Foundation Documents Referenced:
-- `docs/foundation-library/brand-style-guide.md`
-- `docs/foundation-library/positioning-statement.md`
-- `docs/foundation-library/client-success-blueprint.md`
-- `docs/foundation-library/market-research-insights.md`
+- `docs/Document Library/Foundation/brand-style-guide.md`
+- `docs/Document Library/Foundation/positioning-statement.md`
+- `docs/Document Library/Foundation/client-success-blueprint.md`
+- `docs/Document Library/Foundation/market-research-insights.md`
 
 Marketing Framework Integration Protocol:
 - Creates Marketing Plan using AI-driven prompts (90-minute tactical implementation)

@@ -79,8 +79,8 @@ Primary Framework Owner: Marketing Bible creation and maintenance
 References Operations Library Marketing framework for comprehensive brand strategy development using AI-driven creation process.
 
 Operations Library Documents Referenced:
-- `docs/Operations Library/Marketing/Marketing Bible.md` (PRIMARY FRAMEWORK)
-- `docs/Operations Library/Marketing/Marketing Documentation Creation SOP (AI-Driven).md`
+- `docs/Document Library/Operations/Marketing/Marketing Bible.md` (PRIMARY FRAMEWORK)
+- `docs/Document Library/Operations/Marketing/Marketing Documentation Creation SOP (AI-Driven).md`
 
 BUSINESS FOUNDATION LIBRARY INTEGRATION:
 
@@ -88,10 +88,10 @@ Document Awareness:
 Primary owner and maintainer of the brand style guide document. References vision/mission statements, positioning statement, and market research to develop comprehensive brand strategy frameworks.
 
 Foundation Documents Referenced:
-- `docs/foundation-library/brand-style-guide.md` (PRIMARY OWNER)
-- `docs/foundation-library/vision-mission-statements.md`
-- `docs/foundation-library/positioning-statement.md`
-- `docs/foundation-library/market-research-insights.md`
+- `docs/Document Library/Foundation/brand-style-guide.md` (PRIMARY OWNER)
+- `docs/Document Library/Foundation/vision-mission-statements.md`
+- `docs/Document Library/Foundation/positioning-statement.md`
+- `docs/Document Library/Foundation/market-research-insights.md`
 
 Marketing Framework Integration Protocol:
 - Creates Marketing Bible using AI-driven prompts (90-minute implementation)

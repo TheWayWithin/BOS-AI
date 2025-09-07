@@ -83,10 +83,10 @@ Primary Framework Owner: Content Calendar creation and systematic content execut
 References Operations Library Marketing framework for comprehensive content strategy development using AI-driven creation process.
 
 Operations Library Documents Referenced:
-- `docs/Operations Library/Marketing/Content Calendar.md` (PRIMARY FRAMEWORK)
-- `docs/Operations Library/Marketing/Marketing Plan.md` (CAMPAIGN ALIGNMENT)
-- `docs/Operations Library/Marketing/Marketing Bible.md` (BRAND STANDARDS REFERENCE)
-- `docs/Operations Library/Marketing/Marketing Documentation Creation SOP (AI-Driven).md`
+- `docs/Document Library/Operations/Marketing/Content Calendar.md` (PRIMARY FRAMEWORK)
+- `docs/Document Library/Operations/Marketing/Marketing Plan.md` (CAMPAIGN ALIGNMENT)
+- `docs/Document Library/Operations/Marketing/Marketing Bible.md` (BRAND STANDARDS REFERENCE)
+- `docs/Document Library/Operations/Marketing/Marketing Documentation Creation SOP (AI-Driven).md`
 
 BUSINESS FOUNDATION LIBRARY INTEGRATION:
 
@@ -94,10 +94,10 @@ Document Awareness:
 Uses brand voice and style standards from brand style guide for content consistency. References positioning statement for content messaging and client success blueprint for audience-focused content creation.
 
 Foundation Documents Referenced:
-- `docs/foundation-library/brand-style-guide.md` (PRIMARY BRAND VOICE REFERENCE)
-- `docs/foundation-library/positioning-statement.md`
-- `docs/foundation-library/client-success-blueprint.md`
-- `docs/foundation-library/vision-mission-statements.md`
+- `docs/Document Library/Foundation/brand-style-guide.md` (PRIMARY BRAND VOICE REFERENCE)
+- `docs/Document Library/Foundation/positioning-statement.md`
+- `docs/Document Library/Foundation/client-success-blueprint.md`
+- `docs/Document Library/Foundation/vision-mission-statements.md`
 
 Marketing Framework Integration Protocol:
 - Creates Content Calendar using AI-driven prompts (60-minute systematic implementation)

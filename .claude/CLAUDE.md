@@ -267,19 +267,27 @@ BOS-AI includes a comprehensive **Operations Library** that provides systematic 
 - **Sales Operations**: Complete 2-document framework (Bible, Plan) with customer-success focus
 - **Future Expansions**: Customer Service Operations, Financial Operations, Legal Operations
 
-**Operations Library Location:**
+**Document Library Location:**
 ```
-/docs/Operations Library/
-├── operations-library-guide.md    # Framework overview
-├── Marketing/                      # Complete marketing framework (4-5 hours)
-│   ├── Marketing Bible.md          # Strategic foundation
-│   ├── Marketing Plan.md           # Tactical implementation  
-│   ├── Content Calendar.md         # Execution system
-│   └── Marketing Documentation Creation SOP (AI-Driven).md
-└── Sales/                          # Complete sales framework (3-4 hours)
-    ├── Sales Bible.md              # Strategic sales foundation
-    ├── Sales Plan.md               # Tactical sales execution
-    └── Sales Documentation Creation SOP (AI-Driven).md
+/docs/Document Library/
+├── Foundation/                      # Strategic foundation templates
+│   ├── Vision and Mission.md
+│   ├── Market Research Template.md
+│   ├── Client Success Blueprint.md
+│   └── ... (17 foundation templates & SOPs)
+├── Operations/
+│   ├── Marketing/                  # Complete marketing framework (4-5 hours)
+│   │   ├── Marketing Bible.md      # Strategic foundation template
+│   │   ├── Marketing Plan.md       # Tactical implementation template
+│   │   ├── Content Calendar.md     # Execution system template
+│   │   └── Marketing Documentation Creation SOP (AI-Driven).md
+│   └── Sales/                      # Complete sales framework (3-4 hours)
+│       ├── Sales Bible.md          # Strategic sales foundation template
+│       ├── Sales Plan.md           # Tactical sales execution template
+│       └── Sales Documentation Creation SOP (AI-Driven).md
+└── operations-library-guide.md     # Framework overview
+
+Deployed to: .claude/document-library/ (maintains structure)
 ```
 
 ## 💡 Quick Start Examples

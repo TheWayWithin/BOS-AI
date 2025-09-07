@@ -80,11 +80,11 @@ Primary Sales Framework:
 Utilizes comprehensive Sales Bible as primary strategic reference for all pipeline management activities. Implements Sales Plan tactical execution for systematic pipeline optimization and customer-success focused sales processes.
 
 Operations Documents Referenced:
-- `docs/Operations Library/Sales/Sales Bible.md` (PRIMARY STRATEGIC REFERENCE)
-- `docs/Operations Library/Sales/Sales Plan.md` (PRIMARY TACTICAL EXECUTION)
-- `docs/Operations Library/Sales/Sales Documentation Creation SOP (AI-Driven).md`
-- `docs/foundation-library/client-success-blueprint.md` (ICP alignment)
-- `docs/foundation-library/positioning-statement.md` (messaging integration)
+- `docs/Document Library/Operations/Sales/Sales Bible.md` (PRIMARY STRATEGIC REFERENCE)
+- `docs/Document Library/Operations/Sales/Sales Plan.md` (PRIMARY TACTICAL EXECUTION)
+- `docs/Document Library/Operations/Sales/Sales Documentation Creation SOP (AI-Driven).md`
+- `docs/Document Library/Foundation/client-success-blueprint.md` (ICP alignment)
+- `docs/Document Library/Foundation/positioning-statement.md` (messaging integration)
 
 Sales Framework Integration:
 - Uses Sales Bible ICP and qualification framework for lead assessment and pipeline entry

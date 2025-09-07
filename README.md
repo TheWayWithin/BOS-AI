@@ -288,24 +288,31 @@ BOS-AI includes a comprehensive **Operations Library** that provides systematic,
 - **Customer Success Focus**: Both frameworks measured by authentic customer value delivery
 - **Business Chassis Multiplication**: Combined potential 100-200% improvement in marketing-sales driven growth
 
-#### Operations Library Structure:
+#### Document Library Structure:
 ```
-/docs/Operations Library/
-├── operations-library-guide.md    # Framework overview and integration
-├── Marketing/                      # 4 documents - 4-5 hour system
-│   ├── Marketing Bible.md          # Strategic reference document
-│   ├── Marketing Plan.md           # Tactical implementation framework
-│   ├── Content Calendar.md         # Content execution system
-│   └── Marketing Documentation Creation SOP (AI-Driven).md
-└── Sales/                          # 3 documents - 3-4 hour system
-    ├── Sales Bible.md              # Strategic sales reference
-    ├── Sales Plan.md               # Tactical sales execution
-    └── Sales Documentation Creation SOP (AI-Driven).md
+/docs/Document Library/
+├── Foundation/                     # Strategic foundation templates (17 documents)
+│   ├── Vision and Mission.md
+│   ├── Market Research Template.md
+│   ├── Client Success Blueprint.md
+│   ├── Strategic Roadmap.md
+│   └── ... (additional foundation templates & SOPs)
+├── Operations/
+│   ├── Marketing/                  # 4 documents - 4-5 hour system
+│   │   ├── Marketing Bible.md      # Strategic reference template
+│   │   ├── Marketing Plan.md       # Tactical implementation template
+│   │   ├── Content Calendar.md     # Content execution template
+│   │   └── Marketing Documentation Creation SOP (AI-Driven).md
+│   └── Sales/                      # 3 documents - 3-4 hour system
+│       ├── Sales Bible.md          # Strategic sales template
+│       ├── Sales Plan.md           # Tactical sales execution template
+│       └── Sales Documentation Creation SOP (AI-Driven).md
+└── operations-library-guide.md    # Framework overview and integration
 ```
 
-**Operations Library vs Foundation Library:**
-- **Foundation Library**: Defines WHAT and WHY (strategic layer)
-- **Operations Library**: Defines HOW (execution layer)  
+**Foundation vs Operations:**
+- **Foundation Templates**: Define WHAT and WHY (strategic layer)
+- **Operations Templates**: Define HOW (execution layer)  
 - **Integration**: Operations Library translates strategy into repeatable processes
 - **Outcome**: Consistent execution aligned with strategic objectives
 
