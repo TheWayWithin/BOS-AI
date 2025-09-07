@@ -215,6 +215,18 @@ Pre-configured workflows for systematic business operations:
 - `optimization-sprint` - Identify and fix bottlenecks
 - `competitive-scan` - Market positioning update
 
+### Marketing Operations (NEW)
+**Foundation Missions** (3-Document Framework):
+- `marketing-system-setup` - Complete 3-document marketing framework (4-5 hours)
+- `marketing-bible-creation` - Strategic marketing foundation (90 minutes)
+- `marketing-plan-development` - Tactical campaign planning (90 minutes)
+- `content-calendar-implementation` - Content execution system (60 minutes)
+
+**Advanced Marketing Missions**:
+- `customer-journey-optimization` - 5-stage customer journey marketing (2-3 hours)
+- `campaign-launch` - End-to-end campaign execution (1-2 weeks)
+- `content-batch-creation` - Efficient content production workflow (3-4 hours)
+
 ### Strategic Initiatives
 - `product-launch` - New product/service rollout
 - `market-entry` - New market expansion
@@ -227,27 +239,63 @@ Pre-configured workflows for systematic business operations:
 - `recovery-plan` - Business recovery strategy
 - `pivot-strategy` - Business model pivot
 
+## 📚 Operations Library Reference
+
+BOS-AI includes a comprehensive **Operations Library** that provides systematic execution frameworks complementing the strategic Foundation Library.
+
+**Operations Library Structure:**
+- **Foundation Library**: Defines WHAT and WHY (strategic layer)
+- **Operations Library**: Defines HOW (execution layer)
+- **4-Tier Framework**: Strategic Bibles → Tactical Playbooks → SOPs → Templates
+
+**Current Operations Available:**
+- **Marketing Operations**: Complete 3-document framework (Bible, Plan, Calendar) with AI-driven creation
+- **Future Expansions**: Sales Operations, Customer Service Operations, Financial Operations, Legal Operations
+
+**Operations Library Location:**
+```
+/docs/Operations Library/
+├── operations-library-guide.md    # Framework overview
+└── Marketing/                      # Complete marketing framework
+    ├── Marketing Bible.md          # Strategic foundation
+    ├── Marketing Plan.md           # Tactical implementation  
+    ├── Content Calendar.md         # Execution system
+    └── Marketing Documentation Creation SOP (AI-Driven).md
+```
+
 ## 💡 Quick Start Examples
 
-### Scenario 1: Optimize Your Business
+### Scenario 1: Set Up Complete Marketing System (NEW)
+```
+/coord marketing-system-setup
+```
+I'll guide you through creating a complete marketing framework in 4-5 hours: Marketing Bible (strategy), Marketing Plan (tactics), and Content Calendar (execution) with customer-success focus and Business Chassis multiplication.
+
+### Scenario 2: Optimize Your Business
 ```
 /coord optimize
 ```
 I'll analyze your Business Chassis, identify the weakest multiplier, and coordinate agents to fix it.
 
-### Scenario 2: Launch a Product
+### Scenario 3: Launch a Product
 ```
 /coord launch "AI automation tool"
 ```
 I'll orchestrate market research, solution design, go-to-market strategy, and launch execution.
 
-### Scenario 3: Improve Customer Retention
+### Scenario 4: Create Marketing Foundation (NEW)
+```
+/coord marketing-bible-creation
+```
+90-minute strategic marketing foundation with customer journey framework and value communication system.
+
+### Scenario 5: Improve Customer Retention
 ```
 /meeting @retention-strategy "reduce churn from 15% to 5%"
 ```
 Direct consultation with retention specialist for targeted strategies.
 
-### Scenario 4: Scale Your Business
+### Scenario 6: Scale Your Business
 ```
 /coord scale
 ```
@@ -256,12 +304,15 @@ Full scaling analysis with growth strategies across all Business Chassis compone
 ## 🚀 Pro Tips
 
 1. **Start with /coord optimize** - Let me identify your biggest opportunity
-2. **Use /meeting for deep dives** - When you need specialized expertise
-3. **Chain commands** - Start with /coord for strategy, then /meeting for execution
-4. **Track metrics** - Always measure Business Chassis improvements
-5. **Focus on multiplication** - Small improvements in multiple areas = exponential growth
-6. **Monitor development progress** - Use `/report` to track PRD implementation status
-7. **Analyze bottlenecks** - Use `/pmd` when projects face delays or alignment issues
+2. **NEW: Set up marketing framework early** - Use `/coord marketing-system-setup` for complete customer-success focused marketing in 4-5 hours
+3. **Use /meeting for deep dives** - When you need specialized expertise
+4. **Chain commands** - Start with /coord for strategy, then /meeting for execution
+5. **Track metrics** - Always measure Business Chassis improvements
+6. **Focus on multiplication** - Small improvements in multiple areas = exponential growth
+7. **NEW: Follow the 3-document marketing pattern** - Marketing Bible → Marketing Plan → Content Calendar for systematic execution
+8. **Use Operations Library** - Reference `/docs/Operations Library/` for systematic execution frameworks
+9. **Monitor development progress** - Use `/report` to track PRD implementation status
+10. **Analyze bottlenecks** - Use `/pmd` when projects face delays or alignment issues
 
 ## 📈 Success Metrics
 

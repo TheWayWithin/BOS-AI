@@ -1,0 +1,483 @@
+version: '1.0'
+metadata:
+  registry_format_version: 1.0.0
+  created: '2025-01-06T00:00:00Z'
+  last_updated: '2025-09-06T13:12:26.381Z'
+  update_frequency: 300
+  health_check_interval: 300
+  description: Default BOS-AI MCP registry with Tier 1-3 MCP definitions
+registry:
+  github:
+    name: GitHub MCP Server
+    description: Repository operations, issue tracking, PR management, and code analysis
+    version: 2.1.0
+    provider: '@modelcontextprotocol'
+    homepage: https://github.com/modelcontextprotocol/servers
+    transport: stdio
+    endpoint: npx @modelcontextprotocol/server-github
+    scope: project
+    timeout_ms: 30000
+    max_retries: 3
+    status: unknown
+    last_check: null
+    last_success: null
+    last_failure: null
+    consecutive_failures: 0
+    metrics:
+      response_time_ms: null
+      success_rate_24h: null
+      success_rate_7d: null
+      total_requests: 0
+      failed_requests: 0
+      avg_response_time_7d: null
+      p95_response_time_7d: null
+    capabilities:
+      - name: repository_access
+        description: Read repository information and content
+        operations:
+          - list_repos
+          - get_repo
+          - get_file
+          - search_code
+          - get_commits
+      - name: issue_tracking
+        description: GitHub issues management
+        operations:
+          - list_issues
+          - create_issue
+          - update_issue
+          - close_issue
+      - name: pr_management
+        description: Pull request operations
+        operations:
+          - list_prs
+          - create_pr
+          - update_pr
+          - merge_pr
+          - review_pr
+    tier: 1
+    priority: 100
+    required_by:
+      - strategist
+      - developer
+      - analyst
+      - coordinator
+    optional_for:
+      - marketer
+      - support-management
+    auth:
+      type: api_key
+      required: true
+      env_vars:
+        - name: GITHUB_TOKEN
+          description: GitHub personal access token with repo access
+          required: true
+          scope: repo, read:user
+      oauth_config: null
+    fallback:
+      strategy: multi_tier
+      primary:
+        type: alternative_mcp
+        target: git_cli
+      secondary:
+        type: web_api
+        target: WebFetch
+        config:
+          base_url: https://api.github.com
+          auth_header: 'Authorization: token ${GITHUB_TOKEN}'
+          rate_limit: 5000
+      tertiary:
+        type: manual_request
+        prompt: Please provide GitHub repository information manually
+      cache:
+        enabled: true
+        duration: 1800
+        path: /workspace/cache/github
+    dependencies:
+      system:
+        - node.js >= 18
+        - npm >= 8
+      packages:
+        - '@modelcontextprotocol/server-github'
+      optional:
+        - git cli
+    config:
+      custom_settings:
+        max_file_size: 1MB
+        supported_formats:
+          - md
+          - txt
+          - json
+          - yaml
+          - js
+          - ts
+          - py
+      environment_overrides:
+        - GITHUB_API_URL
+    monitoring:
+      health_check_command: list_repos
+      health_check_params:
+        limit: 1
+      expected_response_time: 2000
+      alerts:
+        - condition: response_time > 5000
+          severity: warning
+        - condition: success_rate_1h < 95
+          severity: critical
+  filesystem:
+    name: Filesystem MCP Server
+    description: Local file system operations and workspace management
+    version: 1.0.0
+    provider: '@modelcontextprotocol'
+    transport: stdio
+    endpoint: npx @modelcontextprotocol/server-filesystem
+    scope: project
+    timeout_ms: 10000
+    max_retries: 2
+    status: unknown
+    last_check: null
+    last_success: null
+    last_failure: null
+    consecutive_failures: 0
+    metrics:
+      response_time_ms: null
+      success_rate_24h: null
+      success_rate_7d: null
+      total_requests: 0
+      failed_requests: 0
+      avg_response_time_7d: null
+      p95_response_time_7d: null
+    capabilities:
+      - name: file_operations
+        description: Basic file system operations
+        operations:
+          - read_file
+          - write_file
+          - list_directory
+          - create_directory
+      - name: workspace_management
+        description: Project workspace management
+        operations:
+          - create_workspace
+          - manage_files
+          - search_files
+    tier: 1
+    priority: 95
+    required_by:
+      - strategist
+      - developer
+      - analyst
+      - coordinator
+      - documenter
+    auth:
+      type: none
+      required: false
+      env_vars: []
+    fallback:
+      strategy: single
+      primary:
+        type: direct_tool
+        target: Write
+      secondary:
+        type: direct_tool
+        target: Read
+      cache:
+        enabled: false
+    dependencies:
+      system:
+        - node.js >= 18
+        - npm >= 8
+      packages:
+        - '@modelcontextprotocol/server-filesystem'
+    monitoring:
+      health_check_command: list_directory
+      health_check_params:
+        path: /workspace
+      expected_response_time: 500
+  stripe:
+    name: Stripe MCP Server
+    description: Payment analytics, revenue metrics, and customer data
+    version: 1.0.0
+    provider: stripe-community
+    transport: http
+    endpoint: https://mcp-stripe-server.stripe.com
+    scope: user
+    timeout_ms: 15000
+    max_retries: 3
+    status: unknown
+    last_check: null
+    last_success: null
+    last_failure: null
+    consecutive_failures: 0
+    capabilities:
+      - name: payment_analytics
+        description: Payment transaction analysis
+        operations:
+          - get_payments
+          - get_charges
+          - analyze_trends
+      - name: revenue_data
+        description: Revenue and financial metrics
+        operations:
+          - get_revenue
+          - get_subscriptions
+          - get_customers
+      - name: customer_insights
+        description: Customer behavior and analytics
+        operations:
+          - get_customer_metrics
+          - analyze_churn
+          - segment_customers
+    tier: 2
+    priority: 85
+    required_by: []
+    optional_for:
+      - strategist
+      - analyst
+      - revenue-optimization
+    auth:
+      type: api_key
+      required: true
+      env_vars:
+        - name: STRIPE_API_KEY
+          description: Stripe secret key
+          required: true
+          scope: read
+    fallback:
+      strategy: multi_tier
+      primary:
+        type: web_api
+        target: WebFetch
+        config:
+          base_url: https://api.stripe.com/v1
+          auth_header: 'Authorization: Bearer ${STRIPE_API_KEY}'
+          rate_limit: 100
+      secondary:
+        type: manual_request
+        prompt: Please export revenue data from Stripe dashboard
+      cache:
+        enabled: true
+        duration: 3600
+        path: /workspace/cache/stripe
+    monitoring:
+      health_check_command: get_balance
+      expected_response_time: 3000
+  firecrawl:
+    name: Firecrawl MCP Server
+    description: Web scraping and market research automation
+    version: 1.0.0
+    provider: firecrawl-dev
+    transport: http
+    endpoint: https://api.firecrawl.dev
+    scope: user
+    timeout_ms: 60000
+    max_retries: 2
+    status: unknown
+    last_check: null
+    capabilities:
+      - name: web_scraping
+        description: Website crawling and data extraction
+        operations:
+          - crawl_website
+          - extract_data
+          - scrape_page
+      - name: market_research
+        description: Automated market research and analysis
+        operations:
+          - research_market
+          - analyze_competitors
+          - track_trends
+    tier: 2
+    priority: 80
+    optional_for:
+      - strategist
+      - analyst
+      - market-intelligence
+      - competitive-analysis
+    auth:
+      type: api_key
+      required: true
+      env_vars:
+        - name: FIRECRAWL_API_KEY
+          description: Firecrawl API key
+          required: true
+    fallback:
+      strategy: multi_tier
+      primary:
+        type: web_search
+        target: WebSearch
+        config:
+          query: market analysis {topic} trends competitive landscape
+      secondary:
+        type: manual_request
+        prompt: Please provide market research data manually
+      cache:
+        enabled: true
+        duration: 7200
+        path: /workspace/cache/firecrawl
+  linear:
+    name: Linear MCP Server
+    description: Project management and issue tracking
+    version: 1.0.0
+    provider: linear-community
+    transport: stdio
+    endpoint: npx @modelcontextprotocol/server-linear
+    scope: project
+    timeout_ms: 10000
+    max_retries: 3
+    status: unknown
+    last_check: null
+    capabilities:
+      - name: project_management
+        description: Project and task management
+        operations:
+          - list_projects
+          - create_project
+          - update_project
+      - name: issue_tracking
+        description: Issue and bug tracking
+        operations:
+          - list_issues
+          - create_issue
+          - update_issue
+          - assign_issue
+      - name: team_collaboration
+        description: Team coordination and workflow
+        operations:
+          - list_teams
+          - assign_tasks
+          - track_progress
+    tier: 2
+    priority: 75
+    optional_for:
+      - coordinator
+      - developer
+      - pipeline-management
+    auth:
+      type: api_key
+      required: true
+      env_vars:
+        - name: LINEAR_API_KEY
+          description: Linear API key
+          required: true
+    fallback:
+      strategy: multi_tier
+      primary:
+        type: alternative_mcp
+        target: github
+      secondary:
+        type: manual_request
+        prompt: Please check Linear project status manually
+  postgres:
+    name: PostgreSQL MCP Server
+    description: Database operations and data analysis
+    version: 1.0.0
+    provider: '@modelcontextprotocol'
+    transport: stdio
+    endpoint: npx @modelcontextprotocol/server-postgres
+    scope: system
+    status: unknown
+    capabilities:
+      - name: database_operations
+        operations:
+          - query
+          - insert
+          - update
+          - delete
+      - name: data_analysis
+        operations:
+          - analyze_data
+          - generate_reports
+    tier: 3
+    priority: 50
+    auth:
+      type: custom
+      env_vars:
+        - name: DATABASE_URL
+          required: true
+  notion:
+    name: Notion MCP Server
+    description: Knowledge management and documentation
+    version: 1.0.0
+    provider: notion-community
+    status: unknown
+    capabilities:
+      - name: knowledge_management
+        operations:
+          - create_page
+          - update_page
+          - search_pages
+      - name: documentation
+        operations:
+          - create_docs
+          - organize_content
+    tier: 3
+    priority: 55
+    auth:
+      type: oauth
+      env_vars:
+        - name: NOTION_API_KEY
+          required: true
+agent_mappings:
+  strategist:
+    required_capabilities:
+      - repository_access
+      - market_research
+    preferred_mcps:
+      - github
+      - firecrawl
+    fallback_strategies:
+      market_research: WebSearch with targeted queries
+      repository_access: WebFetch to GitHub API
+  analyst:
+    required_capabilities:
+      - data_analytics
+      - repository_access
+    preferred_mcps:
+      - stripe
+      - github
+      - postgres
+    fallback_strategies:
+      data_analytics: Manual data export from dashboards
+      repository_access: Direct file system access
+  developer:
+    required_capabilities:
+      - repository_access
+      - file_operations
+      - issue_tracking
+    preferred_mcps:
+      - github
+      - filesystem
+      - linear
+    fallback_strategies:
+      repository_access: Git CLI commands
+      file_operations: Direct file system tools
+      issue_tracking: Manual project management
+system_config:
+  installation:
+    auto_install_tier1: true
+    auto_install_tier2: false
+    auto_install_tier3: false
+  performance:
+    connection_timeout: 30000
+    max_retries: 3
+    cache_enabled: true
+    cache_duration: 3600
+  monitoring:
+    health_check_frequency: 300
+    performance_monitoring: true
+    usage_analytics: true
+    alert_on_failures: true
+  security:
+    credential_storage: os_keychain
+    encryption_at_rest: true
+    https_only: true
+    token_refresh: automatic
+    scope_restrictions: minimal_required
+    audit_logging: true
+fallback_config:
+  enabled: true
+  max_fallback_levels: 4
+  fallback_timeout_multiplier: 1.5
+  cache_fallback_duration: 86400
+  manual_request_timeout: 300

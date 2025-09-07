@@ -227,6 +227,90 @@ BOS-AI's MCP system is designed to "just work":
 - **Transparent Operation**: Agents report which MCPs they're using
 - **Automatic Updates**: Registry updates as MCPs become available
 
+## 📚 Operations Library - Professional Business Framework
+
+### Complete Marketing Operations System
+
+BOS-AI includes a comprehensive **Operations Library** that provides systematic, customer-success focused frameworks for business execution. The Operations Library complements the strategic Foundation Library with practical, step-by-step operational procedures.
+
+#### Marketing Framework (3-Document System)
+- **Marketing Bible** (90 minutes): Strategic marketing foundation with customer-centric philosophy
+- **Marketing Plan** (90 minutes): Tactical campaign framework with 3-campaign system
+- **Content Calendar** (60 minutes): Systematic content creation and distribution
+- **AI-Driven Creation SOP**: Complete framework deployment in 4-5 hours total
+
+#### Key Marketing Operations Features:
+- **Customer Journey Marketing**: 5-stage framework (Awareness → Consideration → Decision → Success → Advocacy)
+- **Value Communication Framework**: Overt Benefits, Dramatic Difference, Real Reasons to Believe
+- **Business Chassis Integration**: Direct multiplication of Prospects, Lead Conversion, and Transaction Frequency
+- **Customer Success Focus**: Marketing serves customer value rather than just business promotion
+
+#### How to Use Marketing Operations:
+
+```bash
+# Complete Marketing System Setup (4-5 hours)
+/coord marketing-system-setup
+
+# Individual Marketing Components
+/coord marketing-bible-creation        # 90 minutes - Strategic foundation
+/coord marketing-plan-development      # 90 minutes - Campaign planning  
+/coord content-calendar-implementation # 60 minutes - Content execution
+
+# Advanced Marketing Optimization
+/coord customer-journey-optimization   # 2-3 hours - Journey improvement
+/coord campaign-launch                 # 1-2 weeks - Full campaign execution
+/coord content-batch-creation         # 3-4 hours - Efficient content production
+```
+
+#### Business Impact Metrics:
+- **Time Efficiency**: Complete marketing system in 4-5 hours vs. weeks of traditional planning
+- **Strategic Alignment**: Marketing directly supports Business Chassis multiplication objectives  
+- **Customer Success Focus**: Marketing effectiveness measured by customer value delivery
+- **Business Chassis Multiplication**: Potential 50-100% improvement in marketing-driven growth
+
+#### Operations Library Structure:
+```
+/docs/Operations Library/
+├── operations-library-guide.md    # Framework overview and integration
+└── Marketing/
+    ├── Marketing Bible.md          # Strategic reference document
+    ├── Marketing Plan.md           # Tactical implementation framework
+    ├── Content Calendar.md         # Content execution system
+    └── Marketing Documentation Creation SOP (AI-Driven).md
+```
+
+**Operations Library vs Foundation Library:**
+- **Foundation Library**: Defines WHAT and WHY (strategic layer)
+- **Operations Library**: Defines HOW (execution layer)  
+- **Integration**: Operations Library translates strategy into repeatable processes
+- **Outcome**: Consistent execution aligned with strategic objectives
+
+### Enhanced Marketing Agents
+
+All marketing agents now integrate Operations Library frameworks:
+
+- **@brand-strategy**: Marketing Bible creation with customer-centric framework and value communication
+- **@campaign-execution**: Marketing Plan development with 3-campaign system and customer journey marketing
+- **@content-creation**: Content Calendar implementation with systematic workflows and batch creation
+
+### Marketing Mission Library
+
+**Foundation Missions** (3-Document Framework):
+1. `marketing-system-setup` - Complete 3-document marketing framework (4-5 hours)
+2. `marketing-bible-creation` - Strategic marketing foundation (90 minutes)
+3. `marketing-plan-development` - Tactical campaign planning (90 minutes)  
+4. `content-calendar-implementation` - Content execution system (60 minutes)
+
+**Advanced Missions**:
+5. `customer-journey-optimization` - 5-stage customer journey marketing (2-3 hours)
+6. `campaign-launch` - End-to-end campaign execution (1-2 weeks)
+7. `content-batch-creation` - Efficient content production workflow (3-4 hours)
+
+**Mission Selection Guide:**
+- **New Business**: `marketing-system-setup` → `customer-journey-optimization` → `content-batch-creation`
+- **Existing Business**: `marketing-bible-creation` → `customer-journey-optimization` → `campaign-launch`  
+- **Quick Improvements**: Individual 60-90 minute missions for targeted optimization
+
 ## The Complete Solopreneur Business Operating System
 
 BOS-AI represents the evolution of business management from fragmented tools and processes into a unified, AI-augmented framework that enables individual entrepreneurs to compete through **systematic excellence** rather than resource accumulation. This system integrates the continuous innovation cycle of **Discovery-Creation-Delivery-Growth** with the mathematical precision of **Business Chassis optimization** while incorporating comprehensive AI agent coordination.
