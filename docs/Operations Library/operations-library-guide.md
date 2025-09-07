@@ -29,8 +29,8 @@ These documents define **how** your business operates and executes on strategy:
 
 **Sales Operations:**
 5. **Sales Bible** - Sales process and standards
-6. **Sales Playbook** - Scripts, objection handling, and tactics
-7. **Pipeline Management SOP** - CRM and lead management processes
+6. **Sales Plan** - Sales strategy and tactical execution
+7. **Sales Documentation Creation SOP** - Process for creating sales assets
 
 **Customer Service Operations:**
 8. **Customer Bible** - Service standards and procedures
@@ -161,6 +161,55 @@ CUSTOMER VALUE & BUSINESS RESULTS
 
 ---
 
+## Sales Operations Deep Dive
+
+### The Sales Function Structure
+
+**Sales Bible (Tier 1 - Strategic)**
+- Sales philosophy and core principles
+- Customer success approach to sales
+- Ideal customer profile and qualification framework
+- Value communication and ROI demonstration methods
+- Pricing strategy and investment discussions
+
+**Sales Plan (Tier 2 - Tactical)**
+- Quarterly sales objectives and targets
+- Sales initiative strategies and timelines
+- Pipeline management and conversion tracking
+- Sales-marketing integration and lead handoff
+- Performance measurement and optimization methods
+
+**Sales Documentation Creation SOP (Tier 3 - Procedural)**
+- Step-by-step sales document creation process
+- AI-driven sales system implementation
+- Quality control checkpoints and validation
+- Integration workflows with marketing content
+- Performance analysis and continuous improvement
+
+### Integration with Foundation Documents
+
+**Vision & Mission Integration:**
+- All sales activities align with company vision
+- Sales approach reflects mission delivery
+- Sales objectives support vision achievement
+
+**Client Success Blueprint Integration:**
+- Target customers defined from ideal client profiles
+- Sales conversations address client pain points and goals
+- Success metrics align with client success definitions
+
+**Positioning Integration:**
+- All sales conversations reinforce competitive positioning
+- Value proposition emphasis in sales presentations
+- Sales channel selection supports positioning strategy
+
+**Brand Integration:**
+- Sales materials follow brand style guide
+- Voice and tone consistent across all sales touchpoints
+- Brand personality reflected in all sales communications
+
+---
+
 ## Document Creation Sequence
 
 ### Phase 1: Strategic Operations Setup (Weeks 1-2)
@@ -179,7 +228,7 @@ CUSTOMER VALUE & BUSINESS RESULTS
 
 **Week 3: Primary Playbooks**
 - Marketing Plan (based on Marketing Bible and roadmap)
-- Sales Playbook (based on Sales Bible and client profiles)
+- Sales Plan (based on Sales Bible and client profiles)
 - Support Playbook (based on Customer Bible and service standards)
 
 **Week 4: Secondary Playbooks**
@@ -191,7 +240,7 @@ CUSTOMER VALUE & BUSINESS RESULTS
 
 **Week 5: Critical SOPs**
 - Content Calendar SOP (based on Marketing Plan)
-- Pipeline Management SOP (based on Sales Playbook)
+- Sales Documentation Creation SOP (based on Sales Plan)
 - Customer Onboarding SOP (based on Support Playbook)
 
 **Week 6: Supporting SOPs**
@@ -389,13 +438,13 @@ CUSTOMER VALUE & BUSINESS RESULTS
 **Week 4:** Integration with foundation documents validation
 
 ### Month 2: Tactical Implementation
-**Week 1:** Marketing Plan, Sales Playbook, Support Playbook
+**Week 1:** Marketing Plan, Sales Plan, Support Playbook
 **Week 2:** Operations Playbook, Financial Management procedures
 **Week 3:** Tactical procedures testing and optimization
 **Week 4:** Cross-functional integration validation
 
 ### Month 3: Process Documentation
-**Week 1:** Content Calendar SOP, Pipeline Management SOP
+**Week 1:** Content Calendar SOP, Sales Documentation Creation SOP
 **Week 2:** Customer Onboarding SOP, Quality Assurance SOP
 **Week 3:** Supporting SOPs and process documentation
 **Week 4:** Complete procedure testing and validation

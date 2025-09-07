@@ -229,7 +229,7 @@ BOS-AI's MCP system is designed to "just work":
 
 ## 📚 Operations Library - Professional Business Framework
 
-### Complete Marketing Operations System
+### Complete Marketing & Sales Operations System
 
 BOS-AI includes a comprehensive **Operations Library** that provides systematic, customer-success focused frameworks for business execution. The Operations Library complements the strategic Foundation Library with practical, step-by-step operational procedures.
 
@@ -239,13 +239,18 @@ BOS-AI includes a comprehensive **Operations Library** that provides systematic,
 - **Content Calendar** (60 minutes): Systematic content creation and distribution
 - **AI-Driven Creation SOP**: Complete framework deployment in 4-5 hours total
 
-#### Key Marketing Operations Features:
-- **Customer Journey Marketing**: 5-stage framework (Awareness → Consideration → Decision → Success → Advocacy)
-- **Value Communication Framework**: Overt Benefits, Dramatic Difference, Real Reasons to Believe
-- **Business Chassis Integration**: Direct multiplication of Prospects, Lead Conversion, and Transaction Frequency
-- **Customer Success Focus**: Marketing serves customer value rather than just business promotion
+#### Sales Framework (2-Document System)
+- **Sales Bible** (2 hours): Strategic sales foundation with customer-success focused sales methodology
+- **Sales Plan** (90 minutes): Tactical sales execution with pipeline management and performance metrics
+- **AI-Driven Creation SOP**: Complete framework deployment in 3-4 hours total
 
-#### How to Use Marketing Operations:
+#### Key Operations Features:
+- **Customer Journey Focus**: Marketing handles Awareness/Consideration, Sales handles Decision/Success stages
+- **Value Communication Framework**: Overt Benefits, Dramatic Difference, Real Reasons to Believe (Marketing) + ROI demonstration (Sales)
+- **Complementary Business Chassis Integration**: Marketing multiplies Prospects + Lead Conversion + Transaction Frequency; Sales multiplies Lead Conversion + Client Conversion + Average Spend
+- **Customer Success Philosophy**: Both frameworks serve customer value through authentic relationships
+
+#### How to Use Marketing & Sales Operations:
 
 ```bash
 # Complete Marketing System Setup (4-5 hours)
@@ -256,27 +261,46 @@ BOS-AI includes a comprehensive **Operations Library** that provides systematic,
 /coord marketing-plan-development      # 90 minutes - Campaign planning  
 /coord content-calendar-implementation # 60 minutes - Content execution
 
+# Complete Sales System Setup (3-4 hours)
+/coord sales-system-setup
+
+# Individual Sales Components
+/coord sales-bible-creation            # 2 hours - Strategic sales foundation
+/coord sales-plan-development          # 90 minutes - Tactical execution
+
 # Advanced Marketing Optimization
 /coord customer-journey-optimization   # 2-3 hours - Journey improvement
 /coord campaign-launch                 # 1-2 weeks - Full campaign execution
 /coord content-batch-creation         # 3-4 hours - Efficient content production
+
+# Advanced Sales Optimization
+/coord pipeline-optimization           # 2-3 hours - Pipeline enhancement
+/coord conversion-mastery              # 3-4 hours - Client conversion improvement
+/coord pricing-strategy                # 2-3 hours - Value-based pricing
+
+# Cross-Function Integration
+/coord sales-marketing-alignment       # 2-3 hours - Unified customer journey
 ```
 
 #### Business Impact Metrics:
-- **Time Efficiency**: Complete marketing system in 4-5 hours vs. weeks of traditional planning
-- **Strategic Alignment**: Marketing directly supports Business Chassis multiplication objectives  
-- **Customer Success Focus**: Marketing effectiveness measured by customer value delivery
-- **Business Chassis Multiplication**: Potential 50-100% improvement in marketing-driven growth
+- **Time Efficiency**: Complete marketing system (4-5 hours) + sales system (3-4 hours) = 7-9 hours vs. months of traditional planning
+- **Strategic Alignment**: Marketing and sales directly support Business Chassis multiplication objectives  
+- **Customer Success Focus**: Both frameworks measured by authentic customer value delivery
+- **Business Chassis Multiplication**: Combined potential 100-200% improvement in marketing-sales driven growth
 
 #### Operations Library Structure:
 ```
 /docs/Operations Library/
 ├── operations-library-guide.md    # Framework overview and integration
-└── Marketing/
-    ├── Marketing Bible.md          # Strategic reference document
-    ├── Marketing Plan.md           # Tactical implementation framework
-    ├── Content Calendar.md         # Content execution system
-    └── Marketing Documentation Creation SOP (AI-Driven).md
+├── Marketing/                      # 4 documents - 4-5 hour system
+│   ├── Marketing Bible.md          # Strategic reference document
+│   ├── Marketing Plan.md           # Tactical implementation framework
+│   ├── Content Calendar.md         # Content execution system
+│   └── Marketing Documentation Creation SOP (AI-Driven).md
+└── Sales/                          # 3 documents - 3-4 hour system
+    ├── Sales Bible.md              # Strategic sales reference
+    ├── Sales Plan.md               # Tactical sales execution
+    └── Sales Documentation Creation SOP (AI-Driven).md
 ```
 
 **Operations Library vs Foundation Library:**
@@ -285,15 +309,19 @@ BOS-AI includes a comprehensive **Operations Library** that provides systematic,
 - **Integration**: Operations Library translates strategy into repeatable processes
 - **Outcome**: Consistent execution aligned with strategic objectives
 
-### Enhanced Marketing Agents
+### Enhanced Marketing & Sales Agents
 
-All marketing agents now integrate Operations Library frameworks:
-
+**Marketing Agents** now integrate Operations Library frameworks:
 - **@brand-strategy**: Marketing Bible creation with customer-centric framework and value communication
 - **@campaign-execution**: Marketing Plan development with 3-campaign system and customer journey marketing
 - **@content-creation**: Content Calendar implementation with systematic workflows and batch creation
 
-### Marketing Mission Library
+**Sales Agents** now integrate Operations Library frameworks:
+- **@pipeline-management**: Sales Bible qualification and Sales Plan tactical execution with customer-success pipeline
+- **@conversion-optimization**: Sales Bible objection handling, closing methodology, and value-based pricing
+- **@revenue-operations**: Sales Bible operational standards and Sales Plan analytics with comprehensive tracking
+
+### Marketing Mission Library (7 Missions)
 
 **Foundation Missions** (3-Document Framework):
 1. `marketing-system-setup` - Complete 3-document marketing framework (4-5 hours)
@@ -306,10 +334,26 @@ All marketing agents now integrate Operations Library frameworks:
 6. `campaign-launch` - End-to-end campaign execution (1-2 weeks)
 7. `content-batch-creation` - Efficient content production workflow (3-4 hours)
 
+### Sales Mission Library (7 Missions)
+
+**Foundation Missions** (2-Document Framework):
+1. `sales-system-setup` - Complete 2-document sales framework (3-4 hours)
+2. `sales-bible-creation` - Strategic sales foundation (2 hours)
+3. `sales-plan-development` - Tactical sales execution (90 minutes)
+
+**Advanced Missions**:
+4. `pipeline-optimization` - Sales pipeline performance enhancement (2-3 hours)
+5. `conversion-mastery` - Client conversion rate optimization (3-4 hours)
+6. `pricing-strategy` - Value-based pricing implementation (2-3 hours)
+
+**Integration Mission**:
+7. `sales-marketing-alignment` - Cross-function customer journey optimization (2-3 hours)
+
 **Mission Selection Guide:**
-- **New Business**: `marketing-system-setup` → `customer-journey-optimization` → `content-batch-creation`
-- **Existing Business**: `marketing-bible-creation` → `customer-journey-optimization` → `campaign-launch`  
-- **Quick Improvements**: Individual 60-90 minute missions for targeted optimization
+- **New Business**: `marketing-system-setup` + `sales-system-setup` → `sales-marketing-alignment` → optimization missions
+- **Existing Business**: Create individual frameworks first, then integrate with alignment mission
+- **Quick Improvements**: Individual targeted missions for specific optimization needs
+- **Combined Systems**: 7-9 hours for complete marketing-sales operational excellence
 
 ## The Complete Solopreneur Business Operating System
 

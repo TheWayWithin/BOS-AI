@@ -215,7 +215,7 @@ Pre-configured workflows for systematic business operations:
 - `optimization-sprint` - Identify and fix bottlenecks
 - `competitive-scan` - Market positioning update
 
-### Marketing Operations (NEW)
+### Marketing Operations
 **Foundation Missions** (3-Document Framework):
 - `marketing-system-setup` - Complete 3-document marketing framework (4-5 hours)
 - `marketing-bible-creation` - Strategic marketing foundation (90 minutes)
@@ -226,6 +226,20 @@ Pre-configured workflows for systematic business operations:
 - `customer-journey-optimization` - 5-stage customer journey marketing (2-3 hours)
 - `campaign-launch` - End-to-end campaign execution (1-2 weeks)
 - `content-batch-creation` - Efficient content production workflow (3-4 hours)
+
+### Sales Operations (NEW)
+**Foundation Missions** (2-Document Framework):
+- `sales-system-setup` - Complete 2-document sales framework (3-4 hours)
+- `sales-bible-creation` - Strategic sales foundation (2 hours)
+- `sales-plan-development` - Tactical sales execution (90 minutes)
+
+**Advanced Sales Missions**:
+- `pipeline-optimization` - Sales pipeline performance enhancement (2-3 hours)
+- `conversion-mastery` - Client conversion rate optimization (3-4 hours)
+- `pricing-strategy` - Value-based pricing implementation (2-3 hours)
+
+**Integration Mission**:
+- `sales-marketing-alignment` - Cross-function customer journey optimization (2-3 hours)
 
 ### Strategic Initiatives
 - `product-launch` - New product/service rollout
@@ -250,52 +264,79 @@ BOS-AI includes a comprehensive **Operations Library** that provides systematic 
 
 **Current Operations Available:**
 - **Marketing Operations**: Complete 3-document framework (Bible, Plan, Calendar) with AI-driven creation
-- **Future Expansions**: Sales Operations, Customer Service Operations, Financial Operations, Legal Operations
+- **Sales Operations**: Complete 2-document framework (Bible, Plan) with customer-success focus
+- **Future Expansions**: Customer Service Operations, Financial Operations, Legal Operations
 
 **Operations Library Location:**
 ```
 /docs/Operations Library/
 ├── operations-library-guide.md    # Framework overview
-└── Marketing/                      # Complete marketing framework
-    ├── Marketing Bible.md          # Strategic foundation
-    ├── Marketing Plan.md           # Tactical implementation  
-    ├── Content Calendar.md         # Execution system
-    └── Marketing Documentation Creation SOP (AI-Driven).md
+├── Marketing/                      # Complete marketing framework (4-5 hours)
+│   ├── Marketing Bible.md          # Strategic foundation
+│   ├── Marketing Plan.md           # Tactical implementation  
+│   ├── Content Calendar.md         # Execution system
+│   └── Marketing Documentation Creation SOP (AI-Driven).md
+└── Sales/                          # Complete sales framework (3-4 hours)
+    ├── Sales Bible.md              # Strategic sales foundation
+    ├── Sales Plan.md               # Tactical sales execution
+    └── Sales Documentation Creation SOP (AI-Driven).md
 ```
 
 ## 💡 Quick Start Examples
 
-### Scenario 1: Set Up Complete Marketing System (NEW)
+### Scenario 1: Set Up Complete Marketing System
 ```
 /coord marketing-system-setup
 ```
 I'll guide you through creating a complete marketing framework in 4-5 hours: Marketing Bible (strategy), Marketing Plan (tactics), and Content Calendar (execution) with customer-success focus and Business Chassis multiplication.
 
-### Scenario 2: Optimize Your Business
+### Scenario 2: Set Up Complete Sales System (NEW)
+```
+/coord sales-system-setup
+```
+I'll guide you through creating a complete sales framework in 3-4 hours: Sales Bible (customer-success sales methodology) and Sales Plan (tactical execution) with authentic relationship building and value-based pricing.
+
+### Scenario 3: Set Up Combined Marketing-Sales System (NEW)
+```
+/coord marketing-system-setup
+# Then follow with:
+/coord sales-system-setup
+# Finally integrate:
+/coord sales-marketing-alignment
+```
+Complete customer journey coverage in 7-9 hours vs. months of traditional business development. Marketing multiplies Prospects + Lead Conversion + Transaction Frequency; Sales multiplies Lead Conversion + Client Conversion + Average Spend for 100-200% Business Chassis improvement potential.
+
+### Scenario 4: Optimize Your Business
 ```
 /coord optimize
 ```
 I'll analyze your Business Chassis, identify the weakest multiplier, and coordinate agents to fix it.
 
-### Scenario 3: Launch a Product
+### Scenario 5: Launch a Product
 ```
 /coord launch "AI automation tool"
 ```
 I'll orchestrate market research, solution design, go-to-market strategy, and launch execution.
 
-### Scenario 4: Create Marketing Foundation (NEW)
+### Scenario 6: Create Marketing Foundation
 ```
 /coord marketing-bible-creation
 ```
 90-minute strategic marketing foundation with customer journey framework and value communication system.
 
-### Scenario 5: Improve Customer Retention
+### Scenario 7: Create Sales Foundation (NEW)
+```
+/coord sales-bible-creation
+```
+2-hour strategic sales foundation with customer-success philosophy, ICP framework, and value-based pricing approach.
+
+### Scenario 8: Improve Customer Retention
 ```
 /meeting @retention-strategy "reduce churn from 15% to 5%"
 ```
 Direct consultation with retention specialist for targeted strategies.
 
-### Scenario 6: Scale Your Business
+### Scenario 9: Scale Your Business
 ```
 /coord scale
 ```
@@ -304,15 +345,18 @@ Full scaling analysis with growth strategies across all Business Chassis compone
 ## 🚀 Pro Tips
 
 1. **Start with /coord optimize** - Let me identify your biggest opportunity
-2. **NEW: Set up marketing framework early** - Use `/coord marketing-system-setup` for complete customer-success focused marketing in 4-5 hours
-3. **Use /meeting for deep dives** - When you need specialized expertise
-4. **Chain commands** - Start with /coord for strategy, then /meeting for execution
-5. **Track metrics** - Always measure Business Chassis improvements
-6. **Focus on multiplication** - Small improvements in multiple areas = exponential growth
-7. **NEW: Follow the 3-document marketing pattern** - Marketing Bible → Marketing Plan → Content Calendar for systematic execution
-8. **Use Operations Library** - Reference `/docs/Operations Library/` for systematic execution frameworks
-9. **Monitor development progress** - Use `/report` to track PRD implementation status
-10. **Analyze bottlenecks** - Use `/pmd` when projects face delays or alignment issues
+2. **Set up marketing framework early** - Use `/coord marketing-system-setup` for complete customer-success focused marketing in 4-5 hours
+3. **NEW: Add sales framework next** - Use `/coord sales-system-setup` for complete customer-success focused sales in 3-4 hours
+4. **NEW: Integrate marketing-sales** - Use `/coord sales-marketing-alignment` for unified customer journey and 100-200% Business Chassis multiplication
+5. **Use /meeting for deep dives** - When you need specialized expertise
+6. **Chain commands** - Start with /coord for strategy, then /meeting for execution
+7. **Track metrics** - Always measure Business Chassis improvements
+8. **Focus on multiplication** - Small improvements in multiple areas = exponential growth
+9. **Follow systematic patterns** - Marketing: Bible → Plan → Calendar; Sales: Bible → Plan for systematic execution
+10. **NEW: Complete business operations in 7-9 hours** - Marketing + Sales frameworks provide complete customer journey coverage
+11. **Use Operations Library** - Reference `/docs/Operations Library/` for systematic execution frameworks
+12. **Monitor development progress** - Use `/report` to track PRD implementation status
+13. **Analyze bottlenecks** - Use `/pmd` when projects face delays or alignment issues
 
 ## 📈 Success Metrics
 
