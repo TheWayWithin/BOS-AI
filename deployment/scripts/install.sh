@@ -92,8 +92,16 @@ fi
 echo -e "${CYAN}📚 Installing Document Library (templates & SOPs)...${NC}"
 LIBRARY_COUNT=0
 
-# List of all Document Library files
-declare -a DOCUMENT_LIBRARY_FILES=(
+# Create subdirectories
+mkdir -p .claude/document-library/Foundation
+mkdir -p .claude/document-library/Operations/Marketing
+mkdir -p .claude/document-library/Operations/Sales
+mkdir -p .claude/document-library/Operations/Customer\ Service
+mkdir -p .claude/document-library/Operations/Finance
+
+# Foundation documents
+echo -e "${CYAN}  📁 Installing Foundation documents...${NC}"
+declare -a FOUNDATION_FILES=(
     "Vision and Mission.md"
     "Vision and Mission Development SOP (Rapid AI-Driven).md"
     "Market and Client Research Template.md"
@@ -113,14 +121,87 @@ declare -a DOCUMENT_LIBRARY_FILES=(
     "FILING-STANDARDS.md"
 )
 
-for doc in "${DOCUMENT_LIBRARY_FILES[@]}"; do
+for doc in "${FOUNDATION_FILES[@]}"; do
     # URL encode the filename (replace spaces with %20)
     encoded_doc=$(echo "$doc" | sed 's/ /%20/g')
-    if download_file "$GITHUB_RAW_BASE/docs/Document%20Library/$encoded_doc" ".claude/document-library/$doc"; then
-        echo -e "${GREEN}  ✓ $doc${NC}"
+    if download_file "$GITHUB_RAW_BASE/docs/Document%20Library/Foundation/$encoded_doc" ".claude/document-library/Foundation/$doc"; then
+        echo -e "${GREEN}    ✓ $doc${NC}"
         LIBRARY_COUNT=$((LIBRARY_COUNT + 1))
     else
-        echo -e "${YELLOW}  ⚠ Failed: $doc${NC}"
+        echo -e "${YELLOW}    ⚠ Failed: $doc${NC}"
+    fi
+done
+
+# Marketing Operations documents
+echo -e "${CYAN}  📁 Installing Marketing Operations...${NC}"
+declare -a MARKETING_FILES=(
+    "Marketing Bible.md"
+    "Marketing Plan.md"
+    "Content Calendar.md"
+    "Marketing Documentation Creation SOP (AI-Driven).md"
+)
+
+for doc in "${MARKETING_FILES[@]}"; do
+    encoded_doc=$(echo "$doc" | sed 's/ /%20/g')
+    if download_file "$GITHUB_RAW_BASE/docs/Document%20Library/Operations/Marketing/$encoded_doc" ".claude/document-library/Operations/Marketing/$doc"; then
+        echo -e "${GREEN}    ✓ $doc${NC}"
+        LIBRARY_COUNT=$((LIBRARY_COUNT + 1))
+    else
+        echo -e "${YELLOW}    ⚠ Failed: $doc${NC}"
+    fi
+done
+
+# Sales Operations documents
+echo -e "${CYAN}  📁 Installing Sales Operations...${NC}"
+declare -a SALES_FILES=(
+    "Sales Bible.md"
+    "Sales Plan.md"
+    "Sales Documentation Creation SOP (AI-Driven).md"
+)
+
+for doc in "${SALES_FILES[@]}"; do
+    encoded_doc=$(echo "$doc" | sed 's/ /%20/g')
+    if download_file "$GITHUB_RAW_BASE/docs/Document%20Library/Operations/Sales/$encoded_doc" ".claude/document-library/Operations/Sales/$doc"; then
+        echo -e "${GREEN}    ✓ $doc${NC}"
+        LIBRARY_COUNT=$((LIBRARY_COUNT + 1))
+    else
+        echo -e "${YELLOW}    ⚠ Failed: $doc${NC}"
+    fi
+done
+
+# Customer Service Operations documents
+echo -e "${CYAN}  📁 Installing Customer Service Operations...${NC}"
+declare -a CUSTOMER_SERVICE_FILES=(
+    "Customer Service Bible.md"
+    "Customer Service Plan.md"
+    "Customer Service Documentation Creation SOP (AI-Driven).md"
+)
+
+for doc in "${CUSTOMER_SERVICE_FILES[@]}"; do
+    encoded_doc=$(echo "$doc" | sed 's/ /%20/g')
+    if download_file "$GITHUB_RAW_BASE/docs/Document%20Library/Operations/Customer%20Service/$encoded_doc" ".claude/document-library/Operations/Customer Service/$doc"; then
+        echo -e "${GREEN}    ✓ $doc${NC}"
+        LIBRARY_COUNT=$((LIBRARY_COUNT + 1))
+    else
+        echo -e "${YELLOW}    ⚠ Failed: $doc${NC}"
+    fi
+done
+
+# Finance Operations documents
+echo -e "${CYAN}  📁 Installing Finance Operations...${NC}"
+declare -a FINANCE_FILES=(
+    "Finance Bible.md"
+    "Finance Plan.md"
+    "Finance Documentation Creation SOP (AI-Driven).md"
+)
+
+for doc in "${FINANCE_FILES[@]}"; do
+    encoded_doc=$(echo "$doc" | sed 's/ /%20/g')
+    if download_file "$GITHUB_RAW_BASE/docs/Document%20Library/Operations/Finance/$encoded_doc" ".claude/document-library/Operations/Finance/$doc"; then
+        echo -e "${GREEN}    ✓ $doc${NC}"
+        LIBRARY_COUNT=$((LIBRARY_COUNT + 1))
+    else
+        echo -e "${YELLOW}    ⚠ Failed: $doc${NC}"
     fi
 done
 
@@ -224,8 +305,8 @@ for mission in chassis-optimization-sequence product-launch-sequence customer-ac
     fi
 done
 
-# Other category missions (delivery, growth, optimization)
-for category in delivery growth optimization; do
+# Other category missions (delivery, growth, optimization, marketing, sales, customer-service, finance)
+for category in delivery growth optimization marketing sales customer-service finance; do
     echo -e "${CYAN}  📁 Installing $category missions...${NC}"
     
     case $category in
@@ -237,6 +318,18 @@ for category in delivery growth optimization; do
             ;;
         optimization)
             missions="chassis-optimization multiplication-analysis performance-enhancement"
+            ;;
+        marketing)
+            missions="marketing-system-setup marketing-bible-creation marketing-plan-development content-calendar-implementation customer-journey-optimization campaign-launch content-batch-creation"
+            ;;
+        sales)
+            missions="sales-system-setup sales-bible-creation sales-plan-development pipeline-optimization conversion-mastery pricing-strategy sales-marketing-alignment"
+            ;;
+        customer-service)
+            missions="customer-service-system-setup service-bible-creation service-plan-development retention-optimization service-excellence-transformation customer-success-enablement proactive-service-implementation"
+            ;;
+        finance)
+            missions="finance-system-setup finance-bible-creation finance-plan-development profit-optimization cash-flow-mastery investment-strategy-development financial-transformation"
             ;;
     esac
     
