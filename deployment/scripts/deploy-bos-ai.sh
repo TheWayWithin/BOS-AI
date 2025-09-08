@@ -147,7 +147,7 @@ for mission in missions/*.md; do
 done
 
 # Deploy missions from category subdirectories (business-focused)
-for category in business-setup creation delivery discovery growth operations optimization sequences; do
+for category in business-setup creation delivery discovery growth operations optimization sequences marketing sales customer-service finance; do
     if [ -d "missions/$category" ]; then
         echo -e "${CYAN}  📁 Deploying ${category} missions...${NC}"
         for mission in missions/"$category"/*.md; do
