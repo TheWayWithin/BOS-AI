@@ -99,6 +99,24 @@ mkdir -p .claude/document-library/Operations/Sales
 mkdir -p .claude/document-library/Operations/Customer\ Service
 mkdir -p .claude/document-library/Operations/Finance
 
+# Root-level Document Library files
+echo -e "${CYAN}  📁 Installing root Document Library files...${NC}"
+declare -a ROOT_LIBRARY_FILES=(
+    "business_foundation_library_guide.md"
+    "FILING-STANDARDS.md"
+)
+
+for doc in "${ROOT_LIBRARY_FILES[@]}"; do
+    # URL encode the filename (replace spaces with %20)
+    encoded_doc=$(echo "$doc" | sed 's/ /%20/g')
+    if download_file "$GITHUB_RAW_BASE/docs/Document%20Library/$encoded_doc" ".claude/document-library/$doc"; then
+        echo -e "${GREEN}    ✓ $doc${NC}"
+        LIBRARY_COUNT=$((LIBRARY_COUNT + 1))
+    else
+        echo -e "${YELLOW}    ⚠ Failed: $doc${NC}"
+    fi
+done
+
 # Foundation documents
 echo -e "${CYAN}  📁 Installing Foundation documents...${NC}"
 declare -a FOUNDATION_FILES=(
@@ -117,8 +135,6 @@ declare -a FOUNDATION_FILES=(
     "Brand Style Guide Creation SOP (AI-Driven).md"
     "Product Requirements Document (PRD).md"
     "Product Requirements Document (PRD) Creation SOP.md"
-    "business_foundation_library_guide.md"
-    "FILING-STANDARDS.md"
 )
 
 for doc in "${FOUNDATION_FILES[@]}"; do
