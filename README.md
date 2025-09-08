@@ -123,6 +123,11 @@ cd BOS-AI
 /coord optimize  # Let AI identify and fix your biggest issue
 ```
 
+**Scenario: Set Up Complete Finance System**
+```bash
+/coord finance-system-setup
+```
+
 ## 🔌 MCP Integration - Supercharge Your Agents
 
 ### What is MCP (Model Context Protocol)?
@@ -659,7 +664,7 @@ This ensures chronological organization and easy retrieval.
 
 ## 🎯 Mission Workflows
 
-BOS-AI includes **31 pre-built missions** that coordinate your agents to accomplish complex business tasks:
+BOS-AI includes **38 pre-built missions** that coordinate your agents to accomplish complex business tasks:
 
 ### Quick Mission Examples
 ```bash
@@ -679,6 +684,7 @@ BOS-AI includes **31 pre-built missions** that coordinate your agents to accompl
 - **Delivery** (3 missions) - Customer onboarding, quality assurance
 - **Growth** (3 missions) - Scaling, expansion, revenue optimization
 - **Optimization** (3 missions) - Performance enhancement, analysis
+- **Finance Operations** (7 missions) - Financial systems, profit optimization, cash flow management
 
 All missions are stored in `.claude/missions/` and automatically available through the `/coord` command.
 

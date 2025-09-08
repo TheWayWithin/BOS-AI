@@ -241,7 +241,7 @@ Pre-configured workflows for systematic business operations:
 **Integration Mission**:
 - `sales-marketing-alignment` - Cross-function customer journey optimization (2-3 hours)
 
-### Customer Service Operations (NEW)
+### Customer Service Operations
 **Foundation Missions** (2-Document Framework):
 - `customer-service-system-setup` - Complete 2-document service framework (3-4 hours)
 - `customer-service-bible-creation` - Strategic service foundation (2 hours)
@@ -254,6 +254,20 @@ Pre-configured workflows for systematic business operations:
 
 **Transformation Mission**:
 - `service-excellence-transformation` - Complete service transformation (4-6 hours)
+
+### Finance Operations (NEW)
+**Foundation Missions** (2-Document Framework):
+- `finance-system-setup` - Complete 2-document finance framework (3-4 hours)
+- `finance-bible-creation` - Strategic profit foundation (2 hours)
+- `finance-plan-development` - Tactical cash flow planning (90 minutes)
+
+**Advanced Finance Missions**:
+- `profit-optimization` - Margin and profitability enhancement (2-3 hours)
+- `cash-flow-mastery` - Cash flow optimization and management (2 hours)
+- `investment-strategy-development` - Strategic investment planning (90 minutes)
+
+**Transformation Mission**:
+- `financial-transformation` - Complete financial system transformation (4-6 hours)
 
 ### Strategic Initiatives
 - `product-launch` - New product/service rollout
@@ -280,7 +294,8 @@ BOS-AI includes a comprehensive **Operations Library** that provides systematic 
 - **Marketing Operations**: Complete 3-document framework (Bible, Plan, Calendar) with AI-driven creation
 - **Sales Operations**: Complete 2-document framework (Bible, Plan) with customer-success focus
 - **Customer Service Operations**: Complete 2-document framework (Bible, Plan) with success enablement philosophy
-- **Future Expansions**: Financial Operations, Legal Operations, General Operations
+- **Finance Operations**: Complete 2-document framework (Bible, Plan) with profit-first philosophy
+- **Future Expansions**: Legal Operations, General Operations
 
 **Document Library Location:**
 ```
@@ -300,10 +315,14 @@ BOS-AI includes a comprehensive **Operations Library** that provides systematic 
 │   │   ├── Sales Bible.md          # Strategic sales foundation template
 │   │   ├── Sales Plan.md           # Tactical sales execution template
 │   │   └── Sales Documentation Creation SOP (AI-Driven).md
-│   └── Customer Service/           # Complete service framework (3-4 hours)
-│       ├── Customer Service Bible.md # Strategic service foundation template
-│       ├── Customer Service Plan.md  # Tactical service execution template
-│       └── Customer Service Documentation Creation SOP (AI-Driven).md
+│   ├── Customer Service/           # Complete service framework (3-4 hours)
+│   │   ├── Customer Service Bible.md # Strategic service foundation template
+│   │   ├── Customer Service Plan.md  # Tactical service execution template
+│   │   └── Customer Service Documentation Creation SOP (AI-Driven).md
+│   └── Finance/                    # Complete finance framework (3-4 hours)
+│       ├── Finance Bible.md        # Strategic profit foundation template
+│       ├── Finance Plan.md         # Tactical cash flow execution template
+│       └── Finance Documentation Creation SOP (AI-Driven).md
 └── operations-library-guide.md     # Framework overview
 
 Deployed to: .claude/document-library/ (maintains structure)
@@ -329,17 +348,19 @@ I'll guide you through creating a complete sales framework in 3-4 hours: Sales B
 ```
 I'll guide you through creating a complete customer service framework in 3-4 hours: Customer Service Bible (success enablement philosophy) and Customer Service Plan (proactive relationship building) with retention optimization and advocacy development.
 
-### Scenario 4: Set Up Complete Three-Pillar Business System (NEW)
+### Scenario 4: Set Up Complete Four-Pillar Business System (NEW)
 ```
 /coord marketing-system-setup
 # Then follow with:
 /coord sales-system-setup
 # Then add:
 /coord customer-service-system-setup
+# Then complete with:
+/coord finance-system-setup
 # Finally integrate:
 /coord complete-business-system
 ```
-Complete customer journey coverage from awareness through advocacy in 10-13 hours vs. months of traditional business development. Marketing multiplies Prospects + Lead Conversion + Transaction Frequency; Sales multiplies Lead Conversion + Client Conversion + Average Spend; Customer Service multiplies Transaction Frequency + Margin + Referral Generation for 150-300% Business Chassis improvement potential.
+Complete customer journey coverage from awareness through advocacy in 13-17 hours vs. months of traditional business development. Marketing multiplies Prospects + Lead Conversion + Transaction Frequency; Sales multiplies Lead Conversion + Client Conversion + Average Spend; Customer Service multiplies Transaction Frequency + Margin + Referral Generation; Finance multiplies Margin + Average Spend + strategic profit optimization for 200-400% Business Chassis improvement potential.
 
 ### Scenario 5: Optimize Your Business
 ```
@@ -377,7 +398,19 @@ I'll orchestrate market research, solution design, go-to-market strategy, and la
 ```
 Direct consultation with retention specialist for targeted strategies.
 
-### Scenario 11: Scale Your Business
+### Scenario 11: Set Up Complete Finance System (NEW)
+```
+/coord finance-system-setup
+```
+I'll guide you through creating a complete finance framework in 3-4 hours: Finance Bible (profit-first philosophy) and Finance Plan (tactical cash flow management) with Business Chassis Margin optimization.
+
+### Scenario 12: Create Finance Foundation (NEW)
+```
+/coord finance-bible-creation
+```
+2-hour strategic finance foundation with profit-first philosophy, cash flow optimization, and strategic resource allocation.
+
+### Scenario 13: Scale Your Business
 ```
 /coord scale
 ```
@@ -388,18 +421,20 @@ Full scaling analysis with growth strategies across all Business Chassis compone
 1. **Start with /coord optimize** - Let me identify your biggest opportunity
 2. **Set up marketing framework early** - Use `/coord marketing-system-setup` for complete customer-success focused marketing in 4-5 hours
 3. **Add sales framework next** - Use `/coord sales-system-setup` for complete customer-success focused sales in 3-4 hours
-4. **NEW: Add customer service framework** - Use `/coord customer-service-system-setup` for complete success enablement service in 3-4 hours
-5. **NEW: Integrate complete business system** - Use `/coord complete-business-system` for unified customer journey across all touchpoints and 150-300% Business Chassis multiplication
-5. **Use /meeting for deep dives** - When you need specialized expertise
-6. **Chain commands** - Start with /coord for strategy, then /meeting for execution
-7. **Track metrics** - Always measure Business Chassis improvements
-8. **Focus on multiplication** - Small improvements in multiple areas = exponential growth
-9. **Follow systematic patterns** - Marketing: Bible → Plan → Calendar; Sales: Bible → Plan for systematic execution
-10. **NEW: Complete business operations in 10-13 hours** - Marketing + Sales + Customer Service frameworks provide complete customer journey coverage from awareness through advocacy
-11. **NEW: Focus on customer success enablement** - All three frameworks prioritize customer success over traditional extraction approaches
-12. **Use Operations Library** - Reference `/docs/Operations Library/` for systematic execution frameworks
-12. **Monitor development progress** - Use `/report` to track PRD implementation status
-13. **Analyze bottlenecks** - Use `/pmd` when projects face delays or alignment issues
+4. **Add finance framework last** - Use `/coord finance-system-setup` for complete profit-first finance in 3-4 hours
+5. **Complete business operations in 13-17 hours** - Marketing + Sales + Customer Service + Finance frameworks
+6. **Focus on profit-first philosophy** - Finance framework prioritizes profit optimization over traditional bookkeeping
+7. **NEW: Add customer service framework** - Use `/coord customer-service-system-setup` for complete success enablement service in 3-4 hours
+8. **NEW: Integrate complete business system** - Use `/coord complete-business-system` for unified customer journey across all touchpoints and 200-400% Business Chassis multiplication
+9. **Use /meeting for deep dives** - When you need specialized expertise
+10. **Chain commands** - Start with /coord for strategy, then /meeting for execution
+11. **Track metrics** - Always measure Business Chassis improvements
+12. **Focus on multiplication** - Small improvements in multiple areas = exponential growth
+13. **Follow systematic patterns** - Marketing: Bible → Plan → Calendar; Sales: Bible → Plan for systematic execution
+14. **NEW: Focus on customer success enablement** - All four frameworks prioritize customer success over traditional extraction approaches
+15. **Use Operations Library** - Reference `/docs/Operations Library/` for systematic execution frameworks
+16. **Monitor development progress** - Use `/report` to track PRD implementation status
+17. **Analyze bottlenecks** - Use `/pmd` when projects face delays or alignment issues
 
 ## 📈 Success Metrics
 
