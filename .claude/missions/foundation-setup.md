@@ -1,13 +1,32 @@
 # Mission: Foundation Setup (Greenfield)
 
-**Mission Type:** Business Foundation Creation  
-**Duration:** 14 weeks  
-**Difficulty:** Comprehensive  
+**Mission Type:** Business Foundation Creation
+**Duration:** 2-3 days (AI-driven) or 14 weeks (traditional)
+**Difficulty:** Comprehensive
 **Value Impact:** Complete Business Foundation
 
 ## Mission Objective
 
-Establish the complete Business Foundation Library for a new business following the proven 14-week sequence. This mission creates all core strategic documents that guide every business decision, product development, and operational activity.
+Establish the complete Business Foundation Library for a new business using AI-driven document creation. This mission creates all core strategic documents that guide every business decision, product development, and operational activity.
+
+## Document Templates & SOPs Library
+
+All templates and SOPs available in: `.claude/document-library/Foundation/`
+
+**Foundation Documents (Sequential Order):**
+1. **Vision & Mission** → `Vision and Mission.md` + `Vision and Mission Development SOP (Rapid AI-Driven).md` (2-3 hours)
+2. **Market Research** → `Market and Client Research Template.md` + `Market and Client Research SOP (Rapid AI-Driven).md` (6-8 hours)
+3. **Client Success Blueprint** → `Client Success Blueprint.md` + `Client Success Blueprint Creation SOP (Revised).md` (3-4 hours)
+4. **Positioning Statement** → `Positioning Statement Template.md` + `Positioning Statement SOP: 3-Hour Sprint.md` (3 hours)
+5. **Strategic Roadmap** → `Strategic Roadmap_ Vision to Great.md` + `Strategic Roadmap Creation SOP (AI-Driven).md` (4-6 hours)
+6. **Brand Style Guide** → `Brand Style Guide.md` + `Brand Style Guide Creation SOP (AI-Driven).md` (6-8 hours)
+7. **Product Requirements Documents** → `Product Requirements Document (PRD).md` + `Product Requirements Document (PRD) Creation SOP.md` (3-4 hours per PRD)
+
+**Total Time with AI-Driven Approach:** ~28-36 hours (vs. 14 weeks traditional)
+
+**Output Locations:**
+- All documents save to: `/documents/foundation/`
+- PRDs save to: `/documents/foundation/prds/`
 
 ## Required Agents
 

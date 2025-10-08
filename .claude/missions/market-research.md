@@ -3,8 +3,22 @@
 ## Objective
 Conduct comprehensive market research to identify opportunities, understand competition, and validate market fit for business growth.
 
+## Document Templates & SOPs
+
+**Required Templates:**
+- `.claude/document-library/Foundation/Market and Client Research Template.md` - Comprehensive research structure
+- `.claude/document-library/Foundation/Market and Client Research SOP (Rapid AI-Driven).md` - AI-driven creation process
+
+**Creation Process:**
+- Follow the Rapid Market Research SOP for same-day completion
+- Use AI prompts to analyze market dynamics, competition, and customer needs
+- Total time: 6-8 hours with AI-driven approach (vs. weeks manually)
+
+**Output Location:**
+- Save to: `/documents/foundation/market-research.md`
+
 ## Duration
-1-2 weeks
+6-8 hours (AI-driven) or 1-2 weeks (manual research)
 
 ## Required Agents
 - @market-intelligence (lead)

@@ -8,11 +8,28 @@
 ## Mission Objective
 Update or create the Vision & Mission document using the latest template and AI-assisted SOP to ensure clear strategic direction and purpose.
 
+## Document Templates & SOPs
+
+**Required Templates:**
+- `.claude/document-library/Foundation/Vision and Mission.md` - Output template structure
+- `.claude/document-library/Foundation/Vision and Mission Development SOP (Rapid AI-Driven).md` - Creation process
+
+**Creation Process:**
+- Follow the 3-Prompt Strategic Development Process from the SOP
+- Use AI prompts integrated with Jim Collins' Good to Great framework
+- Hedgehog Concept analysis (Passion × Best At × Economic Engine)
+- Total time: 2-3 hours with AI-driven approach
+
+**Output Location:**
+- Save to: `/documents/foundation/vision-mission.md`
+- Archive previous version to: `/documents/archive/YYYY-MM-DD-vision-mission.md`
+
 ## Pre-Mission Checklist
 - [ ] Document Library deployed to `.claude/document-library/`
 - [ ] `/documents/foundation/` directory exists
 - [ ] `/documents/archive/` directory exists
 - [ ] Previous vision-mission.md backed up (if exists)
+- [ ] Market research completed (recommended prerequisite)
 
 ## Execution Steps
 

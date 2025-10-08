@@ -1,17 +1,35 @@
 # Mission: Client Success Blueprint
 
-**Mission Type:** Business Setup - Customer Success  
-**Duration:** 2-3 weeks  
-**Difficulty:** Medium  
+**Mission Type:** Business Setup - Customer Success
+**Duration:** 3-4 hours (AI-driven) or 2-3 weeks (manual)
+**Difficulty:** Medium
 **Value Impact:** High Revenue Retention
 
 ## Mission Objective
 
 Create comprehensive customer success system that maximizes client lifetime value, reduces churn, and transforms satisfied customers into brand advocates through systematic success protocols.
 
+## Document Templates & SOPs
+
+**Required Templates:**
+- `.claude/document-library/Foundation/Client Success Blueprint.md` - Comprehensive customer success structure
+- `.claude/document-library/Foundation/Client Success Blueprint Creation SOP (Revised).md` - AI-driven creation process
+
+**Creation Process:**
+- Follow the 3-Phase Client Success SOP
+- Use AI prompts to map customer journeys, define success metrics, and create retention systems
+- Total time: 3-4 hours with AI-driven approach
+
+**Output Location:**
+- Save to: `/documents/foundation/client-success-blueprint.md`
+
+**Prerequisites:**
+- Market and Client Research completed (provides customer insights)
+- Vision and Mission defined (provides success framework)
+
 ## Required Agents
 
-- @client-success-architect (primary coordination)
+- @client-success-intelligence (primary coordination)
 - @customer-journey-designer (experience mapping)
 - @retention-optimizer (churn prevention)
 - @satisfaction-tracker (metrics and feedback)
