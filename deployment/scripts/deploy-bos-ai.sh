@@ -46,6 +46,18 @@ mkdir -p documents/assets
 echo -e "${BLUE}📚 Deploying core documentation...${NC}"
 cp CLAUDE.md .claude/
 echo -e "${GREEN}✅ CLAUDE.md deployed${NC}"
+
+# Verify correct BOS-AI version deployed
+echo -e "${BLUE}🔍 Verifying CLAUDE.md version...${NC}"
+if grep -q "BOS-AI.*Business Operating System" .claude/CLAUDE.md; then
+    echo -e "${GREEN}✅ BOS-AI version verified (Business Operating System)${NC}"
+else
+    echo -e "${RED}❌ ERROR: Wrong CLAUDE.md version deployed!${NC}"
+    echo -e "${YELLOW}⚠️  Expected: BOS-AI Business Operating System${NC}"
+    echo -e "${YELLOW}⚠️  This deployment will provide users with wrong instructions${NC}"
+    exit 1
+fi
+
 cp BOUNDARIES.md .claude/
 echo -e "${GREEN}✅ BOUNDARIES.md deployed (enforces separation)${NC}"
 

@@ -34,8 +34,18 @@ echo -e "${BLUE}📚 Deploying command documentation...${NC}"
 if [ -f "CLAUDE.md" ]; then
     cp CLAUDE.md .claude/
     echo -e "${GREEN}✅ CLAUDE.md deployed${NC}"
+
+    # Verify correct BOS-AI version deployed
+    echo -e "${BLUE}🔍 Verifying CLAUDE.md version...${NC}"
+    if grep -q "BOS-AI.*Business Operating System" .claude/CLAUDE.md; then
+        echo -e "${GREEN}✅ BOS-AI version verified${NC}"
+    else
+        echo -e "${RED}❌ ERROR: Wrong CLAUDE.md version!${NC}"
+        exit 1
+    fi
 else
     echo -e "${YELLOW}⚠️  CLAUDE.md not found in root${NC}"
+    exit 1
 fi
 
 # Deploy Commands

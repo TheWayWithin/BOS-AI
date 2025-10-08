@@ -77,10 +77,23 @@ cd BOS-AI
 - 🔌 **NEW: MCP (Model Context Protocol) integration for enhanced capabilities**
 - 🎮 Command system (`/coord` and `/meeting`)
 - 📁 Professional document filing structure
-- 📚 Complete documentation (CLAUDE.md)
+- 📚 Complete documentation (CLAUDE.md for business operations)
 - 🎯 Pre-built business missions
 - 📊 Business Chassis optimization framework
 - 🔄 **NEW: Intelligent fallback system when MCPs unavailable**
+
+### 📋 Important Files Reference
+
+| File | Purpose | For |
+|------|---------|-----|
+| `CLAUDE.md` | **BOS-AI business operations guide** | ✅ DEPLOYED to users |
+| `.claude/CLAUDE.md` | Active BOS-AI instructions in your project | ✅ Used by Claude Code |
+| `CLAUDE-DEVELOPMENT.md` | AGENT-11 dev framework | ⚠️ BOS-AI development only |
+| `BOUNDARIES.md` | Explains BOS-AI vs AGENT-11 separation | 📚 Documentation |
+
+**Key Distinction:**
+- **BOS-AI**: Business Operating System (what users get) - runs your BUSINESS
+- **AGENT-11**: Development framework (builds BOS-AI) - builds SOFTWARE
 
 ## 🎯 How to Use BOS-AI After Installation
 
