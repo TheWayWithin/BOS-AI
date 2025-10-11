@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<business_vision>
+  <meta>
+    <created>PLACEHOLDER_DATE</created>
+    <last_updated>PLACEHOLDER_DATE</last_updated>
+    <version>1.0</version>
+  </meta>
+  
+  <vision_statement>
+    <mission>PLACEHOLDER_MISSION</mission>
+    <vision>PLACEHOLDER_VISION</vision>
+    <core_values>
+      <value>PLACEHOLDER_VALUE_1</value>
+      <value>PLACEHOLDER_VALUE_2</value>
+      <value>PLACEHOLDER_VALUE_3</value>
+    </core_values>
+  </vision_statement>
+  
+  <strategic_objectives>
+    <short_term period="1_year">
+      <objective priority="1">PLACEHOLDER_OBJECTIVE_1</objective>
+      <objective priority="2">PLACEHOLDER_OBJECTIVE_2</objective>
+      <objective priority="3">PLACEHOLDER_OBJECTIVE_3</objective>
+    </short_term>
+    <medium_term period="3_years">
+      <objective priority="1">PLACEHOLDER_OBJECTIVE_1</objective>
+      <objective priority="2">PLACEHOLDER_OBJECTIVE_2</objective>
+    </medium_term>
+    <long_term period="5_years">
+      <objective priority="1">PLACEHOLDER_OBJECTIVE_1</objective>
+    </long_term>
+  </strategic_objectives>
+  
+  <business_model>
+    <revenue_streams>
+      <stream>PLACEHOLDER_REVENUE_STREAM_1</stream>
+      <stream>PLACEHOLDER_REVENUE_STREAM_2</stream>
+    </revenue_streams>
+    <value_proposition>PLACEHOLDER_VALUE_PROPOSITION</value_proposition>
+    <target_markets>
+      <market>PLACEHOLDER_MARKET_1</market>
+      <market>PLACEHOLDER_MARKET_2</market>
+    </target_markets>
+  </business_model>
+  
+  <success_metrics>
+    <financial>
+      <metric name="annual_revenue">PLACEHOLDER_TARGET</metric>
+      <metric name="profit_margin">PLACEHOLDER_TARGET</metric>
+      <metric name="cash_flow">PLACEHOLDER_TARGET</metric>
+    </financial>
+    <operational>
+      <metric name="customer_satisfaction">PLACEHOLDER_TARGET</metric>
+      <metric name="employee_retention">PLACEHOLDER_TARGET</metric>
+      <metric name="market_share">PLACEHOLDER_TARGET</metric>
+    </operational>
+  </success_metrics>
+</business_vision>

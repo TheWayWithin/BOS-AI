@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<market_intelligence>
+  <meta>
+    <created>PLACEHOLDER_DATE</created>
+    <last_updated>PLACEHOLDER_DATE</last_updated>
+    <version>1.0</version>
+  </meta>
+  
+  <target_markets>
+    <primary_market>
+      <segment>PLACEHOLDER_SEGMENT</segment>
+      <size>PLACEHOLDER_SIZE</size>
+      <growth_rate>PLACEHOLDER_GROWTH</growth_rate>
+      <characteristics>
+        <characteristic>PLACEHOLDER_CHAR_1</characteristic>
+        <characteristic>PLACEHOLDER_CHAR_2</characteristic>
+      </characteristics>
+      <pain_points>
+        <pain_point>PLACEHOLDER_PAIN_1</pain_point>
+        <pain_point>PLACEHOLDER_PAIN_2</pain_point>
+      </pain_points>
+    </primary_market>
+    
+    <secondary_market>
+      <segment>PLACEHOLDER_SEGMENT</segment>
+      <size>PLACEHOLDER_SIZE</size>
+      <growth_rate>PLACEHOLDER_GROWTH</growth_rate>
+      <characteristics>
+        <characteristic>PLACEHOLDER_CHAR_1</characteristic>
+        <characteristic>PLACEHOLDER_CHAR_2</characteristic>
+      </characteristics>
+    </secondary_market>
+  </target_markets>
+  
+  <competitive_landscape>
+    <direct_competitors>
+      <competitor>
+        <name>PLACEHOLDER_COMPETITOR_1</name>
+        <market_share>PLACEHOLDER_SHARE</market_share>
+        <strengths>
+          <strength>PLACEHOLDER_STRENGTH_1</strength>
+          <strength>PLACEHOLDER_STRENGTH_2</strength>
+        </strengths>
+        <weaknesses>
+          <weakness>PLACEHOLDER_WEAKNESS_1</weakness>
+          <weakness>PLACEHOLDER_WEAKNESS_2</weakness>
+        </weaknesses>
+        <pricing_strategy>PLACEHOLDER_PRICING</pricing_strategy>
+      </competitor>
+    </direct_competitors>
+    
+    <indirect_competitors>
+      <competitor>
+        <name>PLACEHOLDER_COMPETITOR_2</name>
+        <threat_level>PLACEHOLDER_THREAT</threat_level>
+        <differentiation>PLACEHOLDER_DIFF</differentiation>
+      </competitor>
+    </indirect_competitors>
+  </competitive_landscape>
+  
+  <market_trends>
+    <trend>
+      <name>PLACEHOLDER_TREND_1</name>
+      <impact>PLACEHOLDER_IMPACT</impact>
+      <timeline>PLACEHOLDER_TIMELINE</timeline>
+      <opportunity>PLACEHOLDER_OPPORTUNITY</opportunity>
+    </trend>
+  </market_trends>
+  
+  <positioning_strategy>
+    <unique_value_proposition>PLACEHOLDER_UVP</unique_value_proposition>
+    <key_differentiators>
+      <differentiator>PLACEHOLDER_DIFF_1</differentiator>
+      <differentiator>PLACEHOLDER_DIFF_2</differentiator>
+    </key_differentiators>
+    <brand_positioning>PLACEHOLDER_POSITIONING</brand_positioning>
+  </positioning_strategy>
+</market_intelligence>

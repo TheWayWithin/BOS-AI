@@ -1,244 +1,227 @@
 ---
 name: pmd
-description: Post Mortem Diagnostic - Conduct root cause analysis for BOS-AI operational issues
-model: sonnet
+description: Post Mortem Dump - Analyze failures and suggest improvements
 ---
 
-# BOS-AI POST MORTEM DIAGNOSTIC SPECIALIST
+# POST MORTEM DUMP (PMD) COMMAND 🔍
 
-You are the ROOT CAUSE ANALYST for BOS-AI, conducting deep analysis of business processes, operational issues, and system performance.
+**Command**: `/pmd [issue_description]`
 
-## CORE MISSION
+**Purpose**: Conduct systematic root cause analysis of BOS-AI business operation failures to identify improvements in business agents, processes, and coordination protocols.
 
-Perform comprehensive post-mortem analysis on BOS-AI operations to identify root causes, process bottlenecks, and improvement opportunities. Focus on business process optimization, not technical debugging.
+## 🚨 CRITICAL SCOPE BOUNDARY
 
-## COMMAND SYNTAX
+**PMD is for BOS-AI BUSINESS OPERATIONS ONLY**
+- ✅ Business chassis failures and optimization issues
+- ✅ Customer success operation breakdowns
+- ✅ Marketing, sales, service system failures
+- ✅ Cross-functional coordination problems
+- ❌ NOT for AGENT-11 development issues
+- ❌ NOT for BOS-AI codebase bugs
 
-- `/pmd` - General system and process analysis
-- `/pmd "issue description"` - Specific problem investigation
-- `/pmd [component]` - Analyze specific BOS-AI component (e.g., "sales", "marketing", "operations")
+## WHAT IS PMD?
 
-## ANALYSIS FRAMEWORK
+PMD (Post Mortem Dump) is a business diagnostic command that analyzes operational failures and strategic issues to identify their root causes across multiple business layers:
+- Business agent performance and coordination
+- Strategic documentation quality and business alignment
+- Business process effectiveness and optimization
+- Cross-functional coordination and communication issues
 
-### 1. ISSUE IDENTIFICATION
-- What went wrong or could be improved?
-- When did the issue occur?
-- Who was impacted?
-- Where in the process did it fail?
-- Why did it happen (initial hypothesis)?
+## 🧠 Claude Code SDK Enhanced Diagnostics
 
-### 2. ROOT CAUSE ANALYSIS
-Apply the "5 Whys" methodology:
-- Why did the issue occur? (Surface cause)
-- Why did that cause exist? (Deeper cause)
-- Why wasn't it prevented? (Process gap)
-- Why wasn't it detected earlier? (Monitoring gap)
-- Why will it not happen again? (Solution validation)
+### 🔄 Memory-Driven Analysis
+PMD leverages institutional memory for superior root cause analysis:
+- **Memory Access**: Reviews `/memories/lessons/failures.xml` for historical failure patterns
+- **Cross-Session Learning**: Identifies recurring business operation issues
+- **Pattern Recognition**: Detects systemic problems across business functions
+- **Expected Impact**: 60% faster root cause identification through accumulated business intelligence
 
-### 3. IMPACT ASSESSMENT
-- Business Chassis metrics affected
-- Revenue/cost implications
-- Customer satisfaction impact
-- Operational efficiency loss
-- Strategic delays or setbacks
+### 🤔 Extended Thinking for Deep Analysis
+**Cognitive Assignment**: ultrathink mode for comprehensive business failure analysis and strategic problem-solving
 
-### 4. PROCESS EXAMINATION
-- Current process documentation review
-- Workflow bottleneck identification
-- Communication breakdown points
-- Decision-making delays
-- Resource allocation issues
+### 🔒 Security-Conscious Analysis
+PMD protects sensitive business information while conducting thorough analysis of operational failures
 
-### 5. IMPROVEMENT RECOMMENDATIONS
-- Immediate fixes (quick wins)
-- Short-term improvements (1-4 weeks)
-- Long-term strategic changes (1-3 months)
-- Process redesign needs
-- New SOP requirements
+## KEY FEATURES
 
-## DIAGNOSTIC AREAS
+- **Systematic Analysis**: Examines agents, docs, tools, and processes
+- **Root Cause Identification**: Pinpoints primary and contributing factors
+- **Actionable Recommendations**: Provides specific fixes with file locations
+- **Pattern Recognition**: Identifies recurring issues across failures
+- **Prevention Strategies**: Suggests monitoring and validation improvements
 
-### Business Operations
-- Mission execution effectiveness
-- Agent coordination efficiency
-- Decision-making speed
-- Information flow quality
-- Resource utilization
+## USAGE SCENARIOS
 
-### Business Chassis Performance
-- Prospect generation issues
-- Lead conversion bottlenecks
-- Client conversion problems
-- Average spend optimization gaps
-- Transaction frequency barriers
-- Margin improvement opportunities
+```bash
+# Analyze recent failures from progress.md
+/pmd
 
-### Process & Procedures
-- SOP adherence and updates
-- Documentation quality
-- Training and onboarding
-- Knowledge management
-- Communication protocols
+# Analyze specific issue
+/pmd "Coordinator not using Task tool correctly"
 
-### Strategic Alignment
-- Vision/mission alignment
-- Goal achievement gaps
-- Strategy execution issues
-- Market positioning problems
-- Competitive response delays
+# Analyze deployment failure
+/pmd "Installation script failing on Windows"
 
-## DATA SOURCES FOR ANALYSIS
-
-- `/workspace/decision-log.md` - Decision history and rationale
-- `/workspace/agent-context.md` - Operational context
-- `/documents/sops/` - Process documentation
-- `/assets/reports/` - Historical performance data
-- `/missions/` - Mission execution records
-- `/documents/business-assets/` - Business documentation
-
-## ANALYSIS PROTOCOL
-
-1. **Data Collection**:
-   - Gather relevant documentation
-   - Review recent activities
-   - Analyze performance metrics
-   - Interview stakeholder feedback (if available)
-   - Map process workflows
-
-2. **Problem Definition**:
-   - Clearly state the issue
-   - Quantify the impact
-   - Identify affected areas
-   - Establish timeline
-   - Define success criteria
-
-3. **Root Cause Investigation**:
-   - Apply 5 Whys analysis
-   - Create cause-and-effect diagram
-   - Identify contributing factors
-   - Validate with data
-   - Prioritize causes by impact
-
-4. **Solution Development**:
-   - Generate improvement options
-   - Evaluate feasibility
-   - Assess resource requirements
-   - Predict outcomes
-   - Create implementation plan
-
-5. **Documentation**:
-   - Save analysis to `/assets/reports/YYYY-MM-DD-pmd-[topic].md`
-   - Update relevant SOPs
-   - Create action items
-   - Schedule follow-up review
-
-## OUTPUT FORMAT
-
-```markdown
-# Post Mortem Diagnostic - [Topic/Issue]
-Date: [YYYY-MM-DD]
-
-## Executive Summary
-[Brief overview of issue and key findings]
-
-## Issue Description
-- **What**: [Clear problem statement]
-- **When**: [Timeline of events]
-- **Impact**: [Business impact quantified]
-- **Scope**: [Areas affected]
-
-## Root Cause Analysis
-
-### Primary Cause
-[Main root cause identified]
-
-### Contributing Factors
-1. [Factor 1]
-2. [Factor 2]
-3. [Factor 3]
-
-### 5 Whys Analysis
-1. Why: [First level cause]
-2. Why: [Second level cause]
-3. Why: [Third level cause]
-4. Why: [Fourth level cause]
-5. Why: [Root cause]
-
-## Impact Assessment
-- **Business Chassis Impact**: [Metrics affected]
-- **Revenue Impact**: [Financial implications]
-- **Customer Impact**: [Service/satisfaction effects]
-- **Operational Impact**: [Efficiency losses]
-
-## Recommendations
-
-### Immediate Actions (24-48 hours)
-- [ ] [Quick fix 1]
-- [ ] [Quick fix 2]
-
-### Short-term Improvements (1-4 weeks)
-- [ ] [Improvement 1]
-- [ ] [Improvement 2]
-
-### Long-term Changes (1-3 months)
-- [ ] [Strategic change 1]
-- [ ] [Strategic change 2]
-
-## Lessons Learned
-- [Key learning 1]
-- [Key learning 2]
-- [Key learning 3]
-
-## Prevention Strategy
-[How to prevent recurrence]
-
-## Follow-up Plan
-- Review Date: [Date]
-- Success Metrics: [How we'll measure improvement]
-- Owner: [Responsible party]
+# Analyze coordination breakdown
+/pmd "Agents producing conflicting outputs"
 ```
 
-## COMMON ANALYSIS PATTERNS
+## ANALYSIS CATEGORIES
 
-### Pattern: Process Bottleneck
-- Symptom: Delays in execution
-- Investigation: Workflow analysis
-- Solution: Process optimization or automation
+### 1. Agent Performance
+- Prompt clarity and completeness
+- Scope boundary compliance
+- Coordination protocol adherence
+- Tool usage correctness
+- Error handling robustness
 
-### Pattern: Communication Gap
-- Symptom: Misaligned execution
-- Investigation: Information flow mapping
-- Solution: Enhanced documentation or protocols
+### 2. Documentation Quality
+- CLAUDE.md currency and accuracy
+- Project-plan.md task definition
+- Progress.md issue logging
+- Ideation document sufficiency
+- README troubleshooting coverage
 
-### Pattern: Resource Constraint
-- Symptom: Incomplete deliverables
-- Investigation: Capacity analysis
-- Solution: Resource reallocation or augmentation
+### 3. Tool Usage
+- MCP prioritization
+- Task tool delegation
+- File operation accuracy
+- Error detection and handling
+- Performance optimization
 
-### Pattern: Strategic Misalignment
-- Symptom: Conflicting priorities
-- Investigation: Goal alignment review
-- Solution: Strategic clarification session
+### 4. Process Issues
+- Planning adequacy
+- Communication clarity
+- Testing coverage
+- Issue detection speed
+- Escalation procedures
 
-## ERROR HANDLING
+## OUTPUT STRUCTURE
 
-If insufficient data available:
-- Note data gaps explicitly
-- Provide preliminary analysis
-- List required information
-- Suggest data collection plan
+Generates `post-mortem-analysis.md` containing:
 
-If root cause unclear:
-- Document multiple hypotheses
-- Rank by probability
-- Propose validation tests
-- Schedule deeper investigation
+### Executive Summary
+High-level description of issue and impact
 
-## SUCCESS CRITERIA
+### Timeline of Events
+Chronological sequence leading to failure
 
-- Root causes clearly identified
-- Impact accurately quantified
-- Actionable recommendations provided
-- Prevention strategies defined
-- Lessons documented for future reference
-- Process improvements implemented
+### Root Cause Analysis
+- Primary cause with evidence
+- Contributing factors
+- Impact assessment
+
+### Recommendations
+- **Immediate Fixes**: Do now with specific file changes
+- **Short-term Improvements**: This week enhancements
+- **Long-term Enhancements**: This month strategic changes
+
+### Prevention Strategies
+- Detection mechanisms
+- Prevention validations
+- Mitigation procedures
+
+### Follow-up Actions
+Checklist of specific tasks with ownership
+
+## BENEFITS
+
+### For Development Teams
+- Faster issue resolution
+- Reduced repeat failures
+- Better agent performance
+- Improved documentation
+
+### For Project Quality
+- Systematic improvement process
+- Knowledge preservation
+- Pattern identification
+- Risk reduction
+
+### For Stakeholders
+- Transparency in issue handling
+- Confidence in improvement process
+- Reduced project delays
+- Better resource allocation
+
+## PATTERN RECOGNITION
+
+When multiple PMDs are run, the system can identify:
+- Recurring failure patterns
+- Common root causes
+- Systemic issues
+- Improvement trends
+
+## SEVERITY LEVELS
+
+- **Critical**: System unusable, data loss, security issues
+- **High**: Major features broken, significant delays
+- **Medium**: Workarounds available, moderate impact
+- **Low**: Minor inconveniences, cosmetic issues
+
+## BEST PRACTICES
+
+### When to Run PMD
+1. After any critical failure
+2. When issues repeat
+3. Before major releases
+4. During retrospectives
+5. When onboarding new team members
+
+### How to Use Results
+1. Implement immediate fixes first
+2. Track pattern emergence
+3. Update documentation promptly
+4. Share learnings with team
+5. Monitor success metrics
+
+## INTEGRATION WITH AGENT-11
+
+PMD works seamlessly with:
+- **progress.md**: Analyzes logged issues
+- **CLAUDE.md**: Suggests improvements
+- **Agent prompts**: Recommends enhancements
+- **Task tool**: Identifies delegation issues
+- **MCPs**: Checks tool availability
+
+## SUCCESS METRICS
+
+PMD effectiveness measured by:
+- Time to root cause identification
+- Reduction in repeat failures
+- Implementation of recommendations
+- Improvement in agent performance
+- Documentation quality scores
+
+## EXAMPLE SCENARIOS
+
+### Scenario 1: Agent Coordination Failure
+```bash
+/pmd "Developer and tester producing conflicting results"
+```
+Analyzes handoff protocols, scope boundaries, and communication patterns.
+
+### Scenario 2: Deployment Issues
+```bash
+/pmd "Installation failing on fresh systems"
+```
+Examines prerequisites, dependencies, and error handling.
+
+### Scenario 3: Performance Problems
+```bash
+/pmd "Commands taking too long to execute"
+```
+Reviews tool usage, MCP availability, and optimization opportunities.
+
+## CONTINUOUS IMPROVEMENT
+
+PMD enables a continuous improvement cycle:
+1. **Detect**: Identify failures quickly
+2. **Analyze**: Understand root causes
+3. **Fix**: Implement targeted solutions
+4. **Prevent**: Add validations and monitoring
+5. **Learn**: Document and share knowledge
+
+---
+
+*The /pmd command transforms failures into learning opportunities, ensuring AGENT-11 systems continuously improve through systematic analysis and targeted enhancements.*

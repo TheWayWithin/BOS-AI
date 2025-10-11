@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<customer_intelligence>
+  <meta>
+    <created>PLACEHOLDER_DATE</created>
+    <last_updated>PLACEHOLDER_DATE</last_updated>
+    <version>1.0</version>
+  </meta>
+  
+  <customer_personas>
+    <primary_persona>
+      <name>PLACEHOLDER_PERSONA_1</name>
+      <demographics>
+        <age_range>PLACEHOLDER_AGE</age_range>
+        <income_level>PLACEHOLDER_INCOME</income_level>
+        <location>PLACEHOLDER_LOCATION</location>
+        <education>PLACEHOLDER_EDUCATION</education>
+      </demographics>
+      <psychographics>
+        <values>PLACEHOLDER_VALUES</values>
+        <motivations>PLACEHOLDER_MOTIVATIONS</motivations>
+        <pain_points>PLACEHOLDER_PAINS</pain_points>
+        <goals>PLACEHOLDER_GOALS</goals>
+      </psychographics>
+      <behavior_patterns>
+        <buying_behavior>PLACEHOLDER_BUYING</buying_behavior>
+        <decision_factors>PLACEHOLDER_FACTORS</decision_factors>
+        <preferred_channels>PLACEHOLDER_CHANNELS</preferred_channels>
+      </behavior_patterns>
+    </primary_persona>
+    
+    <secondary_persona>
+      <name>PLACEHOLDER_PERSONA_2</name>
+      <demographics>
+        <age_range>PLACEHOLDER_AGE</age_range>
+        <income_level>PLACEHOLDER_INCOME</income_level>
+      </demographics>
+      <key_characteristics>PLACEHOLDER_CHARACTERISTICS</key_characteristics>
+    </secondary_persona>
+  </customer_personas>
+  
+  <customer_journey>
+    <awareness_stage>
+      <touchpoints>
+        <touchpoint>PLACEHOLDER_TOUCHPOINT_1</touchpoint>
+        <touchpoint>PLACEHOLDER_TOUCHPOINT_2</touchpoint>
+      </touchpoints>
+      <pain_points>PLACEHOLDER_AWARENESS_PAINS</pain_points>
+      <goals>PLACEHOLDER_AWARENESS_GOALS</goals>
+    </awareness_stage>
+    
+    <consideration_stage>
+      <touchpoints>
+        <touchpoint>PLACEHOLDER_TOUCHPOINT_1</touchpoint>
+        <touchpoint>PLACEHOLDER_TOUCHPOINT_2</touchpoint>
+      </touchpoints>
+      <evaluation_criteria>PLACEHOLDER_CRITERIA</evaluation_criteria>
+      <content_needs>PLACEHOLDER_CONTENT</content_needs>
+    </consideration_stage>
+    
+    <decision_stage>
+      <decision_factors>PLACEHOLDER_FACTORS</decision_factors>
+      <objections>PLACEHOLDER_OBJECTIONS</objections>
+      <closing_triggers>PLACEHOLDER_TRIGGERS</closing_triggers>
+    </decision_stage>
+    
+    <retention_stage>
+      <success_factors>PLACEHOLDER_SUCCESS</success_factors>
+      <expansion_opportunities>PLACEHOLDER_EXPANSION</expansion_opportunities>
+      <advocacy_triggers>PLACEHOLDER_ADVOCACY</advocacy_triggers>
+    </retention_stage>
+  </customer_journey>
+  
+  <customer_feedback>
+    <satisfaction_scores>
+      <overall_satisfaction>PLACEHOLDER_SCORE</overall_satisfaction>
+      <product_satisfaction>PLACEHOLDER_SCORE</product_satisfaction>
+      <service_satisfaction>PLACEHOLDER_SCORE</service_satisfaction>
+    </satisfaction_scores>
+    
+    <common_feedback_themes>
+      <positive_feedback>
+        <theme>PLACEHOLDER_POSITIVE_1</theme>
+        <theme>PLACEHOLDER_POSITIVE_2</theme>
+      </positive_feedback>
+      <improvement_areas>
+        <area>PLACEHOLDER_IMPROVEMENT_1</area>
+        <area>PLACEHOLDER_IMPROVEMENT_2</area>
+      </improvement_areas>
+    </common_feedback_themes>
+  </customer_feedback>
+  
+  <retention_metrics>
+    <churn_rate>PLACEHOLDER_CHURN</churn_rate>
+    <customer_lifetime_value>PLACEHOLDER_CLV</customer_lifetime_value>
+    <repeat_purchase_rate>PLACEHOLDER_REPEAT</repeat_purchase_rate>
+    <net_promoter_score>PLACEHOLDER_NPS</net_promoter_score>
+  </retention_metrics>
+</customer_intelligence>

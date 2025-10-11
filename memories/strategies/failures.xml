@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<failure_analysis>
+  <meta>
+    <created>PLACEHOLDER_DATE</created>
+    <last_updated>PLACEHOLDER_DATE</last_updated>
+    <version>1.0</version>
+  </meta>
+  
+  <strategic_failures>
+    <failure>
+      <name>PLACEHOLDER_FAILURE_NAME</name>
+      <category>market_entry|product_launch|partnership|acquisition|investment</category>
+      <timeline>PLACEHOLDER_TIMELINE</timeline>
+      <investment>PLACEHOLDER_INVESTMENT</investment>
+      <expected_outcome>PLACEHOLDER_EXPECTED</expected_outcome>
+      <actual_outcome>PLACEHOLDER_ACTUAL</actual_outcome>
+      <root_causes>
+        <cause type="market">PLACEHOLDER_MARKET_CAUSE</cause>
+        <cause type="execution">PLACEHOLDER_EXECUTION_CAUSE</cause>
+        <cause type="resource">PLACEHOLDER_RESOURCE_CAUSE</cause>
+        <cause type="timing">PLACEHOLDER_TIMING_CAUSE</cause>
+      </root_causes>
+      <warning_signs>
+        <early_indicator>PLACEHOLDER_INDICATOR_1</early_indicator>
+        <missed_signal>PLACEHOLDER_SIGNAL_1</missed_signal>
+      </warning_signs>
+      <lessons_learned>
+        <lesson>PLACEHOLDER_LESSON_1</lesson>
+        <lesson>PLACEHOLDER_LESSON_2</lesson>
+      </lessons_learned>
+      <prevention_strategies>
+        <strategy>PLACEHOLDER_PREVENTION_1</strategy>
+        <strategy>PLACEHOLDER_PREVENTION_2</strategy>
+      </prevention_strategies>
+    </failure>
+  </strategic_failures>
+  
+  <operational_failures>
+    <failure>
+      <name>PLACEHOLDER_OPERATIONAL_FAILURE</name>
+      <process_area>marketing|sales|customer_service|finance|operations</process_area>
+      <failure_mode>PLACEHOLDER_MODE</failure_mode>
+      <business_impact>
+        <revenue_impact>PLACEHOLDER_REVENUE</revenue_impact>
+        <customer_impact>PLACEHOLDER_CUSTOMERS</customer_impact>
+        <reputation_impact>PLACEHOLDER_REPUTATION</reputation_impact>
+        <cost_impact>PLACEHOLDER_COST</cost_impact>
+      </business_impact>
+      <root_cause_analysis>
+        <primary_cause>PLACEHOLDER_PRIMARY</primary_cause>
+        <contributing_factors>PLACEHOLDER_FACTORS</contributing_factors>
+        <process_breakdown>PLACEHOLDER_BREAKDOWN</process_breakdown>
+      </root_cause_analysis>
+      <corrective_actions>
+        <immediate_action>PLACEHOLDER_IMMEDIATE</immediate_action>
+        <long_term_solution>PLACEHOLDER_LONGTERM</long_term_solution>
+        <process_improvements>PLACEHOLDER_IMPROVEMENTS</process_improvements>
+      </corrective_actions>
+    </failure>
+  </operational_failures>
+  
+  <decision_failures>
+    <failure>
+      <decision_point>PLACEHOLDER_DECISION</decision_point>
+      <decision_maker>PLACEHOLDER_MAKER</decision_maker>
+      <available_options>PLACEHOLDER_OPTIONS</available_options>
+      <chosen_option>PLACEHOLDER_CHOSEN</chosen_option>
+      <decision_criteria>PLACEHOLDER_CRITERIA</decision_criteria>
+      <information_gaps>PLACEHOLDER_GAPS</information_gaps>
+      <cognitive_biases>PLACEHOLDER_BIASES</cognitive_biases>
+      <outcome_vs_expectation>PLACEHOLDER_OUTCOME</outcome_vs_expectation>
+      <better_alternative>PLACEHOLDER_ALTERNATIVE</better_alternative>
+      <decision_process_improvements>PLACEHOLDER_IMPROVEMENTS</decision_process_improvements>
+    </failure>
+  </decision_failures>
+  
+  <pattern_analysis>
+    <recurring_patterns>
+      <pattern>
+        <name>PLACEHOLDER_PATTERN</name>
+        <frequency>PLACEHOLDER_FREQUENCY</frequency>
+        <affected_areas>PLACEHOLDER_AREAS</affected_areas>
+        <common_causes>PLACEHOLDER_CAUSES</common_causes>
+        <typical_cost>PLACEHOLDER_COST</typical_cost>
+        <prevention_score>PLACEHOLDER_SCORE</prevention_score>
+        <systemic_solution>PLACEHOLDER_SOLUTION</systemic_solution>
+      </pattern>
+    </recurring_patterns>
+    
+    <early_warning_systems>
+      <indicator>
+        <metric>PLACEHOLDER_METRIC</metric>
+        <threshold>PLACEHOLDER_THRESHOLD</threshold>
+        <alert_mechanism>PLACEHOLDER_ALERT</alert_mechanism>
+        <responsible_party>PLACEHOLDER_RESPONSIBLE</responsible_party>
+        <escalation_procedure>PLACEHOLDER_ESCALATION</escalation_procedure>
+      </indicator>
+    </early_warning_systems>
+  </pattern_analysis>
+  
+  <cost_benefit_analysis>
+    <total_failure_costs>
+      <direct_costs>PLACEHOLDER_DIRECT</direct_costs>
+      <opportunity_costs>PLACEHOLDER_OPPORTUNITY</opportunity_costs>
+      <reputation_costs>PLACEHOLDER_REPUTATION</reputation_costs>
+      <recovery_costs>PLACEHOLDER_RECOVERY</recovery_costs>
+    </total_failure_costs>
+    
+    <prevention_investments>
+      <process_improvements>PLACEHOLDER_PROCESS</process_improvements>
+      <training_costs>PLACEHOLDER_TRAINING</training_costs>
+      <system_investments>PLACEHOLDER_SYSTEMS</system_investments>
+      <monitoring_costs>PLACEHOLDER_MONITORING</monitoring_costs>
+    </prevention_investments>
+    
+    <roi_of_prevention>
+      <annual_savings>PLACEHOLDER_SAVINGS</annual_savings>
+      <investment_payback>PLACEHOLDER_PAYBACK</investment_payback>
+      <risk_reduction>PLACEHOLDER_REDUCTION</risk_reduction>
+    </roi_of_prevention>
+  </cost_benefit_analysis>
+</failure_analysis>

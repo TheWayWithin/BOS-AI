@@ -1,13 +1,32 @@
 # Mission: Marketing System Setup 📊
 
 **Mission Type:** Marketing Foundation Creation  
-**Duration:** 4-5 hours  
-**Difficulty:** Comprehensive  
-**Value Impact:** Complete 3-Document Marketing Framework
+**Duration:** 4-5 hours | **Cognitive Load:** think harder (brand-strategy), think hard (campaign-execution), think (content-creation)  
+**Memory Requirements:** High | **Context Management:** Strategic /clear after each phase recommended  
+**Security Level:** Controlled  
+**Value Impact:** Complete 3-Document Marketing Framework with Customer Success Focus
 
 ## Mission Objective
 
 Establish a complete customer-success focused marketing system using the proven 3-document framework: Marketing Bible (strategy), Marketing Plan (tactics), and Content Calendar (execution). This mission creates a comprehensive marketing foundation that multiplies Business Chassis components - increasing Prospects through systematic content, improving Lead Conversion through value communication, and boosting Transaction Frequency through strategic campaigns.
+
+## Memory Integration Requirements
+
+**MANDATORY MEMORY ACCESS**: All marketing agents MUST read relevant memory files before task execution and update with new marketing intelligence.
+
+**Required Memory Files**:
+- `/memories/business/vision.xml` - Business objectives and strategic alignment verification
+- `/memories/business/customers.xml` - Customer personas, journey insights, and success patterns
+- `/memories/business/markets.xml` - Market positioning and competitive intelligence
+- `/memories/strategies/marketing.xml` - Historical marketing performance and campaign patterns
+- `/memories/strategies/failures.xml` - Marketing approaches to avoid and prevention strategies
+- `/memories/lessons/patterns.xml` - Customer behavior and marketing effectiveness patterns
+
+**Memory Update Protocol**:
+- Document new marketing insights and campaign strategies in marketing.xml
+- Record customer behavior discoveries in customers.xml
+- Update market positioning intelligence in markets.xml
+- Log any failed approaches in failures.xml with prevention strategies
 
 ## Required Inputs
 
@@ -20,25 +39,55 @@ Establish a complete customer-success focused marketing system using the proven 
 
 ### Phase 1: Strategic Foundation Creation (90 minutes)
 
-**Lead**: @brand-strategy  
-**Support**: @market-intelligence  
+**Lead Agent**: brand-strategy | **Thinking Mode**: think harder  
+**Support Agents**: market-intelligence | **Tool Permissions**: Controlled ([Read, Edit])  
 **Objective**: Create Marketing Bible as strategic reference document for all marketing decisions
 
-```bash
-@brand-strategy Create Marketing Bible using Operations Library framework:
-1. Analyze foundation documents for customer-centric marketing insights
-2. Define 5-core marketing principles based on customer success philosophy
-3. Create value communication framework (Overt Benefits, Dramatic Difference, Real Reasons to Believe)
-4. Map customer journey marketing for all 5 stages (Awareness → Consideration → Decision → Success → Advocacy)
-5. Establish brand-aligned content standards and channel strategy
-6. Document measurement frameworks focused on customer success metrics
+**Task Delegation Protocol**:
+```
+Task(
+    subagent_type='brand-strategy',
+    description='Marketing Bible strategic creation',
+    prompt='''
+    MEMORY INTEGRATION REQUIRED: First read /memories/business/vision.xml, /memories/business/customers.xml, /memories/business/markets.xml, and /memories/strategies/marketing.xml for business context and historical marketing intelligence.
+    
+    Create Marketing Bible using Operations Library framework with customer-success focused marketing approach:
+    
+    1. Analyze foundation documents for customer-centric marketing insights
+    2. Define 5-core marketing principles based on customer success philosophy
+    3. Create value communication framework (Overt Benefits, Dramatic Difference, Real Reasons to Believe)
+    4. Map customer journey marketing for all 5 stages (Awareness → Consideration → Decision → Success → Advocacy)
+    5. Establish brand-aligned content standards optimized for Business Chassis Prospects multiplication
+    6. Document measurement frameworks focused on customer success metrics and Lead Conversion optimization
+    
+    MANDATORY DELIVERABLES:
+    1. Marketing Bible document at /documents/business-assets/marketing-bible.md
+    2. Update /memories/strategies/marketing.xml with new strategic framework insights
+    3. Document customer journey discoveries in /memories/business/customers.xml
+    4. Progress tracking with strategic decision rationale and business impact assessment
+    
+    SELF-VERIFICATION CHECKLIST:
+    - [ ] Marketing strategy aligns with business vision and customer success philosophy
+    - [ ] Business Chassis Prospects + Lead Conversion multiplication considered and optimized
+    - [ ] Customer journey fully mapped with success enablement focus across all 5 stages
+    - [ ] Brand consistency maintained across all recommendations and frameworks
+    - [ ] Value communication framework tested against customer needs and market positioning
+    - [ ] Memory files updated with marketing intelligence and strategic insights
+    - [ ] Strategic decisions documented with business rationale and expected outcomes
+    
+    Update handoff-notes.md with marketing strategy findings and customer insights for campaign-execution agent.
+    '''
+)
 ```
 
-**Deliverables**:
-- `/documents/business-assets/marketing-bible.md` - Strategic marketing reference
-- Customer-centric marketing principles and philosophy
-- Value communication framework for consistent messaging
-- 5-stage customer journey marketing approach
+**Expected Outcomes**:
+- `/documents/business-assets/marketing-bible.md` - Strategic marketing reference with customer success focus
+- Customer-centric marketing principles and 5-core philosophy framework
+- Value communication framework for consistent messaging across all channels
+- 5-stage customer journey marketing approach with success enablement philosophy
+- Memory intelligence enhancement with marketing strategy insights
+
+**Context Management**: After Phase 1 completion, strategic /clear recommended due to high cognitive load strategic content creation.
 
 ### Phase 2: Tactical Campaign Planning (90 minutes)
 

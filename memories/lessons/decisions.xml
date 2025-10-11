@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decision_intelligence>
+  <meta>
+    <created>PLACEHOLDER_DATE</created>
+    <last_updated>PLACEHOLDER_DATE</last_updated>
+    <version>1.0</version>
+  </meta>
+  
+  <strategic_decisions>
+    <decision>
+      <decision_id>PLACEHOLDER_ID</decision_id>
+      <decision_title>PLACEHOLDER_TITLE</decision_title>
+      <decision_date>PLACEHOLDER_DATE</decision_date>
+      <decision_maker>PLACEHOLDER_MAKER</decision_maker>
+      <decision_context>
+        <business_situation>PLACEHOLDER_SITUATION</business_situation>
+        <market_conditions>PLACEHOLDER_CONDITIONS</market_conditions>
+        <internal_factors>PLACEHOLDER_INTERNAL</internal_factors>
+        <time_constraints>PLACEHOLDER_TIME</time_constraints>
+      </decision_context>
+      <options_considered>
+        <option>
+          <name>PLACEHOLDER_OPTION_1</name>
+          <pros>PLACEHOLDER_PROS</pros>
+          <cons>PLACEHOLDER_CONS</cons>
+          <cost>PLACEHOLDER_COST</cost>
+          <risk_level>PLACEHOLDER_RISK</risk_level>
+        </option>
+        <option>
+          <name>PLACEHOLDER_OPTION_2</name>
+          <pros>PLACEHOLDER_PROS</pros>
+          <cons>PLACEHOLDER_CONS</cons>
+          <cost>PLACEHOLDER_COST</cost>
+          <risk_level>PLACEHOLDER_RISK</risk_level>
+        </option>
+      </options_considered>
+      <decision_criteria>
+        <criterion weight="PLACEHOLDER_WEIGHT">PLACEHOLDER_CRITERION_1</criterion>
+        <criterion weight="PLACEHOLDER_WEIGHT">PLACEHOLDER_CRITERION_2</criterion>
+      </decision_criteria>
+      <chosen_option>PLACEHOLDER_CHOSEN</chosen_option>
+      <rationale>PLACEHOLDER_RATIONALE</rationale>
+      <expected_outcomes>PLACEHOLDER_EXPECTED</expected_outcomes>
+      <actual_outcomes>PLACEHOLDER_ACTUAL</actual_outcomes>
+      <decision_quality>excellent|good|acceptable|poor</decision_quality>
+      <lessons_learned>PLACEHOLDER_LESSONS</lessons_learned>
+    </decision>
+  </strategic_decisions>
+  
+  <operational_decisions>
+    <decision>
+      <decision_category>process|resource|technology|policy</decision_category>
+      <decision_scope>department|company_wide|customer_facing</decision_scope>
+      <urgency_level>immediate|high|medium|low</urgency_level>
+      <stakeholder_impact>PLACEHOLDER_IMPACT</stakeholder_impact>
+      <implementation_complexity>PLACEHOLDER_COMPLEXITY</implementation_complexity>
+      <success_metrics>PLACEHOLDER_METRICS</success_metrics>
+      <monitoring_plan>PLACEHOLDER_MONITORING</monitoring_plan>
+    </decision>
+  </operational_decisions>
+  
+  <investment_decisions>
+    <decision>
+      <investment_type>technology|marketing|personnel|infrastructure|r&d</investment_type>
+      <investment_amount>PLACEHOLDER_AMOUNT</investment_amount>
+      <expected_roi>PLACEHOLDER_ROI</expected_roi>
+      <payback_period>PLACEHOLDER_PAYBACK</payback_period>
+      <risk_assessment>PLACEHOLDER_RISK</risk_assessment>
+      <alternative_investments>PLACEHOLDER_ALTERNATIVES</alternative_investments>
+      <funding_source>PLACEHOLDER_FUNDING</funding_source>
+      <approval_process>PLACEHOLDER_APPROVAL</approval_process>
+      <performance_tracking>PLACEHOLDER_TRACKING</performance_tracking>
+    </decision>
+  </investment_decisions>
+  
+  <decision_patterns>
+    <pattern>
+      <pattern_name>PLACEHOLDER_PATTERN</pattern_name>
+      <decision_type>PLACEHOLDER_TYPE</decision_type>
+      <frequency>PLACEHOLDER_FREQUENCY</frequency>
+      <typical_outcome>PLACEHOLDER_OUTCOME</typical_outcome>
+      <success_factors>PLACEHOLDER_SUCCESS</success_factors>
+      <failure_factors>PLACEHOLDER_FAILURE</failure_factors>
+      <improvement_opportunities>PLACEHOLDER_IMPROVEMENTS</improvement_opportunities>
+    </pattern>
+  </decision_patterns>
+  
+  <decision_quality_analysis>
+    <quality_metrics>
+      <accuracy_rate>PLACEHOLDER_ACCURACY</accuracy_rate>
+      <speed_of_decision>PLACEHOLDER_SPEED</speed_of_decision>
+      <stakeholder_alignment>PLACEHOLDER_ALIGNMENT</stakeholder_alignment>
+      <information_quality>PLACEHOLDER_INFO_QUALITY</information_quality>
+      <process_effectiveness>PLACEHOLDER_PROCESS</process_effectiveness>
+    </quality_metrics>
+    
+    <improvement_recommendations>
+      <recommendation>
+        <area>PLACEHOLDER_AREA</area>
+        <current_state>PLACEHOLDER_CURRENT</current_state>
+        <desired_state>PLACEHOLDER_DESIRED</desired_state>
+        <improvement_actions>PLACEHOLDER_ACTIONS</improvement_actions>
+        <expected_benefit>PLACEHOLDER_BENEFIT</expected_benefit>
+      </recommendation>
+    </improvement_recommendations>
+  </decision_quality_analysis>
+  
+  <decision_frameworks>
+    <framework>
+      <name>PLACEHOLDER_FRAMEWORK</name>
+      <applicable_situations>PLACEHOLDER_SITUATIONS</applicable_situations>
+      <decision_steps>PLACEHOLDER_STEPS</decision_steps>
+      <evaluation_criteria>PLACEHOLDER_CRITERIA</evaluation_criteria>
+      <tools_and_techniques>PLACEHOLDER_TOOLS</tools_and_techniques>
+      <success_rate>PLACEHOLDER_SUCCESS</success_rate>
+      <user_feedback>PLACEHOLDER_FEEDBACK</user_feedback>
+    </framework>
+  </decision_frameworks>
+</decision_intelligence>

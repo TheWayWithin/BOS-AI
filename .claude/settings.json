@@ -1,0 +1,58 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git branch:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git pull:*)",
+      "Bash(mv:*)",
+      "Bash(cp:*)",
+      "Bash(gh pr create:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(pwd:*)",
+      "Bash(npm test:*)",
+      "Bash(npm run:*)",
+      "Bash(chmod +x:*)",
+      "Edit(*.md)",
+      "Edit(**/*.md)",
+      "Edit(*.json)",
+      "Edit(**/*.json)",
+      "Edit(**/package.json)",
+      "Write(*.md)",
+      "Write(**/*.md)",
+      "Write(*.json)",
+      "Write(**/*.json)",
+      "Write(**/package.json)",
+      "Write(.env*)",
+      "Edit(.env*)",
+      "WebFetch(domain:docs.claude.com)",
+      "WebFetch(domain:github.com)",
+      "SlashCommand(*)"
+    ],
+    "ask": [
+      "Bash(rm:*)"
+    ],
+    "deny": [
+      "Read(.env)",
+      "Read(**/.env.*)",
+      "Read(**/secrets/**)",
+      "Read(**/*.key)",
+      "Read(**/*.pem)",
+      "Edit(.env)",
+      "Edit(**/.env.*)",
+      "Write(**/*.key)",
+      "Write(**/*.pem)",
+      "Bash(curl:*)",
+      "Bash(wget:*)",
+      "Bash(rm -rf /*)",
+      "Bash(sudo:*)"
+    ]
+  },
+  "env": {
+    "AGENT_11_PROJECT": "true"
+  }
+}
