@@ -59,24 +59,40 @@ cd /tmp/bos-ai-temp
 After running deployment, verify:
 
 ### 1. Correct CLAUDE.md Version
+
+**Two CLAUDE.md Files Should Exist:**
+
 ```bash
-# Should show BOS-AI business version
+# Check .claude/CLAUDE.md (BOS-AI system documentation)
 head -3 .claude/CLAUDE.md
-```
-**Expected Output:**
-```
-# 🚀 BOS-AI Command System & Business Orchestration
 
-Welcome to BOS-AI - Your AI-powered Business Operating System...
+# Check root CLAUDE.md (project-specific instructions)
+head -3 CLAUDE.md
 ```
 
-**❌ Wrong if you see:**
+**Expected .claude/CLAUDE.md Output:**
 ```
-# CLAUDE.md
+# 🚀 BOS-AI - Your AI-Powered Business Operating System
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code...
+Welcome to BOS-AI - Transform your business through exponential growth via Business Chassis optimization.
+```
 
-## Project Overview
+**Expected Root CLAUDE.md Output (created on first deployment):**
+```
+# Project with BOS-AI
+
+This project uses BOS-AI for business operations management.
+```
+
+**❌ Wrong if .claude/CLAUDE.md shows:**
+```
+# 🔧 BOS-AI Development Environment (AGENT-11)
+
+**⚠️ CRITICAL: This is the BOS-AI DEVELOPMENT repository**
+```
+(This would indicate the development version was deployed instead of the business version)
+
+**Note:** Root CLAUDE.md may be customized by users. It's protected and will NOT be overwritten on re-deployment
 
 AGENT-11 is a framework for deploying specialized AI agents...
 ```

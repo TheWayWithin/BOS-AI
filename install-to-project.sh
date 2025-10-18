@@ -53,11 +53,20 @@ mkdir -p documents/operations
 mkdir -p documents/archive
 mkdir -p documents/assets
 
-# Deploy core documentation
+# Deploy core documentation with protection
 echo -e "${BLUE}📚 Deploying core documentation...${NC}"
+
+# Backup existing .claude/CLAUDE.md if it exists (protect customizations)
+if [ -f ".claude/CLAUDE.md" ]; then
+    BACKUP_FILE=".claude/CLAUDE.md.backup.$(date +%Y%m%d_%H%M%S)"
+    cp .claude/CLAUDE.md "$BACKUP_FILE"
+    echo -e "${YELLOW}⚠️  Existing .claude/CLAUDE.md backed up to: $(basename $BACKUP_FILE)${NC}"
+    echo -e "${CYAN}   Review backup if you had customizations${NC}"
+fi
+
 if [ -f "${BOS_AI_DIR}/CLAUDE.md" ]; then
-    cp "${BOS_AI_DIR}/CLAUDE.md" .claude/
-    echo -e "${GREEN}✅ CLAUDE.md deployed${NC}"
+    cp "${BOS_AI_DIR}/CLAUDE.md" .claude/CLAUDE.md
+    echo -e "${GREEN}✅ .claude/CLAUDE.md deployed (BOS-AI system documentation)${NC}"
 fi
 
 if [ -f "${BOS_AI_DIR}/BOUNDARIES.md" ]; then

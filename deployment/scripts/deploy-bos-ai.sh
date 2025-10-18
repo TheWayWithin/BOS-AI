@@ -42,10 +42,20 @@ mkdir -p documents/operations
 mkdir -p documents/archive
 mkdir -p documents/assets
 
-# Deploy core documentation
+# Deploy core documentation with protection
 echo -e "${BLUE}📚 Deploying core documentation...${NC}"
-cp CLAUDE.md .claude/
-echo -e "${GREEN}✅ CLAUDE.md deployed${NC}"
+
+# Deploy .claude/CLAUDE.md (BOS-AI system documentation) with backup protection
+if [ -f ".claude/CLAUDE.md" ]; then
+    # Backup existing file if it exists
+    BACKUP_FILE=".claude/CLAUDE.md.backup.$(date +%Y%m%d_%H%M%S)"
+    cp .claude/CLAUDE.md "$BACKUP_FILE"
+    echo -e "${YELLOW}⚠️  Existing .claude/CLAUDE.md backed up to: $BACKUP_FILE${NC}"
+    echo -e "${CYAN}   Review backup if you had customizations${NC}"
+fi
+
+cp CLAUDE.md .claude/CLAUDE.md
+echo -e "${GREEN}✅ .claude/CLAUDE.md deployed (BOS-AI system documentation)${NC}"
 
 # Verify correct BOS-AI version deployed
 echo -e "${BLUE}🔍 Verifying CLAUDE.md version...${NC}"
@@ -56,6 +66,26 @@ else
     echo -e "${YELLOW}⚠️  Expected: BOS-AI Business Operating System${NC}"
     echo -e "${YELLOW}⚠️  This deployment will provide users with wrong instructions${NC}"
     exit 1
+fi
+
+# Create project root CLAUDE.md ONLY if it doesn't exist (protect user customizations)
+if [ ! -f "CLAUDE.md" ]; then
+    echo -e "${BLUE}📝 Creating project CLAUDE.md (project-specific instructions)...${NC}"
+    cat > CLAUDE.md << 'EOF'
+# Project with BOS-AI
+
+This project uses BOS-AI for business operations management.
+
+## Quick Start
+- Use `/coord` for business orchestration
+- Templates in `.claude/document-library/`
+- Save documents to `documents/foundation/`
+
+See `.claude/CLAUDE.md` for full BOS-AI documentation.
+EOF
+    echo -e "${GREEN}✅ Created project CLAUDE.md${NC}"
+else
+    echo -e "${CYAN}ℹ️  Project CLAUDE.md exists - preserving user customizations${NC}"
 fi
 
 cp BOUNDARIES.md .claude/
