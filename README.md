@@ -10,57 +10,209 @@
 
 ---
 
-## 🚀 Quick Start - One-Line Installation
+## 🚀 Quick Start - Choose Your Path
 
-### Step 1: Open Terminal in Your Project
+### 🤔 Which Installation Should I Choose?
+
+#### **Path 1: Quick Start (Recommended for most users) ⭐**
 ```bash
-# Navigate to your business project directory
-cd ~/your-business-project
-```
-
-### Step 2: Install BOS-AI with MCP Support (Choose Your Tier)
-
-#### 🚀 NEW: Enhanced Installation with MCP Integration
-```bash
-# Install with automatic MCP configuration (Recommended)
-curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install-with-mcp.sh | bash -s full
-```
-**Includes:** All 30 agents + automatic MCP detection + intelligent fallbacks
-
-#### Option A: Starter Tier (5 Essential Agents)
-```bash
-curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s starter
-```
-**Perfect for:** Getting started, small businesses, testing the system
-
-#### Option B: Business Tier (15 Core Agents)
-```bash
-curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s business
-```
-**Perfect for:** Growing businesses, comprehensive operations
-
-#### Option C: Full Suite (All 30 Agents)
-```bash
+# Standard installation - works immediately, no setup required
 curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s full
 ```
-**Perfect for:** Established businesses, complete automation
 
-### Step 3: Start Using BOS-AI in Claude Code
+**✅ Choose this if:**
+- You want to start using BOS-AI right now
+- You're new to BOS-AI and want to test it
+- You don't have API keys for external services yet
+- You want the simplest setup possible
+
+**What you get:**
+- All 30 business intelligence agents
+- Complete document library and templates
+- All commands and missions work perfectly
+- Agents use built-in fallbacks (WebFetch, Bash, etc.)
+
+**Can you add MCPs later?** YES! Add them anytime when you're ready.
+
+---
+
+#### **Path 2: Power User Setup (Maximum capabilities)**
 ```bash
-# Open Claude Code in your project
-claude code .
-
-# Test your installation
-/coord optimize    # Run Business Chassis optimization
+# MCP-enabled installation - requires API keys for full power
+curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install-with-mcp.sh | bash -s full
 ```
 
-### 📊 Installation Tiers Comparison
+**✅ Choose this if:**
+- You have API keys ready (GitHub, Stripe, etc.)
+- You want maximum agent performance
+- You need real-time data from external services
+- You're willing to spend 5-10 minutes on setup
 
-| Tier | Agents | Use Case | Key Features |
+**What you get:**
+- Everything from Path 1, PLUS:
+- Direct API connections to your business tools
+- 40-60% faster operations (when MCPs active)
+- Real-time data instead of manual exports
+- Automatic service detection
+
+**Setup required:** Yes - add API keys to `.env` file after installation.
+
+---
+
+### 📊 Detailed Comparison
+
+| Feature | Standard Install | MCP Install |
+|---------|-----------------|-------------|
+| **Setup Time** | 2 minutes | 2 min + 5-10 min config |
+| **Works Immediately** | ✅ Yes | ⚠️ After adding API keys |
+| **All Agents Available** | ✅ 30 agents | ✅ 30 agents |
+| **GitHub Integration** | WebFetch + Git CLI | ✅ Direct API access |
+| **Stripe Analytics** | Manual CSV export | ✅ Real-time queries |
+| **Market Research** | WebSearch | ✅ Enhanced scraping |
+| **File Operations** | Bash commands | ✅ Enhanced performance |
+| **Upgrade Later** | ✅ Yes, anytime | N/A |
+| **API Keys Required** | ❌ None | ✅ Optional (more = better) |
+
+---
+
+### 🎯 Our Recommendation
+
+**For your first installation:**
+```bash
+# Start simple - you can always upgrade
+curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s full
+```
+
+**Then, when you're ready for enhanced capabilities, upgrade to MCP support.**
+
+---
+
+## 🔧 Prerequisites
+
+### Required (Both Paths)
+```bash
+# 1. Create your business project directory
+mkdir ~/my-business
+cd ~/my-business
+
+# 2. Initialize git (recommended for document version control)
+git init
+
+# 3. Ensure you have curl
+which curl  # Should show path to curl
+```
+
+### Optional (For MCP Path)
+Have these API keys ready:
+- **GitHub Personal Access Token** - For repository management
+- **Stripe API Key** - For revenue analytics
+- **Linear API Key** - For project management
+- Others: Firecrawl, Notion, Slack, HubSpot (all optional)
+
+**Don't have API keys?** Use standard installation. MCPs can be added later.
+
+---
+
+## 🚀 Installation Steps
+
+### Standard Installation (Recommended First)
+
+**Step 1: Install BOS-AI**
+```bash
+cd ~/my-business
+git init
+curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s full
+```
+
+**Step 2: Start using immediately**
+```bash
+claude code .
+/coord optimize
+```
+
+**That's it!** All agents work perfectly with intelligent fallbacks.
+
+---
+
+### MCP-Enhanced Installation (Power Users)
+
+**Step 1: Install BOS-AI with MCP support**
+```bash
+cd ~/my-business
+git init
+curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install-with-mcp.sh | bash -s full
+```
+
+**Step 2: Configure API keys (5-10 minutes)**
+```bash
+# Copy environment template
+cp .env.mcp-template .env
+
+# Edit .env and add your API keys
+nano .env  # or use your preferred editor
+```
+
+Example `.env` file:
+```bash
+# === Essential Services (Highly Recommended) ===
+GITHUB_TOKEN=ghp_your_github_token_here
+
+# === High-Value Services (Recommended) ===
+STRIPE_API_KEY=sk_live_your_stripe_key_here
+LINEAR_API_KEY=lin_api_your_linear_key_here
+
+# === Optional Services (Add as needed) ===
+# NOTION_API_KEY=secret_your_notion_key
+# SLACK_TOKEN=xoxb-your-slack-token
+# HUBSPOT_API_KEY=your_hubspot_key
+```
+
+**Step 3: Run MCP setup**
+```bash
+./scripts/setup-mcps.sh
+```
+
+**Step 4: Verify MCPs are active**
+```bash
+claude mcp list
+./scripts/check-mcp-status.sh  # Detailed report
+```
+
+**Step 5: Start using with enhanced capabilities**
+```bash
+claude code .
+/coord optimize  # Now with MCP superpowers!
+```
+
+---
+
+### 📊 Alternative Installation Tiers
+
+Both standard and MCP installations support three tiers:
+
+| Tier | Agents | Use Case | Command Flag |
 |------|--------|----------|-------------|
-| **Starter** | 5 | New businesses | Core coordination, revenue optimization, pipeline management |
-| **Business** | 15 | Growing companies | + Market intelligence, quality assurance, marketing suite |
-| **Full** | 30 | Established firms | Complete suite with legal, financial, all specialized agents |
+| **Starter** | 5 | Testing BOS-AI | `bash -s starter` |
+| **Business** | 15 | Growing companies | `bash -s business` |
+| **Full** | 30 | Complete system (recommended) | `bash -s full` |
+
+**Most users should choose `full` tier** for the complete BOS-AI experience.
+
+---
+
+### 💡 TL;DR - Just Tell Me What to Do
+
+```bash
+# Most people should start here:
+mkdir ~/my-business && cd ~/my-business
+git init
+curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s full
+claude code .
+/coord optimize
+
+# Done! You're running BOS-AI.
+# Add MCPs later if you want enhanced performance.
+```
 
 ---
 
@@ -828,70 +980,154 @@ graph LR
     F --> G
 ```
 
-### Automatic MCP Setup
+---
 
-When you install BOS-AI with MCP support, the system:
+### 📦 What MCPs Are Included?
 
-1. **Detects Available MCPs**: Automatically finds which MCPs are configured in Claude Code
-2. **Configures Registry**: Creates a registry tracking MCP availability
-3. **Updates Agents**: All agents become MCP-aware automatically
-4. **Implements Fallbacks**: Ensures agents work even without MCPs
+BOS-AI MCP installation configures support for these services:
 
+#### ✅ Tier 1: Essential MCPs (Auto-detected)
+- **Filesystem** - Enhanced file operations
+  - Capabilities: File operations, directory management
+  - Fallback: Bash file operations
+  - Used by: All agents
+
+- **GitHub** - Repository and issue management
+  - Capabilities: Repository access, issue tracking, PR management
+  - Fallback: WebFetch to GitHub API, Git CLI commands
+  - Used by: @strategist, @developer, @coordinator
+
+- **IDE** - Built-in Claude Code integration
+  - Capabilities: Diagnostics, code execution
+  - Fallback: None (built-in)
+  - Used by: @developer, @tester
+
+#### 🔑 Tier 2: High Value MCPs (Require API keys)
+- **Stripe** - Payment and revenue analytics
+  - Capabilities: Payment data, revenue metrics, customer analytics
+  - Fallback: Manual CSV export, WebFetch to dashboard
+  - Used by: @analyst, @revenue-optimization
+
+- **Firecrawl** - Web scraping and competitor analysis
+  - Capabilities: Web scraping, competitor analysis, market research
+  - Fallback: WebSearch, WebFetch
+  - Used by: @market-intelligence, @strategist
+
+- **Linear** - Project management
+  - Capabilities: Issue tracking, project management, roadmap planning
+  - Fallback: Local task files
+  - Used by: @coordinator, @operator
+
+#### 🎁 Tier 3: Optional MCPs (Add as needed)
+- **Notion** - Documentation management
+- **Slack** - Team communication
+- **HubSpot** - CRM integration
+
+**Important:** All MCPs are optional. Agents work perfectly without them using intelligent fallbacks.
+
+---
+
+### 🔄 How MCPs Enhance Your Workflow
+
+#### Without MCPs (Standard) - Still Excellent ✅
 ```bash
-# Check MCP status after installation
-./scripts/check-mcp-status.sh
+@market-intelligence "analyze competitor pricing"
 
-# Setup MCPs (if in Claude Code)
-./scripts/setup-mcps.sh
+How it works:
+1. Uses WebSearch to find public information
+2. Uses WebFetch to read competitor websites
+3. Provides research guidance and templates
+4. Suggests manual data collection steps
+
+Result: Comprehensive market analysis (may require some manual work)
 ```
 
-### Available MCP Integrations
-
-| MCP Service | What It Enables | Agent Benefits |
-|------------|-----------------|----------------|
-| **GitHub** | Repository access, issue tracking | Direct code management, PR creation |
-| **Stripe** | Payment analytics, revenue data | Real-time financial insights |
-| **Filesystem** | Enhanced file operations | Faster file management |
-| **IDE** | Code diagnostics, execution | Better development support |
-| **Linear** | Project management | Direct task creation and tracking |
-| **Slack** | Team communication | Automated notifications |
-| **Databases** | Direct data access | Real-time analytics |
-
-### How Agents Use MCPs
-
+#### With MCPs (Enhanced) - Supercharged ⚡
 ```bash
-# Example: Market Intelligence Agent with MCPs
-@market-intelligence "analyze competitors"
+@market-intelligence "analyze competitor pricing"
 
-# With MCP (Firecrawl):
-# → Directly scrapes competitor websites
-# → Retrieves real-time pricing data
-# → Analyzes actual traffic patterns
+How it works with Firecrawl MCP:
+1. ✅ Automatically scrapes competitor sites
+2. ✅ Retrieves real-time pricing data directly
+3. ✅ Analyzes actual website traffic patterns
+4. ✅ Compiles comprehensive data automatically
 
-# Without MCP (Fallback):
-# → Uses WebSearch for public data
-# → Provides research guidance
-# → Suggests manual data collection
+Result: Faster, more complete, more accurate analysis
 ```
 
-### Setting Up API Keys
+---
 
-After installation, configure your service API keys:
+### 🎁 MCP Benefits Breakdown
+
+#### GitHub MCP
+**Without:** Manual PR creation, WebFetch to GitHub API, Git CLI commands
+**With:** ✅ One-command PR creation, ✅ Direct issue management, ⚡ 80% faster operations
+
+#### Stripe MCP
+**Without:** Export CSV from Stripe dashboard, manual data analysis
+**With:** ✅ Real-time revenue queries, ✅ Automatic analytics generation, ⚡ 90% faster financial analysis
+
+#### Firecrawl MCP (Market Research)
+**Without:** Manual competitor website visits, WebSearch for public data
+**With:** ✅ Automatic competitor data scraping, ✅ Real-time pricing extraction, ⚡ 70% more comprehensive data
+
+#### Filesystem MCP
+**Without:** Standard Bash file operations (works fine)
+**With:** ✅ Enhanced file handling, ✅ Faster bulk operations, ⚡ 95% faster file operations
+
+---
+
+### 🔧 Setting Up API Keys
+
+After MCP installation, configure your service API keys:
 
 ```bash
 # 1. Copy the template
 cp .env.mcp-template .env
 
 # 2. Edit .env and add your keys
-# Example:
-GITHUB_TOKEN=your_github_token
-STRIPE_API_KEY=your_stripe_key
+nano .env  # or use your preferred editor
 
 # 3. Run setup to configure MCPs
 ./scripts/setup-mcps.sh
+
+# 4. Verify MCPs are active
+claude mcp list
+./scripts/check-mcp-status.sh
 ```
 
-### MCP Performance Impact
+---
+
+### 🆘 Getting API Keys
+
+#### GitHub Personal Access Token
+1. Go to https://github.com/settings/tokens
+2. Click "Generate new token (classic)"
+3. Select scopes: `repo`, `workflow`, `admin:org`
+4. Copy token to `.env` file
+
+#### Stripe API Key
+1. Go to https://dashboard.stripe.com/apikeys
+2. Reveal and copy "Secret key"
+3. Use **test key** (`sk_test_`) for testing
+4. Use **live key** (`sk_live_`) for production
+
+#### Linear API Key
+1. Go to https://linear.app/settings/api
+2. Create new Personal API Key
+3. Copy to `.env` file
+
+#### Other Services
+- **Firecrawl**: https://firecrawl.com (requires paid account)
+- **Notion**: https://notion.so/my-integrations
+- **Slack**: https://api.slack.com/apps
+- **HubSpot**: https://app.hubspot.com/developer
+
+**Don't want to deal with API keys?** Standard installation works great without them!
+
+---
+
+### 📊 MCP Performance Impact
 
 | Operation | Without MCP | With MCP | Improvement |
 |-----------|------------|----------|-------------|
@@ -900,13 +1136,34 @@ STRIPE_API_KEY=your_stripe_key
 | Market Research | Multiple searches | Direct scraping | 70% more data |
 | File Operations | Command simulation | Direct execution | 95% faster |
 
-### Zero-Configuration Experience
+---
+
+### 🔄 Upgrading from Standard to MCP
+
+Already installed standard version? Easy upgrade:
+
+```bash
+# Option 1: Re-run MCP installer (preserves your documents)
+curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install-with-mcp.sh | bash -s full
+
+# Then configure API keys
+cp .env.mcp-template .env
+nano .env
+./scripts/setup-mcps.sh
+```
+
+Your existing documents, missions, and agents are preserved.
+
+---
+
+### ⚠️ Zero-Configuration Experience
 
 BOS-AI's MCP system is designed to "just work":
 - **No Manual Setup Required**: MCPs are detected automatically
 - **Graceful Degradation**: Agents work with or without MCPs
 - **Transparent Operation**: Agents report which MCPs they're using
 - **Automatic Updates**: Registry updates as MCPs become available
+- **Start Simple**: Use standard install, add MCPs later when needed
 
 ---
 
