@@ -10,80 +10,86 @@
 
 ---
 
-## 🚀 Quick Start - Choose Your Path
+## 🚀 Quick Start
 
-### 🤔 Which Installation Should I Choose?
+### The BOS-AI Lifecycle: From Idea to Operating Business
 
-#### **Path 1: Quick Start (Recommended for most users) ⭐**
-```bash
-# Standard installation - works immediately, no setup required
-curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s full
+BOS-AI guides your business through a complete lifecycle with **four stages**:
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         THE BOS-AI LIFECYCLE                                │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  STAGE 1: FOUNDATION          STAGE 2: DEVELOPMENT                         │
+│  ─────────────────────        ─────────────────────                         │
+│  📍 BOS-AI Project            📍 AGENT-11 Project (separate)                │
+│  ⏱️ 1-2 days                  ⏱️ 1-4 weeks                                  │
+│                                                                             │
+│  • Vision & Mission           • Technical Architecture                      │
+│  • Market Research            • MVP Development                             │
+│  • Client Blueprint           • Testing & QA                                │
+│  • Positioning                • Deployment                                  │
+│  • PRD (for AGENT-11) ──────────→ Input                                    │
+│                                                                             │
+│  OUTPUT: What to build        OUTPUT: Working product                       │
+│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  STAGE 3: OPERATIONS          STAGE 4: GROWTH                               │
+│  ─────────────────────        ─────────────────────                         │
+│  📍 BOS-AI Project            📍 BOS-AI Project                             │
+│  ⏱️ 1-2 days                  ⏱️ Ongoing                                    │
+│                                                                             │
+│  • Marketing System           • Business Chassis Optimization               │
+│  • Sales System               • Customer Feedback → New PRDs                │
+│  • Customer Service           • Continuous Evolution                        │
+│  • Finance Operations         • Scale & Expand                              │
+│                                                                             │
+│  OUTPUT: Go-to-market ready   OUTPUT: Exponential growth                    │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-**✅ Choose this if:**
-- You want to start using BOS-AI right now
-- You're new to BOS-AI and want to test it
-- You don't have API keys for external services yet
-- You want the simplest setup possible
-
-**What you get:**
-- All 30 business intelligence agents
-- Complete document library and templates
-- All commands and missions work perfectly
-- Agents use built-in fallbacks (WebFetch, Bash, etc.)
-
-**Can you add MCPs later?** YES! Add them anytime when you're ready.
+**Key Insight:** BOS-AI handles **business strategy** (Stages 1, 3, 4). AGENT-11 handles **technical development** (Stage 2). They work together but are **separate projects**.
 
 ---
 
-#### **Path 2: Power User Setup (Maximum capabilities)**
+### 💡 Get Started in 2 Minutes
+
 ```bash
-# MCP-enabled installation - requires API keys for full power
+# Create your business project and install BOS-AI
+mkdir ~/my-business && cd ~/my-business && git init
+curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s full
+
+# Start with your foundation
+claude code .
+/coord foundation-quick-start  # Creates PRD in 3-4 hours
+```
+
+**That's it!** You now have 30 business intelligence agents ready to help you build your business foundation.
+
+---
+
+### 🤔 Installation Options
+
+#### **Standard Install (Recommended for most users) ⭐**
+```bash
+curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s full
+```
+- ✅ Works immediately, no setup required
+- ✅ All 30 agents with intelligent fallbacks
+- ✅ Can add MCPs later for enhanced performance
+
+#### **MCP-Enhanced Install (Power Users)**
+```bash
 curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install-with-mcp.sh | bash -s full
 ```
+- ✅ Direct API connections (GitHub, Stripe, etc.)
+- ✅ 40-60% faster operations
+- ⚠️ Requires API keys configuration
 
-**✅ Choose this if:**
-- You have API keys ready (GitHub, Stripe, etc.)
-- You want maximum agent performance
-- You need real-time data from external services
-- You're willing to spend 5-10 minutes on setup
-
-**What you get:**
-- Everything from Path 1, PLUS:
-- Direct API connections to your business tools
-- 40-60% faster operations (when MCPs active)
-- Real-time data instead of manual exports
-- Automatic service detection
-
-**Setup required:** Yes - add API keys to `.env` file after installation.
-
----
-
-### 📊 Detailed Comparison
-
-| Feature | Standard Install | MCP Install |
-|---------|-----------------|-------------|
-| **Setup Time** | 2 minutes | 2 min + 5-10 min config |
-| **Works Immediately** | ✅ Yes | ⚠️ After adding API keys |
-| **All Agents Available** | ✅ 30 agents | ✅ 30 agents |
-| **GitHub Integration** | WebFetch + Git CLI | ✅ Direct API access |
-| **Stripe Analytics** | Manual CSV export | ✅ Real-time queries |
-| **Market Research** | WebSearch | ✅ Enhanced scraping |
-| **File Operations** | Bash commands | ✅ Enhanced performance |
-| **Upgrade Later** | ✅ Yes, anytime | N/A |
-| **API Keys Required** | ❌ None | ✅ Optional (more = better) |
-
----
-
-### 🎯 Our Recommendation
-
-**For your first installation:**
-```bash
-# Start simple - you can always upgrade
-curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s full
-```
-
-**Then, when you're ready for enhanced capabilities, upgrade to MCP support.**
+**Our recommendation:** Start with standard install, add MCPs later when needed.
 
 ---
 
@@ -240,6 +246,29 @@ Build your strategic foundation before building anything else:
 - 3x faster growth through aligned execution
 - Premium positioning enabling higher margins
 
+---
+
+#### What's Required Before AGENT-11 Development?
+
+Not all foundation documents are needed before starting development. Here's what to prioritize:
+
+| Document | Before AGENT-11? | Why |
+|----------|------------------|-----|
+| Vision & Mission | ✅ **Required** | Guides product direction and decisions |
+| Market Research | ✅ **Required** | Validates opportunity, informs features |
+| Client Blueprint | ✅ **Required** | Defines who you're building for |
+| Positioning | ✅ **Required** | Clarifies differentiation |
+| Strategic Roadmap | ✅ **Required** | Prioritizes what to build first |
+| **PRD** | ✅ **Required** | **Direct input to AGENT-11** |
+| Brand Guide | ⚠️ Helpful | Can refine during development |
+| Marketing Bible/Plan | ❌ After | Needed for launch, not build |
+| Sales Bible/Plan | ❌ After | Needed for selling, not building |
+| Service Bible/Plan | ❌ After | Needed post-launch |
+
+**Minimum for AGENT-11:** Complete `/coord foundation-quick-start` (3-4 hours) to create your PRD with essential context.
+
+---
+
 **Commands:**
 ```bash
 # Complete foundation framework (6-8 hours)
@@ -262,84 +291,104 @@ Build your strategic foundation before building anything else:
 ---
 
 ### Stage 2: MVP Development (AGENT-11 Project) 🚀
-**Time:** Varies by complexity | **Output:** Working product/software
+**Time:** 1-4 weeks | **Output:** Working product/software
 
-**CRITICAL:** BOS-AI creates the PRD, but does NOT build the product.
+**CRITICAL:** BOS-AI creates the PRD. **AGENT-11 builds the product.** These are separate projects.
 
-#### The Two-Project Architecture
+#### Setting Up Your AGENT-11 Development Project
 
-BOS-AI and AGENT-11 work together as separate but connected systems:
+Once your PRD is complete in BOS-AI, follow these steps to start development:
 
-```
-┌─────────────────────────────────────────────────────────┐
-│                     BOS-AI PROJECT                       │
-│                  (Business Operations)                   │
-│                                                          │
-│  • 30 Business Intelligence Agents                      │
-│  • Business Strategy & Requirements                     │
-│  • Customer Success & Operations                        │
-│  • Revenue & Growth Optimization                        │
-│  • Market Intelligence & Analysis                       │
-│                                                          │
-│  OUTPUT: PRD Documents & Business Frameworks            │
-└────────────────────┬────────────────────────────────────┘
-                     │
-                     │ PRD Handoff
-                     ↓
-┌─────────────────────────────────────────────────────────┐
-│                 AGENT-11 PROJECT                         │
-│              (Technical Development)                     │
-│                                                          │
-│  • 11 Technical Development Agents                      │
-│  • Software Development & Testing                       │
-│  • Technical Architecture & Design                      │
-│  • Deployment & DevOps                                  │
-│  • Code Implementation                                  │
-│                                                          │
-│  OUTPUT: Working Software & Products                    │
-└────────────────────┬────────────────────────────────────┘
-                     │
-                     │ Product Delivery
-                     ↓
-┌─────────────────────────────────────────────────────────┐
-│                  BOS-AI OPERATIONS                       │
-│               (Business Management)                      │
-│                                                          │
-│  • Operate and market delivered products                │
-│  • Gather customer feedback and insights                │
-│  • Identify enhancements and features                   │
-│  • Create new PRDs for next iteration                   │
-└──────────────────────────────────────────────────────────┘
+**Step 1: Create a separate technical project**
+```bash
+# Create new directory for development (NOT inside your BOS-AI project)
+mkdir ~/my-product-dev
+cd ~/my-product-dev
+git init
 ```
 
-#### Hand Off to AGENT-11
+**Step 2: Install AGENT-11**
+```bash
+# Install the AGENT-11 development framework
+curl -fsSL https://raw.githubusercontent.com/TheWayWithin/agent-11/main/install.sh | bash
+```
 
-1. **Create separate AGENT-11 project** for technical work
-2. **Copy PRD from BOS-AI project** to AGENT-11 requirements
-3. **AGENT-11 builds:** MVP, architecture, testing, deployment
-4. **Product delivered** back to BOS-AI for operations
+**Step 3: Copy your PRD from BOS-AI**
+```bash
+# Copy the PRD you created in Stage 1
+cp ~/my-business/documents/foundation/prds/[your-prd].md ~/my-product-dev/requirements/
+```
 
-**Why separate projects?**
-- **Clean separation of concerns:** Business strategy vs. technical implementation
-- **Each project uses appropriate agents:** Business vs. Development specialists
-- **Prevents mixing:** Business requirements stay clean from code
-- **Maintains focus:** Strategic clarity without technical distraction
+**Step 4: Initialize development with AGENT-11**
+```bash
+claude code .
 
-**What BOS-AI does NOT do:**
+# For new projects - initializes architecture and project structure
+/coord dev-setup requirements/[your-prd].md
+
+# For existing codebases - aligns with current code
+/coord dev-alignment
+```
+
+**📚 For complete setup instructions, see the [AGENT-11 README](https://github.com/TheWayWithin/agent-11)**
+
+---
+
+#### What AGENT-11 Does
+
+AGENT-11 provides **11 technical development agents**:
+
+| Agent | Role |
+|-------|------|
+| `@architect` | Designs system architecture from your PRD |
+| `@developer` | Implements features and writes code |
+| `@tester` | Creates tests and validates quality |
+| `@operator` | Handles deployment and DevOps |
+| `@designer` | UI/UX implementation |
+| `@documenter` | Technical documentation |
+| + 5 more | Full development lifecycle coverage |
+
+**Development workflow:**
+```bash
+# AGENT-11 orchestrates development from your PRD
+/coord dev-setup requirements/my-product-prd.md  # 30-45 min setup
+# Then AGENT-11 agents build your product
+```
+
+---
+
+#### Why Separate Projects?
+
+| BOS-AI Project | AGENT-11 Project |
+|----------------|------------------|
+| 30 business agents | 11 technical agents |
+| Strategy & requirements | Code & implementation |
+| PRDs, market research | Architecture, testing |
+| Business operations | Development operations |
+| **What** to build | **How** to build it |
+
+**Benefits:**
+- Clean separation of business vs. technical concerns
+- Each project uses appropriate specialized agents
+- Business requirements stay clean from code
+- Can hand off to different dev teams/projects
+
+---
+
+#### What BOS-AI Does NOT Do
+
 - ❌ Write code or software implementations
-- ❌ Design technical architecture or database schemas
-- ❌ Create API designs or backend integrations
-- ❌ Handle DevOps or deployment infrastructure
-- ❌ Make technology stack decisions
+- ❌ Design technical architecture or schemas
+- ❌ Create API designs or integrations
+- ❌ Handle DevOps or deployment
 
 **What BOS-AI DOES do:**
-- ✅ Create comprehensive PRDs defining WHAT to build
+- ✅ Create comprehensive PRDs (input for AGENT-11)
 - ✅ Define business requirements and success criteria
 - ✅ Specify user stories and acceptance criteria
-- ✅ Set business constraints and priorities
-- ✅ Hand off clear requirements to development teams
+- ✅ Hand off clear requirements to development
 
-**See `.claude/BOUNDARIES.md` for complete separation details.**
+**See `.claude/BOUNDARIES.md` for complete details.**
 
 ---
 
@@ -504,252 +553,70 @@ Week 6: Repeat cycle - Create PRD for premium tier features
 
 ---
 
-## 🔄 The Complete Cycle in Practice
+## 📋 Example: Launching a SaaS Product
 
-### Week 1: Foundation & MVP Planning (Strategic Clarity + Product Development)
+Here's a practical example of the complete BOS-AI + AGENT-11 lifecycle:
 
-**BOS-AI: Build Strategic Foundation (6-8 hours over 1-2 days)**
+### Week 1: BOS-AI Foundation (1-2 days)
 ```bash
-# Complete strategic foundation (6-8 hours)
-/coord foundation-system-setup
-
-# OR rapid foundation (3-4 hours, same day)
-/coord foundation-quick-start
+cd ~/my-saas-business
+/coord foundation-quick-start  # 3-4 hours
 ```
+**Creates:** Vision, Market Research, Client Blueprint, Positioning, PRD
 
-**Output:** Vision, Mission, ICP, Market Research, Positioning, PRD
-
-**AGENT-11: Build MVP (1-4 weeks in separate project)**
+### Weeks 2-5: AGENT-11 Development (separate project)
 ```bash
-# In separate AGENT-11 technical project:
-# Hand off PRD from BOS-AI → AGENT-11 builds product
+# Create separate development project
+mkdir ~/my-saas-dev && cd ~/my-saas-dev && git init
+curl -fsSL https://raw.githubusercontent.com/TheWayWithin/agent-11/main/install.sh | bash
 
-@architect design-system-architecture
-@developer implement-features
-@tester run-quality-assurance
-@operator deploy-to-production
+# Copy PRD and initialize
+cp ~/my-saas-business/documents/foundation/prds/saas-prd.md requirements/
+claude code .
+/coord dev-setup requirements/saas-prd.md
 ```
+**Creates:** Working SaaS product deployed to production
 
-**Output:** Working product/software ready for market
-
----
-
-### Week 4: Launch Operations (Go-to-Market Excellence)
-
-**BOS-AI: Set up business operations (3-7 hours over 1-2 days)**
+### Week 6: BOS-AI Operations (1-2 days)
 ```bash
-# Customer acquisition engine
-/coord marketing-system-setup          # 1-2 hours
-
-# Conversion optimization engine
-/coord sales-system-setup              # 1-2 hours
-
-# Retention & success engine
-/coord customer-service-system-setup   # 1-3 hours
-
-# Integrate all systems
-/coord complete-business-system        # Cross-functional optimization
-```
-
-**Output:** Complete operational framework for customer acquisition, conversion, and retention
-
----
-
-### Month 4+: Evolve & Grow (Continuous Optimization)
-
-**BOS-AI: Continuous optimization cycle**
-```bash
-# Weekly optimization (identify improvements)
-/coord optimize
-
-# Daily metrics (track Business Chassis)
-/coord chassis-review
-
-# Weekly performance (comprehensive analysis)
-/coord weekly
-
-# Identify improvements → Create PRDs → Hand to AGENT-11 → Repeat
-```
-
-**The Multiplication Effect in Action:**
-```
-Foundation guides all operations (strategic clarity)
-      ↓
-Operations drive revenue and customer success (execution excellence)
-      ↓
-Chassis optimization compounds improvements (exponential growth)
-      ↓
-Customer feedback drives product evolution (market fit)
-      ↓
-Each cycle builds competitive advantage (sustainable growth)
-      ↓
-Return to optimization (continuous improvement)
-```
-
----
-
-### Complete Workflow Timeline Example
-
-**New SaaS Product Launch:**
-
-**Week 1 (BOS-AI - Foundation, 1-2 days):**
-```bash
-/coord foundation-system-setup  # 6-8 hours total
-```
-- Vision & Mission defined
-- Market research completed
-- ICP identified and validated
-- Competitive positioning established
-- Product roadmap created
-- Comprehensive PRD written
-
-**Weeks 2-5 (AGENT-11 - MVP Development):**
-```bash
-# In separate AGENT-11 project
-@architect design-system
-@developer implement-features
-@tester quality-assurance
-@operator deploy-production
-```
-- Technical architecture designed
-- Features implemented and tested
-- MVP deployed to production
-- Product delivered to BOS-AI
-
-**Week 6 (BOS-AI - Operations Setup, 1-2 days):**
-```bash
+cd ~/my-saas-business
 /coord marketing-system-setup          # 1-2 hours
 /coord sales-system-setup              # 1-2 hours
 /coord customer-service-system-setup   # 1-3 hours
 ```
-- Marketing campaigns launched
-- Sales processes established
-- Customer success programs activated
+**Creates:** Complete go-to-market operational framework
 
-**Weeks 7+ (BOS-AI - Evolution):**
+### Week 7+: BOS-AI Growth (ongoing)
 ```bash
-/coord optimize                    # Weekly - identify bottlenecks
-/coord chassis-review              # Daily - track metrics
+/coord optimize          # Weekly - find biggest opportunity
+/coord chassis-review    # Daily - track Business Chassis
 ```
-- Gather user feedback and market data
-- Identify product enhancements (new PRDs)
-- Hand off to AGENT-11 for implementation
-- Measure improvements, optimize Business Chassis
-- **Continuous cycle drives exponential growth**
+**The cycle continues:** Customer feedback → New PRDs → AGENT-11 builds → BOS-AI operates
 
 ---
 
-## 🏗️ Foundation Library - Strategic Business Development Framework
+## 🏗️ Foundation & Operations Libraries
 
-### Why Foundation First? The $55K-200K Strategic Advantage
+### Foundation Library (Stage 1)
 
-BOS-AI's **Foundation Library** represents a fundamental shift from tactical operations to **strategic business development**. While most business tools focus on execution (the "how"), BOS-AI begins with strategic foundation (the "what" and "why") - and the results speak for themselves:
+BOS-AI includes 6 foundation document templates with AI-driven creation SOPs:
 
-**Foundation-First Business Success Metrics:**
-- **60-80% higher** long-term business success rates
-- **$55K-200K risk mitigation** through operational misalignment prevention
-- **3x faster growth** through strategic clarity and aligned execution
-- **Premium positioning** enabling higher margins and sustainable competitive advantages
+| Document | Time | Purpose |
+|----------|------|---------|
+| Vision & Mission | 1 hour | Strategic North Star |
+| Market Research | 1 hour | Market intelligence |
+| Client Blueprint | 1 hour | Ideal customer profile |
+| Positioning | 1 hour | Competitive differentiation |
+| Strategic Roadmap | 1 hour | Development priorities |
+| Brand Guide | 1 hour | Visual identity |
 
-### Foundation Precedes Operations Philosophy
-
-**The Strategic Logic:**
-```
-Foundation Documents (WHAT & WHY) → Operations Library (HOW) → Strategic Implementation
-```
-
-**Without Foundation:** Operations without strategy = resource waste, strategic drift, expensive pivots
-**With Foundation:** Strategic clarity → aligned operations → consistent growth
-
-### Complete Foundation Framework (6-8 Hours)
-
-BOS-AI's Foundation Library provides systematic strategic development replacing months of traditional business planning:
-
-#### Strategic Foundation Documents (6 Core Templates)
-- **Vision and Mission** (1 hour) - Strategic North Star and hedgehog concept
-- **Market Research** (1 hour) - Market intelligence and customer discovery
-- **Client Success Blueprint** (1 hour) - Ideal customer intelligence system
-- **Positioning Statement** (1 hour) - Competitive differentiation framework
-- **Strategic Roadmap** (1 hour) - Product development pathway and milestone planning
-- **Brand Style Guide** (1 hour) - Visual identity and brand consistency standards
-
-#### AI-Driven Creation Process
-Each foundation document includes comprehensive AI-driven creation SOPs that eliminate the expertise barrier while ensuring professional quality strategic development.
-
-### Foundation Mission Library
-
-#### Foundation System Missions
+**Quick Start Commands:**
 ```bash
-# Complete Foundation Framework (6-8 hours)
-/coord foundation-system-setup
-
-# Rapid Strategic Foundation (3-4 hours, same day)
-/coord foundation-quick-start
+/coord foundation-quick-start     # 3-4 hours - Essential foundation + PRD
+/coord foundation-system-setup    # 6-8 hours - Complete framework
 ```
 
-#### Individual Foundation Creation Missions
-```bash
-# Core Strategic Documents
-/coord foundation-vision-mission-creation      # 1 hour - Strategic purpose
-/coord foundation-market-research-creation     # 1 hour - Strategic intelligence
-/coord foundation-client-blueprint-creation    # 1 hour - Customer strategy
-/coord foundation-positioning-creation         # 1 hour - Market differentiation
-/coord foundation-roadmap-creation            # 1 hour - Priority framework
-/coord foundation-brand-guide-creation        # 1 hour - Identity framework
-
-# Foundation Integration
-/coord foundation-operations-alignment        # Validate strategic-tactical integration
-```
-
-### Foundation-First Quick Start Guide
-
-**Option 1: Rapid Foundation (3-4 hours, same day)**
-```bash
-# Essential strategic foundation for immediate clarity
-/coord foundation-quick-start
-```
-
-**Option 2: Complete Foundation (6-8 hours over 1-2 days)**
-```bash
-# Comprehensive strategic framework
-/coord foundation-system-setup
-```
-
-**Option 3: Modular Foundation (1 hour per document)**
-```bash
-# Build foundation incrementally
-/coord foundation-vision-mission-creation
-# Then continue with additional documents as needed
-```
-
-### Foundation → Operations Integration
-
-**Foundation Prerequisites for Operations Success:**
-- [ ] Vision and Mission clarity guides marketing message development
-- [ ] Market Research validates customer journey and conversion strategies
-- [ ] Client Success Blueprint informs sales processes and service standards
-- [ ] Positioning Statement guides brand strategy and competitive differentiation
-- [ ] Strategic Roadmap aligns operations with long-term business objectives
-- [ ] Brand Guide ensures consistent execution across all operational activities
-
-**Strategic Validation Checkpoints:**
-BOS-AI validates foundation completion before operations implementation, ensuring your tactical execution amplifies rather than contradicts your strategic foundation.
-
-### Foundation Competitive Advantage
-
-**BOS-AI vs Tactical-Only Business Tools:**
-
-| Approach | Traditional Tools | BOS-AI Foundation-First |
-|----------|------------------|------------------------|
-| **Starting Point** | Jump to tactics | Strategic foundation |
-| **Success Rate** | 20-40% long-term | 60-80% long-term |
-| **Risk Level** | High misalignment | $55K-200K risk mitigation |
-| **Growth Pattern** | Inconsistent, reactive | Strategic, accelerated |
-| **Market Position** | Commodity pricing | Premium differentiation |
-| **Competitive Advantage** | Temporary tactics | Sustainable strategy |
-
-**Foundation Authority Positioning:**
-BOS-AI's systematic approach to strategic business development establishes your business as strategically sophisticated, enabling premium positioning and authentic competitive advantages that tactical-only approaches cannot replicate.
+See [Stage 1: Foundation Documents](#stage-1-foundation-documents-bos-ai-) for details on what's required before AGENT-11 development.
 
 ---
 
@@ -866,93 +733,25 @@ BOS-AI includes a comprehensive **Operations Library** that provides systematic,
 └── operations-library-guide.md    # Framework overview and integration
 ```
 
-### Foundation → Operations Integration Framework
+### Complete Implementation Pathway
 
-**Strategic-Tactical Alignment System:**
-- **Foundation Documents (WHAT & WHY)**: Define strategic direction, competitive positioning, and success criteria
-- **Operations Library (HOW)**: Translates strategic foundation into systematic execution processes
-- **Integration Validation**: Operations must amplify rather than contradict foundation strategic positioning
-- **Quality Control**: Strategic alignment checkpoints prevent operations drift from foundation framework
-
-**Proper Business Development Sequence:**
-```
-1. Foundation First (6-8 hours)
-   → Strategic clarity and competitive positioning
-
-2. Foundation-Guided Operations (3-7 hours)
-   → Tactical execution aligned with strategy
-
-3. Strategic Implementation
-   → Consistent growth with sustainable advantages
-```
-
-**Foundation Prerequisites for Operations Success:**
-- **Marketing Operations**: Require positioning clarity and brand identity from foundation
-- **Sales Operations**: Require client blueprint and value proposition from foundation
-- **Customer Service Operations**: Require success metrics and brand standards from foundation
-- **All Operations**: Must serve foundation strategic objectives rather than generic best practices
-
-**Integration Success Metrics:**
-- Foundation documents guide all operational decision-making
-- Operations amplify foundation competitive advantages
-- Tactical execution consistently reinforces strategic positioning
-- Business growth aligns with foundation vision and roadmap
-
-**Foundation-Operations Implementation Pathway:**
 ```bash
-# Step 1: Establish Strategic Foundation
-/coord foundation-system-setup        # 6-8 hours complete framework
-# OR rapid foundation:
-/coord foundation-quick-start          # 3-4 hours essential strategy
+# Stage 1: Foundation (required before AGENT-11)
+/coord foundation-quick-start          # 3-4 hours - Creates PRD
 
-# Step 2: Foundation-Guided Operations
-/coord marketing-system-setup          # Foundation-aligned marketing (1-2 hours)
-/coord sales-system-setup             # Foundation-aligned sales (1-2 hours)
-/coord customer-service-system-setup  # Foundation-aligned service (1-3 hours)
+# Stage 2: Development (separate AGENT-11 project)
+# See "Stage 2: MVP Development" section for setup instructions
 
-# Step 3: Strategic Validation
-/coord foundation-operations-alignment # Validate strategic coherence
+# Stage 3: Operations (after product built)
+/coord marketing-system-setup          # 1-2 hours
+/coord sales-system-setup              # 1-2 hours
+/coord customer-service-system-setup   # 1-3 hours
+
+# Stage 4: Growth (ongoing)
+/coord optimize                        # Weekly optimization
 ```
 
-This foundation-first approach prevents the "tactical trap" where operations are implemented without strategic guidance, leading to resource waste, inconsistent positioning, and expensive strategic pivots later.
-
-### Foundation Business Case: The Strategic Investment ROI
-
-**Foundation Investment vs Risk Mitigation Analysis:**
-
-| Investment | Foundation Time | Risk Mitigation Value | ROI Calculation |
-|------------|----------------|---------------------|------------------|
-| **Vision & Mission** | 1 hour | $10K-15K marketing misalignment | 10,000-15,000% ROI |
-| **Market Research** | 1 hour | $15K-25K wrong market costs | 15,000-25,000% ROI |
-| **Client Blueprint** | 1 hour | $20K-40K poor targeting | 20,000-40,000% ROI |
-| **Positioning** | 1 hour | $10K-30K brand confusion | 10,000-30,000% ROI |
-| **Strategic Roadmap** | 1 hour | $15K-50K development waste | 15,000-50,000% ROI |
-| **Brand Guide** | 1 hour | $5K-20K inconsistent brand | 5,000-20,000% ROI |
-| **Total Foundation** | **6-8 hours** | **$55K-200K prevention** | **6,875-25,000% ROI** |
-
-**Strategic Success Probability:**
-- **Without Foundation**: 20-40% long-term business success rate
-- **With Foundation**: 60-80% long-term business success rate
-- **Success Amplification**: 3x higher probability of sustainable growth
-
-**Competitive Advantage Quantification:**
-- **Premium Positioning**: Foundation enables 20-40% higher pricing through differentiation
-- **Customer Lifetime Value**: Strategic clarity improves retention 30-50%
-- **Market Authority**: Professional foundation builds credibility and trust
-- **Sustainable Growth**: Strategic foundation creates defensible competitive advantages
-
-**Foundation vs Operations-Only Comparison:**
-
-| Metric | Operations-Only | Foundation + Operations | Advantage |
-|--------|----------------|----------------------|----------|
-| Setup Time | 3-7 hours | 9-15 hours total | Foundation clarity |
-| Success Rate | 20-40% | 60-80% | 2x improvement |
-| Risk Level | $55K-200K exposure | Risk mitigated | $55K-200K protection |
-| Growth Pattern | Reactive, inconsistent | Strategic, accelerated | 3x faster |
-| Market Position | Commodity | Premium differentiation | 20-40% higher pricing |
-| Competitive Edge | Temporary tactics | Sustainable strategy | Long-term advantage |
-
-**The Foundation Advantage:** While competitors focus on tactical operations, foundation-first businesses achieve strategic clarity that enables sustainable competitive advantages, premium positioning, and consistent growth aligned with long-term vision.
+**See [The BOS-AI Workflow](#-the-bos-ai-workflow-from-vision-to-market-leadership) for the complete 4-stage lifecycle.**
 
 ---
 
