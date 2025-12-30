@@ -1704,6 +1704,26 @@ rm -rf .claude/  # Removes all BOS-AI files
 
 ---
 
+## 💖 Support BOS-AI
+
+BOS-AI is a passion project that's **100% free and always will be.**
+
+If it's helped you build or grow your business, consider buying me a coffee:
+
+<a href="https://buymeacoffee.com/jamiewatters" target="_blank">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;" >
+</a>
+
+**Other ways to support:**
+- ⭐ Star this repository
+- 📢 Share BOS-AI with other founders
+- 🐛 Report bugs and suggest features
+- 📝 Contribute to documentation
+
+Your support keeps BOS-AI free, actively maintained, and growing with new capabilities!
+
+---
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
