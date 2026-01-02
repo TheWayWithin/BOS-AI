@@ -1,9 +1,16 @@
 # Product Requirements Document (PRD)
 
-**Product Name:** [Enter product name]  
-**Date:** [Creation date]  
-**Version:** [Version number]  
-**Owner:** [Product owner name]  
+> **⚠️ BOS-AI Boundary Notice**
+>
+> This PRD defines WHAT to build and WHY - the business requirements, customer needs, and success criteria. It does NOT specify HOW to build it technically. Technical decisions (frameworks, databases, hosting platforms, architecture patterns) are made by AGENT-11 or your development team during implementation.
+>
+> **BOS-AI creates**: Business requirements, user stories, success metrics, feature specifications
+> **AGENT-11 creates**: Technical architecture, technology stack, implementation code
+
+**Product Name:** [Enter product name]
+**Date:** [Creation date]
+**Version:** [Version number]
+**Owner:** [Product owner name]
 **Status:** [Draft/Review/Approved]
 
 ---
@@ -188,115 +195,50 @@
 
 ---
 
-## Section 3: Technical Architecture and Implementation
+## Section 3: Technical Handoff Summary
 
-### System Architecture
+> **Note:** This section captures business constraints for technical teams. Architecture decisions, technology stack selection, and implementation details are determined by AGENT-11 or your development team during implementation.
 
-**Architecture Pattern:** [Monolithic/Microservices/Serverless/Hybrid]
-**Rationale:** [Why this architecture fits the product and solopreneur constraints]
-**Scalability Approach:** [How the system will handle growth]
-**Deployment Model:** [How the system will be deployed and managed]
+### Business Constraints for Development
 
-### Technology Stack
+**Budget and Resources:**
+- **Development Budget:** [Available budget for development]
+- **Ongoing Operations Budget:** [Available budget for hosting, maintenance, etc.]
+- **Team Availability:** [Internal resources available vs. need for contractors/agencies]
 
-**Frontend Technology:** [React/Vue/Angular/Vanilla JS/Other]
-**Backend Technology:** [Node.js/Python/PHP/Java/Other]
-**Database:** [PostgreSQL/MySQL/MongoDB/Other]
-**Hosting Platform:** [AWS/Google Cloud/Azure/Vercel/Other]
-**Rationale:** [Why these technologies fit the requirements and constraints]
+**Timeline Expectations:**
+- **MVP Target:** [When minimum viable product is needed]
+- **Full Launch Target:** [When complete product should be available]
+- **Critical Deadlines:** [Any hard deadlines that must be met]
 
-### Data Architecture
+**Integration Requirements:**
+- **Must Integrate With:** [Existing systems or tools the product must work with]
+- **Data Sources:** [Where data comes from that the product needs]
+- **Output Requirements:** [Where data/reports need to go]
 
-**Database Design:**
-[How data is structured and organized - key entities and relationships]
+### Performance Expectations (Business-Level)
 
-**Data Flow:**
-[How data moves through the system from input to output]
+**User Experience Standards:**
+- **Response Time:** [How fast should the product feel to users - e.g., "instant", "within seconds"]
+- **Availability:** [When must the product be available - e.g., "24/7", "business hours"]
+- **User Capacity:** [Expected number of users - e.g., "start with 100, scale to 10,000"]
 
-**Data Security:**
-[How data is protected, encrypted, and secured]
+**Security Requirements (Business-Level):**
+- **Data Sensitivity:** [What type of data is handled - e.g., "personal info", "payment data"]
+- **Compliance Needs:** [Any regulations to comply with - e.g., "GDPR", "HIPAA", "none"]
+- **Access Control:** [Who should access what - e.g., "admin vs. user roles"]
 
-**Backup and Recovery:**
-[How data is backed up and recovered in case of issues]
+### Handoff Checklist
 
-### Security Architecture
+Before handing this PRD to your technical team or AGENT-11, confirm:
 
-**Authentication System:**
-[How users are authenticated and verified]
+- [ ] All business requirements in Sections 1-2 are complete
+- [ ] Success metrics are defined and measurable
+- [ ] Budget and timeline constraints are realistic
+- [ ] Integration requirements are clearly listed
+- [ ] Security/compliance requirements are specified
 
-**Authorization Model:**
-[How permissions and access are managed]
-
-**Data Protection:**
-[How sensitive data is protected throughout the system]
-
-**Security Monitoring:**
-[How security is monitored and maintained]
-
-### Implementation Specifications
-
-**Development Environment:**
-- **Local Development Setup:** [How developers set up local environment]
-- **Development Tools:** [Required tools and software]
-- **Code Standards:** [Coding standards and conventions]
-- **Version Control:** [Git workflow and branching strategy]
-
-**API Design:**
-- **API Architecture:** [REST/GraphQL/Other]
-- **Endpoint Specifications:** [Key API endpoints and their functions]
-- **Data Formats:** [JSON/XML/Other data exchange formats]
-- **API Documentation:** [How API is documented for developers]
-
-**Database Schema:**
-- **Core Entities:** [Main data objects and their relationships]
-- **Data Relationships:** [How different data objects connect]
-- **Indexing Strategy:** [How data is indexed for performance]
-- **Migration Strategy:** [How database changes are managed]
-
-**Third-Party Integrations:**
-- **Required Services:** [External services this product needs]
-- **Integration Methods:** [How external services are integrated]
-- **Fallback Strategies:** [What happens if external services fail]
-- **Cost Considerations:** [Ongoing costs for external services]
-
-### Deployment and Operations
-
-**Deployment Strategy:**
-- **Deployment Process:** [How code gets from development to production]
-- **Environment Management:** [Development/Staging/Production environments]
-- **Rollback Procedures:** [How to undo deployments if needed]
-- **Monitoring Setup:** [How system health is monitored]
-
-**Performance Optimization:**
-- **Caching Strategy:** [How data and content is cached for speed]
-- **CDN Configuration:** [Content delivery network setup]
-- **Database Optimization:** [How database performance is optimized]
-- **Frontend Optimization:** [How frontend performance is optimized]
-
-**Maintenance and Support:**
-- **Backup Procedures:** [How data and system backups are managed]
-- **Update Procedures:** [How system updates are applied]
-- **Monitoring and Alerting:** [How issues are detected and reported]
-- **Support Procedures:** [How user issues are handled]
-
-### Development Planning
-
-**Development Phases:**
-- **Phase 1 (MVP):** [Minimum viable product features and timeline]
-- **Phase 2 (Enhancement):** [Additional features and improvements]
-- **Phase 3 (Optimization):** [Performance and scaling improvements]
-
-**Resource Requirements:**
-- **Development Team Size:** [Number and types of developers needed]
-- **Development Timeline:** [Realistic timeline for each phase]
-- **Budget Estimates:** [Development costs and ongoing operational costs]
-- **Skill Requirements:** [Specific skills needed for development]
-
-**Risk Management:**
-- **Technical Risks:** [Potential technical challenges and mitigation strategies]
-- **Resource Risks:** [Potential resource constraints and solutions]
-- **Timeline Risks:** [Potential delays and contingency plans]
-- **Budget Risks:** [Potential cost overruns and controls]
+> **Next Step:** Hand this PRD to AGENT-11 (using `/coord build [this-prd.md]`) or your development team. They will design the technical architecture, select technologies, and create the implementation plan based on these business requirements.
 
 ---
 
@@ -427,18 +369,7 @@ Based on Client Success Blueprint definitions:
 **Epic 2: [Epic Name]**
 [Repeat format]
 
-### Appendix B: Technical Specifications
-
-**API Endpoints:**
-[Detailed API endpoint specifications if applicable]
-
-**Database Schema:**
-[Detailed database schema diagrams and specifications]
-
-**Integration Specifications:**
-[Detailed specifications for external integrations]
-
-### Appendix C: Design Mockups and Wireframes
+### Appendix B: Design Mockups and Wireframes
 
 **Key Screen Designs:**
 [References to design files and mockups]
@@ -449,7 +380,7 @@ Based on Client Success Blueprint definitions:
 **Brand Application Examples:**
 [How brand elements are applied in the product]
 
-### Appendix D: Risk Assessment and Mitigation
+### Appendix C: Risk Assessment and Mitigation
 
 **Risk Register:**
 [Detailed risk assessment with probability, impact, and mitigation strategies]
@@ -457,7 +388,7 @@ Based on Client Success Blueprint definitions:
 **Contingency Plans:**
 [Detailed contingency plans for major risks]
 
-### Appendix E: Success Metrics Dashboard
+### Appendix D: Success Metrics Dashboard
 
 **Metric Definitions:**
 [Detailed definitions of all success metrics]
@@ -470,5 +401,5 @@ Based on Client Success Blueprint definitions:
 
 ---
 
-*This PRD serves as the definitive specification for product development, ensuring alignment between strategic vision and technical execution while providing developers with complete requirements for building a product that solves real customer problems and advances business objectives.*
+*This PRD defines the business requirements, customer needs, and success criteria for product development. It provides technical teams (AGENT-11 or developers) with the WHAT and WHY needed to make informed HOW decisions during implementation. Technical architecture, technology stack, and implementation details are determined by the development team based on these business requirements.*
 
