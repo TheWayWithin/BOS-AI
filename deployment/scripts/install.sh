@@ -330,10 +330,10 @@ for mission in chassis-optimization-sequence product-launch-sequence customer-ac
     fi
 done
 
-# Other category missions (delivery, growth, optimization, marketing, sales, customer-service, finance)
-for category in delivery growth optimization marketing sales customer-service finance; do
+# Other category missions (delivery, growth, optimization, marketing, sales, customer-service, finance, foundation)
+for category in delivery growth optimization marketing sales customer-service finance foundation; do
     echo -e "${CYAN}  📁 Installing $category missions...${NC}"
-    
+
     case $category in
         delivery)
             missions="customer-onboarding quality-assurance delivery-optimization"
@@ -355,6 +355,9 @@ for category in delivery growth optimization marketing sales customer-service fi
             ;;
         finance)
             missions="finance-system-setup finance-bible-creation finance-plan-development profit-optimization cash-flow-mastery investment-strategy-development financial-transformation"
+            ;;
+        foundation)
+            missions="vision-mission-creation market-research-creation client-blueprint-creation positioning-creation roadmap-creation brand-guide-creation prd-creation"
             ;;
     esac
     
