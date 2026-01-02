@@ -85,6 +85,15 @@ Parse arguments to determine:
 - `weekly` - Weekly performance analysis
 - `quarterly` - Quarterly strategic planning
 
+**Foundation Document Missions** (Auto/Engaged mode selection):
+- `vision-mission-creation` - Create Vision & Mission document (45-90 min)
+- `market-research-creation` - Create Market Research document (60-120 min)
+- `client-blueprint-creation` - Create Client Success Blueprint (45-90 min)
+- `positioning-creation` - Create Positioning Statement (30-60 min)
+- `roadmap-creation` - Create Strategic Roadmap (45-75 min)
+- `brand-guide-creation` - Create Brand Style Guide (45-90 min)
+- `prd-creation` - Create Product Requirements Document (60-120 min)
+
 **Emergency Missions**:
 - `crisis` - Business crisis response
 - `pivot` - Business model pivot coordination
@@ -335,6 +344,27 @@ Next Step: Use AGENT-11 for technical implementation
 Command: [Separate AGENT-11 /coord command for building]
 ```
 
+### FOUNDATION MISSION ROUTING
+
+When a foundation document mission is invoked, route to the mission file:
+
+```
+Mission: vision-mission-creation → /missions/foundation/vision-mission-creation.md
+Mission: market-research-creation → /missions/foundation/market-research-creation.md
+Mission: client-blueprint-creation → /missions/foundation/client-blueprint-creation.md
+Mission: positioning-creation → /missions/foundation/positioning-creation.md
+Mission: roadmap-creation → /missions/foundation/roadmap-creation.md
+Mission: brand-guide-creation → /missions/foundation/brand-guide-creation.md
+Mission: prd-creation → /missions/foundation/prd-creation.md
+```
+
+**Foundation Mission Protocol**:
+1. Read the mission file for execution instructions
+2. Read referenced SOP from `/docs/Document Library/Foundation/`
+3. Read referenced Template for output structure
+4. Present Auto/Engaged mode selection to user
+5. Execute according to user's chosen mode
+
 ### EXAMPLE USAGE
 
 ```bash
@@ -352,6 +382,11 @@ Command: [Separate AGENT-11 /coord command for building]
 
 # Customer acquisition campaign
 /coord acquire target-segment.md campaign-brief.md
+
+# Foundation document creation (Auto/Engaged mode)
+/coord vision-mission-creation
+/coord prd-creation ideation.md
+/coord market-research-creation brief.md
 ```
 
 ### 🔄 MISSION RECOVERY PROTOCOL

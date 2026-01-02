@@ -277,13 +277,14 @@ Not all foundation documents are needed before starting development. Here's what
 # Rapid strategic foundation (3-4 hours essential foundation)
 /coord foundation-quick-start
 
-# Individual foundation documents (1 hour each)
-/coord foundation-vision-mission-creation
-/coord foundation-market-research-creation
-/coord foundation-client-blueprint-creation
-/coord foundation-positioning-creation
-/coord foundation-roadmap-creation
-/coord foundation-brand-guide-creation
+# Individual foundation documents (Auto/Engaged mode selection)
+/coord vision-mission-creation        # 45-90 min
+/coord market-research-creation       # 60-120 min
+/coord client-blueprint-creation      # 45-90 min
+/coord positioning-creation           # 30-60 min
+/coord roadmap-creation               # 45-75 min
+/coord brand-guide-creation           # 45-90 min
+/coord prd-creation                   # 60-120 min
 ```
 
 **Output:** Strategic clarity, market intelligence, and a comprehensive PRD defining WHAT to build.
