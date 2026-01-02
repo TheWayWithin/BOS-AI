@@ -317,19 +317,34 @@ curl -fsSL https://raw.githubusercontent.com/TheWayWithin/agent-11/main/install.
 **Step 3: Copy your PRD from BOS-AI**
 ```bash
 # Copy the PRD you created in Stage 1
-cp ~/my-business/documents/foundation/prds/[your-prd].md ~/my-product-dev/requirements/
+cp ~/my-business/documents/foundation/prds/[your-prd].md ~/my-product-dev/ideation.md
 ```
 
 **Step 4: Initialize development with AGENT-11**
 ```bash
 claude code .
 
-# For new projects - initializes architecture and project structure
-/coord dev-setup requirements/[your-prd].md
+# Option A: Quick setup with your PRD/ideation file
+/coord dev-setup ideation.md
 
-# For existing codebases - aligns with current code
+# Option B: Initialize foundation documents first (recommended for complex projects)
+/foundations init              # Creates vision and PRD structure
+/bootstrap saas-mvp            # Generates project-plan.md from template
+
+# Option C: For existing codebases - aligns with current code
 /coord dev-alignment
 ```
+
+#### AGENT-11 Key Commands
+
+| Command | Purpose |
+|---------|---------|
+| `/foundations init` | Create vision and PRD documents |
+| `/bootstrap [template]` | Generate project-plan.md (templates: saas-mvp, saas-full, api) |
+| `/coord dev-setup ideation.md` | Initialize new project from ideation file |
+| `/coord dev-alignment` | Align AGENT-11 with existing codebase |
+| `/coord continue` | Autonomous execution until blocked |
+| `/plan status` | View current mission state |
 
 **📚 For complete setup instructions, see the [AGENT-11 README](https://github.com/TheWayWithin/agent-11)**
 
@@ -351,9 +366,10 @@ AGENT-11 provides **11 technical development agents**:
 
 **Development workflow:**
 ```bash
-# AGENT-11 orchestrates development from your PRD
-/coord dev-setup requirements/my-product-prd.md  # 30-45 min setup
-# Then AGENT-11 agents build your product
+# Initialize and build from your ideation/PRD
+/coord dev-setup ideation.md     # 30-45 min setup
+/coord continue                   # Autonomous execution
+# AGENT-11 agents build your product
 ```
 
 ---
@@ -572,9 +588,10 @@ mkdir ~/my-saas-dev && cd ~/my-saas-dev && git init
 curl -fsSL https://raw.githubusercontent.com/TheWayWithin/agent-11/main/install.sh | bash
 
 # Copy PRD and initialize
-cp ~/my-saas-business/documents/foundation/prds/saas-prd.md requirements/
+cp ~/my-saas-business/documents/foundation/prds/saas-prd.md ideation.md
 claude code .
-/coord dev-setup requirements/saas-prd.md
+/coord dev-setup ideation.md    # Or use /foundations init + /bootstrap saas-mvp
+/coord continue                  # Autonomous execution
 ```
 **Creates:** Working SaaS product deployed to production
 
@@ -758,456 +775,37 @@ BOS-AI includes a comprehensive **Operations Library** that provides systematic,
 
 ## 🔌 MCP Integration - Supercharge Your Agents
 
-### What is MCP (Model Context Protocol)?
+MCP (Model Context Protocol) enables BOS-AI agents to connect directly with external services like GitHub, Stripe, and more.
 
-MCP enables BOS-AI agents to connect directly with external services and tools, providing:
-- **Direct API Access**: Agents can interact with GitHub, Stripe, databases, and more
-- **Real-time Data**: Access live information instead of cached or simulated data
-- **Enhanced Capabilities**: Agents perform actions directly rather than providing instructions
-- **Automatic Detection**: Agents automatically detect and use available MCPs
-- **Intelligent Fallbacks**: When MCPs aren't available, agents seamlessly fall back to standard methods
+### Key Benefits
 
-### How MCP Works with BOS-AI
+| Feature | Without MCP | With MCP |
+|---------|------------|----------|
+| GitHub Operations | Manual PR creation, CLI commands | One-command, 80% faster |
+| Revenue Analytics | Export CSV, manual analysis | Real-time queries, 90% faster |
+| Market Research | Multiple searches | Direct scraping, 70% more data |
 
-```mermaid
-graph LR
-    A[BOS-AI Agent] --> B{MCP Available?}
-    B -->|Yes| C[Direct MCP Connection]
-    B -->|No| D[Intelligent Fallback]
-    C --> E[Enhanced Performance]
-    D --> F[Standard Performance]
-    E --> G[Task Complete]
-    F --> G
-```
-
----
-
-### 📦 What MCPs Are Included?
-
-BOS-AI MCP installation configures support for these services:
-
-#### ✅ Tier 1: Essential MCPs (Auto-detected)
-- **Filesystem** - Enhanced file operations
-  - Capabilities: File operations, directory management
-  - Fallback: Bash file operations
-  - Used by: All agents
-
-- **GitHub** - Repository and issue management
-  - Capabilities: Repository access, issue tracking, PR management
-  - Fallback: WebFetch to GitHub API, Git CLI commands
-  - Used by: @strategist, @developer, @coordinator
-
-- **IDE** - Built-in Claude Code integration
-  - Capabilities: Diagnostics, code execution
-  - Fallback: None (built-in)
-  - Used by: @developer, @tester
-
-#### 🔑 Tier 2: High Value MCPs (Require API keys)
-- **Stripe** - Payment and revenue analytics
-  - Capabilities: Payment data, revenue metrics, customer analytics
-  - Fallback: Manual CSV export, WebFetch to dashboard
-  - Used by: @analyst, @revenue-optimization
-
-- **Firecrawl** - Web scraping and competitor analysis
-  - Capabilities: Web scraping, competitor analysis, market research
-  - Fallback: WebSearch, WebFetch
-  - Used by: @market-intelligence, @strategist
-
-- **Linear** - Project management
-  - Capabilities: Issue tracking, project management, roadmap planning
-  - Fallback: Local task files
-  - Used by: @coordinator, @operator
-
-#### 🎁 Tier 3: Optional MCPs (Add as needed)
-- **Notion** - Documentation management
-- **Slack** - Team communication
-- **HubSpot** - CRM integration
-
-**Important:** All MCPs are optional. Agents work perfectly without them using intelligent fallbacks.
-
----
-
-### 🔄 How MCPs Enhance Your Workflow
-
-#### Without MCPs (Standard) - Still Excellent ✅
-```bash
-@market-intelligence "analyze competitor pricing"
-
-How it works:
-1. Uses WebSearch to find public information
-2. Uses WebFetch to read competitor websites
-3. Provides research guidance and templates
-4. Suggests manual data collection steps
-
-Result: Comprehensive market analysis (may require some manual work)
-```
-
-#### With MCPs (Enhanced) - Supercharged ⚡
-```bash
-@market-intelligence "analyze competitor pricing"
-
-How it works with Firecrawl MCP:
-1. ✅ Automatically scrapes competitor sites
-2. ✅ Retrieves real-time pricing data directly
-3. ✅ Analyzes actual website traffic patterns
-4. ✅ Compiles comprehensive data automatically
-
-Result: Faster, more complete, more accurate analysis
-```
-
----
-
-### 🎁 MCP Benefits Breakdown
-
-#### GitHub MCP
-**Without:** Manual PR creation, WebFetch to GitHub API, Git CLI commands
-**With:** ✅ One-command PR creation, ✅ Direct issue management, ⚡ 80% faster operations
-
-#### Stripe MCP
-**Without:** Export CSV from Stripe dashboard, manual data analysis
-**With:** ✅ Real-time revenue queries, ✅ Automatic analytics generation, ⚡ 90% faster financial analysis
-
-#### Firecrawl MCP (Market Research)
-**Without:** Manual competitor website visits, WebSearch for public data
-**With:** ✅ Automatic competitor data scraping, ✅ Real-time pricing extraction, ⚡ 70% more comprehensive data
-
-#### Filesystem MCP
-**Without:** Standard Bash file operations (works fine)
-**With:** ✅ Enhanced file handling, ✅ Faster bulk operations, ⚡ 95% faster file operations
-
----
-
-### 🔧 Setting Up API Keys
-
-After MCP installation, configure your service API keys:
+### Quick Setup
 
 ```bash
-# 1. Copy the template
-cp .env.mcp-template .env
-
-# 2. Edit .env and add your keys
-nano .env  # or use your preferred editor
-
-# 3. Run setup to configure MCPs
-./scripts/setup-mcps.sh
-
-# 4. Verify MCPs are active
-claude mcp list
-./scripts/check-mcp-status.sh
-```
-
----
-
-### 🆘 Getting API Keys
-
-#### GitHub Personal Access Token
-1. Go to https://github.com/settings/tokens
-2. Click "Generate new token (classic)"
-3. Select scopes: `repo`, `workflow`, `admin:org`
-4. Copy token to `.env` file
-
-#### Stripe API Key
-1. Go to https://dashboard.stripe.com/apikeys
-2. Reveal and copy "Secret key"
-3. Use **test key** (`sk_test_`) for testing
-4. Use **live key** (`sk_live_`) for production
-
-#### Linear API Key
-1. Go to https://linear.app/settings/api
-2. Create new Personal API Key
-3. Copy to `.env` file
-
-#### Other Services
-- **Firecrawl**: https://firecrawl.com (requires paid account)
-- **Notion**: https://notion.so/my-integrations
-- **Slack**: https://api.slack.com/apps
-- **HubSpot**: https://app.hubspot.com/developer
-
-**Don't want to deal with API keys?** Standard installation works great without them!
-
----
-
-### 📊 MCP Performance Impact
-
-| Operation | Without MCP | With MCP | Improvement |
-|-----------|------------|----------|-------------|
-| GitHub Issue Creation | 3-5 steps, manual | 1 step, automatic | 80% faster |
-| Stripe Analytics | Export CSV, analyze | Real-time query | 90% faster |
-| Market Research | Multiple searches | Direct scraping | 70% more data |
-| File Operations | Command simulation | Direct execution | 95% faster |
-
----
-
-### 🔄 Upgrading from Standard to MCP
-
-Already installed standard version? Easy upgrade:
-
-```bash
-# Option 1: Re-run MCP installer (preserves your documents)
+# Install with MCP support
 curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install-with-mcp.sh | bash -s full
 
-# Then configure API keys
+# Configure API keys
 cp .env.mcp-template .env
 nano .env
 ./scripts/setup-mcps.sh
 ```
 
-Your existing documents, missions, and agents are preserved.
+### Available MCPs
 
----
+- **Tier 1 (Auto-detected)**: Filesystem, GitHub, IDE
+- **Tier 2 (API keys required)**: Stripe, Firecrawl, Linear
+- **Tier 3 (Optional)**: Notion, Slack, HubSpot
 
-### ⚠️ Zero-Configuration Experience
+**All MCPs are optional.** Agents work perfectly without them using intelligent fallbacks.
 
-BOS-AI's MCP system is designed to "just work":
-- **No Manual Setup Required**: MCPs are detected automatically
-- **Graceful Degradation**: Agents work with or without MCPs
-- **Transparent Operation**: Agents report which MCPs they're using
-- **Automatic Updates**: Registry updates as MCPs become available
-- **Start Simple**: Use standard install, add MCPs later when needed
-
----
-
-## 🧠 Claude Code SDK Enhanced Operations - Business Intelligence Amplification
-
-### Transform Your Business Operations with AI That Learns and Compounds
-
-BOS-AI leverages **Claude Code SDK enhanced capabilities** to deliver **40-60% performance improvements** across all business operations. These enhancements transform your business from reactive management to **proactive intelligence-driven excellence**.
-
-#### Business Impact Quantification
-
-| Business Operation | Without Enhancement | With Claude Code SDK | Performance Gain |
-|-------------------|-------------------|-------------------|------------------|
-| **Strategic Planning** | Manual analysis, limited memory | AI-driven insights with institutional memory | **60% faster decisions** |
-| **Market Intelligence** | Fragmented research cycles | Continuous intelligence accumulation | **50% more comprehensive** |
-| **Customer Success** | Reactive problem solving | Proactive pattern recognition | **45% higher retention** |
-| **Operational Excellence** | Manual process optimization | Self-learning system improvement | **40% efficiency gains** |
-
-### Memory-Driven Business Intelligence
-
-**Transform**: From starting fresh each session to building **institutional memory** that compounds competitive advantages.
-
-#### Business Applications
-- **Strategic Decision History**: Every market analysis, competitive assessment, and strategic decision preserved and searchable
-- **Customer Intelligence Accumulation**: Pattern recognition across customer interactions builds predictive insights
-- **Process Optimization Learning**: System remembers what works, automatically improving business operations
-- **Competitive Advantage Compounding**: Institutional knowledge grows stronger over time
-
-#### Real-World Business Scenarios
-```bash
-# Scenario: Quarterly Strategic Review
-@chassis-intelligence "analyze Q4 performance trends"
-
-# With Memory Enhancement:
-# → Recalls previous quarterly analyses and strategic decisions
-# → Identifies patterns across multiple quarters
-# → Provides context-aware strategic recommendations
-# → Builds predictive models for future performance
-
-# Without Memory:
-# → Starts analysis from scratch each time
-# → Misses long-term patterns and trends
-# → Provides generic recommendations
-# → No institutional learning accumulation
-```
-
-#### Implementation
-BOS-AI agents automatically leverage memory for:
-- **Decision Context**: Past strategic decisions inform current analysis
-- **Pattern Recognition**: Historical data reveals business trends and opportunities
-- **Relationship Mapping**: Customer and market relationship intelligence
-- **Performance Tracking**: Long-term business metric analysis and optimization
-
-### Extended Thinking for Strategic Excellence
-
-**Transform**: From quick surface-level analysis to **deep strategic thinking** that delivers superior business outcomes.
-
-#### Business Impact Areas
-- **Strategic Analysis Quality**: 60% improvement in strategic decision accuracy
-- **Problem-Solving Depth**: Complex business challenges resolved more thoroughly
-- **Resource Optimization**: Better allocation decisions through comprehensive analysis
-- **Risk Assessment**: Enhanced risk identification and mitigation strategies
-
-#### Thinking Mode Applications
-```bash
-# Complex Business Transformation
-/coord marketing-system-setup
-# Triggers: Extended thinking for comprehensive marketing framework creation
-# Result: Superior strategy development with thorough analysis
-
-# Strategic Market Analysis
-@market-intelligence "evaluate new market opportunity"
-# Triggers: Deep analysis mode for market assessment
-# Result: Comprehensive market evaluation with detailed insights
-
-# Financial Planning
-@budget-planning "optimize operational expenses"
-# Triggers: Extended thinking for financial optimization
-# Result: Thorough expense analysis with strategic recommendations
-```
-
-#### Business Value Delivery
-- **Strategic Planning**: Deep analysis ensures comprehensive strategic development
-- **Market Intelligence**: Thorough market analysis reveals hidden opportunities
-- **Financial Optimization**: Complex financial analysis delivers superior resource allocation
-- **Operational Excellence**: Comprehensive process analysis drives systematic improvement
-
-### Context Management for Complex Operations
-
-**Transform**: From fragmented short sessions to **seamless long-running operations** that maintain perfect continuity.
-
-#### Business Operation Benefits
-- **Complex Project Management**: Multi-week initiatives maintain perfect context
-- **Strategic Implementation**: Long-term business transformations proceed without information loss
-- **Relationship Management**: Customer and partner interactions preserve complete history
-- **Process Development**: Extended business process creation maintains design continuity
-
-#### Long-Running Business Operations
-```bash
-# Multi-Week Marketing Campaign Development
-Session 1: /coord campaign-launch "Q1 product launch"
-Session 2: Continue campaign development (perfect context preservation)
-Session 3: Campaign optimization and final execution
-# Result: Seamless campaign development across multiple sessions
-
-# Strategic Business Transformation
-Week 1: /coord complete-business-system (begin transformation)
-Week 2: Continue system implementation (maintained context)
-Week 3: System optimization and validation
-# Result: Comprehensive business transformation without context loss
-```
-
-#### Context Preservation Features
-- **Mission Continuity**: Complex business missions resume perfectly after interruptions
-- **Strategic Context**: Long-term strategic initiatives maintain complete decision history
-- **Relationship History**: Customer and partner interaction history preserved
-- **Project Memory**: Extended projects maintain design decisions and rationale
-
-### Self-Verification for Business Excellence
-
-**Transform**: From manual quality checking to **automatic business outcome validation** ensuring consistent excellence.
-
-#### Business Quality Assurance
-- **Strategic Alignment**: All recommendations verified against business objectives
-- **Data Accuracy**: Business analysis automatically validated for accuracy
-- **Process Compliance**: Business operations checked against established standards
-- **Outcome Optimization**: Business results continuously validated and improved
-
-#### Quality Validation Applications
-```bash
-# Business Chassis Optimization
-/coord optimize
-# Self-verification ensures: Business analysis accuracy, strategic alignment,
-# implementation feasibility, outcome measurement
-
-# Marketing Campaign Development
-/coord campaign-launch "product launch"
-# Self-verification ensures: Target audience accuracy, message alignment,
-# channel optimization, success metrics validation
-
-# Financial Planning
-@budget-planning "annual budget optimization"
-# Self-verification ensures: Financial accuracy, strategic alignment,
-# resource optimization, risk assessment
-```
-
-#### Business Outcome Assurance
-- **Decision Quality**: All strategic recommendations validated for business impact
-- **Implementation Success**: Business processes verified for optimal execution
-- **Risk Mitigation**: Potential business risks identified and addressed proactively
-- **Performance Optimization**: Business outcomes continuously validated and improved
-
-### Enhanced Capability Integration with Business Operations
-
-#### Operations Library Enhancement
-All BOS-AI operations benefit from Claude Code SDK enhancements:
-
-**Marketing Operations** (1-2 hour framework):
-- **Memory**: Cumulative marketing intelligence and campaign performance history
-- **Thinking**: Deep strategic marketing analysis and customer journey optimization
-- **Context**: Multi-session marketing system development with perfect continuity
-- **Verification**: Marketing strategy validation and outcome assurance
-
-**Sales Operations** (1-2 hour framework):
-- **Memory**: Customer interaction history and sales pattern recognition
-- **Thinking**: Complex sales strategy development and pricing optimization
-- **Context**: Extended sales process development across multiple planning sessions
-- **Verification**: Sales strategy validation and conversion optimization
-
-**Customer Service Operations** (1-3 hour framework):
-- **Memory**: Customer success pattern recognition and relationship intelligence
-- **Thinking**: Comprehensive service excellence strategy development
-- **Context**: Long-term service transformation planning with maintained context
-- **Verification**: Service quality assurance and customer success validation
-
-### Business Chassis Multiplication with Enhanced Operations
-
-**Enhanced Performance Multipliers**:
-```
-Traditional Business Operations: Linear improvement
-+ Claude Code SDK Enhancement: Exponential intelligence amplification
-= Business Chassis Multiplication: 40-60% performance improvement across all components
-```
-
-#### Component-Specific Enhancements
-- **Prospects**: Memory-driven market intelligence improves targeting accuracy
-- **Lead Conversion**: Extended thinking optimizes conversion process design
-- **Client Conversion**: Context preservation ensures consistent sales excellence
-- **Average Spend**: Self-verification validates pricing strategy optimization
-- **Transaction Frequency**: Pattern recognition identifies upselling opportunities
-- **Margin**: Deep analysis reveals hidden cost optimization opportunities
-
-### Getting Started with Enhanced Operations
-
-#### Quick Implementation
-```bash
-# Step 1: Install BOS-AI with enhanced capabilities
-curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install-with-mcp.sh | bash -s full
-
-# Step 2: Begin enhanced business operations
-/coord optimize  # Enhanced strategic analysis with institutional memory
-
-# Step 3: Implement enhanced business systems
-/coord marketing-system-setup  # Memory-driven marketing excellence
-/coord sales-system-setup      # Context-preserved sales optimization
-```
-
-#### Enhanced Capability Verification
-```bash
-# Verify enhanced capabilities active
-claude --version          # Confirm Claude Code SDK version
-./scripts/check-mcp-status.sh  # Verify MCP integration status
-
-# Test enhanced operations
-/coord daily              # Memory-driven daily business review
-```
-
-#### Success Indicators
-- **Memory Active**: Agents reference previous conversations and decisions
-- **Deep Thinking**: Complex analysis takes appropriate time for thorough results
-- **Context Maintained**: Long sessions preserve complete operational context
-- **Quality Assured**: Recommendations include verification and validation steps
-
-### Advanced Enhanced Operations
-
-#### Expert-Level Business Intelligence
-```bash
-# Multi-quarter strategic planning with institutional memory
-@chassis-intelligence "develop 3-year strategic roadmap with historical context"
-
-# Complex market expansion with extended thinking
-@market-expansion "evaluate European market entry with comprehensive analysis"
-
-# Long-term customer success transformation with context preservation
-/coord service-excellence-transformation  # Multi-week project with perfect continuity
-```
-
-#### Performance Optimization
-- **Memory Utilization**: Leverage accumulated business intelligence for superior decisions
-- **Thinking Quality**: Use extended analysis for complex business challenges
-- **Context Management**: Maintain operational continuity for complex multi-session projects
-- **Verification Standards**: Implement business outcome validation for consistent excellence
-
-The **Claude Code SDK enhanced operations** transform BOS-AI from a powerful business tool into an **intelligent business partner** that learns, remembers, and continuously improves your competitive advantage through systematic excellence and institutional memory accumulation.
+**📚 For complete MCP documentation, see [docs/guides/MCP-GUIDE.md](docs/guides/MCP-GUIDE.md)**
 
 ---
 
