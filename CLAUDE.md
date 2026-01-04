@@ -99,6 +99,7 @@ Profit = Prospects × Lead Conversion × Client Conversion × Average Spend × T
 - **`/coord`** - Business orchestration (analyze, optimize, coordinate multi-agent missions)
 - **`/meeting @agent-name "topic"`** - Direct agent consultation for focused expertise
 - **`/report`** - Generate progress reports on business operations
+- **`/dailyreport`** - Generate daily progress with AI blog and social media posts (Twitter/X, LinkedIn)
 - **`/pmd`** - Post-mortem diagnostic for root cause analysis
 - **`/recon`** - UI/UX reconnaissance and assessment (design validation)
 - **`/design-review`** - Comprehensive design review of pending changes
@@ -187,6 +188,40 @@ Generate comprehensive progress reports for business operations and strategic in
 - Strategic insights and recommendations
 
 **Boundary Reminder**: Reports track business outcomes (WHAT was delivered), not technical implementation details (HOW it was built).
+
+---
+
+### `/dailyreport` - Daily Progress & Social Media Generation
+
+Automated daily progress capture with AI-enhanced blog and social media post generation for build-in-public documentation.
+
+**Usage:**
+- `/dailyreport` - Create/update today's progress with blog and social posts
+
+**Key Features:**
+- **Automatic Progress Capture**: Creates structured daily report capturing milestones, issues, and lessons
+- **Blog Post Generation**: AI-enhanced blog-ready versions optimized for technical audience
+- **Social Media Posts**: Platform-optimized Twitter/X (280 char) and LinkedIn (800-1000 char) posts
+- **Build-in-Public Ready**: Copy-paste social posts with character count validation
+- **Cost Efficient**: ~$0.002 per complete report (blog + social)
+
+**Output Files:**
+```
+progress/
+├── YYYY-MM-DD.md           # Raw daily report (source of truth)
+├── YYYY-MM-DD-blog.md      # Blog post (AI-enhanced narrative)
+├── YYYY-MM-DD-twitter.md   # Twitter/X post (280 char)
+└── YYYY-MM-DD-linkedin.md  # LinkedIn post (800-1000 char)
+```
+
+**Configuration** (add to `.env.mcp`):
+```bash
+OPENAI_API_KEY=your_key_here
+DAILYREPORT_ENABLE_SOCIAL=true
+DAILYREPORT_BASE_URL=yourdomain.com
+```
+
+**Boundary Reminder**: Creates content marketing materials for your business. For technical product announcements, coordinate with AGENT-11 project.
 
 ---
 
@@ -801,6 +836,7 @@ BOS-AI will:
 | `/coord [mission-name]` | Execute systematic workflow | `/coord marketing-system-setup` |
 | `/meeting @agent "topic"` | Specialist consultation | `/meeting @brand-strategy "positioning"` |
 | `/report` | Progress tracking | Shows all completed initiatives |
+| `/dailyreport` | Build-in-public content | Blog + Twitter/X + LinkedIn posts |
 | `/pmd "issue"` | Root cause analysis | Troubleshooting and diagnostics |
 
 ### Quick Start Missions (< 2 hours)

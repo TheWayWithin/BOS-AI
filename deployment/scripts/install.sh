@@ -271,6 +271,27 @@ else
     echo -e "${YELLOW}⚠ Failed to download meeting.md${NC}"
 fi
 
+if download_file "$GITHUB_RAW_BASE/commands/report.md" ".claude/commands/report.md"; then
+    echo -e "${GREEN}✓ /report command installed${NC}"
+    COMMAND_COUNT=$((COMMAND_COUNT + 1))
+else
+    echo -e "${YELLOW}⚠ Failed to download report.md${NC}"
+fi
+
+if download_file "$GITHUB_RAW_BASE/commands/pmd.md" ".claude/commands/pmd.md"; then
+    echo -e "${GREEN}✓ /pmd command installed${NC}"
+    COMMAND_COUNT=$((COMMAND_COUNT + 1))
+else
+    echo -e "${YELLOW}⚠ Failed to download pmd.md${NC}"
+fi
+
+if download_file "$GITHUB_RAW_BASE/commands/dailyreport.md" ".claude/commands/dailyreport.md"; then
+    echo -e "${GREEN}✓ /dailyreport command installed${NC}"
+    COMMAND_COUNT=$((COMMAND_COUNT + 1))
+else
+    echo -e "${YELLOW}⚠ Failed to download dailyreport.md${NC}"
+fi
+
 # Download missions
 echo -e "${YELLOW}🎯 Installing missions...${NC}"
 MISSION_COUNT=0

@@ -1002,6 +1002,29 @@ Direct consultations with specialized agents:
 /meeting @budget-planning "optimize costs"
 ```
 
+### `/report` - Progress Tracking
+Generate comprehensive progress reports:
+```
+/report              # All activities since last report
+/report 2025-01-01   # Progress since specific date
+/report weekly       # Weekly business review
+```
+
+### `/dailyreport` - Build-in-Public Content
+Automated daily progress with AI-generated blog and social media posts:
+```
+/dailyreport         # Create today's progress + blog + Twitter/X + LinkedIn
+```
+**Features:** Captures milestones, generates blog-ready narrative, creates platform-optimized social posts (Twitter 280 char, LinkedIn 800-1000 char). Cost: ~$0.002/report.
+
+### `/pmd` - Post Mortem Diagnostic
+Root cause analysis for operational issues:
+```
+/pmd                           # General system analysis
+/pmd "issue description"       # Specific problem investigation
+/pmd sales                     # Analyze specific area
+```
+
 ### Direct Agent Access
 Reference any of the 30 agents directly with @:
 ```
