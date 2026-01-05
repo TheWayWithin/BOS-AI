@@ -144,6 +144,8 @@ declare -a FOUNDATION_FILES=(
     "Brand Style Guide Creation SOP (AI-Driven).md"
     "Product Requirements Document (PRD).md"
     "Product Requirements Document (PRD) Creation SOP.md"
+    "Pricing Strategy Template.md"
+    "Pricing Strategy Creation SOP (AI-Driven).md"
 )
 
 for doc in "${FOUNDATION_FILES[@]}"; do
@@ -378,7 +380,7 @@ for category in delivery growth optimization marketing sales customer-service fi
             missions="finance-system-setup finance-bible-creation finance-plan-development profit-optimization cash-flow-mastery investment-strategy-development financial-transformation"
             ;;
         foundation)
-            missions="vision-mission-creation market-research-creation client-blueprint-creation positioning-creation roadmap-creation brand-guide-creation prd-creation"
+            missions="vision-mission-creation market-research-creation client-blueprint-creation positioning-creation roadmap-creation brand-guide-creation prd-creation pricing-strategy-creation"
             ;;
     esac
     

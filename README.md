@@ -285,9 +285,10 @@ Not all foundation documents are needed before starting development. Here's what
 /coord roadmap-creation               # 45-75 min
 /coord brand-guide-creation           # 45-90 min
 /coord prd-creation                   # 60-120 min
+/coord pricing-strategy-creation      # 60-90 min
 ```
 
-**Output:** Strategic clarity, market intelligence, and a comprehensive PRD defining WHAT to build.
+**Output:** Strategic clarity, market intelligence, a comprehensive PRD, and a pricing strategy defining WHAT to build and HOW to price it.
 
 ---
 
@@ -617,7 +618,7 @@ cd ~/my-saas-business
 
 ### Foundation Library (Stage 1)
 
-BOS-AI includes 6 foundation document templates with AI-driven creation SOPs:
+BOS-AI includes 8 foundation document templates with AI-driven creation SOPs:
 
 | Document | Time | Purpose |
 |----------|------|---------|
@@ -627,6 +628,8 @@ BOS-AI includes 6 foundation document templates with AI-driven creation SOPs:
 | Positioning | 1 hour | Competitive differentiation |
 | Strategic Roadmap | 1 hour | Development priorities |
 | Brand Guide | 1 hour | Visual identity |
+| PRD | 1-2 hours | Product requirements for AGENT-11 |
+| Pricing Strategy | 1-1.5 hours | Value ladder with Marketing Physics |
 
 **Quick Start Commands:**
 ```bash

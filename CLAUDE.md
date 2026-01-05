@@ -594,7 +594,12 @@ BOS-AI includes a comprehensive Operations Library providing systematic executio
 │   ├── Vision and Mission.md
 │   ├── Market Research Template.md
 │   ├── Client Success Blueprint.md
-│   └── ... (17 foundation templates & SOPs)
+│   ├── Positioning Statement Template.md
+│   ├── Strategic Roadmap.md
+│   ├── Brand Style Guide.md
+│   ├── Product Requirements Document (PRD).md
+│   ├── Pricing Strategy Template.md      # NEW: Value ladder with Marketing Physics
+│   └── ... (18 foundation templates & SOPs)
 └── Operations/
     ├── Marketing/                  # Complete marketing framework
     ├── Sales/                      # Complete sales framework
