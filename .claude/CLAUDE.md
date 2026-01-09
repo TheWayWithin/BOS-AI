@@ -100,26 +100,65 @@ You are currently working in the **BOS-AI development repository** using **AGENT
 2. **CLAUDE-DEVELOPMENT.md** = AGENT-11 dev reference (this document's source)
 3. **.claude/CLAUDE.md** = This file (AGENT-11 for BOS-AI development)
 
-## 🔴 Agent Directory Structure
+## 🔴 CRITICAL: Two Parallel Directory Structures
 
-### This Repository Has TWO Agent Systems:
+### ⚠️ THE MOST COMMON MISTAKE: Editing the Wrong Files
+
+This repository has **TWO parallel structures** - one for AGENT-11 (what we USE) and one for BOS-AI (what we BUILD):
 
 ```
 BOS-AI Development Repository
-├── .claude/agents/          ← AGENT-11 (development agents)
-│   ├── developer.md         ← Use these for building BOS-AI
-│   ├── tester.md
-│   ├── architect.md
-│   └── ... (11 AGENT-11 agents)
 │
-├── /agents/                 ← BOS-AI (business agents we're building)
-│   ├── coordination/
-│   │   ├── chassis-intelligence.md   ← Edit these source files
+├── .claude/                      ← AGENT-11 (RUNTIME - DO NOT EDIT)
+│   ├── agents/                   ← AGENT-11 agents we USE
+│   │   ├── developer.md          ❌ Don't edit - runtime only
+│   │   ├── tester.md             ❌ Don't edit - runtime only
+│   │   └── coordinator.md        ❌ Don't edit - runtime only
+│   ├── commands/                 ← AGENT-11 commands we USE
+│   │   ├── coord.md              ❌ Don't edit - this is for AGENT-11 dev work
+│   │   ├── pmd.md                ❌ Don't edit - runtime only
+│   │   └── report.md             ❌ Don't edit - runtime only
+│   └── CLAUDE.md                 ← THIS FILE (AGENT-11 instructions)
+│
+├── /agents/                      ← BOS-AI LIBRARY (EDIT THESE)
+│   ├── coordination/             ✅ Edit these - BOS-AI source
+│   │   ├── chassis-intelligence.md
 │   │   └── multiplication-engine.md
-│   ├── discovery/
-│   ├── marketing/
+│   ├── discovery/                ✅ Edit these - BOS-AI source
+│   ├── marketing/                ✅ Edit these - BOS-AI source
 │   └── ... (29 BOS-AI agents)
+│
+├── /commands/                    ← BOS-AI LIBRARY (EDIT THESE)
+│   ├── coord.md                  ✅ Edit this - BOS-AI coord command
+│   ├── meeting.md                ✅ Edit this - BOS-AI meeting command
+│   └── ... (BOS-AI commands)
+│
+├── /missions/                    ← BOS-AI LIBRARY (EDIT THESE)
+│   ├── foundation/               ✅ Edit these - BOS-AI missions
+│   ├── marketing/                ✅ Edit these - BOS-AI missions
+│   └── ... (BOS-AI missions)
+│
+└── /templates/                   ← BOS-AI LIBRARY (EDIT THESE)
+    └── ...                       ✅ Edit these - BOS-AI templates
 ```
+
+### 🚨 BEFORE EDITING ANY FILE, ASK YOURSELF:
+
+| Question | If YES → | If NO → |
+|----------|----------|---------|
+| Is the file in `.claude/` directory? | ❌ STOP - This is AGENT-11 runtime | ✅ Proceed |
+| Am I fixing a BOS-AI user-facing feature? | ✅ Edit files in root dirs (`/commands/`, `/agents/`, `/missions/`) | Check if this is AGENT-11 dev work |
+| Am I improving AGENT-11 development tools? | Edit `.claude/` files (rare) | Edit BOS-AI library source |
+
+### 📍 File Location Cheat Sheet
+
+| If you need to edit... | Edit THIS file | NOT this file |
+|------------------------|----------------|---------------|
+| BOS-AI coord command | `/commands/coord.md` | ~~`.claude/commands/coord.md`~~ |
+| BOS-AI agents | `/agents/[category]/[name].md` | ~~`.claude/agents/[name].md`~~ |
+| BOS-AI missions | `/missions/[category]/[name].md` | N/A |
+| BOS-AI templates | `/templates/[name].md` | N/A |
+| AGENT-11 dev tools | `.claude/commands/[name].md` | (Only if improving dev workflow) |
 
 ### Use the Right Agents:
 
@@ -153,14 +192,31 @@ BOS-AI Development Repository
 
 ## 📚 Key Files Reference
 
+### AGENT-11 Runtime Files (DO NOT EDIT for BOS-AI fixes)
+
 | File | Purpose | Edit? |
 |------|---------|-------|
-| `.claude/CLAUDE.md` | **THIS FILE** - AGENT-11 dev instructions | ❌ No (generated) |
+| `.claude/CLAUDE.md` | **THIS FILE** - AGENT-11 dev instructions | ⚠️ Only for dev workflow |
 | `.claude/agents/` | AGENT-11 development agents | ❌ No (runtime only) |
-| `/agents/` | BOS-AI business agents (source) | ✅ YES (edit these) |
-| `/CLAUDE.md` | BOS-AI business version (deployed to users) | ✅ YES (if needed) |
+| `.claude/commands/` | AGENT-11 development commands | ❌ No (runtime only) |
+
+### BOS-AI Library Source Files (EDIT THESE for user-facing fixes)
+
+| File | Purpose | Edit? |
+|------|---------|-------|
+| `/commands/coord.md` | BOS-AI coord command (deployed to users) | ✅ YES |
+| `/commands/meeting.md` | BOS-AI meeting command (deployed to users) | ✅ YES |
+| `/agents/` | BOS-AI business agents (source) | ✅ YES |
+| `/missions/` | BOS-AI mission files (source) | ✅ YES |
+| `/templates/` | BOS-AI templates (source) | ✅ YES |
+| `/CLAUDE.md` | BOS-AI business version (deployed to users) | ✅ YES |
+| `deployment/scripts/` | Deployment scripts for users | ✅ YES |
+
+### Reference Documentation
+
+| File | Purpose | Edit? |
+|------|---------|-------|
 | `/CLAUDE-DEVELOPMENT.md` | AGENT-11 reference doc | ✅ YES (if needed) |
-| `deployment/scripts/` | Deployment scripts for users | ✅ YES (edit these) |
 | `BOUNDARIES.md` | BOS-AI vs AGENT-11 separation | 📚 Reference |
 
 ## ⚠️ Common Mistakes to Avoid
@@ -218,6 +274,36 @@ curl -fsSL https://raw.githubusercontent.com/USERNAME/BOS-AI/main/deployment/scr
 # ✅ CORRECT:
 "I'll use @coordinator to orchestrate development tasks"
 # @coordinator is the AGENT-11 coordination agent
+```
+
+### ❌ MISTAKE 5: Editing Wrong coord.md (or other commands)
+```bash
+# ❌ WRONG - Editing AGENT-11 coord (development tool):
+Edit .claude/commands/coord.md
+# This is the AGENT-11 command WE USE for development
+# Editing this does NOT fix BOS-AI user issues!
+```
+
+```bash
+# ✅ CORRECT - Edit BOS-AI library source:
+Edit /commands/coord.md
+# This is the BOS-AI command that gets DEPLOYED to users
+# This is what you need to edit to fix user-facing issues
+```
+
+**Real example of this mistake:**
+- User reports `/coord prd-creation` doesn't ask about Auto/Engaged mode
+- ❌ WRONG: Edit `.claude/commands/coord.md` (AGENT-11 version)
+- ✅ CORRECT: Edit `/commands/coord.md` (BOS-AI library source)
+
+### ❌ MISTAKE 6: Forgetting the .claude/ Prefix Matters
+```bash
+# These are COMPLETELY DIFFERENT files:
+.claude/commands/coord.md    # AGENT-11 (we USE this)
+/commands/coord.md           # BOS-AI (we BUILD this)
+
+.claude/agents/developer.md  # AGENT-11 (we USE this)
+/agents/.../agent.md         # BOS-AI (we BUILD this)
 ```
 
 ## 🔍 How to Tell Which System You're In
