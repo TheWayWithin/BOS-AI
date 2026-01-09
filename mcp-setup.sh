@@ -139,13 +139,20 @@ clean_mcps() {
 # Configure MCPs with correct package names and syntax
 configure_mcps() {
     log "Configuring MCP servers with correct packages..."
-    
+
     local configured=0
+    local already_configured=0
     local failed=0
-    
+
+    # Get list of currently configured MCPs
+    local existing_mcps=$(claude mcp list 2>/dev/null || echo "")
+
     # 1. Playwright MCP
     log "Configuring Playwright..."
-    if claude mcp add playwright -- npx @playwright/mcp -s project 2>/dev/null; then
+    if echo "$existing_mcps" | grep -q "playwright:"; then
+        success "✓ Playwright already configured"
+        ((already_configured++))
+    elif claude mcp add playwright -- npx @playwright/mcp -s project 2>/dev/null; then
         success "✓ Playwright configured"
         ((configured++))
     else
@@ -156,7 +163,10 @@ configure_mcps() {
     # 2. Context7 MCP
     if [[ -n "${CONTEXT7_API_KEY:-}" ]]; then
         log "Configuring Context7..."
-        if claude mcp add context7 -e "CONTEXT7_API_KEY=${CONTEXT7_API_KEY}" -- npx @upstash/context7-mcp -s project 2>/dev/null; then
+        if echo "$existing_mcps" | grep -q "context7:"; then
+            success "✓ Context7 already configured"
+            ((already_configured++))
+        elif claude mcp add context7 -e "CONTEXT7_API_KEY=${CONTEXT7_API_KEY}" -- npx @upstash/context7-mcp -s project 2>/dev/null; then
             success "✓ Context7 configured"
             ((configured++))
         else
@@ -166,11 +176,14 @@ configure_mcps() {
     else
         warn "✗ Context7 API key not set - skipping"
     fi
-    
+
     # 3. GitHub MCP
     if [[ -n "${GITHUB_PERSONAL_ACCESS_TOKEN:-}" ]]; then
         log "Configuring GitHub..."
-        if claude mcp add github -e "GITHUB_TOKEN=${GITHUB_PERSONAL_ACCESS_TOKEN}" -- npx @edjl/github-mcp -s project 2>/dev/null; then
+        if echo "$existing_mcps" | grep -q "github:"; then
+            success "✓ GitHub already configured"
+            ((already_configured++))
+        elif claude mcp add github -e "GITHUB_TOKEN=${GITHUB_PERSONAL_ACCESS_TOKEN}" -- npx @edjl/github-mcp -s project 2>/dev/null; then
             success "✓ GitHub configured"
             ((configured++))
         else
@@ -180,11 +193,14 @@ configure_mcps() {
     else
         warn "✗ GitHub token not set - skipping"
     fi
-    
+
     # 4. Firecrawl MCP
     if [[ -n "${FIRECRAWL_API_KEY:-}" ]]; then
         log "Configuring Firecrawl..."
-        if claude mcp add firecrawl -e "FIRECRAWL_API_KEY=${FIRECRAWL_API_KEY}" -- npx firecrawl-mcp -s project 2>/dev/null; then
+        if echo "$existing_mcps" | grep -q "firecrawl:"; then
+            success "✓ Firecrawl already configured"
+            ((already_configured++))
+        elif claude mcp add firecrawl -e "FIRECRAWL_API_KEY=${FIRECRAWL_API_KEY}" -- npx firecrawl-mcp -s project 2>/dev/null; then
             success "✓ Firecrawl configured"
             ((configured++))
         else
@@ -194,12 +210,15 @@ configure_mcps() {
     else
         warn "✗ Firecrawl API key not set - skipping"
     fi
-    
+
     # 5. Supabase MCP (Official Package)
     if [[ -n "${SUPABASE_ACCESS_TOKEN:-}" ]] && [[ -n "${SUPABASE_PROJECT_REF:-}" ]]; then
         log "Configuring Supabase..."
+        if echo "$existing_mcps" | grep -q "supabase:"; then
+            success "✓ Supabase already configured"
+            ((already_configured++))
         # Use official Supabase MCP package with correct syntax
-        if claude mcp add supabase \
+        elif claude mcp add supabase \
             -e "SUPABASE_ACCESS_TOKEN=${SUPABASE_ACCESS_TOKEN}" \
             -- npx -y @supabase/mcp-server-supabase@latest --project-ref="${SUPABASE_PROJECT_REF}" -s project 2>/dev/null; then
             success "✓ Supabase configured"
@@ -211,10 +230,13 @@ configure_mcps() {
     else
         warn "✗ Supabase credentials not set - skipping"
     fi
-    
+
     # 6. Filesystem MCP
     log "Configuring Filesystem..."
-    if claude mcp add filesystem -- npx @modelcontextprotocol/server-filesystem "${HOME}/DevProjects" -s project 2>/dev/null; then
+    if echo "$existing_mcps" | grep -q "filesystem:"; then
+        success "✓ Filesystem already configured"
+        ((already_configured++))
+    elif claude mcp add filesystem -- npx @modelcontextprotocol/server-filesystem "${HOME}/DevProjects" -s project 2>/dev/null; then
         success "✓ Filesystem configured"
         ((configured++))
     else
@@ -225,7 +247,10 @@ configure_mcps() {
     # 7. Railway MCP (optional)
     if [[ -n "${RAILWAY_API_TOKEN:-}" ]]; then
         log "Configuring Railway..."
-        if claude mcp add railway -e "RAILWAY_API_TOKEN=${RAILWAY_API_TOKEN}" -- npx @railway/mcp-server -s project 2>/dev/null; then
+        if echo "$existing_mcps" | grep -q "railway:"; then
+            success "✓ Railway already configured"
+            ((already_configured++))
+        elif claude mcp add railway -e "RAILWAY_API_TOKEN=${RAILWAY_API_TOKEN}" -- npx @railway/mcp-server -s project 2>/dev/null; then
             success "✓ Railway configured"
             ((configured++))
         else
@@ -233,12 +258,15 @@ configure_mcps() {
             ((failed++))
         fi
     fi
-    
+
     # 8. Stripe MCP (optional)
     if [[ -n "${STRIPE_API_KEY:-}" ]]; then
         log "Configuring Stripe..."
+        if echo "$existing_mcps" | grep -q "stripe:"; then
+            success "✓ Stripe already configured"
+            ((already_configured++))
         # Note: Check if stripe-mcp package exists
-        if claude mcp add stripe -e "STRIPE_API_KEY=${STRIPE_API_KEY}" -- npx stripe-mcp -s project 2>/dev/null; then
+        elif claude mcp add stripe -e "STRIPE_API_KEY=${STRIPE_API_KEY}" -- npx stripe-mcp -s project 2>/dev/null; then
             success "✓ Stripe configured"
             ((configured++))
         else
@@ -246,12 +274,15 @@ configure_mcps() {
             ((failed++))
         fi
     fi
-    
+
     # 9. Netlify MCP (optional)
     if [[ -n "${NETLIFY_ACCESS_TOKEN:-}" ]]; then
         log "Configuring Netlify..."
+        if echo "$existing_mcps" | grep -q "netlify:"; then
+            success "✓ Netlify already configured"
+            ((already_configured++))
         # Note: Check if netlify-mcp package exists
-        if claude mcp add netlify -e "NETLIFY_ACCESS_TOKEN=${NETLIFY_ACCESS_TOKEN}" -- npx netlify-mcp -s project 2>/dev/null; then
+        elif claude mcp add netlify -e "NETLIFY_ACCESS_TOKEN=${NETLIFY_ACCESS_TOKEN}" -- npx netlify-mcp -s project 2>/dev/null; then
             success "✓ Netlify configured"
             ((configured++))
         else
@@ -259,11 +290,14 @@ configure_mcps() {
             ((failed++))
         fi
     fi
-    
+
     # 10. Figma MCP (optional)
     if [[ -n "${FIGMA_ACCESS_TOKEN:-}" ]]; then
         log "Configuring Figma..."
-        if claude mcp add figma -e "FIGMA_ACCESS_TOKEN=${FIGMA_ACCESS_TOKEN}" -- npx figma-developer-mcp -s project 2>/dev/null; then
+        if echo "$existing_mcps" | grep -q "figma:"; then
+            success "✓ Figma already configured"
+            ((already_configured++))
+        elif claude mcp add figma -e "FIGMA_ACCESS_TOKEN=${FIGMA_ACCESS_TOKEN}" -- npx figma-developer-mcp -s project 2>/dev/null; then
             success "✓ Figma configured"
             ((configured++))
         else
@@ -271,10 +305,15 @@ configure_mcps() {
             ((failed++))
         fi
     fi
-    
+
     echo ""
     log "Configuration Summary:"
-    success "Successfully configured: $configured MCPs"
+    local total_ready=$((configured + already_configured))
+    if [[ $already_configured -gt 0 ]]; then
+        success "MCPs ready: $total_ready total ($configured newly configured, $already_configured already configured)"
+    else
+        success "Successfully configured: $configured MCPs"
+    fi
     if [[ $failed -gt 0 ]]; then
         warn "Failed to configure: $failed MCPs"
     fi
@@ -284,48 +323,67 @@ configure_mcps() {
 verify_mcps() {
     log "Verifying MCP connections..."
     echo ""
-    
-    # List configured MCPs
-    log "Currently configured MCP servers:"
-    claude mcp list --scope project 2>/dev/null || claude mcp list 2>/dev/null || warn "Could not list MCPs"
-    
+
+    # Show actual health check output
+    log "MCP Health Check (source of truth):"
     echo ""
-    log "MCP Verification Status:"
-    
+    claude mcp list --scope project 2>/dev/null || claude mcp list 2>/dev/null || warn "Could not list MCPs"
+
+    echo ""
+    log "Reading health check results..."
+
+    # Capture the output to parse it
+    local health_output=$(claude mcp list 2>/dev/null)
+
     # Check for critical MCPs
     local critical_mcps=("context7" "github" "firecrawl" "supabase")
     local recommended_mcps=("playwright" "filesystem")
     local optional_mcps=("stripe" "railway" "netlify" "figma")
-    
+
+    local critical_connected=0
+    local critical_total=${#critical_mcps[@]}
+
     echo ""
     echo "CRITICAL MCPs (Required for core functionality):"
     for mcp in "${critical_mcps[@]}"; do
-        if claude mcp list 2>/dev/null | grep -q "$mcp"; then
-            success "  ✓ $mcp - Configured"
+        if echo "$health_output" | grep -q "$mcp.*Connected"; then
+            success "  ✓ $mcp - Connected and working"
+            ((critical_connected++))
         else
-            error "  ✗ $mcp - Not configured"
+            error "  ✗ $mcp - Not connected (check API keys in .env.mcp)"
         fi
     done
-    
+
     echo ""
     echo "RECOMMENDED MCPs (Enhanced functionality):"
     for mcp in "${recommended_mcps[@]}"; do
-        if claude mcp list 2>/dev/null | grep -q "$mcp"; then
-            success "  ✓ $mcp - Configured"
+        if echo "$health_output" | grep -q "$mcp.*Connected"; then
+            success "  ✓ $mcp - Connected and working"
         else
-            warn "  ⚠ $mcp - Not configured"
+            warn "  ⚠ $mcp - Not connected (recommended but not critical)"
         fi
     done
-    
+
     echo ""
     echo "OPTIONAL MCPs (Specific use cases):"
     for mcp in "${optional_mcps[@]}"; do
-        if claude mcp list 2>/dev/null | grep -q "$mcp"; then
-            success "  ✓ $mcp - Configured"
+        if echo "$health_output" | grep -q "$mcp.*Connected"; then
+            success "  ✓ $mcp - Connected and working"
         else
             log "  ○ $mcp - Not configured (optional)"
         fi
     done
+
+    echo ""
+    if [[ $critical_connected -eq $critical_total ]]; then
+        success "All critical MCPs connected! ($critical_connected/$critical_total)"
+    else
+        warn "Some critical MCPs not connected ($critical_connected/$critical_total)"
+        echo ""
+        echo "To fix:"
+        echo "1. Check your .env.mcp file has the required API keys"
+        echo "2. Re-run this script"
+    fi
 }
 
 # Generate MCP status report

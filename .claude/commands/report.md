@@ -3,44 +3,19 @@ name: report
 description: Generate progress report for stakeholders
 ---
 
-# BUSINESS OPERATIONS PROGRESS REPORT 📊
+# PROGRESS REPORT GENERATION 📊
 
 **Command**: `/report [since_date]`
 
-**Purpose**: Generate structured business operations progress reports documenting completed strategic initiatives, business improvements, and operational status for business stakeholders and leadership.
-
-## 🚨 CRITICAL SCOPE BOUNDARY
-
-**Report is for BOS-AI BUSINESS OPERATIONS ONLY**
-- ✅ Business chassis optimization progress
-- ✅ Marketing, sales, customer service initiatives
-- ✅ Strategic implementation and business improvements
-- ✅ Customer success and business growth metrics
-- ❌ NOT for AGENT-11 development progress
-- ❌ NOT for BOS-AI codebase changes
-
-## 🧠 Claude Code SDK Enhanced Reporting
-
-### 🔄 Memory-Driven Business Intelligence
-Business reports leverage institutional memory for comprehensive progress tracking:
-- **Memory Access**: Reviews business performance patterns from `/memories/business/` and `/memories/strategies/`
-- **Cross-Session Insights**: Tracks long-term business transformation progress
-- **Strategic Alignment**: Ensures all progress aligns with business vision and objectives
-- **Expected Impact**: 40% more actionable business insights through accumulated business intelligence
-
-### 🤔 Extended Thinking for Strategic Analysis
-**Cognitive Assignment**: think harder mode for comprehensive business progress analysis and strategic recommendations
-
-### 🔒 Security-Conscious Business Reporting
-Report generation protects sensitive business data while providing comprehensive operational transparency
+**Purpose**: Generate a structured progress report documenting completed tasks, issues encountered, and project status for external stakeholders (BOS-AI, clients, or management).
 
 ## KEY FEATURES
 
-- **Automated Business Data Collection**: Pulls from business plans, chassis metrics, and strategic documents
-- **Time-Based Business Reporting**: Reports business changes since last report or specified date
-- **Stakeholder-Ready Business Format**: Professional structure suitable for business leadership communication
-- **Business Chassis Integration**: Special sections for Business Chassis multiplication tracking
-- **Business Issue Tracking**: Documents business challenges encountered and their resolutions
+- **Automated Data Collection**: Pulls from project-plan.md, progress.md, and git history
+- **Time-Based Reporting**: Reports changes since last report or specified date
+- **Stakeholder-Ready Format**: Professional structure suitable for external communication
+- **BOS-AI Integration**: Special sections when integrated with BOS-AI documents
+- **Issue Tracking**: Documents problems encountered and their resolutions
 
 ## USAGE EXAMPLES
 

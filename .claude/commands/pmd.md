@@ -7,40 +7,15 @@ description: Post Mortem Dump - Analyze failures and suggest improvements
 
 **Command**: `/pmd [issue_description]`
 
-**Purpose**: Conduct systematic root cause analysis of BOS-AI business operation failures to identify improvements in business agents, processes, and coordination protocols.
-
-## 🚨 CRITICAL SCOPE BOUNDARY
-
-**PMD is for BOS-AI BUSINESS OPERATIONS ONLY**
-- ✅ Business chassis failures and optimization issues
-- ✅ Customer success operation breakdowns
-- ✅ Marketing, sales, service system failures
-- ✅ Cross-functional coordination problems
-- ❌ NOT for AGENT-11 development issues
-- ❌ NOT for BOS-AI codebase bugs
+**Purpose**: Conduct systematic root cause analysis of failures to identify improvements in agents, documentation, and processes.
 
 ## WHAT IS PMD?
 
-PMD (Post Mortem Dump) is a business diagnostic command that analyzes operational failures and strategic issues to identify their root causes across multiple business layers:
-- Business agent performance and coordination
-- Strategic documentation quality and business alignment
-- Business process effectiveness and optimization
-- Cross-functional coordination and communication issues
-
-## 🧠 Claude Code SDK Enhanced Diagnostics
-
-### 🔄 Memory-Driven Analysis
-PMD leverages institutional memory for superior root cause analysis:
-- **Memory Access**: Reviews `/memories/lessons/failures.xml` for historical failure patterns
-- **Cross-Session Learning**: Identifies recurring business operation issues
-- **Pattern Recognition**: Detects systemic problems across business functions
-- **Expected Impact**: 60% faster root cause identification through accumulated business intelligence
-
-### 🤔 Extended Thinking for Deep Analysis
-**Cognitive Assignment**: ultrathink mode for comprehensive business failure analysis and strategic problem-solving
-
-### 🔒 Security-Conscious Analysis
-PMD protects sensitive business information while conducting thorough analysis of operational failures
+PMD (Post Mortem Dump) is a diagnostic command that analyzes failures and issues to identify their root causes across multiple system layers:
+- Agent performance and prompts
+- Documentation quality and completeness
+- Tool usage and configuration
+- Process and coordination issues
 
 ## KEY FEATURES
 
@@ -178,11 +153,36 @@ When multiple PMDs are run, the system can identify:
 ## INTEGRATION WITH AGENT-11
 
 PMD works seamlessly with:
-- **progress.md**: Analyzes logged issues
-- **CLAUDE.md**: Suggests improvements
-- **Agent prompts**: Recommends enhancements
+- **progress.md**: Primary data source - analyzes logged issues with ALL fix attempts (including failures)
+  - Reads issue history with complete attempt logs
+  - Identifies patterns across failed attempts
+  - Extracts learnings from attempt outcomes
+  - Uses chronological changelog to reconstruct failure timeline
+  - Leverages root cause analyses from resolved issues
+- **CLAUDE.md**: Suggests improvements to Critical Software Development Principles adherence
+- **Agent prompts**: Recommends enhancements to prevent security shortcuts
 - **Task tool**: Identifies delegation issues
 - **MCPs**: Checks tool availability
+
+### PMD Analysis Protocol for progress.md
+
+When analyzing issues from progress.md:
+1. **Extract Complete Attempt History**: Read ALL attempts for each issue (not just final resolution)
+2. **Pattern Analysis Across Attempts**:
+   - Identify common misunderstandings leading to failed attempts
+   - Recognize anti-patterns (e.g., bypassing security for convenience)
+   - Track evolution of understanding from attempt to attempt
+3. **Learning Extraction**: Capture what each attempt taught about the problem
+4. **Root Cause Validation**: Verify root cause aligns with attempt history
+5. **Prevention Strategy Assessment**: Evaluate if prevention strategies would have stopped initial attempts
+
+### Output Enhancement for Failed Attempts
+
+PMD output includes:
+- **Failed Attempt Patterns**: Common mistakes across multiple issues
+- **Time-to-Understanding**: How many attempts before root cause identified
+- **Anti-Pattern Detection**: Violations of Critical Software Development Principles
+- **Prevention Gaps**: What checks could have prevented initial failed attempts
 
 ## SUCCESS METRICS
 

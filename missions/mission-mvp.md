@@ -265,6 +265,59 @@ After launch:
 - Track velocity
 - Celebrate launch!
 
+**File Operations** (Sprint 2 Architecture + Sprint 6 Enforcement):
+- Coordinator automatically parses and executes structured JSON output from specialists
+- File operations now have ~99.9% reliability with zero manual verification required
+- Specialists provide `file_operations` array → Coordinator executes Write/Edit tools automatically
+- See migration guide: `project/field-manual/migration-guides/file-persistence-v2.md`
+- See examples: `project/examples/file-operations/` (single, multiple, edit, mixed patterns)
+
+**⚠️ Sprint 6 Enforcement Protocol** (After EACH delegation with file operations):
+1. **Validate Response**: Check for `file_operations` JSON (not completion claims)
+2. **Execute Operations**: Use coordinator's Write/Edit tools with JSON parameters
+3. **Verify Files**: `ls -la [path]` and `head -n 5 [path]` for content
+4. **Log to progress.md**: "✅ Files verified: [names] - [timestamp]"
+5. **Mark Complete**: Only after steps 1-4 pass
+
+---
+
+## Post-Mission Cleanup Decision
+
+After completing this mission, decide on cleanup approach based on project status:
+
+### ✅ Milestone Transition (Every 2-4 weeks)
+**When**: This mission completes a major project milestone, but more work remains.
+
+**Actions** (30-60 min):
+1. Extract lessons to `lessons/[category]/` from progress.md
+2. Archive current handoff-notes.md to `archives/handoffs/milestone-X/`
+3. Clean agent-context.md (retain essentials, archive historical details)
+4. Create fresh handoff-notes.md for next milestone
+5. Update project-plan.md with next milestone tasks
+
+**See**: `templates/cleanup-checklist.md` Section A for detailed steps
+
+### 🎯 Project Completion (Mission accomplished!)
+**When**: All project objectives achieved, ready for new mission.
+
+**Actions** (1-2 hours):
+1. Extract ALL lessons from entire progress.md to `lessons/`
+2. Create mission archive in `archives/missions/mission-[name]-YYYY-MM-DD/`
+3. Update CLAUDE.md with system-level learnings
+4. Archive all tracking files (project-plan.md, progress.md, etc.)
+5. Prepare fresh start for next mission
+
+**See**: `templates/cleanup-checklist.md` Section B for detailed steps
+
+### 🔄 Continue Active Work (No cleanup needed)
+**When**: Mission complete but continuing active development in same phase.
+
+**Actions**: Update progress.md and project-plan.md, continue working.
+
+---
+
+**Reference**: See `project/field-manual/project-lifecycle-guide.md` for complete lifecycle management procedures.
+
 ---
 
 *Speed is the MVP superpower. Begin with `/coord mvp [vision.md]`*

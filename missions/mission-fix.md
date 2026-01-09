@@ -50,7 +50,8 @@ Rapid response protocol for bug diagnosis and resolution. This mission prioritiz
 
 3. **WAIT FOR @analyst RESPONSE** - critical path for bug resolution
 4. **UPDATE project-plan.md** with analysis results and Phase 2 tasks
-5. **LOG TO progress.md** any urgent issues or complications found
+5. **LOG TO progress.md** issue discovery with symptom, context, and initial hypothesis
+6. **CRITICAL**: Start issue entry in progress.md - will add ALL fix attempts as mission progresses
 
 **Deliverables**:
 - Impact assessment
@@ -128,15 +129,25 @@ Rapid response protocol for bug diagnosis and resolution. This mission prioritiz
 
 ```bash
 @analyst Conduct post-mortem:
-1. Document timeline of events
-2. Identify why bug wasn't caught earlier
-3. Propose prevention measures
-4. Update testing strategies
-5. Create action items
+1. Document complete timeline of events including ALL fix attempts
+2. Review all attempted solutions from progress.md (successes AND failures)
+3. Identify why bug wasn't caught earlier
+4. Analyze why each failed attempt didn't work
+5. Determine root cause and why it was the underlying issue
+6. Propose prevention measures based on attempt history
+7. Update testing strategies
+8. Create action items
 ```
 
+**COORDINATOR**: Ensure progress.md is updated with:
+- Complete resolution section with root cause analysis
+- "Why Previous Attempts Failed" analysis
+- Prevention strategy to avoid similar issues
+- Lessons learned from all attempts
+
 **Deliverables**:
-- Post-mortem document
+- Post-mortem document leveraging progress.md issue history
+- Root cause analysis explaining why earlier attempts failed
 - Prevention recommendations
 - Process improvements
 - Action items
@@ -187,6 +198,20 @@ For simple, obvious bugs:
 - Document learnings immediately
 - Consider hotfix deployment needs
 
+**File Operations** (Sprint 2 Architecture + Sprint 6 Enforcement):
+- Coordinator automatically parses and executes structured JSON output from specialists
+- File operations now have ~99.9% reliability with zero manual verification required
+- Specialists provide `file_operations` array → Coordinator executes Write/Edit tools automatically
+- See migration guide: `project/field-manual/migration-guides/file-persistence-v2.md`
+- See examples: `project/examples/file-operations/` (single, multiple, edit, mixed patterns)
+
+**⚠️ Sprint 6 Enforcement Protocol** (After EACH delegation with file operations):
+1. **Validate Response**: Check for `file_operations` JSON (not completion claims)
+2. **Execute Operations**: Use coordinator's Write/Edit tools with JSON parameters
+3. **Verify Files**: `ls -la [path]` and `head -n 5 [path]` for content
+4. **Log to progress.md**: "✅ Files verified: [names] - [timestamp]"
+5. **Mark Complete**: Only after steps 1-4 pass
+
 ## Common Patterns
 
 ### Data Corruption Fix
@@ -203,6 +228,45 @@ For simple, obvious bugs:
 - Private fix development
 - Security team review
 - Coordinated disclosure
+
+---
+
+## Post-Mission Cleanup Decision
+
+After completing this mission, decide on cleanup approach based on project status:
+
+### ✅ Milestone Transition (Every 2-4 weeks)
+**When**: This mission completes a major project milestone, but more work remains.
+
+**Actions** (30-60 min):
+1. Extract lessons to `lessons/[category]/` from progress.md
+2. Archive current handoff-notes.md to `archives/handoffs/milestone-X/`
+3. Clean agent-context.md (retain essentials, archive historical details)
+4. Create fresh handoff-notes.md for next milestone
+5. Update project-plan.md with next milestone tasks
+
+**See**: `templates/cleanup-checklist.md` Section A for detailed steps
+
+### 🎯 Project Completion (Mission accomplished!)
+**When**: All project objectives achieved, ready for new mission.
+
+**Actions** (1-2 hours):
+1. Extract ALL lessons from entire progress.md to `lessons/`
+2. Create mission archive in `archives/missions/mission-[name]-YYYY-MM-DD/`
+3. Update CLAUDE.md with system-level learnings
+4. Archive all tracking files (project-plan.md, progress.md, etc.)
+5. Prepare fresh start for next mission
+
+**See**: `templates/cleanup-checklist.md` Section B for detailed steps
+
+### 🔄 Continue Active Work (No cleanup needed)
+**When**: Mission complete but continuing active development in same phase.
+
+**Actions**: Update progress.md and project-plan.md, continue working.
+
+---
+
+**Reference**: See `project/field-manual/project-lifecycle-guide.md` for complete lifecycle management procedures.
 
 ---
 
