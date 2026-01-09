@@ -277,15 +277,32 @@ Not all foundation documents are needed before starting development. Here's what
 # Rapid strategic foundation (3-4 hours essential foundation)
 /coord foundation-quick-start
 
-# Individual foundation documents (Auto/Engaged mode selection)
-/coord vision-mission-creation        # 45-90 min
-/coord market-research-creation       # 60-120 min
-/coord client-blueprint-creation      # 45-90 min
-/coord positioning-creation           # 30-60 min
-/coord roadmap-creation               # 45-75 min
-/coord brand-guide-creation           # 45-90 min
-/coord prd-creation                   # 60-120 min
-/coord pricing-strategy-creation      # 60-90 min
+# Individual foundation documents (in logical sequence)
+# Each mission offers Auto or Engaged mode selection at start
+
+# 1. Strategic Foundation (Start Here)
+/coord vision-mission-creation        # 45-90 min - Your North Star
+
+# 2. Market Understanding
+/coord market-research-creation       # 60-120 min - Market landscape
+
+# 3. Customer Definition
+/coord client-blueprint-creation      # 45-90 min - Ideal Customer Profile
+
+# 4. Competitive Position
+/coord positioning-creation           # 30-60 min - Differentiation framework
+
+# 5. Development Path
+/coord roadmap-creation               # 45-75 min - Strategic milestones
+
+# 6. Brand Identity
+/coord brand-guide-creation           # 45-90 min - Visual & voice identity
+
+# 7. Pricing Architecture
+/coord pricing-strategy-creation      # 60-90 min - Value ladder & tiers
+
+# 8. Product Definition (Final Step - Requires Above)
+/coord prd-creation                   # 60-120 min - Handoff to AGENT-11
 ```
 
 **Output:** Strategic clarity, market intelligence, a comprehensive PRD, and a pricing strategy defining WHAT to build and HOW to price it.
@@ -620,16 +637,18 @@ cd ~/my-saas-business
 
 BOS-AI includes 8 foundation document templates with AI-driven creation SOPs:
 
-| Document | Time | Purpose |
-|----------|------|---------|
-| Vision & Mission | 1 hour | Strategic North Star |
-| Market Research | 1 hour | Market intelligence |
-| Client Blueprint | 1 hour | Ideal customer profile |
-| Positioning | 1 hour | Competitive differentiation |
-| Strategic Roadmap | 1 hour | Development priorities |
-| Brand Guide | 1 hour | Visual identity |
-| PRD | 1-2 hours | Product requirements for AGENT-11 |
-| Pricing Strategy | 1-1.5 hours | Value ladder with Marketing Physics |
+| # | Document | Time | Purpose |
+|---|----------|------|---------|
+| 1 | Vision & Mission | 1 hour | Strategic North Star |
+| 2 | Market Research | 1 hour | Market intelligence |
+| 3 | Client Blueprint | 1 hour | Ideal customer profile |
+| 4 | Positioning | 1 hour | Competitive differentiation |
+| 5 | Strategic Roadmap | 1 hour | Development priorities |
+| 6 | Brand Guide | 1 hour | Visual identity |
+| 7 | Pricing Strategy | 1-1.5 hours | Value ladder with Marketing Physics |
+| 8 | PRD | 1-2 hours | Product requirements for AGENT-11 |
+
+**Sequence matters:** Each document builds on previous ones. Complete in order for best results.
 
 **Quick Start Commands:**
 ```bash
@@ -894,15 +913,18 @@ your-project/
 
 The `.claude/document-library/` contains **17 professional business templates** with rapid AI-driven creation guides:
 
-| Template | Paired SOP | Time to Complete |
-|----------|------------|------------------|
-| **Vision and Mission.md** | Rapid AI-Driven Development SOP | 1 hour |
-| **Market and Client Research.md** | Rapid AI-Driven Research SOP | 1 hour |
-| **Client Success Blueprint.md** | Creation SOP (Revised) | 1 hour |
-| **Positioning Statement.md** | Rapid AI-Driven Creation SOP | 1 hour |
-| **Strategic Roadmap.md** | AI-Driven Creation SOP | 1 hour |
-| **Brand Style Guide.md** | AI-Driven Creation SOP | 1 hour |
-| **Product Requirements Document.md** | PRD Creation SOP | 1 hour |
+| # | Template | Paired SOP | Time |
+|---|----------|------------|------|
+| 1 | **Vision and Mission.md** | Rapid AI-Driven Development SOP | 1 hour |
+| 2 | **Market and Client Research.md** | Rapid AI-Driven Research SOP | 1 hour |
+| 3 | **Client Success Blueprint.md** | Creation SOP (Revised) | 1 hour |
+| 4 | **Positioning Statement.md** | Rapid AI-Driven Creation SOP | 1 hour |
+| 5 | **Strategic Roadmap.md** | AI-Driven Creation SOP | 1 hour |
+| 6 | **Brand Style Guide.md** | AI-Driven Creation SOP | 1 hour |
+| 7 | **Pricing Strategy.md** | AI-Driven Creation SOP | 1-1.5 hours |
+| 8 | **Product Requirements Document.md** | PRD Creation SOP | 1-2 hours |
+
+**Note:** Complete documents in sequence (1-8). Each mission offers **Auto** or **Engaged** mode at start.
 
 **Plus:** Filing standards guide showing exactly how to name and organize your documents for professional presentation.
 
