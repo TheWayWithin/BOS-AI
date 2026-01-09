@@ -51,6 +51,53 @@ grep -i "last updated" handoff-notes.md 2>/dev/null | tail -1
 
 ---
 
+## 🎯 MODE SELECTION PROTOCOL [MANDATORY FOR FOUNDATION MISSIONS]
+
+**BEFORE ANY DELEGATION** for foundation document creation missions:
+
+╔══════════════════════════════════════════════════════════════╗
+║     🎯 MODE SELECTION GATE [CANNOT BYPASS FOR *-CREATION]    ║
+╠══════════════════════════════════════════════════════════════╣
+║                                                              ║
+║  For ALL missions ending in `-creation` (foundation docs):   ║
+║                                                              ║
+║  1. READ mission file's PHASE 0: MODE SELECTION section      ║
+║  2. PRESENT the Auto vs Engaged mode choice to user          ║
+║  3. WAIT for user response before proceeding                 ║
+║  4. Only AFTER user selects mode, begin delegation           ║
+║                                                              ║
+║  **Foundation missions with mode selection**:                ║
+║  • vision-mission-creation                                   ║
+║  • market-research-creation                                  ║
+║  • client-blueprint-creation                                 ║
+║  • positioning-creation                                      ║
+║  • roadmap-creation                                          ║
+║  • brand-guide-creation                                      ║
+║  • pricing-strategy-creation                                 ║
+║  • prd-creation                                              ║
+║                                                              ║
+║  🚨 VIOLATION: Starting delegation without asking mode       ║
+║     → User loses control over creation process               ║
+║     → May create unwanted documents without review           ║
+╚══════════════════════════════════════════════════════════════╝
+
+**Mode Selection Question Template** (present to user):
+
+```
+**How would you like to create this document?**
+
+| Mode | Description | Time |
+|------|-------------|------|
+| **Auto** | I'll create the complete document based on your inputs. You review and refine at the end. | 30-45 min |
+| **Engaged** | We work section by section. I draft, present perspectives, you approve before moving on. | 60-90 min |
+
+Which mode works for you today?
+```
+
+**WAIT for user response. Do NOT proceed until mode is selected.**
+
+---
+
 ╔══════════════════════════════════════════════════════════════╗
 ║              🔧 PRE-DELEGATION CHECKLIST [REQUIRED]          ║
 ║                                                              ║
@@ -193,7 +240,9 @@ Parse the arguments to determine:
 2. **Mission Specified**:
    - Load mission briefing from `/missions/mission-[name].md`
    - Parse all provided input documents
-   - **IMMEDIATELY BEGIN DELEGATION** - no confirmation needed
+   - **CHECK FOR PHASE 0: MODE SELECTION** - If mission has mode selection, ASK USER FIRST
+   - For foundation missions (`*-creation` missions), ALWAYS present Auto vs Engaged mode choice
+   - **ONLY after mode selection** (or if no mode selection exists), begin delegation
    - Start orchestration following mission protocol
 
 3. **🔧 Mission Execution - IMMEDIATE ACTION WITH MANDATORY UPDATES [TASK TOOL REQUIRED]**:
