@@ -1,0 +1,332 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "solopreneur-defaults",
+  "title": "Solopreneur Defaults for PRD Creation",
+  "description": "Standard assumptions applied when discovery questions go unanswered during PRD creation. Optimized for solo founders and small teams building MVPs.",
+  "version": "1.0",
+  "lastUpdated": "2026-01-10",
+  "compatibleWith": "PRD Template v3.1 / SOP v2.1",
+
+  "defaults": {
+    "business_model": {
+      "revenue_model": {
+        "value": "SaaS subscription",
+        "rationale": "Recurring revenue provides predictable cash flow and higher valuation multiples",
+        "alternatives": ["One-time purchase", "Usage-based", "Freemium", "Marketplace"]
+      },
+      "pricing_structure": {
+        "value": "3-tier (Free/Starter/Pro)",
+        "rationale": "Simple structure that covers evaluation, individual, and power user segments",
+        "tiers": [
+          {
+            "name": "Free/Trial",
+            "price": 0,
+            "duration": "14 days or forever with limits",
+            "purpose": "Evaluation and viral growth"
+          },
+          {
+            "name": "Starter",
+            "price_range": "$9-29/month",
+            "target": "Individual users",
+            "features": "Core functionality"
+          },
+          {
+            "name": "Pro",
+            "price_range": "$49-99/month",
+            "target": "Power users and small teams",
+            "features": "All features + priority support"
+          }
+        ]
+      },
+      "free_tier": {
+        "value": true,
+        "rationale": "Reduces friction for user acquisition, enables product-led growth"
+      },
+      "payment_processor": {
+        "value": "Stripe",
+        "rationale": "Industry standard, excellent developer experience, global coverage"
+      },
+      "billing_cycle": {
+        "value": "Monthly + Annual (20% discount)",
+        "rationale": "Monthly for cash-conscious users, annual for better retention and cash flow"
+      }
+    },
+
+    "technical": {
+      "frontend_framework": {
+        "value": "React + Next.js",
+        "rationale": "Widely adopted, excellent ecosystem, great developer experience, SEO-friendly",
+        "alternatives": ["Vue + Nuxt", "Svelte + SvelteKit", "Remix", "Astro"]
+      },
+      "backend_framework": {
+        "value": "Node.js/TypeScript",
+        "rationale": "Shared language with frontend reduces context switching, large ecosystem",
+        "alternatives": ["Python/FastAPI", "Go", "Rust", "Ruby on Rails"]
+      },
+      "database": {
+        "value": "PostgreSQL (via Supabase)",
+        "rationale": "Battle-tested, scalable, integrated auth and real-time features",
+        "alternatives": ["MySQL", "MongoDB", "PlanetScale", "Neon"]
+      },
+      "hosting": {
+        "frontend": {
+          "value": "Vercel",
+          "rationale": "Optimized for Next.js, excellent free tier, automatic deployments"
+        },
+        "backend": {
+          "value": "Railway",
+          "rationale": "Simple deployment, good free tier, database hosting included"
+        },
+        "alternatives": ["Render", "Fly.io", "AWS Amplify", "Netlify"]
+      },
+      "authentication": {
+        "value": "Supabase Auth",
+        "rationale": "Integrated with database, includes OAuth providers, Row Level Security",
+        "alternatives": ["Auth0", "Clerk", "NextAuth.js", "Firebase Auth"]
+      },
+      "file_storage": {
+        "value": "Supabase Storage",
+        "rationale": "Integrated with database and auth, simple API",
+        "alternatives": ["AWS S3", "Cloudflare R2", "Uploadthing"]
+      },
+      "email_service": {
+        "value": "Resend",
+        "rationale": "Developer-friendly, good free tier, React email templates",
+        "alternatives": ["SendGrid", "Postmark", "Mailgun", "AWS SES"]
+      }
+    },
+
+    "user_experience": {
+      "target_user_tech_level": {
+        "value": "Non-technical",
+        "rationale": "Broader market appeal, forces simplicity in design",
+        "implications": [
+          "No exposed technical jargon",
+          "Guided onboarding required",
+          "Self-service support preferred",
+          "Visual over text-heavy interfaces"
+        ]
+      },
+      "mobile_support": {
+        "value": "Mobile-responsive (not mobile-first)",
+        "rationale": "Most B2B SaaS users access via desktop, but must work on mobile",
+        "breakpoints": {
+          "mobile": "< 768px",
+          "tablet": "768px - 1024px",
+          "desktop": "> 1024px"
+        }
+      },
+      "onboarding": {
+        "value": "Guided walkthrough",
+        "rationale": "Reduces time-to-value, improves activation rates",
+        "components": [
+          "Welcome modal with value proposition",
+          "Step-by-step first task completion",
+          "Progress indicator",
+          "Skip option for experienced users"
+        ]
+      },
+      "help_support": {
+        "value": "In-app help + Email",
+        "rationale": "Scalable for solo founder, self-service reduces support burden",
+        "components": [
+          "Contextual help tooltips",
+          "Searchable help center/docs",
+          "Email support (24-48hr response)",
+          "No live chat for MVP"
+        ]
+      },
+      "notifications": {
+        "value": "Email for critical events only",
+        "rationale": "Avoid notification fatigue, respect user attention",
+        "critical_events": [
+          "Account security changes",
+          "Payment issues",
+          "Critical errors",
+          "Weekly digest (optional)"
+        ]
+      }
+    },
+
+    "features": {
+      "mvp_feature_count": {
+        "value": "3-5 core features",
+        "rationale": "Focus over breadth, faster time to market, clearer value proposition"
+      },
+      "admin_panel": {
+        "value": false,
+        "rationale": "User self-service preferred, admin features add complexity",
+        "mvp_alternative": "Direct database access for admin tasks"
+      },
+      "team_collaboration": {
+        "value": false,
+        "rationale": "Single-user first, team features are significant scope addition",
+        "future_consideration": "P1 for post-MVP if user research indicates need"
+      },
+      "api_access": {
+        "value": false,
+        "rationale": "Only if core to value proposition, adds documentation and support burden",
+        "exception": "Include if product is a developer tool or platform"
+      },
+      "export_import": {
+        "value": "CSV export only",
+        "rationale": "Minimum viable data portability, covers most use cases",
+        "future_consideration": "JSON export, integrations in post-MVP"
+      },
+      "analytics_dashboard": {
+        "value": "Basic metrics only",
+        "rationale": "Show users their progress without complex data visualization",
+        "included": ["Key counts", "Simple trends", "Activity log"]
+      },
+      "search": {
+        "value": "Client-side filtering",
+        "rationale": "Simpler implementation, sufficient for typical MVP data volumes",
+        "threshold": "Consider server-side search if >1000 records typical"
+      }
+    },
+
+    "timeline": {
+      "mvp_development": {
+        "value": "4-6 weeks",
+        "rationale": "Aggressive but realistic with focused scope and modern tooling",
+        "assumptions": [
+          "Full-time developer(s)",
+          "3-5 core features",
+          "Using default tech stack",
+          "No complex integrations"
+        ]
+      },
+      "alpha_duration": {
+        "value": "1-2 weeks",
+        "rationale": "Internal testing and bug fixing before external users"
+      },
+      "beta_duration": {
+        "value": "2-4 weeks",
+        "rationale": "Enough time for meaningful feedback, not so long users lose interest"
+      },
+      "time_to_first_revenue": {
+        "value": "8-12 weeks",
+        "rationale": "Account for marketing ramp and sales cycle",
+        "breakdown": {
+          "development": "4-6 weeks",
+          "beta": "2-4 weeks",
+          "marketing_ramp": "2-4 weeks (overlapping)"
+        }
+      }
+    },
+
+    "compliance": {
+      "gdpr": {
+        "value": "Yes if EU users possible",
+        "rationale": "Required by law, fines are significant",
+        "requirements": [
+          "Privacy policy",
+          "Cookie consent",
+          "Data export capability",
+          "Account deletion capability",
+          "Clear consent mechanisms"
+        ]
+      },
+      "ccpa": {
+        "value": "Yes if CA users possible",
+        "rationale": "Required by law for California users",
+        "requirements": [
+          "Privacy policy with CCPA disclosures",
+          "Do Not Sell opt-out",
+          "Data access and deletion"
+        ]
+      },
+      "data_retention": {
+        "value": "90 days after account deletion",
+        "rationale": "Balance between compliance and recovery capability"
+      },
+      "cookie_consent": {
+        "value": "Basic cookie banner",
+        "rationale": "Minimum compliance, don't over-engineer for MVP"
+      },
+      "terms_of_service": {
+        "value": "Required before launch",
+        "rationale": "Legal protection, can use template services"
+      },
+      "security_audit": {
+        "value": "No (MVP), Yes (post-revenue)",
+        "rationale": "Focus on secure development practices first, formal audit when funded"
+      }
+    },
+
+    "integrations": {
+      "required_for_mvp": [
+        {
+          "service": "Stripe",
+          "purpose": "Payments and subscriptions",
+          "complexity": "Medium",
+          "time_estimate": "1-2 days"
+        },
+        {
+          "service": "Auth provider",
+          "purpose": "User authentication",
+          "complexity": "Low (if using Supabase)",
+          "time_estimate": "0.5-1 day"
+        },
+        {
+          "service": "Email service",
+          "purpose": "Transactional emails",
+          "complexity": "Low",
+          "time_estimate": "0.5 day"
+        }
+      ],
+      "post_mvp": [
+        "Calendar integration (Google, Outlook)",
+        "Slack/Discord notifications",
+        "Zapier/Make webhooks",
+        "CRM integration"
+      ],
+      "never_build_yourself": [
+        "Payments - always use Stripe/similar",
+        "Authentication - always use proven provider",
+        "Email delivery - always use email service",
+        "File storage - always use cloud storage"
+      ]
+    },
+
+    "infrastructure": {
+      "environments": {
+        "value": ["Development", "Production"],
+        "rationale": "Staging is nice but adds cost/complexity for MVP",
+        "post_mvp": "Add staging when team grows or deployment risk increases"
+      },
+      "monitoring": {
+        "value": "Basic error tracking",
+        "tools": ["Sentry (errors)", "Vercel Analytics (free)"],
+        "post_mvp": ["Full APM", "Custom dashboards", "Uptime monitoring"]
+      },
+      "backup": {
+        "value": "Database auto-backup",
+        "rationale": "Most managed databases include this",
+        "frequency": "Daily"
+      },
+      "ci_cd": {
+        "value": "Automatic deployments via Git",
+        "rationale": "Vercel/Railway provide this out of the box"
+      }
+    }
+  },
+
+  "usage_instructions": {
+    "when_to_apply": "Apply these defaults when a discovery question goes unanswered during PRD creation",
+    "how_to_override": [
+      "Explicitly answer the discovery question during PRD creation",
+      "Add override to the Preference Profile after generation",
+      "Document the override in the Assumptions Log with rationale"
+    ],
+    "assumption_risk_tracking": "All applied defaults should be logged in Section 7.3 Assumptions Log with risk assessment",
+    "review_frequency": "Review assumptions when market conditions change, user feedback contradicts defaults, or scope changes significantly"
+  },
+
+  "metadata": {
+    "created_by": "BOS-AI",
+    "purpose": "Reduce decision fatigue and accelerate PRD creation for solopreneurs",
+    "target_audience": "Solo founders and small teams building B2B SaaS products",
+    "update_process": "Defaults are updated based on industry trends and user feedback"
+  }
+}

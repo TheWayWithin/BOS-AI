@@ -37,6 +37,8 @@ Create your requirements in BOS-AI, then build with AGENT-11.
 
 **Start here:** [Product Developer Guide](docs/getting-started/developer-guide.md)
 
+**NEW: Enhanced PRD Template** - Machine-parsable PRDs with System Skeleton (data model, UI sitemap, business rules) for seamless AGENT-11 handoff. See [PRD Template](docs/Document%20Library/Foundation/Product%20Requirements%20Document%20(PRD).md).
+
 ---
 
 ## The Business Chassis
@@ -186,6 +188,12 @@ Adds direct API connections for 40-60% faster operations. Requires API key confi
 ### Operations
 - [Operations Library](docs/OPERATIONS-LIBRARY.md) - Complete frameworks
 - [Foundation Workflows](docs/workflows/foundation/) - Setup guides
+
+### PRD System
+- [PRD Template](docs/Document%20Library/Foundation/Product%20Requirements%20Document%20(PRD).md) - Enhanced machine-parsable template (v3.1)
+- [PRD Creation SOP](docs/Document%20Library/Foundation/PRD%20Creation%20SOP.md) - Creation process with Auto/Engaged modes
+- [Design Playbook Template](docs/Document%20Library/Foundation/Design%20Playbook%20Template.md) - Technical preferences
+- [Migration Guide](docs/reference/prd/PRD%20v3.1%20Migration%20Guide.md) - Upgrade from legacy PRDs
 
 ### Troubleshooting
 - [Installation Issues](docs/troubleshooting/installation.md) - Setup problems

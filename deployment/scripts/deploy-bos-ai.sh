@@ -127,6 +127,8 @@ if [ -d "docs/Document Library" ]; then
         [ -f ".claude/document-library/Foundation/Client Success Blueprint.md" ] && echo -e "${GREEN}      ✓ Client Success Blueprint template${NC}"
         [ -f ".claude/document-library/Foundation/Strategic Roadmap_ Vision to Great.md" ] && echo -e "${GREEN}      ✓ Strategic Roadmap template${NC}"
         [ -f ".claude/document-library/Foundation/Product Requirements Document (PRD).md" ] && echo -e "${GREEN}      ✓ PRD template${NC}"
+        [ -f ".claude/document-library/Foundation/PRD Creation SOP.md" ] && echo -e "${GREEN}      ✓ PRD Creation SOP${NC}"
+        [ -f ".claude/document-library/Foundation/Design Playbook Template.md" ] && echo -e "${GREEN}      ✓ Design Playbook template${NC}"
         
         echo -e "${PURPLE}   📄 Key Operations documents:${NC}"
         [ -f ".claude/document-library/Operations/Marketing/Marketing Bible.md" ] && echo -e "${GREEN}      ✓ Marketing Bible template${NC}"

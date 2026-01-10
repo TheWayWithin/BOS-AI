@@ -597,19 +597,138 @@ BOS-AI includes a comprehensive Operations Library providing systematic executio
 │   ├── Positioning Statement Template.md
 │   ├── Strategic Roadmap.md
 │   ├── Brand Style Guide.md
-│   ├── Product Requirements Document (PRD).md
-│   ├── Pricing Strategy Template.md      # NEW: Value ladder with Marketing Physics
-│   └── ... (18 foundation templates & SOPs)
-└── Operations/
-    ├── Marketing/                  # Complete marketing framework
-    ├── Sales/                      # Complete sales framework
-    ├── Customer Service/           # Complete service framework
-    └── Finance/                    # Complete finance framework
+│   ├── Pricing Strategy Template.md
+│   ├── Product Requirements Document (PRD).md  # v3.1 with System Skeleton
+│   ├── PRD Creation SOP.md                     # v2.1 with Auto/Engaged modes
+│   ├── Design Playbook Template.md             # Technical preferences
+│   ├── Design Playbook Creation SOP.md
+│   ├── Solopreneur-Defaults.json               # Auto mode defaults
+│   ├── archive/                                # Superseded document versions
+│   └── ... (20+ foundation templates & SOPs)
+├── Operations/
+│   ├── Marketing/                  # Complete marketing framework
+│   ├── Sales/                      # Complete sales framework
+│   ├── Customer Service/           # Complete service framework
+│   └── Finance/                    # Complete finance framework
+└── /docs/reference/prd/            # PRD reference materials (not deployed)
 ```
 
 **For detailed Operations Library documentation, see:** `/docs/OPERATIONS-LIBRARY.md`
 
 **All operations create business frameworks and documents. For technical implementation of systems, hand off requirements to AGENT-11 project.**
+
+---
+
+## 📁 Document Library Versioning Convention
+
+**CRITICAL: Never put version numbers in filenames.**
+
+### The Rule
+
+| DO | DON'T |
+|----|-------|
+| `PRD Creation SOP.md` | `PRD Creation SOP v2.1.md` |
+| `Product Requirements Document (PRD).md` | `Product Requirements Document (PRD) v3.1.md` |
+
+### Why This Matters
+
+1. **Deployment Confusion**: Version-numbered filenames require explicit updates to deployment scripts for each new version
+2. **Stale References**: Links and documentation reference specific versions that become outdated
+3. **Multiple Versions Deployed**: Both old and new versions may end up deployed, causing user confusion
+
+### Correct Versioning Approach
+
+1. **Simple Filename**: Use the document name without version (e.g., `PRD Creation SOP.md`)
+
+2. **Version Metadata Inside Document**:
+   ```markdown
+   # PRD Creation SOP
+
+   | Metadata | Value |
+   |----------|-------|
+   | **Version** | 2.1 |
+   | **Last Updated** | 2026-01-10 |
+   | **Replaces** | v1.0 [2026-01-02] |
+   ```
+
+3. **Archive Old Versions**: Move superseded documents to `archive/` folder with date:
+   ```
+   /docs/Document Library/Foundation/archive/
+   └── PRD Creation SOP [2026-01-02].md
+   ```
+
+4. **Reference Materials**: Non-deployed reference files go to `/docs/reference/`:
+   ```
+   /docs/reference/prd/
+   ├── PRD-TEMPLATE-DIFF.md
+   └── PRD-BEFORE-AFTER-EXAMPLES.md
+   ```
+
+### When Creating or Updating Templates
+
+- ✅ Update the existing file in place
+- ✅ Update the version metadata inside the document
+- ✅ Archive the previous version with a date stamp
+- ❌ Never create a new file with version in the filename
+- ❌ Never have multiple versions of the same template deployed
+
+---
+
+## 📋 PRD Documentation System
+
+BOS-AI includes an enhanced Product Requirements Document (PRD) system designed for machine-parsable, agent-ready handoffs to technical teams.
+
+### Current PRD Template (v3.1)
+
+The current template includes **"System Skeleton"** sections that enable direct code generation:
+
+| Section | Purpose | AGENT-11 Benefit |
+|---------|---------|------------------|
+| **Data Model** | Entity definitions with relationships | Direct database schema generation |
+| **UI Sitemap** | Route structure with access levels | Direct routing implementation |
+| **Business Rules** | Centralized logic with state machines | Direct validation code generation |
+| **API Dependencies** | External integrations with rate limits | Direct integration setup |
+| **Privacy & Compliance** | Data classification and retention | Direct security implementation |
+| **Handoff Checklist** | Pre-handoff validation | Zero blocking questions guaranteed |
+
+**Location**: `/docs/Document Library/Foundation/Product Requirements Document (PRD).md`
+
+### PRD Creation Commands
+
+```bash
+# Create new PRD (Auto or Engaged mode)
+/coord prd-creation
+
+# Update specific sections without full regeneration
+/coord prd-creation --update-skeleton    # Update Section 2 only
+/coord prd-creation --update-features    # Update Section 3 only
+/coord prd-creation --add-feature        # Add single feature
+```
+
+### Design Playbook (Optional Companion)
+
+The Design Playbook captures **technical preferences** (HOW) without polluting the PRD (WHAT/WHY):
+
+| Document | Contains | Binding? |
+|----------|----------|----------|
+| **PRD** | Business requirements, features, acceptance criteria | ✅ Binding |
+| **Design Playbook** | Database preferences, auth approach, deployment hints | ⚠️ Non-binding (developer may override) |
+
+**Rule**: PRD always takes precedence. Design Playbook provides hints, not requirements.
+
+### Solopreneur Defaults
+
+When using Auto mode, unanswered discovery questions use intelligent defaults:
+- **Business Model**: B2C SaaS with freemium pricing
+- **Technical**: Modern TypeScript stack, serverless deployment
+- **UX**: Mobile-first responsive, accessibility AA compliant
+- **Timeline**: 6-8 week MVP, iterative releases
+
+See `/docs/Document Library/Foundation/Solopreneur-Defaults.json` for complete defaults.
+
+### Legacy PRD Migration
+
+For existing v1 PRDs, use the migration guide at `/docs/reference/prd/PRD v3.1 Migration Guide.md`. Typical migration takes 2-3 hours per PRD.
 
 ---
 

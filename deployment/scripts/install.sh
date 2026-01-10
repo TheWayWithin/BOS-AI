@@ -143,7 +143,9 @@ declare -a FOUNDATION_FILES=(
     "Brand Style Guide.md"
     "Brand Style Guide Creation SOP (AI-Driven).md"
     "Product Requirements Document (PRD).md"
-    "Product Requirements Document (PRD) Creation SOP.md"
+    "PRD Creation SOP.md"
+    "Design Playbook Template.md"
+    "Design Playbook Creation SOP.md"
     "Pricing Strategy Template.md"
     "Pricing Strategy Creation SOP (AI-Driven).md"
 )
@@ -158,6 +160,14 @@ for doc in "${FOUNDATION_FILES[@]}"; do
         echo -e "${YELLOW}    ⚠ Failed: $doc${NC}"
     fi
 done
+
+# Solopreneur Defaults (JSON configuration file)
+if download_file "$GITHUB_RAW_BASE/docs/Document%20Library/Foundation/Solopreneur-Defaults.json" ".claude/document-library/Foundation/Solopreneur-Defaults.json"; then
+    echo -e "${GREEN}    ✓ Solopreneur-Defaults.json${NC}"
+    LIBRARY_COUNT=$((LIBRARY_COUNT + 1))
+else
+    echo -e "${YELLOW}    ⚠ Failed: Solopreneur-Defaults.json${NC}"
+fi
 
 # Marketing Operations documents
 echo -e "${CYAN}  📁 Installing Marketing Operations...${NC}"
