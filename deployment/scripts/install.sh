@@ -85,8 +85,9 @@ if [ -f ".claude/CLAUDE.md" ]; then
     echo -e "${CYAN}  Review backup if you had customizations${NC}"
 fi
 
-if download_file "$GITHUB_RAW_BASE/CLAUDE.md" ".claude/CLAUDE.md"; then
+if download_file "$GITHUB_RAW_BASE/library/CLAUDE.md" ".claude/CLAUDE.md"; then
     echo -e "${GREEN}✓ .claude/CLAUDE.md installed (BOS-AI system documentation)${NC}"
+    echo -e "${CYAN}  Source: library/CLAUDE.md${NC}"
 else
     echo -e "${YELLOW}⚠ Failed to download CLAUDE.md${NC}"
 fi

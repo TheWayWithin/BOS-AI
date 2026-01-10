@@ -25,8 +25,9 @@ echo "╚═══════════════════════�
 echo -e "${NC}"
 
 # Verify we're in the right directory
-if [ ! -f "CLAUDE.md" ] || [ ! -f "BOUNDARIES.md" ]; then
+if [ ! -f "library/CLAUDE.md" ] || [ ! -f "BOUNDARIES.md" ]; then
     echo -e "${RED}❌ Error: Must run from BOS-AI root directory${NC}"
+    echo -e "${RED}   Expected: library/CLAUDE.md and BOUNDARIES.md${NC}"
     exit 1
 fi
 
@@ -54,8 +55,9 @@ if [ -f ".claude/CLAUDE.md" ]; then
     echo -e "${CYAN}   Review backup if you had customizations${NC}"
 fi
 
-cp CLAUDE.md .claude/CLAUDE.md
+cp library/CLAUDE.md .claude/CLAUDE.md
 echo -e "${GREEN}✅ .claude/CLAUDE.md deployed (BOS-AI system documentation)${NC}"
+echo -e "${CYAN}   Source: library/CLAUDE.md${NC}"
 
 # Verify correct BOS-AI version deployed
 echo -e "${BLUE}🔍 Verifying CLAUDE.md version...${NC}"
