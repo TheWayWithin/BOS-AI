@@ -621,4 +621,17 @@ Specific expertise via /meeting:
 
 ---
 
+## See Also
+
+- [Mission Catalog](../missions/README.md) - Pre-built workflows using these agents
+- [Quick Reference](../reference/quick-reference.md) - Command cheat sheet
+- [Business Guide](../getting-started/business-guide.md) - Complete business operations guide
+- [Business Chassis](../concepts/business-chassis.md) - The optimization formula
+
+---
+
+[Back to Documentation](../README.md) | [Back to Main README](../../README.md)
+
+---
+
 *For command usage, see [CLAUDE.md](../../CLAUDE.md). For mission workflows, see [Mission Catalog](../missions/README.md).*

@@ -869,6 +869,12 @@ Profit = Prospects × Lead Conversion × Client Conversion × Average Spend × T
 - **PRD**: Product Requirements Document for handing off to technical teams
 - **Boundaries**: BOS-AI = Business | AGENT-11 = Technical
 
+### Documentation
+- **Getting Started**: [Business Guide](docs/getting-started/business-guide.md) | [Developer Guide](docs/getting-started/developer-guide.md)
+- **First Mission**: [Guided Walkthrough](docs/getting-started/first-mission.md)
+- **Quick Reference**: [Command Cheat Sheet](docs/reference/quick-reference.md)
+- **All Documentation**: [Documentation Index](docs/README.md)
+
 ---
 
 ## 🛠️ Troubleshooting Guide

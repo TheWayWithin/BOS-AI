@@ -373,4 +373,17 @@ Save custom mission configurations for reuse.
 
 ---
 
+## See Also
+
+- [Agent Reference](../agents/README.md) - All 30 business specialists
+- [Quick Reference](../reference/quick-reference.md) - Command cheat sheet
+- [First Mission Guide](../getting-started/first-mission.md) - Hands-on walkthrough
+- [Business Chassis](../concepts/business-chassis.md) - The optimization formula
+
+---
+
+[Back to Documentation](../README.md) | [Back to Main README](../../README.md)
+
+---
+
 *For agent details, see [Agent Reference](../agents/README.md). For commands, see [CLAUDE.md](../../CLAUDE.md).*
