@@ -351,8 +351,7 @@ Installation and deployment scripts:
 ```
 deployment/
 ├── scripts/
-│   ├── install.sh        # Main installation script
-│   └── deploy-bos-ai.sh  # Deployment helper
+│   └── install.sh        # Remote installation script (downloads from GitHub)
 └── ...
 ```
 

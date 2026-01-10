@@ -79,12 +79,10 @@ Source Repo                          Target Project
 
 1. Created `/library/` folder
 2. Moved deployable CLAUDE.md to `/library/CLAUDE.md`
-3. Updated `deploy-bos-ai.sh`:
-   - Check for `library/CLAUDE.md` instead of `CLAUDE.md`
-   - Copy from `library/CLAUDE.md` to target `.claude/CLAUDE.md`
-4. Updated `install.sh`:
+3. Updated `install.sh`:
    - Download from `library/CLAUDE.md` URL
-5. Root `/CLAUDE.md` now contains project context + personal preferences
+   - Clean Foundation folder before deployment (removes legacy files)
+4. Root `/CLAUDE.md` now contains project context + personal preferences
 
 ### For AGENT-11 (To Do)
 
@@ -93,33 +91,14 @@ Source Repo                          Target Project
 3. Update deployment scripts to use `/library/CLAUDE.md`
 4. Create new root `/CLAUDE.md` for project context + personal preferences
 
-### Script Changes Required
+### Script Changes Required (install.sh)
 
-**deploy script:**
-```bash
-# BEFORE
-cp CLAUDE.md .claude/CLAUDE.md
-
-# AFTER
-cp library/CLAUDE.md .claude/CLAUDE.md
-```
-
-**install script:**
 ```bash
 # BEFORE
 download_file "$GITHUB_RAW_BASE/CLAUDE.md" ".claude/CLAUDE.md"
 
 # AFTER
 download_file "$GITHUB_RAW_BASE/library/CLAUDE.md" ".claude/CLAUDE.md"
-```
-
-**directory check:**
-```bash
-# BEFORE
-if [ ! -f "CLAUDE.md" ]; then
-
-# AFTER
-if [ ! -f "library/CLAUDE.md" ]; then
 ```
 
 ---
@@ -146,6 +125,5 @@ if [ ! -f "library/CLAUDE.md" ]; then
 
 ## Related Files
 
-- `deployment/scripts/deploy-bos-ai.sh` - Local deployment
-- `deployment/scripts/install.sh` - Remote installation
+- `deployment/scripts/install.sh` - Remote installation (downloads from GitHub)
 - `.claude/CLAUDE.md` - AGENT-11 development instructions
