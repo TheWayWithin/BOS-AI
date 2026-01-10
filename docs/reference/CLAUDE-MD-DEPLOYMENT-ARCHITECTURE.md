@@ -71,6 +71,50 @@ Source Repo                          Target Project
 .claude/CLAUDE.md     NOT DEPLOYED   (target has own framework)
 ```
 
+### User Project After Installation
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                     YOUR BUSINESS PROJECT                        │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  /CLAUDE.md                    ← YOUR personal preferences       │
+│  ┌─────────────────────┐         (created by you, never touched) │
+│  │ # My Project        │                                         │
+│  │ - My coding style   │       ┌──────────────────────┐          │
+│  │ - My preferences    │       │                      │          │
+│  │ - Project context   │       │    Claude Code       │          │
+│  └─────────┬───────────┘       │    reads BOTH        │          │
+│            │                   │                      │          │
+│            └──────────────────►│  Combined context    │          │
+│                                │                      │          │
+│            ┌──────────────────►│                      │          │
+│            │                   └──────────────────────┘          │
+│  ┌─────────┴───────────┐                                         │
+│  │ # BOS-AI System     │                                         │
+│  │ - Commands          │       ← DEPLOYED from BOS-AI            │
+│  │ - Agent docs        │         (updated on reinstall,          │
+│  │ - System behavior   │          your root CLAUDE.md untouched) │
+│  └─────────────────────┘                                         │
+│  .claude/CLAUDE.md                                               │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Update Safety
+
+```
+When you run install.sh again:
+
+  /CLAUDE.md (root)          .claude/CLAUDE.md
+  ┌──────────────────┐       ┌──────────────────┐
+  │ Your preferences │       │ BOS-AI system    │
+  │                  │       │                  │
+  │   UNTOUCHED ✓    │       │   UPDATED ↻      │
+  │                  │       │                  │
+  └──────────────────┘       └──────────────────┘
+```
+
 ---
 
 ## Implementation Steps
