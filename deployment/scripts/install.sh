@@ -101,6 +101,15 @@ fi
 echo -e "${CYAN}📚 Installing Document Library (templates & SOPs)...${NC}"
 LIBRARY_COUNT=0
 
+# IMPORTANT: Clean Foundation folder first to remove legacy files
+# This ensures renamed/removed files don't persist from previous installations
+# Safe because .claude/document-library/ contains READ-ONLY templates, not user documents
+# User documents are in documents/foundation/ which is NEVER touched
+if [ -d ".claude/document-library/Foundation" ]; then
+    echo -e "${CYAN}🧹 Cleaning Foundation folder (removing legacy files)...${NC}"
+    rm -rf .claude/document-library/Foundation/
+fi
+
 # Create subdirectories
 mkdir -p .claude/document-library/Foundation
 mkdir -p .claude/document-library/Operations/Marketing

@@ -107,6 +107,15 @@ fi
 # Deploy Document Library Templates and SOPs
 echo -e "${CYAN}📚 Deploying Document Library templates and SOPs...${NC}"
 if [ -d "docs/Document Library" ]; then
+    # IMPORTANT: Clean Foundation folder first to remove legacy files
+    # This ensures renamed/removed files don't persist from previous deployments
+    # Safe because .claude/document-library/ contains READ-ONLY templates, not user documents
+    # User documents are in documents/foundation/ which is NEVER touched
+    if [ -d ".claude/document-library/Foundation" ]; then
+        echo -e "${CYAN}🧹 Cleaning Foundation folder (removing legacy files)...${NC}"
+        rm -rf .claude/document-library/Foundation/
+    fi
+
     # Copy entire Document Library structure preserving directories
     cp -r "docs/Document Library/"* .claude/document-library/
     
