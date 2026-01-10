@@ -8,10 +8,13 @@ Complete reference for BOS-AI's file organization and what each directory contai
 
 ```
 BOS-AI/
-├── .claude/                  # Runtime configuration (deployed to your project)
-│   ├── agents/               # 30 business intelligence agents
-│   ├── commands/             # Slash commands (/coord, /meeting, etc.)
-│   └── CLAUDE.md             # Development configuration
+├── library/                  # DEPLOYABLE content (goes to user .claude/)
+│   └── CLAUDE.md             # BOS-AI user documentation (deployed)
+│
+├── .claude/                  # Development framework (AGENT-11)
+│   ├── agents/               # Development agents (not deployed)
+│   ├── commands/             # Development commands (not deployed)
+│   └── CLAUDE.md             # Development instructions (not deployed)
 │
 ├── agents/                   # Agent source files (library)
 │   ├── coordination/         # Central orchestration agents
@@ -53,9 +56,61 @@ BOS-AI/
 │
 ├── templates/                # Reusable templates
 ├── deployment/               # Installation and deployment scripts
-├── CLAUDE.md                 # Main system instructions
+├── CLAUDE.md                 # Project context & personal preferences (not deployed)
 └── README.md                 # Project overview
 ```
+
+---
+
+## CLAUDE.md Architecture
+
+BOS-AI uses a three-file CLAUDE.md system to separate deployable content from project-specific preferences.
+
+### The Three CLAUDE.md Files
+
+| File | Purpose | Deployed? |
+|------|---------|-----------|
+| `/library/CLAUDE.md` | BOS-AI documentation for users | ✅ Yes → target `.claude/CLAUDE.md` |
+| `/.claude/CLAUDE.md` | Development framework instructions (AGENT-11) | ❌ No |
+| `/CLAUDE.md` | Personal preferences, project context | ❌ No |
+
+### Why This Architecture?
+
+**The Problem**: When a library deploys to a project, it typically overwrites `.claude/CLAUDE.md`. This causes:
+1. User personal preferences to be lost on library updates
+2. Development instructions to be overwritten when updating development frameworks
+
+**The Solution**: Keep deployable content in `/library/` folder, separate from:
+- Development environment settings (`.claude/CLAUDE.md`)
+- Personal preferences and project context (root `/CLAUDE.md`)
+
+### Deployment Flow
+
+```
+Source Repository               Target Project
+───────────────────             ──────────────
+/library/CLAUDE.md  ─────────►  .claude/CLAUDE.md
+
+/CLAUDE.md (root)   NOT DEPLOYED (user can add own)
+.claude/CLAUDE.md   NOT DEPLOYED (target has own framework)
+```
+
+### For BOS-AI Users
+
+When BOS-AI is installed in your project:
+- **`.claude/CLAUDE.md`** - Contains BOS-AI system documentation (from library)
+- **`/CLAUDE.md`** - Your personal preferences and project context (create if needed)
+
+Both files are read by Claude Code. Your root CLAUDE.md won't be overwritten when updating BOS-AI.
+
+### For BOS-AI Developers
+
+When working on this repository:
+- **Edit `/library/CLAUDE.md`** - This deploys to users
+- **`.claude/CLAUDE.md`** - Contains AGENT-11 development instructions (don't edit for BOS-AI fixes)
+- **`/CLAUDE.md`** - Your personal dev preferences (not deployed)
+
+**See also**: [CLAUDE.md Deployment Architecture](CLAUDE-MD-DEPLOYMENT-ARCHITECTURE.md) for implementation details.
 
 ---
 
@@ -232,29 +287,60 @@ Operational templates organized by function:
 
 ---
 
+## Library Directory (`/library/`)
+
+**What gets deployed to user projects.**
+
+```
+library/
+└── CLAUDE.md         # BOS-AI user documentation (deploys to target .claude/CLAUDE.md)
+```
+
+This separation ensures:
+- User personal preferences (root CLAUDE.md) are never overwritten
+- Development framework instructions (.claude/CLAUDE.md) are preserved
+- Only the library content is deployed
+
+---
+
 ## Runtime Directory (`.claude/`)
 
-**What gets deployed to your business project.**
+**For BOS-AI development: Contains AGENT-11 development framework.**
 
 ```
 .claude/
-├── agents/           # 30 business agents (runtime copies)
-├── commands/         # Slash commands (runtime copies)
-├── CLAUDE.md         # Development configuration
+├── agents/           # AGENT-11 development agents (NOT BOS-AI agents)
+├── commands/         # AGENT-11 development commands
+├── CLAUDE.md         # Development instructions (NOT deployed)
 └── BOUNDARIES.md     # System boundary definitions
 ```
 
-**Important**: These are runtime files. Edit source files in `/agents/` and `/commands/` directories.
+**In user projects after BOS-AI installation:**
+
+```
+.claude/
+├── agents/           # 30 BOS-AI business agents
+├── commands/         # BOS-AI slash commands
+├── document-library/ # Templates and SOPs
+├── missions/         # Mission definitions
+├── CLAUDE.md         # BOS-AI documentation (from library/)
+└── BOUNDARIES.md     # System boundary definitions
+```
+
+**Important**:
+- In this dev repo: `.claude/` contains AGENT-11 (what we USE to build)
+- In user projects: `.claude/` contains BOS-AI (what we DEPLOY)
 
 ---
 
 ## Configuration Files
 
-| File | Purpose | Location |
-|------|---------|----------|
-| `CLAUDE.md` | Main system instructions | Root |
-| `.claude/CLAUDE.md` | Development configuration | .claude/ |
-| `.claude/BOUNDARIES.md` | BOS-AI vs AGENT-11 boundaries | .claude/ |
+| File | Purpose | Deployed? |
+|------|---------|-----------|
+| `/library/CLAUDE.md` | BOS-AI user documentation | ✅ Yes → `.claude/CLAUDE.md` |
+| `/CLAUDE.md` | Personal preferences & project context | ❌ No |
+| `/.claude/CLAUDE.md` | AGENT-11 development instructions | ❌ No |
+| `/.claude/BOUNDARIES.md` | BOS-AI vs AGENT-11 boundaries | ✅ Yes |
 
 ---
 
@@ -274,10 +360,11 @@ deployment/
 
 ## Key Principles
 
-### Source vs Runtime
+### Source vs Runtime vs Library
 
-- **Source files** (`/agents/`, `/commands/`): What you edit
-- **Runtime files** (`.claude/`): What gets deployed
+- **Source files** (`/agents/`, `/commands/`): BOS-AI library source (what developers edit)
+- **Library files** (`/library/`): Deployable content (what gets deployed to users)
+- **Runtime files** (`.claude/`): Development framework in this repo, deployed BOS-AI in user projects
 
 ### Memory Persistence
 
@@ -295,6 +382,7 @@ deployment/
 
 ## Related Documentation
 
+- [CLAUDE.md Deployment Architecture](CLAUDE-MD-DEPLOYMENT-ARCHITECTURE.md) - Implementation details
 - [Business Operations Guide](../getting-started/business-guide.md)
 - [BOS-AI Lifecycle](../concepts/lifecycle.md)
 - [Installation Troubleshooting](../troubleshooting/installation.md)
