@@ -314,6 +314,21 @@ else
     echo -e "${YELLOW}⚠ Failed to download dailyreport.md${NC}"
 fi
 
+# Download dailyreport implementation script and default voice guide
+mkdir -p .claude/commands/scripts
+if download_file "$GITHUB_RAW_BASE/commands/scripts/enhance_dailyreport.py" ".claude/commands/scripts/enhance_dailyreport.py"; then
+    chmod +x ".claude/commands/scripts/enhance_dailyreport.py" 2>/dev/null || true
+    echo -e "${GREEN}✓ /dailyreport script installed${NC}"
+else
+    echo -e "${YELLOW}⚠ Failed to download enhance_dailyreport.py${NC}"
+fi
+
+if download_file "$GITHUB_RAW_BASE/commands/scripts/voice-guide.md" ".claude/commands/scripts/voice-guide.md"; then
+    echo -e "${GREEN}✓ /dailyreport voice guide installed (edit to customise)${NC}"
+else
+    echo -e "${YELLOW}⚠ Failed to download voice-guide.md${NC}"
+fi
+
 # Download missions
 echo -e "${YELLOW}🎯 Installing missions...${NC}"
 MISSION_COUNT=0

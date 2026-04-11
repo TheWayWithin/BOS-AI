@@ -10,8 +10,9 @@ Automated daily progress capture, blog generation, and social media post creatio
 ## KEY FEATURES
 
 - **Automatic Progress Capture**: Creates structured daily report capturing milestones, issues, lessons, and metrics
-- **Blog Post Generation**: AI-enhanced blog-ready versions optimized for technical audience
+- **Blog Post Generation**: AI-enhanced blog-ready versions shaped by a voice guide
 - **Social Media Posts**: Platform-optimized Twitter/X and LinkedIn posts for build-in-public sharing
+- **Voice Guide System**: Output sounds like you, not generic AI. Ships with a default voice. Override with your own.
 - **Structured Metadata**: Captures project context, timestamps, and categorization
 - **Build-in-Public Ready**: Copy-paste social posts with character count validation
 - **Cost Efficient**: ~$0.002 per complete report (blog + social)
@@ -85,7 +86,34 @@ When enabled (default), `/dailyreport` generates a polished blog-ready version o
 ```bash
 # Required for AI features
 OPENAI_API_KEY=your_openai_key_here
+
+# Optional: point at a custom voice guide
+DAILYREPORT_VOICE_GUIDE=/absolute/path/to/your-voice-guide.md
 ```
+
+### Voice Guide
+
+The script ships with a default voice guide that lives at
+`.claude/commands/scripts/voice-guide.md`. The default is the Jamie Watters
+voice — direct, British, concrete, dry humour, no AI tell vocabulary.
+
+The voice guide is injected into every blog and social prompt. It controls
+tone, vocabulary, structure, and what the model is forbidden to write.
+
+**To use your own voice**, you have three options (checked in order):
+
+1. **Env var override** (highest priority):
+   ```bash
+   export DAILYREPORT_VOICE_GUIDE=/absolute/path/to/your-guide.md
+   ```
+2. **Project root**: drop a file at `./voice-guide.md` in the directory you
+   run `/dailyreport` from.
+3. **Project Claude config**: drop a file at `./.claude/voice-guide.md`.
+4. **Edit the default in place**: open `.claude/commands/scripts/voice-guide.md`
+   and replace it with your own. (Reinstalling BOS-AI will overwrite this.)
+
+The format is freeform markdown. The script sends the whole file to the model
+as instructions. See the default file for a working example.
 
 ### Social Media Post Generation
 
