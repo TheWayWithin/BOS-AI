@@ -54,7 +54,9 @@ When you run `/blog <topic>`, Claude will:
    dual-link structure (product link first, article link last for OG preview).
 5. **Derive the LinkedIn version** — 800-1000 char sweet spot, first 140 chars as a
    standalone hook, short one-idea-per-line paragraphs, genuine closing question.
-6. **Write all three to disk** and print file paths.
+6. **Derive the wip.co changelog line** — one short line announcing the post,
+   tagged with the project hashtag, ready to paste into wip.co.
+7. **Write all four files to disk** and print file paths.
 
 ## OUTPUT FILES
 
@@ -64,7 +66,8 @@ Blog artifacts land in a `blog/` directory (created if missing):
 blog/
 ├── 2026-04-11-feature-flags-small-teams.md           # Long-form blog post
 ├── 2026-04-11-feature-flags-small-teams-twitter.md   # Twitter/X (copy-paste ready)
-└── 2026-04-11-feature-flags-small-teams-linkedin.md  # LinkedIn (copy-paste ready)
+├── 2026-04-11-feature-flags-small-teams-linkedin.md  # LinkedIn (copy-paste ready)
+└── 2026-04-11-feature-flags-small-teams-wip.md       # wip.co "Published" post
 ```
 
 File naming: `YYYY-MM-DD-slug.md` where slug is derived from the topic (lowercased,
@@ -228,23 +231,57 @@ beats "Thoughts on Automation." Make it something someone would click.
 - Close with a genuine question the reader might actually answer, or a plain
   statement. Never manufactured engagement ("What do you think? Drop a comment below!").
 
-### Step 7: Write all three files
+### Step 7: Write all four files
 
 - Compute slug from topic: lowercase, strip punctuation, replace spaces with
   hyphens, remove stop words (a, an, the, of, for, to, in, on, and, or), cap at
   60 characters.
 - Compute date: today's date in `YYYY-MM-DD` format.
+- Resolve the wip.co project hashtag (first hit wins):
+  1. `$DAILYREPORT_WIP_PROJECT` env var → use verbatim (e.g. `bosai`)
+  2. Project name from `CLAUDE.md` → slugify: lowercase, strip punctuation,
+     strip spaces ("BOS-AI" → `bosai`, "My App" → `myapp`)
+  3. Neither → use literal `{{PROJECT}}` and print a warning
 - Create `blog/` directory if it doesn't exist.
-- Write three files:
+- Write four files:
   - `blog/YYYY-MM-DD-slug.md` — long-form post with frontmatter (`date`, `slug`,
     `title`)
   - `blog/YYYY-MM-DD-slug-twitter.md` — Twitter/X post with character count
   - `blog/YYYY-MM-DD-slug-linkedin.md` — LinkedIn post with character count and
     hook length
+  - `blog/YYYY-MM-DD-slug-wip.md` — wip.co changelog post (see format below)
+
+**wip.co file format**:
+
+```markdown
+# wip.co Post — <formatted date>
+
+**Project**: <project name>
+**Hashtag**: #<project-slug>
+
+---
+
+Published: <title>. <one specific detail from the post>. <base-url>/blog/<slug> #<project>
+
+---
+
+**How to post**: copy the single line above, paste into the "Ship something…"
+box on wip.co (or DM @wipbot with `/done <line>`), hit Enter.
+```
+
+wip line rules:
+- Past tense, completed action ("Published X", not "Will publish X")
+- One concrete specific from the post (a number, a tool name, the key lesson)
+- Under ~180 chars including the link and hashtag
+- Append the blog URL so the wip feed links back to the full post
+- Trailing `#<project-slug>` hashtag — no leading space-less joins
+- No emoji, no voice-guide flourish — wip is a changelog line, not a blog
+  paragraph. Voice guide still applies for phrasing (plain, concrete, no
+  AI-tell words)
 
 ### Step 8: Voice scrub
 
-After drafting, scan all three outputs for any word on the AI-tell blacklist:
+After drafting, scan all four outputs (blog, Twitter, LinkedIn, wip) for any word on the AI-tell blacklist:
 
 > delve, tapestry, intricate, pivotal, underscore, foster, testament, multifaceted,
 > comprehensive, myriad, leverage (as verb), embark, realm, beacon, paradigm, synergy,
@@ -267,11 +304,13 @@ Print:
 ✅ Blog post created: blog/YYYY-MM-DD-slug.md (<word count> words)
 🐦 Twitter/X post: blog/YYYY-MM-DD-slug-twitter.md (<char count>/280)
 💼 LinkedIn post: blog/YYYY-MM-DD-slug-linkedin.md (<char count>/3000, hook <n>/140)
+🚢 wip.co post: blog/YYYY-MM-DD-slug-wip.md (#<project>)
 🎙️  Voice guide: <source>
 
 Next:
   - Replace {{PRODUCT_URL}} with your actual product URL before publishing
   - Review the long-form post for anything that still sounds off
+  - Copy the wip line into wip.co once the blog URL goes live
 ```
 
 Then show a preview of the Twitter/X post inline so the user can eyeball it without
@@ -288,6 +327,11 @@ DAILYREPORT_VOICE_GUIDE=/path/to/voice-guide.md
 
 # Base URL for blog links in social posts (shared with /dailyreport)
 DAILYREPORT_BASE_URL=yourdomain.com
+
+# wip.co project hashtag (shared with /dailyreport)
+# No leading #, no spaces — just the slug. Falls back to a slug derived
+# from CLAUDE.md project name if unset.
+DAILYREPORT_WIP_PROJECT=bosai
 ```
 
 No `OPENAI_API_KEY` required — `/blog` runs entirely through Claude.

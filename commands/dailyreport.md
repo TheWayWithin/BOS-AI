@@ -43,14 +43,15 @@ then regenerates all three derived outputs so they reflect the full day.
 
 ## OUTPUT FILES
 
-Four files per day, all in the `progress/` directory:
+Five files per day, all in the `progress/` directory:
 
 ```
 progress/
 ├── 2026-04-11.md            # Raw daily report (source of truth)
 ├── 2026-04-11-blog.md       # Long-form blog post (voice-aligned)
 ├── 2026-04-11-twitter.md    # Twitter/X post (copy-paste ready)
-└── 2026-04-11-linkedin.md   # LinkedIn post (copy-paste ready)
+├── 2026-04-11-linkedin.md   # LinkedIn post (copy-paste ready)
+└── 2026-04-11-wip.md        # wip.co changelog posts (one per shipped item)
 ```
 
 ## VOICE ALIGNMENT
@@ -351,9 +352,71 @@ Write to `progress/YYYY-MM-DD-linkedin.md`:
 - Link included: Yes
 ```
 
-### Step 9: Voice scrub (rewrite pass)
+### Step 9: Generate wip.co changelog posts
 
-Scan all three drafts (blog, Twitter, LinkedIn) for any word on the AI-tell blacklist:
+wip.co is a public changelog site where solo founders post one-line "shipped"
+updates tagged with a project hashtag. Each completed milestone from today maps
+to one wip post.
+
+**Resolve the project hashtag** (first hit wins):
+
+1. `$DAILYREPORT_WIP_PROJECT` env var → use that verbatim (e.g. `bosai`)
+2. Project name from `CLAUDE.md` → slugify: lowercase, strip punctuation, strip
+   spaces (e.g. "BOS-AI" → `bosai`, "My App" → `myapp`)
+3. Neither available → use literal `{{PROJECT}}` and print a warning so the user
+   knows to fill it in before posting
+
+**Format each shipped item** as a wip-convention line:
+
+- Past tense, completed action ("Fixed login race condition", "Shipped dark
+  mode toggle", "Deployed v0.3.1 to prod")
+- Keep each line under ~120 chars (wip has no hard limit but short reads better)
+- Append the project hashtag at the end with a leading space
+- One line per milestone — do not bundle multiple ships into one line
+- No preamble ("Today I..."), no emoji, no voice-guide flourish — wip posts are
+  changelog lines, not blog paragraphs
+- No plans, no "will do X", no "working on Y" — only completed items
+- Voice guide still applies for phrasing (plain, concrete, no AI-tell words)
+
+Write to `progress/YYYY-MM-DD-wip.md`:
+
+```markdown
+# wip.co Posts — <formatted date>
+
+**Project**: <project name>
+**Hashtag**: #<project-slug>
+**Posts**: <N> shipped items ready to post
+
+---
+
+## Features
+Fixed login race condition on mobile Safari #bosai
+Shipped dark mode toggle in settings #bosai
+
+## Fixes
+Resolved stale cache bug in /dailyreport #bosai
+
+## Infrastructure
+Deployed v0.3.1 to prod, cleared the backlog #bosai
+
+## Documentation
+Rewrote the install guide with the new voice-guide path #bosai
+
+---
+
+**How to post**: each line above is a standalone wip.co post. Copy one line,
+paste into the "Ship something…" box on wip.co (or DM @wipbot with `/done
+<line>`), hit Enter. Post them throughout the day rather than in one burst —
+the feed rewards steady ships.
+```
+
+Omit any category (Features/Fixes/Infra/Docs) that has no items. If there are
+zero completed items for today, write the file with a single note:
+`No shipped items today — log work to progress.md and re-run /dailyreport`.
+
+### Step 10: Voice scrub (rewrite pass)
+
+Scan all four drafts (blog, Twitter, LinkedIn, wip) for any word on the AI-tell blacklist:
 
 > delve, tapestry, intricate, pivotal, underscore, foster, testament, multifaceted,
 > comprehensive, myriad, leverage (as verb), embark, realm, beacon, paradigm, synergy,
@@ -368,7 +431,7 @@ Also check and rewrite: rule-of-three adjective stacks, "it's not just X, it's Y
 constructions, em dashes more than twice per 500 words, bullet points starting with
 bolded phrases that the following sentence restates.
 
-### Step 10: Report to the user
+### Step 11: Report to the user
 
 Print a summary:
 
@@ -379,11 +442,13 @@ Print a summary:
 ✨ Blog post: progress/YYYY-MM-DD-blog.md (<word count> words)
 🐦 Twitter/X: progress/YYYY-MM-DD-twitter.md (<char>/280)
 💼 LinkedIn: progress/YYYY-MM-DD-linkedin.md (<char>/3000, hook <n>/140)
+🚢 wip.co: progress/YYYY-MM-DD-wip.md (<N> posts, #<project>)
 🎙️  Voice guide: <source>
 
 Next:
   - Replace {{PRODUCT_URL}} with your actual product URL before publishing
   - Review the blog post for anything that still sounds off
+  - Copy wip lines one at a time into wip.co throughout the day
 ```
 
 Then show the Twitter/X post inline as a preview so the user can eyeball it without
@@ -406,6 +471,11 @@ DAILYREPORT_VOICE_GUIDE=/path/to/voice-guide.md
 
 # Base URL for blog links in social posts
 DAILYREPORT_BASE_URL=yourdomain.com
+
+# wip.co project hashtag (shared with /blog)
+# No leading #, no spaces — just the slug. Falls back to a slug derived
+# from CLAUDE.md project name if unset.
+DAILYREPORT_WIP_PROJECT=bosai
 ```
 
 That's the whole config surface. `/dailyreport` no longer uses `OPENAI_API_KEY`,
