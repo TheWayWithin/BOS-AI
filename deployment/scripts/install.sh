@@ -314,19 +314,21 @@ else
     echo -e "${YELLOW}⚠ Failed to download dailyreport.md${NC}"
 fi
 
-# Download dailyreport implementation script and default voice guide
-mkdir -p .claude/commands/scripts
-if download_file "$GITHUB_RAW_BASE/commands/scripts/enhance_dailyreport.py" ".claude/commands/scripts/enhance_dailyreport.py"; then
-    chmod +x ".claude/commands/scripts/enhance_dailyreport.py" 2>/dev/null || true
-    echo -e "${GREEN}✓ /dailyreport script installed${NC}"
+if download_file "$GITHUB_RAW_BASE/commands/blog.md" ".claude/commands/blog.md"; then
+    echo -e "${GREEN}✓ /blog command installed${NC}"
+    COMMAND_COUNT=$((COMMAND_COUNT + 1))
 else
-    echo -e "${YELLOW}⚠ Failed to download enhance_dailyreport.py${NC}"
+    echo -e "${YELLOW}⚠ Failed to download blog.md${NC}"
 fi
 
-if download_file "$GITHUB_RAW_BASE/commands/scripts/voice-guide.md" ".claude/commands/scripts/voice-guide.md"; then
-    echo -e "${GREEN}✓ /dailyreport voice guide installed (edit to customise)${NC}"
+# Install the shared voice guide consumed by /dailyreport and /blog.
+# Lives in .claude/data/ (outside .claude/commands/) so the Claude Code
+# harness does not auto-index it as a skill in the command palette.
+mkdir -p .claude/data
+if download_file "$GITHUB_RAW_BASE/data/voice-guide-default.md" ".claude/data/voice-guide-default.md"; then
+    echo -e "${GREEN}✓ Default voice guide installed → .claude/data/voice-guide-default.md${NC}"
 else
-    echo -e "${YELLOW}⚠ Failed to download voice-guide.md${NC}"
+    echo -e "${YELLOW}⚠ Failed to download voice-guide-default.md${NC}"
 fi
 
 # Download missions

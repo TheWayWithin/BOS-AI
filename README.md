@@ -69,6 +69,13 @@ BOS-AI optimizes all six multipliers systematically.
 | `/coord sales-system-setup` | Create complete sales framework |
 | `/meeting @agent "topic"` | Consult with specific specialist |
 | `/report` | Generate progress report |
+| `/dailyreport` | Turn `progress.md` into a daily report plus voice-aligned blog and social posts |
+| `/blog <topic>` | Draft a voice-aligned blog post plus Twitter/X and LinkedIn versions on any topic |
+
+`/dailyreport` and `/blog` are Claude-native — no API keys, no per-report cost. Both
+commands share a single voice guide at `.claude/data/voice-guide-default.md`. Drop a
+`voice-guide.md` in your project root to override with your own voice, or set
+`DAILYREPORT_VOICE_GUIDE` to point anywhere.
 
 ---
 

@@ -76,10 +76,23 @@ fi
 
 # Deploy Commands
 echo -e "${PURPLE}🎮 Deploying command system...${NC}"
+if [ -d "${BOS_AI_DIR}/commands" ]; then
+    cp "${BOS_AI_DIR}/commands/"*.md .claude/commands/ 2>/dev/null || true
+fi
 if [ -d "${BOS_AI_DIR}/.claude/commands" ]; then
-    cp "${BOS_AI_DIR}/.claude/commands/"*.md .claude/commands/ 2>/dev/null || true
-    COMMAND_COUNT=$(ls .claude/commands/*.md 2>/dev/null | wc -l)
-    echo -e "${GREEN}✅ ${COMMAND_COUNT} commands deployed${NC}"
+    # Also pick up any commands only present in the working-squad mirror
+    cp -n "${BOS_AI_DIR}/.claude/commands/"*.md .claude/commands/ 2>/dev/null || true
+fi
+COMMAND_COUNT=$(ls .claude/commands/*.md 2>/dev/null | wc -l)
+echo -e "${GREEN}✅ ${COMMAND_COUNT} commands deployed${NC}"
+
+# Deploy shared voice guide for /dailyreport and /blog
+# Lives in .claude/data/ (outside .claude/commands/) so Claude Code does not
+# auto-index it as a skill in the command palette.
+mkdir -p .claude/data
+if [ -f "${BOS_AI_DIR}/data/voice-guide-default.md" ]; then
+    cp "${BOS_AI_DIR}/data/voice-guide-default.md" .claude/data/voice-guide-default.md
+    echo -e "${GREEN}✅ Default voice guide deployed → .claude/data/voice-guide-default.md${NC}"
 fi
 
 # Deploy Document Library Templates and SOPs
