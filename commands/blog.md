@@ -96,7 +96,7 @@ so the last one wins the preview card.
 ```
 <hook + specific detail>
 
-Try it: {{PRODUCT_URL}}
+Try it: <product-url>        ← included only if DAILYREPORT_PRODUCT_URL is set
 
 Full post: <your-domain>/blog/2026-04-11-feature-flags-small-teams
 
@@ -110,14 +110,15 @@ Full post: <your-domain>/blog/2026-04-11-feature-flags-small-teams
 <short paragraphs, one idea per line>
 <concrete detail, named tool, number>
 
-Try it: {{PRODUCT_URL}}
+Try it: <product-url>        ← included only if DAILYREPORT_PRODUCT_URL is set
 
 <plain closing or genuine question>
 
 Full post: <your-domain>/blog/2026-04-11-feature-flags-small-teams
 ```
 
-Replace `{{PRODUCT_URL}}` before publishing (same pattern as `/dailyreport`).
+If `DAILYREPORT_PRODUCT_URL` is not set, the "Try it:" line is omitted entirely.
+Posts are always copy-paste ready — no placeholders left behind.
 
 ## AGENT INSTRUCTIONS
 
@@ -211,9 +212,13 @@ beats "Thoughts on Automation." Make it something someone would click.
 - First line is the hook. Specific and slightly surprising. No emoji in the hook.
 - One concrete detail from the post. A number, a tool name, what actually happened.
 - 180-260 characters (280 is the hard limit — use the room you have).
-- Dual-link structure:
-  1. `Try it: {{PRODUCT_URL}}`
+- Resolve the product URL: check `$DAILYREPORT_PRODUCT_URL` env var. If set, use it.
+  If not set, **omit the "Try it:" line entirely** — do not leave a `{{PRODUCT_URL}}`
+  placeholder in the output file. The post must be copy-paste ready as written.
+- Dual-link structure (only if product URL is available):
+  1. `Try it: <product-url>`
   2. Blog link last (for OG preview): `Full post: <base-url>/blog/<slug>`
+- If no product URL, single-link structure with just the blog link
 - One hashtag, maybe two, from: `#buildinpublic #solofounder #indiehacker #devlog`
 - **No templates**: no "Shipped X today 🚀", no "Learned Y the hard way". Write fresh.
 
@@ -224,9 +229,10 @@ beats "Thoughts on Automation." Make it something someone would click.
   weight on their own. No "Excited to share...", no throat-clearing.
 - Short paragraphs. One idea per line. White space is a feature.
 - Register: smart colleague sharing a real lesson. Not thought leader dropping wisdom.
-- Dual-link structure:
-  1. `Try it: {{PRODUCT_URL}}` (mid-post)
+- Dual-link structure (only if `$DAILYREPORT_PRODUCT_URL` is set):
+  1. `Try it: <product-url>` (mid-post)
   2. Blog link at the end (for OG preview)
+- If no product URL, single-link structure with just the blog link
 - 0-2 hashtags at the very end. LinkedIn penalises spam.
 - Close with a genuine question the reader might actually answer, or a plain
   statement. Never manufactured engagement ("What do you think? Drop a comment below!").
@@ -316,15 +322,24 @@ Print:
 💼 LinkedIn post: blog/YYYY-MM-DD-slug-linkedin.md (<char count>/3000, hook <n>/140)
 🚢 wip.co post: blog/YYYY-MM-DD-slug-wip.md (#<project>)
 🎙️  Voice guide: <source>
-
-Next:
-  - Replace {{PRODUCT_URL}} with your actual product URL before publishing
-  - Review the long-form post for anything that still sounds off
-  - Copy the wip line into wip.co once the blog URL goes live
 ```
 
 Then show a preview of the Twitter/X post inline so the user can eyeball it without
 opening the file.
+
+Finally, print the jpub publish command using the **absolute path** to the blog
+markdown file (resolve via `pwd` or equivalent — the path must work from any terminal
+tab):
+
+```
+📋 Ready to publish:
+
+  jpub <ABSOLUTE_PATH_TO_REPO>/blog/YYYY-MM-DD-slug.md --all --dry-run
+
+Remove --dry-run when you're happy with the preview.
+```
+
+For example: `jpub /Users/jamiewatters/DevProjects/BOS-AI/blog/2026-04-11-feature-flags-small-teams.md --all --dry-run`
 
 ## CONFIGURATION
 
@@ -337,6 +352,10 @@ DAILYREPORT_VOICE_GUIDE=/path/to/voice-guide.md
 
 # Base URL for blog links in social posts (shared with /dailyreport)
 DAILYREPORT_BASE_URL=yourdomain.com
+
+# Product URL for "Try it:" links in Twitter/LinkedIn posts (shared with /dailyreport)
+# If not set, the "Try it:" line is omitted entirely — no placeholder left behind.
+DAILYREPORT_PRODUCT_URL=https://yourdomain.com
 
 # wip.co project hashtag (shared with /dailyreport)
 # No leading #, no spaces — just the slug. Falls back to a slug derived
@@ -370,8 +389,8 @@ Same as `/dailyreport`:
 
 1. Open `blog/YYYY-MM-DD-slug.md`, review, edit anything that still sounds off
 2. Publish long-form to your blog platform
-3. Open `-twitter.md`, replace `{{PRODUCT_URL}}`, paste into X compose, publish
-4. Open `-linkedin.md`, replace `{{PRODUCT_URL}}`, paste into LinkedIn, publish
+3. Open `-twitter.md`, paste into X compose, publish
+4. Open `-linkedin.md`, paste into LinkedIn, publish
 
 ## EXAMPLES
 
