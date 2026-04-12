@@ -192,6 +192,18 @@ Adds direct API connections for 40-60% faster operations. Requires API key confi
 
 ---
 
+## Security
+
+Report vulnerabilities privately via [GitHub Security Advisories](https://github.com/TheWayWithin/BOS-AI/security/advisories/new).
+
+- No API keys or secrets in the repo — all credentials load from `.env.mcp` (gitignored)
+- Install scripts use `set -euo pipefail`, validate paths, and refuse system directories
+- `.env.mcp` parsed as key=value pairs, never `source`d as shell code
+- Pin installs to a tagged release with `BOS_AI_VERSION=v1.0.0`
+- Recommended install pattern downloads the script for inspection before running
+
+---
+
 ## Documentation
 
 ### Getting Started
