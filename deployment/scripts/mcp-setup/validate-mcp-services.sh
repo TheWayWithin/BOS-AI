@@ -100,18 +100,19 @@ fi
 # Check for required directories
 echo ""
 log_info "Checking required directories..."
-if [ -d "/tmp/bos-ai/screenshots" ]; then
+BOS_AI_TMP="${TMPDIR:-/tmp}/bos-ai"
+if [ -d "$BOS_AI_TMP/screenshots" ]; then
     log_success "Screenshots directory exists"
 else
     log_warning "Screenshots directory missing - creating now"
-    mkdir -p /tmp/bos-ai/screenshots
+    mkdir -p "$BOS_AI_TMP/screenshots"
 fi
 
-if [ -d "/tmp/bos-ai/logs" ]; then
+if [ -d "$BOS_AI_TMP/logs" ]; then
     log_success "Logs directory exists"
 else
     log_warning "Logs directory missing - creating now"
-    mkdir -p /tmp/bos-ai/logs
+    mkdir -p "$BOS_AI_TMP/logs"
 fi
 
 # Summary

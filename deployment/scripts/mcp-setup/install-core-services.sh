@@ -51,9 +51,10 @@ log_success "Node.js $NODE_VERSION and npm $NPM_VERSION detected"
 
 # Create necessary directories
 log_info "Creating BOS-AI directories..."
-mkdir -p /tmp/bos-ai/screenshots
-mkdir -p /tmp/bos-ai/logs
-log_success "Directories created"
+BOS_AI_TMP="${TMPDIR:-/tmp}/bos-ai"
+mkdir -p "$BOS_AI_TMP/screenshots"
+mkdir -p "$BOS_AI_TMP/logs"
+log_success "Directories created at $BOS_AI_TMP"
 
 # Install Core MCP Services
 echo ""

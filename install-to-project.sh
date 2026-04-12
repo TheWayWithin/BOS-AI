@@ -78,6 +78,10 @@ if [ -f "${BOS_AI_DIR}/CLAUDE.md" ]; then
 fi
 
 if [ -f "${BOS_AI_DIR}/BOUNDARIES.md" ]; then
+    if [ -f ".claude/BOUNDARIES.md" ]; then
+        cp .claude/BOUNDARIES.md ".claude/BOUNDARIES.md.bak.$(date +%Y%m%d_%H%M%S)"
+        echo -e "${YELLOW}⚠️  Existing BOUNDARIES.md backed up${NC}"
+    fi
     cp "${BOS_AI_DIR}/BOUNDARIES.md" .claude/
     echo -e "${GREEN}✅ BOUNDARIES.md deployed${NC}"
 fi
