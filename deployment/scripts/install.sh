@@ -2,13 +2,30 @@
 
 # BOS-AI One-Line Installation Script
 # Downloads and installs BOS-AI complete system directly from GitHub
-# Usage: curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s full
+#
+# Usage (recommended — download, inspect, then run):
+#   curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh -o /tmp/bos-ai-install.sh
+#   cat /tmp/bos-ai-install.sh   # review the script
+#   bash /tmp/bos-ai-install.sh full
+#
+# Usage (direct pipe — faster but skips inspection):
+#   curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s full
+#
+# Version pinning:
+#   BOS_AI_VERSION=v1.0.0 bash /tmp/bos-ai-install.sh full
+#
 # Tiers: starter (5 agents), business (15 agents), full (30 agents)
 
 set -euo pipefail
 
+# Version resolution — pin with BOS_AI_VERSION env var, default to main
+BOS_AI_VERSION="${BOS_AI_VERSION:-main}"
+if [ "$BOS_AI_VERSION" != "main" ]; then
+    echo -e "\033[0;34m📌 Pinned to version: ${BOS_AI_VERSION}\033[0m"
+fi
+
 # Configuration
-GITHUB_RAW_BASE="https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main"
+GITHUB_RAW_BASE="https://raw.githubusercontent.com/TheWayWithin/BOS-AI/${BOS_AI_VERSION}"
 TIER="${1:-full}"  # Default to full tier for complete system
 
 # Colors for output

@@ -156,11 +156,29 @@ When you need software built:
 
 ### Standard Install (Recommended)
 
+Download, inspect, then run:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh -o /tmp/bos-ai-install.sh
+cat /tmp/bos-ai-install.sh   # review before running
+bash /tmp/bos-ai-install.sh full
+```
+
+Or if you prefer the direct pipe (faster, skips inspection):
+
 ```bash
 curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s full
 ```
 
 Works immediately with all 30 agents.
+
+### Pin to a Specific Version
+
+```bash
+BOS_AI_VERSION=v1.0.0 bash /tmp/bos-ai-install.sh full
+```
+
+Set `BOS_AI_VERSION` to any git tag to lock the install to that release.
 
 ### MCP-Enhanced Install
 
