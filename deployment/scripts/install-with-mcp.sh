@@ -5,7 +5,7 @@
 # Usage: curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install-with-mcp.sh | bash -s full
 # Tiers: starter (5 agents), business (15 agents), full (30 agents)
 
-set -e
+set -euo pipefail
 
 # Configuration
 GITHUB_RAW_BASE="https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main"
@@ -145,7 +145,7 @@ cat > scripts/setup-mcps.sh << 'EOF'
 # BOS-AI Automatic MCP Setup
 # This script configures MCPs for your BOS-AI installation
 
-set -e
+set -euo pipefail
 
 # Colors
 GREEN='\033[0;32m'

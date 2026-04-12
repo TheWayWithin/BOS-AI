@@ -3,7 +3,7 @@
 # BOS-AI MCP Core Services Installation Script
 # Installs the essential MCP services for the BOS Framework agent ecosystem
 
-set -e  # Exit on any error
+set -euo pipefail  # Exit on error, unset vars, pipe failures
 
 echo "🚀 BOS-AI MCP Core Services Installation"
 echo "======================================"

@@ -3,7 +3,7 @@
 # BOS-AI Complete Deployment Script
 # Deploys agents, commands, missions, and documentation to Claude Code
 
-set -e
+set -euo pipefail
 
 # Colors for output
 RED='\033[0;31m'

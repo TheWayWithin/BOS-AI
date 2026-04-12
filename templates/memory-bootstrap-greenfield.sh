@@ -3,7 +3,7 @@
 # BOS-AI Memory Bootstrap Script - Greenfield Business Setup
 # This script initializes memory files for a new business from business plan documents
 
-set -e
+set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BOS_AI_ROOT="$(dirname "$SCRIPT_DIR")"

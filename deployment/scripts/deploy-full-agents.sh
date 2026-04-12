@@ -3,7 +3,7 @@
 # BOS-AI Full Agent Deployment Script
 # Deploys all 25+ agents to your project's .claude/agents directory
 
-set -e
+set -euo pipefail
 
 # Colors for output
 RED='\033[0;31m'

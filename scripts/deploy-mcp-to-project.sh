@@ -3,7 +3,7 @@
 # BOS-AI MCP System Deployment Script
 # Deploys the MCP automation system to a business project
 
-set -e
+set -euo pipefail
 
 # Colors for output
 RED='\033[0;31m'

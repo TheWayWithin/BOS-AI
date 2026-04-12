@@ -3,7 +3,7 @@
 # Complete BOS-AI Agent Update Script
 # Ensures all agents have memory integration, thinking modes, and tool permissions
 
-set -e
+set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BOS_AI_ROOT="$(dirname "$SCRIPT_DIR")"

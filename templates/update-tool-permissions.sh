@@ -3,7 +3,7 @@
 # BOS-AI Agent Tool Permissions Update Script
 # Updates all BOS-AI agents with security-appropriate tool permissions
 
-set -e
+set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BOS_AI_ROOT="$(dirname "$SCRIPT_DIR")"

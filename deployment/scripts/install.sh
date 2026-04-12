@@ -5,7 +5,7 @@
 # Usage: curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s full
 # Tiers: starter (5 agents), business (15 agents), full (30 agents)
 
-set -e
+set -euo pipefail
 
 # Configuration
 GITHUB_RAW_BASE="https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main"
@@ -59,8 +59,8 @@ mkdir -p assets/reports
 
 # Function to download file with retry
 download_file() {
-    local url=$1
-    local dest=$2
+    local url="$1"
+    local dest="$2"
     local max_retries=3
     local retry_count=0
     

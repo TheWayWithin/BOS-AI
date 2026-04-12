@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 # BOS-AI Mission Manager
 # Utilities for managing mission state files
@@ -187,16 +188,16 @@ case "${1:-status}" in
         mission_resume
         ;;
     pause)
-        mission_pause "$2"
+        mission_pause "${2:-}"
         ;;
     complete)
-        mission_complete "$2"
+        mission_complete "${2:-}"
         ;;
     cleanup)
         mission_cleanup
         ;;
     detail)
-        mission_detail "$2"
+        mission_detail "${2:-}"
         ;;
     help)
         echo "BOS-AI Mission Manager"
@@ -213,7 +214,7 @@ case "${1:-status}" in
         echo "  help      - Show this help message"
         ;;
     *)
-        echo "Unknown command: $1"
+        echo "Unknown command: ${1:-}"
         echo "Run '$0 help' for usage information"
         exit 1
         ;;

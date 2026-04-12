@@ -3,7 +3,7 @@
 # BOS-AI Complete Installation with MCP Support
 # One script to install BOS-AI with automatic MCP configuration
 
-set -e
+set -euo pipefail
 
 # Colors for output
 RED='\033[0;31m'

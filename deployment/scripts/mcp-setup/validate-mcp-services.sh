@@ -3,7 +3,7 @@
 # BOS-AI MCP Services Validation Script
 # Tests connectivity and functionality of installed MCP services
 
-set -e
+set -euo pipefail
 
 echo "🔍 BOS-AI MCP Services Validation"
 echo "================================="

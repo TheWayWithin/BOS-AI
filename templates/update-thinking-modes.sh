@@ -3,7 +3,7 @@
 # BOS-AI Agent Thinking Modes Update Script
 # Updates all BOS-AI agents to include their assigned thinking modes
 
-set -e
+set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BOS_AI_ROOT="$(dirname "$SCRIPT_DIR")"

@@ -3,7 +3,7 @@
 # BOS-AI Agent Memory Integration Update Script
 # Updates all BOS-AI agents to include memory integration protocols
 
-set -e
+set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BOS_AI_ROOT="$(dirname "$SCRIPT_DIR")"

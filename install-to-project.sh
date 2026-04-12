@@ -3,7 +3,7 @@
 # BOS-AI Installation Script for Target Projects
 # Run this FROM your target project directory to install BOS-AI
 
-set -e
+set -euo pipefail
 
 # Colors for output
 RED='\033[0;31m'
@@ -28,6 +28,14 @@ BOS_AI_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Get the current directory (target project)
 TARGET_DIR="$(pwd)"
+
+# Refuse to install into system directories
+case "$TARGET_DIR" in
+    /etc*|/usr*|/bin*|/sbin*|/var*|/System*|/)
+        echo -e "${RED}ERROR: Refusing to install to system directory: ${TARGET_DIR}${NC}"
+        exit 1
+        ;;
+esac
 
 echo -e "${CYAN}📍 BOS-AI Source: ${BOS_AI_DIR}${NC}"
 echo -e "${CYAN}📍 Installing to: ${TARGET_DIR}${NC}"

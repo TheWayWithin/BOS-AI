@@ -3,7 +3,7 @@
 # BOS-AI MCP Configuration Deployment Script
 # Deploys MCP configuration to Claude Desktop
 
-set -e
+set -euo pipefail
 
 echo "🚀 BOS-AI MCP Configuration Deployment"
 echo "======================================"

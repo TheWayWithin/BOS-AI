@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 # Script to update all BOS-AI agents with mandatory context protocol
 # This adds context validation requirements to all agent configurations

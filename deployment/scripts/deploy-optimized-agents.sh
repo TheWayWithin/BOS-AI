@@ -3,7 +3,7 @@
 # BOS-AI Optimized Agent Deployment Script
 # Deploys all 30 color-coded, Claude Code optimized agents
 
-set -e
+set -euo pipefail
 
 # Colors for output
 RED='\033[0;31m'
