@@ -296,6 +296,16 @@ Also check for: rule-of-three adjective stacks, "it's not just X, it's Y"
 constructions, em dashes more than twice per 500 words, bullet points starting with
 bolded phrases that the following sentence restates. Fix each one by rewriting.
 
+**Hard character limits** — count the actual post text (between the `---` markers,
+excluding metadata headers and optimization notes):
+
+- **Twitter/X**: must be **≤ 280 characters**. If over, rewrite shorter and recount.
+  Repeat until it fits. Do not save a Twitter post over 280 characters.
+- **LinkedIn hook**: first paragraph must be **≤ 140 characters**. If over, trim it.
+- **LinkedIn total**: must be **≤ 3000 characters**. If over, cut.
+
+These are blocking — do not proceed to the report step until all limits pass.
+
 ### Step 9: Report to the user
 
 Print:
