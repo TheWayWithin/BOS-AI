@@ -154,31 +154,40 @@ When you need software built:
 
 ## Installation Options
 
-### Standard Install (Recommended)
+### Standard Install
 
-Download, inspect, then run:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh -o /tmp/bos-ai-install.sh
-cat /tmp/bos-ai-install.sh   # review before running
-bash /tmp/bos-ai-install.sh full
-```
-
-Or if you prefer the direct pipe (faster, skips inspection):
+One command — downloads and runs the installer:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s full
 ```
 
-Works immediately with all 30 agents.
+You'll see progress output as it installs. When it finishes, all 30 agents are ready.
+
+### Inspect Before Running (Optional, More Secure)
+
+If you want to review the install script before executing it, do this in three steps:
+
+```bash
+# 1. Download the script (this command prints nothing — that's normal)
+curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh -o /tmp/bos-ai-install.sh
+
+# 2. Review it (press q to exit the viewer)
+less /tmp/bos-ai-install.sh
+
+# 3. Run it
+bash /tmp/bos-ai-install.sh full
+```
 
 ### Pin to a Specific Version
 
+Lock the install to a tagged release:
+
 ```bash
-BOS_AI_VERSION=v1.0.0 bash /tmp/bos-ai-install.sh full
+BOS_AI_VERSION=v1.0.0 curl -fsSL https://raw.githubusercontent.com/TheWayWithin/BOS-AI/main/deployment/scripts/install.sh | bash -s full
 ```
 
-Set `BOS_AI_VERSION` to any git tag to lock the install to that release.
+Set `BOS_AI_VERSION` to any git tag (e.g. `v1.0.0`) to install that exact release.
 
 ### MCP-Enhanced Install
 
