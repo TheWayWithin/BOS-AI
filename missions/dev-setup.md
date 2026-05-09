@@ -32,20 +32,14 @@ This mission establishes the foundation for a new greenfield project by:
 
 ## Execution Protocol
 
-### Phase 0: MCP Profile Setup (2 min)
+### Phase 0: MCP Setup (2 min)
 
-**Recommended**: Start with the `core` profile for lightweight development:
-```bash
-ln -sf .mcp-profiles/core.json .mcp.json
-# Restart Claude Code
-```
-
-Switch to specialized profiles as needed (testing, deployment, etc.). See [MCP Profile Guide](../../docs/MCP-GUIDE.md) for details.
+The user's `.mcp.json` lists configured MCP servers. Tools defer-load by default; specialists discover what they need at runtime via `tool_search_tool_regex_20251119`.
 
 **Agent Actions:**
-- @coordinator identifies which MCP profile matches project needs
-- Documents profile selection in project-plan.md
-- Notes when to switch profiles for specific tasks (testing, deployment)
+- @coordinator confirms which MCP servers the project will need
+- Documents required servers in project-plan.md (so user can add API keys to `.env.mcp`)
+- No profile switching required — tools auto-load on demand
 
 ### Phase 1: GitHub Setup (5 min)
 ```bash
@@ -363,9 +357,9 @@ After completing this mission, decide on cleanup approach based on project statu
 
 **Actions** (30-60 min):
 1. Extract lessons to `lessons/[category]/` from progress.md
-2. Archive current handoff-notes.md to `archives/handoffs/milestone-X/`
+2. Archive milestone-relevant Phase Handoff blocks from agent-context.md if needed
 3. Clean agent-context.md (retain essentials, archive historical details)
-4. Create fresh handoff-notes.md for next milestone
+4. Continue using agent-context.md (Phase Handoff blocks accumulate across milestones)
 5. Update project-plan.md with next milestone tasks
 
 **See**: `templates/cleanup-checklist.md` Section A for detailed steps

@@ -29,13 +29,7 @@ Different missions benefit from different MCP profiles for optimal context usage
 | operation-genesis | core | Intelligence gathering and analysis |
 | operation-recon | core | Design reconnaissance |
 
-**Profile Switching**:
-```bash
-ln -sf .mcp-profiles/[profile].json .mcp.json
-# Restart Claude Code
-```
-
-See [MCP Profile Guide](../../docs/MCP-GUIDE.md) for complete profile reference.
+**Profile Switching (RETIRED in v6.0)**: Tools now defer-load and are discovered via Tool Search at runtime. No profile switching is needed — `tool_search_tool_regex_20251119(pattern="mcp__SERVERNAME")` loads what's required on demand.
 
 ### Project Setup Missions
 
@@ -231,9 +225,9 @@ After completing this mission, decide on cleanup approach based on project statu
 
 **Actions** (30-60 min):
 1. Extract lessons to `lessons/[category]/` from progress.md
-2. Archive current handoff-notes.md to `archives/handoffs/milestone-X/`
+2. Archive milestone-relevant Phase Handoff blocks from agent-context.md if needed
 3. Clean agent-context.md (retain essentials, archive historical details)
-4. Create fresh handoff-notes.md for next milestone
+4. Continue using agent-context.md (Phase Handoff blocks accumulate across milestones)
 5. Update project-plan.md with next milestone tasks
 
 **See**: `templates/cleanup-checklist.md` Section A for detailed steps

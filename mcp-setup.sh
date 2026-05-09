@@ -73,7 +73,8 @@ setup_env_vars() {
             echo ""
             if [[ $REPLY =~ ^[Yy]$ ]]; then
                 cp "$env_template" "$env_file"
-                success "Created .env.mcp from template"
+                chmod 600 "$env_file"
+                success "Created .env.mcp from template (permissions: owner-only)"
                 echo "Please edit .env.mcp and add your API keys, then re-run this script"
                 exit 0
             else
@@ -84,25 +85,11 @@ setup_env_vars() {
         fi
     fi
     
-    # Parse environment file safely (no source — prevents code injection)
-    while IFS='=' read -r key value; do
-        # Skip comments, blank lines, and lines without =
-        [[ "$key" =~ ^[[:space:]]*# ]] && continue
-        [[ -z "$key" ]] && continue
-        # Strip leading/trailing whitespace from key
-        key="${key#"${key%%[![:space:]]*}"}"
-        key="${key%"${key##*[![:space:]]}"}"
-        # Only allow valid variable names
-        if [[ "$key" =~ ^[A-Za-z_][A-Za-z0-9_]*$ ]]; then
-            # Strip surrounding quotes from value if present
-            value="${value#\"}"
-            value="${value%\"}"
-            value="${value#\'}"
-            value="${value%\'}"
-            export "$key=$value"
-        fi
-    done < "$env_file"
-
+    # Source the environment file
+    set -a
+    source "$env_file"
+    set +a
+    
     success "Environment variables loaded from .env.mcp"
 }
 

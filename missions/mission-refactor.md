@@ -1,9 +1,16 @@
+---
+mission: refactor
+expected_duration: 15-30 min for small targeted refactors (e.g., extract-to-middleware across ~3 files); 2-4 hours for system-wide refactors
+expected_interactions: 8-20 tool-use or delegation turns for a small targeted refactor
+on_budget_exceeded: summarise current state to context.md, mark next step in project-plan.md, stop cleanly. Do NOT continue refactoring beyond the requested scope — speculative refactors violate Karpathy principle 5.
+---
+
 # Mission: REFACTOR ♻️
 ## Code Quality Improvement
 
-**Mission Code**: REFACTOR  
-**Estimated Duration**: 2-4 hours  
-**Complexity**: Medium  
+**Mission Code**: REFACTOR
+**Estimated Duration**: 2-4 hours (see frontmatter `expected_duration` for targeted-refactor budget)
+**Complexity**: Medium
 **Squad Required**: Architect, Developer, Tester
 
 ## Mission Briefing
@@ -221,9 +228,9 @@ After completing this mission, decide on cleanup approach based on project statu
 
 **Actions** (30-60 min):
 1. Extract lessons to `lessons/[category]/` from progress.md
-2. Archive current handoff-notes.md to `archives/handoffs/milestone-X/`
+2. Archive milestone-relevant Phase Handoff blocks from agent-context.md if needed
 3. Clean agent-context.md (retain essentials, archive historical details)
-4. Create fresh handoff-notes.md for next milestone
+4. Continue using agent-context.md (Phase Handoff blocks accumulate across milestones)
 5. Update project-plan.md with next milestone tasks
 
 **See**: `templates/cleanup-checklist.md` Section A for detailed steps

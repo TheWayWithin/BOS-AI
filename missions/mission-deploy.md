@@ -10,17 +10,14 @@
 
 Execute a safe, systematic production deployment with proper validation, monitoring, and rollback procedures. This mission ensures your code reaches users reliably with minimal risk.
 
-### Recommended MCP Profile
+### MCP Tools
 
-**Profile**: `deployment` (core + Netlify + Railway)
-
-For deployment missions, switch to the deployment profile for direct access to hosting services:
-```bash
-ln -sf .mcp-profiles/deployment.json .mcp.json
-# Restart Claude Code
+Tools defer-load. The operator discovers what's needed via Tool Search:
 ```
-
-See [MCP Profile Guide](../../docs/MCP-GUIDE.md) for details.
+tool_search_tool_regex_20251119(pattern="mcp__railway")
+tool_search_tool_regex_20251119(pattern="mcp__netlify")
+```
+Profile switching is retired in v6.0.
 
 ## Required Inputs
 
@@ -188,9 +185,9 @@ After completing this mission, decide on cleanup approach based on project statu
 
 **Actions** (30-60 min):
 1. Extract lessons to `lessons/[category]/` from progress.md
-2. Archive current handoff-notes.md to `archives/handoffs/milestone-X/`
+2. Archive milestone-relevant Phase Handoff blocks from agent-context.md if needed
 3. Clean agent-context.md (retain essentials, archive historical details)
-4. Create fresh handoff-notes.md for next milestone
+4. Continue using agent-context.md (Phase Handoff blocks accumulate across milestones)
 5. Update project-plan.md with next milestone tasks
 
 **See**: `templates/cleanup-checklist.md` Section A for detailed steps
