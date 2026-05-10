@@ -29,6 +29,9 @@ performance-*.log
 agent-logs/
 mission-logs/
 
+# ===== WORKSPACE TRANSIENT =====
+workspace/checkpoint-*.md
+
 # ===== GENERATED ASSETS =====
 # Keep templates but ignore generated business assets
 assets/client-success-blueprint/*.md
