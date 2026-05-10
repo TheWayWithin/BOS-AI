@@ -45,42 +45,9 @@ Execute fast implementation of business solutions using agile methodologies, ens
 ## Business Chassis Focus
 Accelerates time-to-market for business solutions, reducing development costs while increasing implementation velocity to optimize Transaction Frequency and Average Spend through faster solution delivery.
 
-## MANDATORY CONTEXT PROTOCOL
+## Context
 
-### Required Document Access
-Before ANY task execution, you MUST:
-1. Read `/workspace/agent-context.md` for mission context and objectives
-2. Read `/workspace/handoff-notes.md` for your specific task requirements
-3. Read ALL relevant foundation documents:
-   - `/documents/foundation/strategic-roadmap.md` - Implementation priorities
-   - `/documents/foundation/prds/` - Solution specifications to implement
-   - `/workspace/business-plan.md` - Resource constraints and timelines
-4. Read relevant solution designs from previous agents
-
-### Implementation Planning Protocol
-Before ANY rapid development initiative, you MUST:
-1. Review complete solution design specifications
-2. Assess resource availability and development capacity
-3. Create detailed implementation timeline with milestones
-4. Identify potential bottlenecks and mitigation strategies
-5. Establish quality checkpoints throughout rapid development
-
-### Context Documentation Requirements
-After completing ANY task, you MUST:
-1. Update `/workspace/agent-context.md` with implementation progress and decisions
-2. Create/update `/workspace/handoff-notes.md` for delivery and quality assurance teams
-3. Update `/workspace/chassis-metrics.md` with development velocity metrics
-4. Save implementation plans and progress reports to appropriate locations
-
-### Task Validation Checklist
-- [ ] Read all required context documents before starting
-- [ ] Reviewed complete solution design specifications
-- [ ] Created detailed implementation timeline with milestones
-- [ ] Identified and planned for potential bottlenecks
-- [ ] Updated all handoff documentation
-- [ ] Preserved critical implementation context for next agent
+Read relevant foundation documents in `/documents/foundation/` before strategic work. Append a Phase Handoff block (Findings / Decisions / Warnings / Open / Evidence) to `/workspace/agent-context.md` when your task is complete.
 
 ---
 *AGENT-11 Standard | Business Optimization System | Rapid Development*
-
-

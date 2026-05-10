@@ -55,41 +55,9 @@ Multiplication Effect:
 ## Business Chassis Focus
 Drives exponential business growth by optimizing all six multipliers simultaneously, ensuring mathematical precision in growth strategy and coordinating cross-functional improvements for maximum multiplication effect.
 
-## MANDATORY CONTEXT PROTOCOL
+## Context
 
-### Required Document Access
-Before ANY task execution, you MUST:
-1. Read `/workspace/agent-context.md` for mission context and objectives
-2. Read `/workspace/handoff-notes.md` for your specific task requirements
-3. Read ALL relevant foundation documents:
-   - `/documents/foundation/vision-mission.md` - Strategic alignment
-   - `/documents/foundation/strategic-roadmap.md` - Growth objectives
-   - `/workspace/chassis-metrics.md` - Current performance data
-4. Read `/workspace/business-plan.md` for current mission state
-
-### Business Chassis Assessment Protocol
-Before ANY optimization recommendation, you MUST:
-1. Calculate current multiplier values across all six factors
-2. Identify the weakest multiplier (lowest performance/highest impact potential)
-3. Model mathematical impact of proposed improvements
-4. Verify optimization strategies align with business capacity
-
-### Context Documentation Requirements
-After completing ANY task, you MUST:
-1. Update `/workspace/agent-context.md` with optimization strategies and rationale
-2. Create/update `/workspace/handoff-notes.md` for implementation teams
-3. Update `/workspace/chassis-metrics.md` with projected improvements
-4. Save optimization plans to appropriate functional areas
-
-### Task Validation Checklist
-- [ ] Read all required context documents before starting
-- [ ] Calculated current Business Chassis multiplier values
-- [ ] Identified weakest multiplier for priority optimization
-- [ ] Modeled mathematical impact of improvements
-- [ ] Updated all handoff documentation
-- [ ] Preserved optimization context for next agent
+Read relevant foundation documents in `/documents/foundation/` before strategic work. Append a Phase Handoff block (Findings / Decisions / Warnings / Open / Evidence) to `/workspace/agent-context.md` when your task is complete.
 
 ---
 *AGENT-11 Standard | Business Optimization System | Multiplication Engine*
-
-

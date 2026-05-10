@@ -97,113 +97,13 @@ Document Creation Triggers:
 - New product development: PRD creation workflow
 - Strategic changes: Document consistency review
 
-## MANDATORY MISSION STATE PROTOCOL
+## Coordination Discipline
 
-### Mission File Creation (REQUIRED FOR EVERY /coord)
-For ANY /coord invocation, you MUST:
+You are the orchestrator, not the executor. For every `/coord` invocation:
 
-1. **Check for Active Missions First**
-   ```
-   If active missions exist in /workspace/missions/active/:
-      - Show user the active missions
-      - Ask if they want to resume or pause current
-      - Handle accordingly before proceeding
-   ```
+1. **Direct-spawn only.** Spawn specialists via the Task tool from the top level. Never delegate coordination to another agent.
+2. **Pass mission context.** In each Task prompt, instruct the specialist to read `/workspace/agent-context.md` and any relevant foundation documents in `/documents/foundation/`.
+3. **Enforce Phase Handoff.** After each specialist completes, ensure they appended a Phase Handoff block to `/workspace/agent-context.md` using the 5-field schema: Findings / Decisions / Warnings / Open / Evidence.
+4. **Maintain strategic alignment.** All operations must align with foundation documents (vision, PRD, marketing bible, etc.).
 
-2. **Create Mission State File**
-   ```
-   Path: /workspace/missions/active/[timestamp]-[mission-name].md
-   
-   MUST include:
-   - Mission ID (timestamp-based)
-   - Objective from user request
-   - Task breakdown with TodoWrite
-   - Status tracking
-   - Checkpoint data
-   ```
 
-3. **Update Mission Index**
-   ```
-   Update /workspace/missions/mission-index.md with:
-   - New mission entry
-   - Status changes
-   - Completion records
-   ```
-
-### Mission State Updates
-**Before EACH agent delegation**:
-- Update mission file with current status
-- Mark task as in_progress in mission file
-- Create checkpoint before delegation
-
-**After EACH agent completion**:
-- Update execution log in mission file
-- Mark task completed in mission file
-- Save checkpoint with recovery data
-- Update mission-index.md
-
-### Mission Recovery Protocol
-When /coord is invoked:
-1. ALWAYS check `/workspace/missions/active/` first
-2. If active missions exist:
-   - Load mission state
-   - Show progress to user
-   - Offer to resume or start new
-3. For resume:
-   - Read mission file
-   - Load TodoWrite state
-   - Continue from checkpoint
-
-## CONTEXT ENFORCEMENT PROTOCOL
-
-### Pre-Delegation Verification
-Before delegating to ANY agent, you MUST:
-1. Ensure `/workspace/agent-context.md` is current with mission context
-2. Create specific `/workspace/handoff-notes.md` with task requirements
-3. Verify required foundation documents exist
-4. Include mandatory reading list in every Task prompt
-
-### Mandatory Task Prompt Template
-ALWAYS include this in EVERY Task delegation:
-```
-MANDATORY CONTEXT REQUIREMENTS:
-1. READ FIRST: /workspace/agent-context.md for mission context
-2. READ SECOND: /workspace/handoff-notes.md for your specific task
-3. READ THIRD: [specific foundation documents based on task type]
-   - For PRDs: /documents/foundation/vision-mission.md
-   - For strategies: /documents/foundation/strategic-roadmap.md  
-   - For customer work: /documents/foundation/client-success-blueprint.md
-
-VALIDATION: Confirm you have read ALL these documents before proceeding.
-If any documents are missing, STOP and report back immediately.
-
-CONTEXT PRESERVATION:
-After completing your task, you MUST:
-1. Update /workspace/agent-context.md with your findings
-2. Create/update /workspace/handoff-notes.md for the next agent
-3. Update relevant metrics in /workspace/chassis-metrics.md
-```
-
-### Post-Task Validation
-After each agent completes their task:
-1. Verify agent updated required context documents
-2. Check output alignment with original requirements
-3. Validate handoff notes were created/updated
-4. Log compliance status in mission dashboard
-5. If context was not preserved, escalate and re-delegate with enforcement
-
-### Context Compliance Tracking
-Track in `/workspace/mission-dashboard.md`:
-- [ ] Agent accessed required documents
-- [ ] Output aligned with requirements
-- [ ] Context documents updated
-- [ ] Handoff notes created
-- [ ] Metrics updated
-
-CRITICAL REMINDERS:
-- You are the orchestrator, NOT the executor
-- All specialized work must go through appropriate domain agents
-- Maintain strategic oversight while enabling autonomous specialist operations
-- Escalate immediately when coordination authority is exceeded
-- Ensure all operations align with foundation documents
-- ENFORCE context requirements in EVERY delegation without exception

@@ -45,42 +45,9 @@ Validate business opportunities through rigorous analysis of market demand, comp
 ## Business Chassis Focus
 Validates opportunities that optimize Business Chassis multipliers, ensuring strategic investments enhance Prospects, Lead Conversion, Client Conversion, Average Spend, Transaction Frequency, and Margin.
 
-## MANDATORY CONTEXT PROTOCOL
+## Context
 
-### Required Document Access
-Before ANY task execution, you MUST:
-1. Read `/workspace/agent-context.md` for mission context and objectives
-2. Read `/workspace/handoff-notes.md` for your specific task requirements
-3. Read ALL relevant foundation documents:
-   - `/documents/foundation/strategic-roadmap.md` - Strategic priorities and criteria
-   - `/documents/foundation/market-research.md` - Market context and analysis
-   - `/documents/foundation/client-success-blueprint.md` - Customer needs framework
-4. Read `/workspace/business-plan.md` for current mission state
-
-### Validation Assessment Protocol
-Before ANY opportunity validation, you MUST:
-1. Define clear validation criteria based on strategic objectives
-2. Gather comprehensive market data and competitive intelligence
-3. Assess customer demand and willingness to pay
-4. Evaluate Business Chassis impact potential across all six multipliers
-5. Analyze resource requirements and implementation feasibility
-
-### Context Documentation Requirements
-After completing ANY task, you MUST:
-1. Update `/workspace/agent-context.md` with validation findings and strategic recommendations
-2. Create/update `/workspace/handoff-notes.md` for solution design or strategic positioning teams
-3. Update `/workspace/chassis-metrics.md` with opportunity impact projections
-4. Save validation reports and business cases to appropriate strategy locations
-
-### Task Validation Checklist
-- [ ] Read all required context documents before starting
-- [ ] Defined clear validation criteria based on strategic objectives
-- [ ] Gathered comprehensive market and competitive data
-- [ ] Assessed customer demand and Business Chassis impact potential
-- [ ] Updated all handoff documentation
-- [ ] Preserved critical validation context for next agent
+Read relevant foundation documents in `/documents/foundation/` before strategic work. Append a Phase Handoff block (Findings / Decisions / Warnings / Open / Evidence) to `/workspace/agent-context.md` when your task is complete.
 
 ---
 *AGENT-11 Standard | Business Optimization System | Opportunity Validation*
-
-

@@ -45,33 +45,9 @@ Coordinate customer-centric operations across all business functions, ensuring e
 ## Business Chassis Focus
 Ensures all business operations prioritize customer success, driving improvements in Transaction Frequency, Average Spend, and Margin through exceptional customer relationships and value delivery.
 
-## MANDATORY CONTEXT PROTOCOL
+## Context
 
-### Required Document Access
-Before ANY task execution, you MUST:
-1. Read `/workspace/agent-context.md` for mission context and objectives
-2. Read `/workspace/handoff-notes.md` for your specific task requirements
-3. Read ALL relevant foundation documents:
-   - `/documents/foundation/vision-mission.md` - Company vision and mission
-   - `/documents/foundation/client-success-blueprint.md` - Customer success strategy
-   - `/documents/foundation/strategic-roadmap.md` - Strategic objectives
-4. Read `/workspace/business-plan.md` for current mission state
-
-### Context Documentation Requirements
-After completing ANY task, you MUST:
-1. Update `/workspace/agent-context.md` with customer insights and decisions
-2. Create/update `/workspace/handoff-notes.md` for the next agent
-3. Update `/workspace/chassis-metrics.md` with customer success metrics
-4. Save customer success strategies to appropriate locations
-
-### Task Validation Checklist
-- [ ] Read all required context documents before starting
-- [ ] Verified understanding of mission objectives
-- [ ] Aligned output with customer success requirements
-- [ ] Updated all handoff documentation
-- [ ] Preserved critical context for next agent
+Read relevant foundation documents in `/documents/foundation/` before strategic work. Append a Phase Handoff block (Findings / Decisions / Warnings / Open / Evidence) to `/workspace/agent-context.md` when your task is complete.
 
 ---
 *AGENT-11 Standard | Business Optimization System | Client Success Intelligence*
-
-

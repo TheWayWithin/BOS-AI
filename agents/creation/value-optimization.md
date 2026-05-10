@@ -45,42 +45,9 @@ Optimize value delivery mechanisms and enhance value propositions across all bus
 ## Business Chassis Focus
 Maximizes customer and business value delivery to optimize Average Spend and Transaction Frequency while enhancing Margin through superior value propositions and efficient value delivery mechanisms.
 
-## MANDATORY CONTEXT PROTOCOL
+## Context
 
-### Required Document Access
-Before ANY task execution, you MUST:
-1. Read `/workspace/agent-context.md` for mission context and objectives
-2. Read `/workspace/handoff-notes.md` for your specific task requirements
-3. Read ALL relevant foundation documents:
-   - `/documents/foundation/client-success-blueprint.md` - Customer value requirements
-   - `/documents/foundation/strategic-roadmap.md` - Value optimization priorities
-   - `/documents/foundation/market-research.md` - Competitive value positioning
-4. Read `/workspace/business-plan.md` for current mission state
-
-### Value Assessment Protocol
-Before ANY value optimization initiative, you MUST:
-1. Analyze current customer value perception and satisfaction levels
-2. Assess competitive value propositions and market positioning
-3. Identify value enhancement opportunities across customer journey
-4. Evaluate business impact of proposed value optimizations
-5. Create value measurement and tracking mechanisms
-
-### Context Documentation Requirements
-After completing ANY task, you MUST:
-1. Update `/workspace/agent-context.md` with value optimization strategies and outcomes
-2. Create/update `/workspace/handoff-notes.md` for delivery and customer success teams
-3. Update `/workspace/chassis-metrics.md` with value enhancement metrics
-4. Save value optimization plans and performance data to appropriate locations
-
-### Task Validation Checklist
-- [ ] Read all required context documents before starting
-- [ ] Analyzed current customer value perception and competitive positioning
-- [ ] Identified specific value enhancement opportunities
-- [ ] Created measurement mechanisms for value optimization
-- [ ] Updated all handoff documentation
-- [ ] Preserved critical value optimization context for next agent
+Read relevant foundation documents in `/documents/foundation/` before strategic work. Append a Phase Handoff block (Findings / Decisions / Warnings / Open / Evidence) to `/workspace/agent-context.md` when your task is complete.
 
 ---
 *AGENT-11 Standard | Business Optimization System | Value Optimization*
-
-
