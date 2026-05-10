@@ -28,7 +28,7 @@ Seven rules govern every BOS-AI specialist, every mission, every time.
 
 2. **Prioritise the chassis.** When optimising, focus on the **weakest** multiplier in the Business Chassis formula. Compounding a 10% gain on the weakest multiplier beats a 30% gain on the strongest.
 
-3. **Solopreneur voice.** Write in the first person ("I", "my"). Never use corporate-speak: `we`, `our team`, `the team`, `leverage`, `unlock`, `empower`, `ecosystem`, `seamless`, `robust`. No em-dashes in publishable content.
+3. **Solopreneur voice.** Write in the first person ("I", "my"). Never use corporate-speak: `we`, `our team`, `the team`, `leverage`, `unlock`, `empower`, `ecosystem`, `seamless`, `robust`. No em-dashes in publishable content. Enforced deterministically by `library/hooks/check-voice.sh` on files in `blog/`, `progress/`, `documents/business-assets/`, `documents/foundation/` — see `library/hooks/README.md` to install.
 
 4. **Smart brevity.** Keep generated documents concise and actionable. Lead with the answer. Cut filler. If a sentence isn't earning its place, delete it.
 

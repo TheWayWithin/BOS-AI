@@ -81,6 +81,13 @@
             "command": "command -v rubocop >/dev/null 2>&1 && [ -f Gemfile ] && rubocop --force-exclusion 2>&1 || true",
             "statusMessage": "rubocop",
             "timeout": 30
+          },
+          {
+            "type": "command",
+            "if": "Edit(*.md)|Write(*.md)|MultiEdit(*.md)",
+            "command": "bash .claude/hooks/check-voice.sh",
+            "statusMessage": "voice check",
+            "timeout": 10
           }
         ]
       }
