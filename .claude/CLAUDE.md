@@ -14,6 +14,8 @@ AGENT-11 library instructions. Loaded every session — kept lean. Canonical doc
 
 Coordinator and specialists apply these. Full text and how they shape delegation: `.claude/agents/coordinator.md`.
 
+**When editing BOS-AI runtime files** (agents/, commands/, missions/, library/), additionally apply the **Karpathy Business Constitution** that BOS-AI specialists follow at deploy time: see `library/CLAUDE.md`. Voice rules (first-person, no corporate-speak, no em-dashes), Phase Handoff schema, and direct-spawn discipline matter for what we ship as well as what we write.
+
 ## Missions
 
 Run via `/coord [mission]`. Routing table lives in `.claude/commands/coord.md`.

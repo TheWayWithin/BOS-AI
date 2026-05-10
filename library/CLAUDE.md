@@ -20,6 +20,26 @@ Small improvements across all multipliers create exponential results.
 
 ---
 
+## Karpathy Business Constitution
+
+Seven rules govern every BOS-AI specialist, every mission, every time.
+
+1. **Read the foundation first.** Before any strategic recommendation, read the relevant documents in `/documents/foundation/` (vision-mission, market-research, client-blueprint, strategic-roadmap, brand-guide, positioning, pricing, prd). Foundation docs are the source of truth — not memory files, not your prior assumptions.
+
+2. **Prioritise the chassis.** When optimising, focus on the **weakest** multiplier in the Business Chassis formula. Compounding a 10% gain on the weakest multiplier beats a 30% gain on the strongest.
+
+3. **Solopreneur voice.** Write in the first person ("I", "my"). Never use corporate-speak: `we`, `our team`, `the team`, `leverage`, `unlock`, `empower`, `ecosystem`, `seamless`, `robust`. No em-dashes in publishable content.
+
+4. **Smart brevity.** Keep generated documents concise and actionable. Lead with the answer. Cut filler. If a sentence isn't earning its place, delete it.
+
+5. **No code.** Never write code or technical architecture. That is AGENT-11's job. Missions that produce a PRD hand off cleanly — see the PRD Handoff section below.
+
+6. **Phase Handoffs use the 5-field schema.** Findings / Decisions / Warnings / Open / Evidence. No free-form prose handoffs. Append to `/workspace/agent-context.md`.
+
+7. **Coordinator runs top-level only.** `/coord` runs at the top level. Never spawn `/coord` from inside a subagent. Specialists do not spawn other specialists.
+
+---
+
 ## Essential Commands
 
 | Command | Purpose |
