@@ -176,17 +176,11 @@ When you need software built:
 
 ---
 
-## Memory & Progress Tracking
+## Progress Tracking
 
-### Memory System
-BOS-AI maintains institutional memory in `/memories/`:
-- Business context (vision, markets, customers)
-- Strategic decisions and outcomes
-- Lessons learned from failures and successes
-
-### Progress Tracking
 - **business-plan.md** - Forward-looking: goals, strategies, planned approaches
 - **progress.md** - Backward-looking: what happened, lessons learned
+- **Foundation documents** in `/documents/foundation/` are the source of truth for business context (vision, markets, customers). Read these before making strategic recommendations.
 
 ---
 
@@ -219,7 +213,6 @@ Profit = Prospects × Lead Conversion × Client Conversion × Average Spend × T
 | `.claude/document-library/` | Templates and SOPs (read-only) |
 | `documents/foundation/` | Your business documents |
 | `/missions/` | Available missions |
-| `/memories/` | Business intelligence |
 
 ---
 

@@ -78,7 +78,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Rationale**: [Why this choice over alternatives]
 - **Consequences**: [Trade-offs and implications]
 
-[Add more ADRs as documented in /memories/technical/decisions.xml]
+[Add more ADRs as the project evolves]
 
 ## Codebase Structure
 
@@ -247,38 +247,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - [Success metric 2]
 - [Success metric 3]
 
-## Memory Protocol
-
-AGENT-11 uses Claude Code's native memory tools for persistent project knowledge.
-
-**Memory Location**: `/memories`
-
-**Structure**:
-```
-/memories/
-├── project/        # Requirements, architecture, constraints, metrics
-├── user/          # Preferences, context, goals
-├── technical/     # Decisions, patterns, tooling
-└── lessons/       # Insights, debugging, optimizations
-```
-
-**Agent Protocol**:
-1. **Before Task**: Read relevant memory files for context
-2. **During Task**: Apply memory-informed decisions
-3. **After Task**: Update memory with new learnings
-4. **Handoff**: Document in agent-context.md (Phase Handoff block) for next agent
-
-**Key Memory Files**:
-- `/memories/project/requirements.xml` - Core features and user stories
-- `/memories/project/constraints.xml` - Security, performance, technical limits
-- `/memories/user/preferences.xml` - Communication style, technical depth
-- `/memories/technical/decisions.xml` - Architecture decisions and rationale
-
-**Integration with Context Files**:
-- **Memory**: Long-term project knowledge (persists across sessions)
-- **Context Files**: Mission coordination (agent-context.md)
-- Both systems work together for optimal agent performance
-
 ## Progress Tracking Protocol
 
 After each work session or milestone:
@@ -300,11 +268,6 @@ After each work session or milestone:
    - Performance optimizations found
    - Common command updates
    - MCP usage patterns
-
-4. **Update Memory**
-   - New technical decisions → /memories/technical/decisions.xml
-   - Lessons learned → /memories/lessons/insights.xml
-   - Architecture changes → /memories/project/architecture.xml
 
 ## Todo List Integration Protocol
 
@@ -633,7 +596,6 @@ After each work session:
 - [ ] Performance insight → Update CLAUDE.md
 - [ ] Pattern discovered → Document in CLAUDE.md
 - [ ] MCP usage → Track successful patterns
-- [ ] Memory updated → New learnings in /memories
 
 ## Troubleshooting
 

@@ -172,12 +172,6 @@ Parse arguments to determine:
 
 BOS-AI now integrates proven Claude Code SDK innovations for exponential business performance:
 
-### 🧠 Memory Integration Protocol
-**ALL AGENTS MUST**: Read memory files before execution and update with new business intelligence
-- **Memory Files**: `/memories/business/`, `/memories/strategies/`, `/memories/lessons/`
-- **Cross-Session Learning**: Institutional memory prevents repeated business mistakes
-- **Expected Impact**: 40% reduction in repeat business mistakes
-
 ### 🤔 Extended Thinking Optimization  
 **Agent Cognitive Assignments**:
 - **ultrathink**: multiplication-engine, strategic-opportunity, scaling-strategy, investment-strategy

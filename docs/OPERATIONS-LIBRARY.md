@@ -333,4 +333,3 @@ All templates are located in `/docs/Document Library/` with detailed instruction
 ---
 
 **For implementation guidance, use:** `/coord [framework]-system-setup`
-**For detailed memory protocol, see:** `/docs/MEMORY-SYSTEM.md`

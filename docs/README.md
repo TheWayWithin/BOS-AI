@@ -114,7 +114,6 @@ For advanced configuration and integration.
 | [MCP Guide](MCP-GUIDE.md) | Model Context Protocol setup |
 | [MCP Profiles](MCP-PROFILES.md) | MCP server configurations |
 | [MCP Troubleshooting](MCP-TROUBLESHOOTING.md) | Solving MCP issues |
-| [Memory System](MEMORY-SYSTEM.md) | Business memory configuration |
 | [CLAUDE.md Deployment](CLAUDE-MD-DEPLOYMENT.md) | Configuring CLAUDE.md |
 
 ---

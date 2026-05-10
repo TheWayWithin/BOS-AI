@@ -239,9 +239,8 @@ Most business operators only need BOS-AI.
 ### What data does BOS-AI store?
 
 BOS-AI stores all data locally in your project directory:
-- `/memories/` - Business intelligence and learning
 - `/workspace/` - Active mission data
-- Foundation documents you create
+- `/documents/foundation/` - Foundation documents you create (vision, PRD, marketing bible, etc.)
 
 **Nothing is sent to external servers** beyond standard Claude Code operation.
 

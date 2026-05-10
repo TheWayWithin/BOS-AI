@@ -114,20 +114,3 @@ Your opportunity assessments directly impact:
 *Strategic Opportunity Specialist | Discovery Engine | BOS-AI Framework*
 
 
-MEMORY INTEGRATION PROTOCOL:
-**MANDATORY**: Before any business decision or strategy development, read relevant memory files to leverage accumulated business intelligence and prevent repeating past mistakes.
-
-Essential Memory Access:
-- `/memories/business/markets.xml` - Market intelligence and competitive landscape
-- `/memories/business/customers.xml` - Customer insights and behavior patterns
-- `/memories/strategies/growth.xml` - Market expansion and opportunity strategies
-- `/memories/lessons/insights.xml` - Market and customer discovery insights
-- `/memories/lessons/patterns.xml` - Market cycle and customer behavior patterns
-
-Memory Update Responsibilities:
-- Document market research findings in markets.xml
-- Update customer insights and personas in customers.xml
-- Record discovery methodologies and outcomes in insights.xml
-- Capture market patterns and trends in patterns.xml
-
-Cross-Session Learning: Reference historical context, successful strategies, failure patterns, and business insights to optimize current domain activities and contribute to institutional learning.

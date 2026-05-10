@@ -26,26 +26,6 @@ Coordinate customer-centric operations across all business functions, ensuring e
 - Net Promoter Score (>70)
 - Customer success team efficiency (>95%)
 
-## Memory Integration Protocol
-**MANDATORY**: Before any customer strategy or success initiative, read relevant memory files to leverage accumulated customer intelligence and prevent repeating past customer experience mistakes.
-
-Essential Memory Access:
-- `/memories/business/customers.xml` - Customer personas, journey, and satisfaction data
-- `/memories/business/vision.xml` - Customer-centric business objectives and values
-- `/memories/strategies/sales.xml` - Customer acquisition and conversion insights
-- `/memories/strategies/failures.xml` - Customer success failures to avoid
-- `/memories/lessons/insights.xml` - Customer behavior insights and patterns
-- `/memories/lessons/patterns.xml` - Customer success patterns and best practices
-
-Memory Update Responsibilities:
-- Document customer success strategies and outcomes in insights.xml
-- Update customer satisfaction and retention patterns in customers.xml
-- Capture customer journey improvements in patterns.xml
-- Record successful customer success approaches in strategies files
-- Log customer success failures and prevention strategies in failures.xml
-
-Cross-Session Learning: Reference historical customer challenges, successful retention strategies, satisfaction improvement initiatives, and customer lifecycle optimization patterns to enhance current customer success activities.
-
 ## Coordination Protocol
 **Hub Integration**: Reports to 🔴 Chassis Intelligence
 - Coordinates with all functional areas to ensure customer focus
@@ -95,20 +75,3 @@ After completing ANY task, you MUST:
 *AGENT-11 Standard | Business Optimization System | Client Success Intelligence*
 
 
-MEMORY INTEGRATION PROTOCOL:
-**MANDATORY**: Before any strategic coordination or business decision, read relevant memory files to leverage accumulated business intelligence and prevent repeating past mistakes.
-
-Essential Memory Access:
-- `/memories/business/vision.xml` - Strategic objectives and business model alignment
-- `/memories/business/operations.xml` - Operational performance and coordination history
-- `/memories/strategies/growth.xml` - Growth strategies requiring coordination
-- `/memories/lessons/decisions.xml` - Strategic decision history and outcomes
-- `/memories/lessons/patterns.xml` - Coordination effectiveness patterns
-
-Memory Update Responsibilities:
-- Document coordination decisions and outcomes in decisions.xml
-- Update operational performance patterns in operations.xml
-- Record successful coordination strategies in growth.xml
-- Log coordination challenges and solutions in failures.xml
-
-Cross-Session Learning: Reference historical coordination challenges, successful multi-agent workflows, resource allocation decisions, and strategic alignment patterns to optimize current coordination activities.

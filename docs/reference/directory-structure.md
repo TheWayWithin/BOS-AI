@@ -42,11 +42,6 @@ BOS-AI/
 │   ├── finance/              # Financial operations missions
 │   └── strategic/            # Strategic initiative missions
 │
-├── memories/                 # Institutional memory system
-│   ├── business/             # Business intelligence
-│   ├── strategies/           # Strategic approaches
-│   └── lessons/              # Learnings and patterns
-│
 ├── docs/                     # Documentation
 │   ├── getting-started/      # Onboarding guides
 │   ├── concepts/             # Core concept explanations
@@ -209,38 +204,6 @@ Major business initiatives:
 - Market entry
 - Acquisition campaigns
 - Business pivots
-
----
-
-## Memory System (`/memories/`)
-
-Persistent business intelligence across sessions.
-
-### Business Memory (`/memories/business/`)
-
-| File | Contains |
-|------|----------|
-| `vision.xml` | Strategic objectives, business model |
-| `markets.xml` | Market intelligence, competitive insights |
-| `customers.xml` | Customer personas, behavior patterns |
-| `operations.xml` | Operational performance, process data |
-
-### Strategies Memory (`/memories/strategies/`)
-
-| File | Contains |
-|------|----------|
-| `marketing.xml` | Campaign performance, channel data |
-| `sales.xml` | Sales strategies, conversion insights |
-| `growth.xml` | Scaling approaches, expansion learnings |
-
-### Lessons Memory (`/memories/lessons/`)
-
-| File | Contains |
-|------|----------|
-| `failures.xml` | What didn't work and why |
-| `insights.xml` | Key business discoveries |
-| `decisions.xml` | Decision history and outcomes |
-| `patterns.xml` | Successful operation patterns |
 
 ---
 

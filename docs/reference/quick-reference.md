@@ -124,7 +124,7 @@ Profit = Prospects x Lead% x Client% x Spend x Frequency x Margin
 |---------|----------|
 | Mission definitions | `/missions/` |
 | Document templates | `/docs/Document Library/` |
-| Business memory | `/memories/` |
+| Foundation documents | `/documents/foundation/` |
 | Progress tracking | `progress.md` |
 | Agent profiles | `.claude/agents/` |
 | System config | `CLAUDE.md` |

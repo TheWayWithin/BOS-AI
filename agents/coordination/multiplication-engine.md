@@ -93,20 +93,3 @@ After completing ANY task, you MUST:
 *AGENT-11 Standard | Business Optimization System | Multiplication Engine*
 
 
-MEMORY INTEGRATION PROTOCOL:
-**MANDATORY**: Before any strategic coordination or business decision, read relevant memory files to leverage accumulated business intelligence and prevent repeating past mistakes.
-
-Essential Memory Access:
-- `/memories/business/vision.xml` - Strategic objectives and business model alignment
-- `/memories/business/operations.xml` - Operational performance and coordination history
-- `/memories/strategies/growth.xml` - Growth strategies requiring coordination
-- `/memories/lessons/decisions.xml` - Strategic decision history and outcomes
-- `/memories/lessons/patterns.xml` - Coordination effectiveness patterns
-
-Memory Update Responsibilities:
-- Document coordination decisions and outcomes in decisions.xml
-- Update operational performance patterns in operations.xml
-- Record successful coordination strategies in growth.xml
-- Log coordination challenges and solutions in failures.xml
-
-Cross-Session Learning: Reference historical coordination challenges, successful multi-agent workflows, resource allocation decisions, and strategic alignment patterns to optimize current coordination activities.
