@@ -1,6 +1,6 @@
 # Migrating from BOS-AI v1.x to v2
 
-**Status:** v2 modernisation in progress (Sprints A-I per [Blueprint v2.1](../ideation/BOS-AI%20v2.1%20Blueprint%20-%20Lean%20Business%20Operating%20System.md))
+**Status:** v2 modernisation complete (Sprints A-I shipped per [Blueprint v2.1](../ideation/BOS-AI%20v2.1%20Blueprint%20-%20Lean%20Business%20Operating%20System.md))
 **Last updated:** 2026-05-10
 
 This guide is for users who installed BOS-AI before the v2 modernisation. If you're installing fresh, ignore this file.
@@ -65,25 +65,95 @@ Just delete `/memories/` and pull v2 — everything in there was placeholder any
 
 ---
 
-## What else changed in Sprint A and B
+## What else changed (Sprints A through I)
 
-- **`workspace/`** archived to `archive/workspace-2025/` and recreated with two files (`business-plan.md`, `agent-context.md`) — see Blueprint §2.4.
-- **`docs/MEMORY-SYSTEM.md`** removed.
-- **`templates/memory-integration-template.md`** removed.
-- **`templates/mission-template-enhanced.md`** removed (was built around the memory paradigm; new mission template arrives in Sprint G with Phase Handoff schema).
-- **`templates/deployment-summary.md`** archived (Oct 2025 deployment artifact, no longer relevant).
-- 11 agents had `MEMORY INTEGRATION PROTOCOL` blocks stripped (~17 lines each). Agent functionality unchanged — they just no longer pretend to maintain XML state.
+### Sprint A — workspace cleanup
+
+- **`workspace/`** archived to `archive/workspace-2025/` and recreated with two files: `business-plan.md` and `agent-context.md`.
+- `.gitignore` now ignores `workspace/checkpoint-*.md`, `.claude/backups/`, generated `blog/`, and `progress/*.md`.
+
+### Sprint B — XML memory deletion
+
+- `/memories/` removed, 12 XML files gone.
+- `docs/MEMORY-SYSTEM.md`, `templates/memory-integration-template.md`, `templates/mission-template-enhanced.md`, `templates/deployment-summary.md` removed or archived.
+- 11 agents had `MEMORY INTEGRATION PROTOCOL` blocks stripped.
+
+### Sprint C — agent boilerplate strip
+
+- All 30 agents had their `## MANDATORY CONTEXT PROTOCOL` block (and equivalent on `chassis-intelligence`) replaced with a one-paragraph `## Context` section pointing at `/documents/foundation/` and the Phase Handoff 5-field schema.
+- Net: 925 lines removed, agent fleet ~21% smaller.
+- Agent functionality unchanged — only ceremony removed.
+
+### Sprint D — `coord.md` as Universal Router
+
+- `commands/coord.md` rewritten from 463 lines to 149.
+- Deterministic dispatch table: `/coord <mission-name>` → mission file. No NLP intent matching, no fuzzy lookup.
+- Direct-spawn rule: `/coord` runs at the top level, never inside a subagent. Specialists do not spawn other specialists.
+- All ASCII box gates removed.
+- Old mission name aliases that referenced archived workspace files (e.g. `/coord optimize`) are gone — use the canonical names from the router (e.g. `/coord chassis-optimization`).
+
+### Sprint E — Karpathy Business Constitution
+
+- Seven-rule constitution inserted into `library/CLAUDE.md`.
+- `.claude/CLAUDE.md` pointer added so editors of BOS-AI runtime files apply the same rules.
+
+### Sprint F — voice-enforcement hook
+
+- `library/hooks/check-voice.sh` + `library/hooks/README.md` added.
+- Hook wired into `.claude/settings.json` (`PostToolUse`, blocking on `*.md` Edit/Write/MultiEdit).
+- Scope: `blog/`, `progress/`, `documents/business-assets/`, `documents/foundation/` only. All other paths bypass silently.
+- Bans: `we`, `our team`, `the team`, `leverage`, `unlock`, `empower`, `seamless`, `robust`, `utilize`, `delve`, `navigate`, `ecosystem`, em-dash.
+
+### Sprint G — Phase Handoff template
+
+- `templates/phase-handoff-template.md` added — canonical 5-field schema (Findings / Decisions / Warnings / Open / Evidence).
+- All 8 foundation missions reference the template at phase close.
+
+### Sprint H — voice infra consolidation + `/dailyreport` Routine
+
+- `data/voice-guide-default.md` → `library/voice/voice-guide-default.md`. Empty root `data/` removed.
+- `commands/blog.md` and `commands/dailyreport.md` voice resolution chains updated: `library/voice/` precedes the `.claude/data/` fallback.
+- New `routines/dailyreport.md` — Routine template for scheduled daily reports. Set up at `claude.ai/code/routines`.
+- `/blog` stays a slash command (event-driven, not a Routine candidate).
+
+### Sprint I — `library/CLAUDE.md` modernisation
+
+- Deployable file now references the Constitution, Universal Router, Phase Handoff template, and migration guide as discoverable resources.
+- Stale `/coord optimize` references updated to `/coord chassis-optimization`.
+- Key Locations table extended with `/routines/`, `library/voice/`, `library/hooks/`.
 
 ---
 
-## Coming in later sprints
+## How to upgrade
 
-- **Sprint C:** Strip remaining `MANDATORY CONTEXT PROTOCOL` boilerplate from all 30 agents.
-- **Sprint D:** Rewrite `coord.md` as Universal Router (deterministic dispatch, no NLP intent matching).
-- **Sprint E:** Karpathy Business Constitution in `library/CLAUDE.md`.
-- **Sprint F:** Voice-enforcement hooks (block "we"/"our team"/em-dashes deterministically).
-- **Sprint G:** Phase Handoff 5-field schema in mission templates.
-- **Sprint H:** Convert `/dailyreport` to a Routine; `/blog` stays a slash command.
-- **Sprint I:** Modernise the deployable `library/CLAUDE.md`.
+If you're on a pre-v2 BOS-AI install and want the v2 changes:
+
+1. **Backup** your current `.claude/`, `workspace/`, and `memories/` directories.
+2. **Migrate `memories/` content** (if any non-placeholder data exists) into foundation documents using the table in "If you have a populated `/memories/` directory" above.
+3. **Pull the v2 BOS-AI release** (or copy the updated library files).
+4. **Reinstall the hook** if you want voice enforcement: `cp library/hooks/check-voice.sh .claude/hooks/` and add the snippet to `.claude/settings.json` from `library/hooks/README.md`.
+5. **Set up the Routine** (optional, recommended): copy the prompt from `routines/dailyreport.md` into a new routine at `claude.ai/code/routines`.
+
+If anything in `.claude/` or `workspace/` was customised, diff your backup against the new defaults and re-apply your customisations to the v2 files.
 
 See `ideation/BOS-AI v2.1 Blueprint - Lean Business Operating System.md` for the full plan and rationale.
+
+---
+
+## Known follow-up cleanup (not blocking)
+
+The v2 modernisation is structurally complete. A few mission files (mostly in `missions/sequences/` and `missions/operations/`) still reference archived workspace files like `chassis-metrics.md`, `handoff-notes.md`, `mission-dashboard.md`, and `agent-sequence.md`. These files no longer exist; the mission instructions need updating to use the v2 Phase Handoff pattern (write to `/workspace/agent-context.md` instead).
+
+Affected files at time of writing:
+- `missions/bos-ai-mission-library.md`
+- `missions/operations/foundation-review.md`
+- `missions/sequences/chassis-optimization-sequence.md`
+- `missions/sequences/customer-acquisition-sequence.md`
+- `missions/sequences/retention-improvement-sequence.md`
+- `missions/sequences/weekly-review-sequence.md`
+- `missions/sequences/product-launch-sequence.md`
+- `docs/bos-ai-orchestration-guide.md`
+
+These mission files will execute and produce outputs, but the workspace-update steps will fail silently (files referenced no longer exist). Specialists should ignore those steps and use the Phase Handoff pattern instead, per the Karpathy Business Constitution rule §6.
+
+Fixing them is a future polish sprint, not a blocker.

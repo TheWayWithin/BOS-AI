@@ -44,8 +44,8 @@ Seven rules govern every BOS-AI specialist, every mission, every time.
 
 | Command | Purpose |
 |---------|---------|
-| `/coord` | Business orchestration - missions, optimization, coordination |
-| `/coord optimize` | Analyze Business Chassis, find biggest opportunity |
+| `/coord` | Business orchestration — Universal Router dispatches by mission name |
+| `/coord chassis-optimization` | Multi-step sequence: find weakest multiplier, fix it |
 | `/meeting @agent "topic"` | Direct consultation with specialist agent |
 | `/report` | Generate progress report |
 | `/dailyreport` | Daily progress + blog/social media posts |
@@ -53,7 +53,7 @@ Seven rules govern every BOS-AI specialist, every mission, every time.
 
 **Quick examples:**
 ```bash
-/coord optimize                    # Find biggest opportunity
+/coord chassis-optimization                    # Find biggest opportunity
 /coord marketing-system-setup      # Full marketing framework (4-5 hours)
 /meeting @brand-strategy "pricing" # Consult specialist
 ```
@@ -213,19 +213,22 @@ Profit = Prospects × Lead Conversion × Client Conversion × Average Spend × T
 10% improvement in each = **77% profit increase**
 
 ### Getting Started Flow
-1. `/coord optimize` - Find biggest opportunity
+1. `/coord chassis-optimization` — Find biggest opportunity
 2. Pick recommended system setup mission
 3. Complete 1 system (3-5 hours)
 4. Add remaining systems over time
 
 ### Most Used Commands
 ```bash
-/coord optimize              # Find opportunity
-/coord [mission-name]        # Run mission
-/meeting @agent "topic"      # Consult specialist
-/report                      # Progress report
-/pmd "issue"                 # Diagnose problem
+/coord chassis-optimization      # Find opportunity (weakest multiplier)
+/coord [mission-name]            # Run mission (see Universal Router in commands/coord.md)
+/meeting @agent "topic"          # Consult specialist
+/report                          # Progress report
+/dailyreport                     # Daily progress + blog/social
+/pmd "issue"                     # Diagnose problem
 ```
+
+The full mission list lives in `commands/coord.md` (the Universal Router) and `missions/` (the mission files themselves). Mission names are matched literally — no fuzzy / NLP intent matching.
 
 ### Key Locations
 | Location | Purpose |
@@ -249,6 +252,9 @@ Profit = Prospects × Lead Conversion × Client Conversion × Average Spend × T
 | Troubleshooting | `docs/troubleshooting/guide.md` |
 | Boundaries | `.claude/BOUNDARIES.md` |
 | Quick Reference | `docs/reference/quick-reference.md` |
+| Phase Handoff schema | `templates/phase-handoff-template.md` |
+| Universal Router | `commands/coord.md` |
+| Migration from v1.x | `library/migrate-from-v1.md` |
 
 **Quick diagnostic:** `/pmd "describe your issue"`
 

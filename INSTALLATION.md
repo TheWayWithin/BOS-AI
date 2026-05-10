@@ -97,9 +97,9 @@ If you have existing documents, BOS-AI can update them:
 - **Usage**: Automatic archiving when updating
 
 ### `workspace/`
-- **Purpose**: Temporary mission context
-- **Contents**: business-plan.md, chassis-metrics.md, etc.
-- **Usage**: Preserves context between agent handoffs
+- **Purpose**: Active mission context
+- **Contents**: `business-plan.md` (forward-looking checklist), `agent-context.md` (active findings + Phase Handoff blocks)
+- **Usage**: Specialists read at task start, append Phase Handoff blocks at task close
 
 ## Common Issues
 
@@ -121,15 +121,17 @@ If you have existing documents, BOS-AI can update them:
 ## Mission Commands
 
 ### Business Operations
-- `/coord optimize` - Optimize Business Chassis
-- `/coord launch [product]` - Launch new product/service
-- `/coord acquire [segment]` - Customer acquisition
-- `/coord scale` - Scaling strategy
+- `/coord chassis-optimization` — Multi-step sequence: find and fix the weakest Business Chassis multiplier
+- `/coord product-launch` — Launch new product/service
+- `/coord customer-acquisition` — Customer acquisition sequence
+- `/coord scaling-strategy` — Scaling strategy mission
 
 ### Document Management
-- `/coord foundation-review` - Review all documents
-- `/coord vision-mission-update` - Update vision/mission
-- `/meeting @[agent] "[task]"` - Direct agent consultation
+- `/coord foundation-review` — Review all foundation documents
+- `/coord vision-mission-update` — Update vision/mission
+- `/meeting @[agent] "[task]"` — Direct agent consultation
+
+See `commands/coord.md` for the full Universal Router (deterministic dispatch table of all available missions).
 
 ## Best Practices
 
