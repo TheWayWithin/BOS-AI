@@ -254,8 +254,10 @@ mv evidence-repository.md "${ARCHIVE_DIR}/"
 
 ### Pre-Clear Actions
 
+- [ ] Extract critical insights to memory files (/memories/lessons/*.xml)
 - [ ] Update agent-context.md with current phase findings
-- [ ] Append Phase Handoff block for next agent/phase
+- [ ] Update agent-context.md for next agent/phase
+- [ ] Verify memory tool calls are recent (in last 3 tool uses)
 - [ ] Confirm at least 5K tokens will be cleared
 - [ ] Ensure not in middle of complex delegation chain
 
@@ -264,6 +266,7 @@ mv evidence-repository.md "${ARCHIVE_DIR}/"
 **DO clear context when**:
 - [ ] Context approaching 30,000 input tokens
 - [ ] Between major mission phases (after phase completion)
+- [ ] After extracting insights to memory and context files
 - [ ] Before starting complex multi-hour operations
 - [ ] When switching between unrelated mission domains
 
@@ -276,6 +279,7 @@ mv evidence-repository.md "${ARCHIVE_DIR}/"
 
 ### Post-Clear Verification
 
+- [ ] Memory still accessible
 - [ ] Mission objectives still clear from agent-context.md
 - [ ] Specialist can access agent-context.md
 - [ ] Next delegation ready with context instructions
@@ -287,6 +291,7 @@ mv evidence-repository.md "${ARCHIVE_DIR}/"
 Task(
   subagent_type="[specialist]",
   prompt="First read agent-context.md for full mission context.
+          Access /memories/ for project knowledge and past decisions.
           CRITICAL: Follow Critical Software Development Principles.
           [Task details]
           Append a Phase Handoff block to agent-context.md with your findings."
@@ -308,14 +313,23 @@ Task(
    - architecture.md evolves across missions
    - Never archive, always keep current
 
-3. **Not verifying archives before deletion**
+3. **Deleting lessons/ directory**
+   - Lessons are permanent knowledge base
+   - Never delete, only add and update
+
+4. **Skipping lesson extraction**
+   - Lessons are the most valuable output
+   - Extract before archiving to preserve learnings
+
+5. **Not verifying archives before deletion**
    - Always verify archive created successfully
    - Check all files copied correctly
    - Test archive access before removing originals
 
 6. **Cleaning without context preservation**
    - Update agent-context.md before cleaning
-   - Append Phase Handoff block before clearing
+   - # (deprecated — Phase Handoff blocks live in agent-context.md) before clearing
+   - Extract insights to memory before /clear
 
 7. **Accumulating handoff-notes forever**
    - Archive completed milestone handoffs

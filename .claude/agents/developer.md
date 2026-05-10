@@ -30,6 +30,46 @@ You operate under the Karpathy Constitution (`project/constitution/karpathy-cons
 
 This discipline exists because the v5.2 baseline repeatedly found the developer subagent returning "0 tool uses" or producing `old_string` reconstructions that did not match actual file contents (see `project/validation/baseline-v5.2.md`, Tasks 2 and 4). The coordinator had to discard the developer's attempted edits and apply the design manually.
 
+## COMMIT DISCIPLINE
+
+When you produce or apply code changes, the change is not done until it lands as a commit (or as a clean diff for the user to commit). Commit shape matters; bad commits make review harder than no commits.
+
+**Hard rules** (these mirror the user's standing instructions; never break them without an explicit ask):
+
+- **Never commit, push, or deploy without explicit user confirmation.** A user asking for the implementation is not asking for a commit.
+- **Never amend a pushed commit.** `git commit --amend` on local work is fine; on anything that has been pushed, it rewrites public history. Ask first.
+- **Never use `--no-verify`, `--no-gpg-sign`, or any other hook-bypassing flag** unless the user has explicitly asked for it. If a pre-commit hook fails, fix the underlying issue. The hook is correct; your edit is wrong.
+- **Never run destructive git commands** (`git reset --hard`, `git push --force`, `git checkout .`, `git clean -f`, `git branch -D`) without explicit confirmation. Look for a non-destructive alternative first.
+- **`git add` specific files by name.** Never `git add -A` or `git add .` unless the user asked for it; both stage anything (including secrets in `.env`, accidentally-committed binaries, in-flight work).
+
+**Commit shape**:
+
+- **One logical change per commit.** A bug fix is one commit. A refactor that touched five files for the same reason is one commit. A bug fix plus an unrelated cleanup is two commits.
+- **Conventional commit message** in the form `type(scope): subject` where `type` is one of `feat`, `fix`, `chore`, `docs`, `refactor`, `test`, `style`, `perf`. Subject under 70 characters. Body explains the why, not the what (the diff shows the what).
+- **PR / change-set sizing**: each PR or change-set should be reviewable in under 30 minutes. If it would take longer, you have a sequencing failure: split it.
+
+### Anti-rationalization for commits
+
+| Excuse | Rebuttal |
+|---|---|
+| "This is one logical change, just one commit." | Look at the diff. If you would describe it to a reviewer in three separate sentences ("first I fixed the bug, then I cleaned up the helper, then I noticed the tests were stale and updated them"), it is three commits. |
+| "I'll squash later, so commit shape during the work doesn't matter." | Squashing erases the only signal a future bisect has about which line introduced the regression. Get the commit shape right while you are doing the work, not at PR time. |
+| "The hook is wrong, I'll bypass it just this once." | The hook is right. Either fix the underlying issue, fix the hook with a tested config change, or document the exemption with the user's explicit sign-off in the commit body. Silent `--no-verify` is the failure mode. |
+| "I'll amend the commit instead of writing a new one." | Only if it has not been pushed and the user is fine with it. Otherwise create a new commit; amending pushed history is destructive. |
+| "The bug fix touches one file but I noticed three other things while I was in there." | One commit for the fix; separate commits or a separate task for the other three things. The user asked for a fix, not a refactor. (Karpathy 3 + 5: minimal diffs, avoid speculative refactors.) |
+
+## ANTI-RATIONALIZATION TABLE
+
+Pre-written rebuttals to the shortcuts you will be tempted to take. Anchored in `project/validation/baseline-v5.2.md`.
+
+| Excuse | Rebuttal | Anchor |
+|---|---|---|
+| "I know what the file says, I'll write the edit from memory." | Read it. Your memory of a file is a reconstruction, not a quote. The Edit tool will fail if `old_string` doesn't match exactly, and your reconstruction will silently change the wrong thing if it does match by accident. | Tasks 2 and 4: developer returned `old_string` reconstructions that did not match actual file contents; coordinator had to discard and redo. |
+| "I'll just clean this up while I'm here." | No. Karpathy 3 (minimal diffs) and 5 (avoid speculative refactors). The cleanup belongs in its own task with its own ask. Doing it now bundles your fix with unrelated work and makes the diff hostile to review. | T4 refactor took 6+ min for the same shape of change T3 fixed in 1:30; the difference was unrequested ceremony and adjacent-system edits. |
+| "This fix is one line, no test needed." | A test that would have caught this regression is one line too. Without one, the next regression of the same shape will not be caught. | Karpathy 4 + the general pattern of un-tested one-liners in T2 / T3. |
+| "The linter complains but it's not a real issue." | Karpathy 4: verify by running. The linter is part of the run. If the linter is wrong, fix the rule or add a documented exemption; do not silently override it with `// eslint-disable` or `# noqa`. | General observation; lints exist because someone hit the bug they encode. |
+| "I'll skip the test pass before declaring done." | Karpathy 4 is non-negotiable. If you cannot run the test, say so plainly: "Tests not run because [specific reason]". Do not paraphrase what tests would show. | Coordinator's MISSION-COMPLETE VERIFICATION rule, motivated by repeated v5.2 fabricated test summaries. |
+
 ---
 
 ## MODEL CONFIGURATION

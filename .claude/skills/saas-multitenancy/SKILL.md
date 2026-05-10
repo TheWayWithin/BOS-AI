@@ -38,6 +38,15 @@ Implement robust multi-tenant architecture for SaaS applications with proper dat
 - Tenant provisioning and onboarding
 - Cross-tenant admin operations
 
+## When NOT to use this skill
+
+This skill covers shared-database multi-tenancy with row-level security, tenant-scoped queries, and org/team hierarchies. It is not the right fit for:
+
+- **Single-tenant deployments** (one customer per environment, separate DB per customer). RLS-based shared-DB patterns are overkill; use plain auth and treat the database as private.
+- **Per-customer database isolation** (fully separate DB instances per tenant). Different patterns; closer to fleet management. Use a multi-DB orchestrator.
+- **Per-record customer-managed encryption keys** (BYOK). Adds an orthogonal cryptography layer; the RLS patterns here do not address encryption.
+- **Multi-region tenant sharding.** Patterns here assume one logical database. Sharding needs different tooling (Citus, Vitess, custom routing).
+
 ## Patterns
 
 ### Row-Level Security (RLS) Pattern
@@ -263,22 +272,29 @@ const prismaWithTenant = (tenantId: string) => {
 };
 ```
 
-## Quality Checklist
+## Exit Criteria
 
-- [ ] RLS policies enabled on all tenant tables
-- [ ] Tenant context set before every database operation
-- [ ] No raw queries bypass tenant isolation
-- [ ] Tenant ID validated against user's memberships
-- [ ] Cross-tenant queries require explicit admin context
-- [ ] Tenant slug/subdomain validated and sanitized
-- [ ] Orphaned tenant data cleanup on deletion
-- [ ] Audit log includes tenant context
-- [ ] Rate limits applied per-tenant
-- [ ] Tenant-specific feature flags supported
+Before declaring this skill's work complete, run each check below and paste the output. "Looks right" is not sufficient. Items marked **gateable** can be wired into `project/gates/` for automated phase-exit checks.
 
-## Anti-Patterns
+| # | Check | Verification | Pass condition | Gateable |
+|---|-------|-------------|----------------|----------|
+| 1 | RLS enabled on every tenant-scoped table | `psql -c "SELECT tablename FROM pg_tables WHERE schemaname='public' AND rowsecurity=false AND tablename ~ 'projects\|users\|teams\|memberships'"` (or equivalent for the project DB) | Empty result (every tenant table has RLS on). | yes |
+| 2 | Tenant context set before queries | `grep -rEn "setTenantContext\|set_config.*current_tenant" --include="*.ts" --include="*.js" --include="*.py" .` | Match in middleware that runs on every authenticated request. | yes |
+| 3 | No tenant ID accepted from request body | `grep -rEn "req\.body\.tenantId\|body\['tenant_id'\]\|request\.body\['tenantId'\]" --include="*.ts" --include="*.js" --include="*.py" .` | Zero matches. Tenant must come from session or auth context. | yes |
+| 4 | Background jobs restore tenant context | `grep -rEn "queue.*process\|worker\|job" --include="*.ts" --include="*.js" --include="*.py" . \| grep -L setTenantContext` | Audit list: every job handler calls `setTenantContext` before DB queries. | manual |
+| 5 | Cache keys namespaced by tenant | `grep -rEn "cache\.(set\|get)\(['\"]" --include="*.ts" --include="*.js" --include="*.py" . \| grep -v "tenant:"` | Zero matches that don't include tenant in the key. | yes |
+| 6 | Tenant slug sanitised | Read tenant-creation handler. | Slug is generated server-side via `slugify`, validated against allowed pattern. | manual |
+| 7 | Cross-tenant admin operations explicit | `grep -rEn "admin.*context\|bypass.*rls\|service.*role" --include="*.ts" --include="*.js" --include="*.py" .` | Each occurrence is in an admin-only path with auth check, not generic helper. | manual |
+| 8 | Tests prove cross-tenant isolation | `npm test -- --testPathPattern=tenant` or equivalent. | Test where tenant A queries data and gets only tenant A's rows; test where injecting tenant B's ID fails. | yes |
 
-### Trusting Client-Provided Tenant ID
+If any check fails, do not declare done. Fix and re-run.
+
+## Anti-Patterns (Excuse / Rebuttal)
+
+### Excuse: "I'll take the tenant ID from the request body; the client knows which tenant they're in."
+
+**Rebuttal**: The client can send any tenant ID, including ones they do not belong to. This is the cross-tenant data leak pattern. Derive tenant from the authenticated session, never from the request body or query string.
+
 ```typescript
 // WRONG: Client can send any tenant ID
 const projects = await getProjects(req.body.tenantId);
@@ -288,7 +304,10 @@ const tenantId = req.session.tenantId;
 const projects = await getProjects(tenantId);
 ```
 
-### Forgetting Tenant Context in Background Jobs
+### Excuse: "Background jobs run server-side; they don't need tenant context."
+
+**Rebuttal**: They absolutely do, and forgetting it is the second-most-common multi-tenant data leak. A job that queries `analytics` without setting tenant context returns all tenants' analytics, then sends them to one tenant's email. Pass the tenant ID into the job payload, restore the context inside the worker.
+
 ```typescript
 // WRONG: No tenant context in async job
 queue.process('sendReport', async (job) => {
@@ -302,7 +321,10 @@ queue.process('sendReport', async (job) => {
 });
 ```
 
-### Global Cache Without Tenant Namespace
+### Excuse: "The cache key is the same for every tenant; the data is the same shape."
+
+**Rebuttal**: The shape may be the same; the data is not. Without a tenant namespace, tenant A's dashboard stats serve to tenant B until the TTL expires. Always namespace cache keys by tenant.
+
 ```typescript
 // WRONG: Cache key collision across tenants
 await cache.set('dashboard-stats', stats);
