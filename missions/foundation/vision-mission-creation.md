@@ -348,5 +348,13 @@ After completion:
 2. Note any insights for other foundation documents
 3. Schedule annual vision/mission review
 
+## Phase Handoff
+
+When this mission completes, append a Phase Handoff block to `/workspace/agent-context.md` using the 5-field schema (Findings / Decisions / Warnings / Open / Evidence). The next mission in the foundation pipeline reads the most recent block to pick up context.
+
+Schema and example: `templates/phase-handoff-template.md`.
+
+Required for: foundation pipeline continuity. Coordinator verifies this block exists before marking the mission complete.
+
 ---
 *Vision & Mission Creation Mission | Foundation Document | BOS-AI*
