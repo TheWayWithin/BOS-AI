@@ -1,0 +1,43 @@
+The Blueprint (2026-04-17) was written before we actually ran sprints 4a-4h, so it's  
+  theoretical — it correctly anticipates some lessons (context tax, XML dead weight, Karpathy
+  constitution, Routines) but misses 5-6 things that only became obvious by shipping v6.0.       
+                                                                                                 
+  What the Blueprint missed or got wrong (empirical lessons from actually doing it):             
+                                                                                                 
+  1. Pre-execution platform check. Sprint 4f hit a brutal schema mismatch — built                
+  dynamic-mcp.json on Claude API's per-tool defer_loading, which doesn't apply to Claude Code's
+  .mcp.json. Audit caught it mid-sprint. For BOS-AI: before building any infra against an        
+  Anthropic primitive, verify the surface exists where you think it does.
+  2. Universal Router pattern. Blueprint doesn't mention deterministic mission dispatch (/coord 
+  vision, not NLP intent matching). 4c's biggest win.                                            
+  3. "Single-agent deep-thinking task" oversimplifies. Blueprint says rewrite vision/PRD missions
+   as single-agent (line 49). v6.0 kept role-specialised agents — what we killed was the         
+  ceremony, not the roles. Strategist + Documenter handoff is fine if the handoff is structured.
+  4. /blog may not be a Routine. Blueprint conflates /dailyreport (scheduled — yes, Routine) with
+   /blog (event-driven — no, just a slash command). Per-command analysis needed.                 
+  5. Quality-gate hooks under-leveraged. v6.0 ships hooks for tsc/ruff. For BOS-AI, equivalent
+  would be hooks that deterministically enforce solopreneur voice — block Write/Edit if "we" /   
+  "our team" appears — instead of leaving it to prompt instruction the model can ignore.
+  6. Phase Handoff blocks. 4e's structured 5-field schema (Findings / Decisions / Warnings / Open
+   / Evidence) is exactly the primitive a foundation-doc pipeline (vision → PRD → marketing
+  bible) needs to pass decisions cleanly between stages.
+  7. Direct-spawn pattern. Just confirmed in T1 verification today: top-level Claude spawning
+  specialists via Task tool works; coordinator-as-subagent breaks. Blueprint silent on this.     
+   
+  Three options for what to do next (BOS-AI isn't checked out locally, so anything beyond doc    
+  work needs a clone first):                                      
+                                                                                                 
+  - A — Tonight: I refine the Blueprint document into a v2.1 with these empirical lessons folded 
+  in. Output = updated Blueprint in Ideation/. ~30 min, no BOS-AI code touched. Sets up the
+  eventual implementation right.                                                                 
+  - B — Tonight: Stop here with this diagnosis. Tomorrow fresh, you clone BOS-AI and we do a real
+   codebase assessment first, then refine the Blueprint with both empirical and                  
+  current-state-of-BOS-AI grounding.
+  - C — Skip the Blueprint refinement; tomorrow start straight at "deletion sprint" on BOS-AI    
+  (the 5-item action list at the bottom of the existing Blueprint).                              
+   
+  Recommend B. The Blueprint without seeing actual BOS-AI code is half-blind — Manus wrote it    
+  from a single repo dive, and both BOS-AI and your understanding have moved since 2026-04-17.
+  Tomorrow: clone BOS-AI, I run a structural assessment (line counts, agent surface, command     
+  list, what's deployed vs internal — same lens we used on agent-11), then the refined Blueprint
+  writes itself from that evidence + tonight's empirical list.

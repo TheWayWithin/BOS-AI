@@ -32,6 +32,16 @@ mission-logs/
 # ===== WORKSPACE TRANSIENT =====
 workspace/checkpoint-*.md
 
+# ===== LOCAL BACKUPS (not for git) =====
+.claude/backups/
+.claude/CLAUDE.md.backup-*
+.claude/settings.json.backup-*
+
+# ===== GENERATED OUTPUTS (transient session artifacts) =====
+blog/
+progress/*.md
+!progress/README.md
+
 # ===== GENERATED ASSETS =====
 # Keep templates but ignore generated business assets
 assets/client-success-blueprint/*.md
