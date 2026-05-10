@@ -63,7 +63,8 @@ markdown file. Resolution order (first hit wins):
 2. **`voice-guide.md`** in project root
 3. **`.claude/voice-guide.md`**
 4. **`docs/voice-guide.md`**
-5. **Default** — `.claude/data/voice-guide-default.md` (ships with AGENT-11)
+5. **`library/voice/voice-guide-default.md`** (canonical BOS-AI default)
+6. **`.claude/data/voice-guide-default.md`** (AGENT-11 framework fallback)
 
 The default voice guide is tuned for authentic, non-AI-sounding build-in-public writing.
 It enforces:
@@ -83,7 +84,7 @@ It enforces:
 Copy the default to your project root and adapt it:
 
 ```bash
-cp .claude/data/voice-guide-default.md voice-guide.md
+cp library/voice/voice-guide-default.md voice-guide.md
 # Then edit voice-guide.md to reflect your own voice
 ```
 
@@ -149,11 +150,12 @@ Resolution order (first hit wins):
 2. `./voice-guide.md`
 3. `./.claude/voice-guide.md`
 4. `./docs/voice-guide.md`
-5. **Default** — read `.claude/data/voice-guide-default.md`
+5. `library/voice/voice-guide-default.md` (BOS-AI canonical default)
+6. `.claude/data/voice-guide-default.md` (AGENT-11 framework fallback)
 
 If the env var is set but the file is missing, print a warning and fall through to the
-project-file search. If step 5 fails because the file is missing (unusual — only
-happens if the install is corrupted), print a warning and use your best understanding
+project-file search. If steps 5 and 6 both fail because the files are missing (unusual —
+only happens if the install is corrupted), print a warning and use your best understanding
 of the voice rules documented in the Voice Alignment section above.
 
 Announce which guide was loaded and its path:
@@ -166,7 +168,7 @@ Examples:
 ```
 🎙️  Voice guide: env DAILYREPORT_VOICE_GUIDE → /home/alice/my-voice.md
 🎙️  Voice guide: project file → ./voice-guide.md
-🎙️  Voice guide: built-in default → .claude/data/voice-guide-default.md
+🎙️  Voice guide: BOS-AI default → library/voice/voice-guide-default.md
 ```
 
 ### Step 3: Gather progress context

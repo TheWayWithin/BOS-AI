@@ -233,6 +233,9 @@ Profit = Prospects × Lead Conversion × Client Conversion × Average Spend × T
 | `.claude/document-library/` | Templates and SOPs (read-only) |
 | `documents/foundation/` | Your business documents |
 | `/missions/` | Available missions |
+| `/routines/` | Scheduled routine templates (set up at claude.ai/code/routines) |
+| `library/voice/` | Default voice guide (copy to `voice-guide.md` to customise) |
+| `library/hooks/` | Optional voice-enforcement hook (`check-voice.sh`) |
 
 ---
 

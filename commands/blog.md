@@ -139,13 +139,15 @@ Resolution order (first hit wins):
 2. `./voice-guide.md` → read it
 3. `./.claude/voice-guide.md` → read it
 4. `./docs/voice-guide.md` → read it
-5. **Default voice guide** — read `.claude/data/voice-guide-default.md`
-   (ships with AGENT-11). Both `/blog` and `/dailyreport` read from this same file,
-   so whatever is documented there is the authoritative default voice.
+5. `library/voice/voice-guide-default.md` → BOS-AI canonical default
+6. `.claude/data/voice-guide-default.md` → AGENT-11 framework fallback
 
-If step 5 fails because the file is missing (unusual — only happens if the install is
-corrupted or incomplete), print a warning and use your best understanding of the
-voice alignment rules documented in `.claude/commands/dailyreport.md`. Do not invent
+Both `/blog` and `/dailyreport` read from the same chain, so whatever is documented
+in the resolved guide is the authoritative voice for that session.
+
+If steps 5 and 6 both fail because the files are missing (unusual — only happens if the
+install is corrupted or incomplete), print a warning and use your best understanding of
+the voice alignment rules documented in `commands/dailyreport.md`. Do not invent
 a voice — the rules are specific and must come from the guide file.
 
 Announce which guide was loaded and its path:
