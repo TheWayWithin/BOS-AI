@@ -49,6 +49,15 @@ Conduct comprehensive market research to identify opportunities, understand comp
 - Set success metrics
 **Deliverable**: Strategic market plan
 
+## Document Production Protocol
+
+Applies to any large BOS-AI deliverable produced in this mission:
+- **File is the source of truth.** The saved foundation document is the deliverable, not the chat reply.
+- **Write section by section.** Write the first section to create the file, then Edit-append the rest. Never produce the whole document in one giant generation.
+- **Research first, then author.** Condense sources into notes, then write from notes. Keep context lean (prefer snippets over fetching many full pages).
+- **Resumable by design.** Each section is saved as written, so an interruption costs at most one section.
+- **Keep the closing reply short.** Report the file path and a brief summary; do not paste the document back.
+
 ## Success Criteria
 - [ ] TAM clearly defined and quantified
 - [ ] 10+ competitors analyzed

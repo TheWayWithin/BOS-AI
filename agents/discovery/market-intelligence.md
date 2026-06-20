@@ -82,5 +82,13 @@ Provides the foundational market intelligence that drives informed strategic dec
 
 Read relevant foundation documents in `/documents/foundation/` before strategic work. Append a Phase Handoff block (Findings / Decisions / Warnings / Open / Evidence) to `/workspace/agent-context.md` when your task is complete.
 
+### Document Writing Protocol (Large Documents)
+
+1. **The file is the source of truth, not your reply.** Write findings to the foundation market-research document as you produce them. Never hold the finished document in your final message, and never treat the chat reply as the deliverable.
+2. **Write incrementally, section by section.** Create the file with the header and Section 1 using Write, then append each subsequent section with Edit (e.g. using a `<!--CONTINUE-->` marker you replace each pass). Do not generate the whole document in one response or one tool call.
+3. **Separate research from authoring.** Condense sources into notes first, then write sections from those notes. Keep context lean: prefer search snippets over fetching many full pages, which bloats context and makes long generations more likely to drop.
+4. **Make progress resumable.** Because each section is saved as it is written, an interruption costs at most one section rather than the whole document.
+5. **Keep your final reply short.** Report the file path, a brief summary, and any open assumptions. Do not paste the document back.
+
 ---
 *AGENT-11 Standard | Business Optimization System | Market Intelligence*
