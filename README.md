@@ -147,8 +147,10 @@ BOS-AI includes 30 business intelligence agents organized by function:
 
 When you need software built:
 1. Create PRD in BOS-AI
-2. Hand off to AGENT-11 project
+2. Hand off to AGENT-11 project: copy the foundation documents into the dev project's `documents/foundations/` and run `/foundations init`
 3. Return to BOS-AI for operations
+
+**The handoff is a one-time release with ownership transfer.** Once foundation documents are handed to the dev project, the dev project owns the PRD and all product-shaped documents — post-handoff edits happen there, not in BOS-AI. Replace the copies in your BOS-AI workspace with a one-line pointer to the dev project. Do not maintain parallel copies or sync them back: the source of truth follows the build decisions. BOS-AI remains the home for business-side documents you continue to operate with (marketing, sales, finance). See AGENT-11's [BOS-AI Handoff Guide](https://github.com/TheWayWithin/agent-11/blob/main/project/field-manual/bos-ai-handoff.md) for the full workflow, including the lite tier for ad-hoc builds.
 
 ---
 
