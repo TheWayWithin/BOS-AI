@@ -49,7 +49,11 @@
       "Bash(curl:*)",
       "Bash(wget:*)",
       "Bash(rm -rf /*)",
-      "Bash(sudo:*)"
+      "Bash(sudo:*)",
+      "Edit(.quality-gates.json)",
+      "Edit(**/*.quality-gates.json)",
+      "Edit(gates/**)",
+      "Edit(.gates/**)"
     ]
   },
   "env": {
@@ -101,6 +105,18 @@
             "if": "Bash(rm -rf *)|Bash(git push --force*)|Bash(git push -f *)|Bash(git reset --hard*)|Bash(git clean -f*)|Bash(git branch -D*)",
             "prompt": "This command is destructive and hard to reverse. Confirm to proceed: $ARGUMENTS",
             "timeout": 60
+          },
+          {
+            "type": "command",
+            "command": "if [ -f .claude/hooks/destructive-guard.sh ]; then sh .claude/hooks/destructive-guard.sh; fi",
+            "statusMessage": "destructive-command guard",
+            "timeout": 10
+          },
+          {
+            "type": "command",
+            "command": "if [ -f .claude/hooks/gate-guard.sh ]; then sh .claude/hooks/gate-guard.sh; fi",
+            "statusMessage": "read-only gate guard",
+            "timeout": 10
           }
         ]
       }

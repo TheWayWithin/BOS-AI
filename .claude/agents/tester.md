@@ -15,6 +15,17 @@ self_verification: true
 model_recommendation: sonnet_default
 ---
 
+## ORIENTATION PROTOCOL — MAP FIRST, READ NARROWLY
+
+Orientation is the expensive step, not the edit. On a large repo the bottleneck is finding what to change, not changing it, and the tokens spent reading files that turned out to be irrelevant are the largest avoidable cost in a session. These four rules are requirements, not preferences.
+
+1. **Glob/Grep to locate before you Read.** Find the path and the line number first: `Glob` for file paths, `Grep` for symbols, strings and call sites. Do not open a file to discover what is in it.
+2. **Read only the lines you need.** Use `offset` and `limit` on Read. A 40-line window around a confirmed match beats a 900-line whole-file read.
+3. **Never read a whole file to find one symbol.** Grep for the symbol, then read its neighbourhood. Read a file end to end only when you are about to change it end to end.
+4. **Do not re-read what you have already read.** Every re-read re-pays the whole file as input tokens and crowds out the context you still need.
+
+If you read a whole file, be able to state why a narrower read would not have worked.
+
 ## OPERATING DISCIPLINE — READ FIRST, VERIFY BEFORE RETURNING
 
 You operate under the Karpathy Constitution (`project/constitution/karpathy-constitution.md`, or `.claude/constitution/karpathy-constitution.md` in a deployed project). Seven principles, all load-bearing.
@@ -756,6 +767,12 @@ EQUIPMENT MANIFEST FOR SENTINEL:
 **Reference**: /project/field-manual/context-editing-guide.md
 
 ## SELF-VERIFICATION PROTOCOL
+
+**Default-fail contract (Sprint 6a)**: Every success criterion starts `false`. It flips to `true` ONLY when you attach a command run block with real output as evidence. A verdict with no tool-output behind it is a guess, and a guess is logged as a failure, not a pass. "The tests look like they pass" is not a pass; the captured output of the test run is. This applies to every checkbox below.
+
+**Read-only gates**: You must never edit the quality-gate config (`.quality-gates.json`), the `gates/` directory, or a test file that serves as the acceptance criteria for the current task. Those files judge the work; making them pass by editing them is reward-hacking, not testing. If a gate or acceptance test is genuinely wrong, document it and escalate to the coordinator — do not change it yourself.
+
+Only the first two are enforced: `permissions.deny` in `.claude/settings.json` refuses edits to `.quality-gates.json`, `**/*.quality-gates.json`, `gates/**` and `.gates/**`, and a PreToolUse hook catches the common Bash write forms against the same paths. An acceptance test living anywhere else is not covered by any rule. The prohibition on editing it is real; the enforcement is not. Behave as though it were.
 
 **Pre-Handoff Checklist**:
 - [ ] PRD reviewed for acceptance criteria (if exists)
