@@ -1,0 +1,579 @@
+# Brand Style Guidelines Extraction Schema
+# Purpose: Complete design system for agents to build consistent UI
+# Usage: /foundations init extracts source docs to this format
+# Critical: Designer agent NEEDS complete color codes, typography, and component specs
+
+$schema: "http://json-schema.org/draft-07/schema#"
+type: object
+description: "Complete brand and design system for consistent UI implementation"
+
+required:
+  - identity
+  - colors
+
+properties:
+  identity:
+    type: object
+    required: [essence]
+    properties:
+      essence:
+        type: string
+        description: "Brand essence in one line"
+      philosophy:
+        type: string
+        description: "Core design/brand philosophy"
+      personality:
+        type: array
+        items:
+          type: string
+        description: "Brand personality traits"
+      voice:
+        type: object
+        properties:
+          tone:
+            type: string
+            description: "Overall tone (e.g., 'Professional yet approachable')"
+          point_of_view:
+            type: string
+            description: "First person, second person, etc."
+          characteristics:
+            type: array
+            items:
+              type: string
+          examples:
+            type: array
+            items:
+              type: object
+              properties:
+                do:
+                  type: string
+                dont:
+                  type: string
+
+  colors:
+    type: object
+    description: "Complete color palette with exact values"
+    properties:
+      primary:
+        type: object
+        additionalProperties:
+          type: object
+          required: [hex]
+          properties:
+            hex:
+              type: string
+              pattern: "^#[0-9A-Fa-f]{6}$"
+            rgb:
+              type: array
+              items:
+                type: integer
+              minItems: 3
+              maxItems: 3
+            hsl:
+              type: array
+              items:
+                type: number
+              minItems: 3
+              maxItems: 3
+            usage:
+              type: string
+              description: "When to use this color"
+      secondary:
+        type: object
+        additionalProperties:
+          $ref: "#/properties/colors/properties/primary/additionalProperties"
+      neutrals:
+        type: object
+        additionalProperties:
+          $ref: "#/properties/colors/properties/primary/additionalProperties"
+      functional:
+        type: object
+        properties:
+          success:
+            type: string
+            pattern: "^#[0-9A-Fa-f]{6}$"
+          error:
+            type: string
+            pattern: "^#[0-9A-Fa-f]{6}$"
+          warning:
+            type: string
+            pattern: "^#[0-9A-Fa-f]{6}$"
+          info:
+            type: string
+            pattern: "^#[0-9A-Fa-f]{6}$"
+      gradients:
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              type: string
+            css:
+              type: string
+            usage:
+              type: string
+
+  typography:
+    type: object
+    properties:
+      primary:
+        type: object
+        required: [font]
+        properties:
+          font:
+            type: string
+            description: "Primary font family name"
+          source:
+            type: string
+            description: "Where to get it (Google Fonts, Adobe, etc.)"
+          weights:
+            type: array
+            items:
+              type: integer
+          fallback:
+            type: string
+            description: "Fallback font stack"
+      secondary:
+        type: object
+        properties:
+          font:
+            type: string
+          source:
+            type: string
+          weights:
+            type: array
+            items:
+              type: integer
+          usage:
+            type: string
+      monospace:
+        type: object
+        properties:
+          font:
+            type: string
+          source:
+            type: string
+          usage:
+            type: string
+      scale:
+        type: object
+        description: "Type scale with exact sizes"
+        additionalProperties:
+          type: object
+          properties:
+            size:
+              type: string
+              description: "e.g., '48px' or '3rem'"
+            weight:
+              type: integer
+            line_height:
+              type: number
+            letter_spacing:
+              type: string
+            usage:
+              type: string
+
+  spacing:
+    type: object
+    properties:
+      base:
+        type: string
+        description: "Base spacing unit (e.g., '8px')"
+      scale:
+        type: array
+        items:
+          type: integer
+        description: "Spacing scale multipliers"
+      semantic:
+        type: object
+        description: "Named spacing values"
+        additionalProperties:
+          type: string
+
+  layout:
+    type: object
+    properties:
+      max_width:
+        type: string
+        description: "Max content width"
+      breakpoints:
+        type: object
+        properties:
+          mobile:
+            type: string
+          tablet:
+            type: string
+          desktop:
+            type: string
+          wide:
+            type: string
+      grid:
+        type: object
+        properties:
+          columns:
+            type: integer
+          gutter:
+            type: string
+          margin:
+            type: string
+
+  components:
+    type: object
+    description: "Component specifications"
+    properties:
+      buttons:
+        type: object
+        additionalProperties:
+          type: object
+          properties:
+            background:
+              type: string
+            text:
+              type: string
+            border:
+              type: string
+            radius:
+              type: string
+            padding:
+              type: string
+            font_weight:
+              type: integer
+            hover:
+              type: object
+              properties:
+                background:
+                  type: string
+                text:
+                  type: string
+      cards:
+        type: object
+        additionalProperties:
+          type: object
+          properties:
+            background:
+              type: string
+            border:
+              type: string
+            radius:
+              type: string
+            padding:
+              type: string
+            shadow:
+              type: string
+      inputs:
+        type: object
+        properties:
+          default:
+            type: object
+            properties:
+              background:
+                type: string
+              border:
+                type: string
+              radius:
+                type: string
+              padding:
+                type: string
+              text:
+                type: string
+              placeholder:
+                type: string
+          focus:
+            type: object
+            properties:
+              border:
+                type: string
+              ring:
+                type: string
+          error:
+            type: object
+            properties:
+              border:
+                type: string
+              text:
+                type: string
+
+  icons:
+    type: object
+    properties:
+      library:
+        type: string
+        description: "Icon library to use (Lucide, Heroicons, etc.)"
+      style:
+        type: string
+        description: "Outline, solid, etc."
+      stroke:
+        type: string
+        description: "Stroke width"
+      sizes:
+        type: array
+        items:
+          type: integer
+        description: "Available icon sizes"
+
+  effects:
+    type: object
+    properties:
+      shadows:
+        type: object
+        additionalProperties:
+          type: string
+          description: "CSS box-shadow value"
+      blur:
+        type: object
+        additionalProperties:
+          type: string
+          description: "CSS backdrop-filter value"
+      transitions:
+        type: object
+        properties:
+          default:
+            type: string
+          fast:
+            type: string
+          slow:
+            type: string
+
+  dark_mode:
+    type: object
+    description: "Dark mode specific overrides"
+    properties:
+      background:
+        type: string
+      surface:
+        type: string
+      text_primary:
+        type: string
+      text_secondary:
+        type: string
+      border:
+        type: string
+
+  assets:
+    type: object
+    properties:
+      logo:
+        type: object
+        properties:
+          primary:
+            type: string
+            description: "Path or URL to primary logo"
+          mark:
+            type: string
+            description: "Logo mark/icon only"
+          wordmark:
+            type: string
+            description: "Text-only logo"
+          usage_guidelines:
+            type: string
+      favicon:
+        type: string
+      og_image:
+        type: string
+        description: "Open Graph image for social sharing"
+
+  # ============================================================
+  # ENHANCED SECTIONS (Added for comprehensive Brand extraction)
+  # ============================================================
+
+  accessibility:
+    type: object
+    description: "Accessibility requirements and guidelines"
+    properties:
+      wcag_level:
+        type: string
+        enum: ["A", "AA", "AAA"]
+        description: "Target WCAG compliance level"
+      color_contrast:
+        type: object
+        properties:
+          normal_text:
+            type: string
+            description: "Minimum contrast ratio for normal text (e.g., '4.5:1')"
+          large_text:
+            type: string
+            description: "Minimum contrast ratio for large text (e.g., '3:1')"
+          ui_components:
+            type: string
+            description: "Minimum contrast for UI components"
+      focus_indicators:
+        type: object
+        properties:
+          style:
+            type: string
+            description: "CSS for focus state (e.g., 'ring-2 ring-offset-2')"
+          color:
+            type: string
+      motion:
+        type: object
+        properties:
+          reduced_motion:
+            type: string
+            description: "How to handle prefers-reduced-motion"
+          safe_animations:
+            type: array
+            items:
+              type: string
+            description: "Animations safe for motion-sensitive users"
+      screen_reader:
+        type: array
+        items:
+          type: object
+          properties:
+            element:
+              type: string
+            requirement:
+              type: string
+
+  animation_system:
+    type: object
+    description: "Comprehensive animation specifications"
+    properties:
+      principles:
+        type: array
+        items:
+          type: string
+        description: "Animation design principles"
+      durations:
+        type: object
+        additionalProperties:
+          type: string
+        description: "Named duration values (e.g., fast: '150ms')"
+      easings:
+        type: object
+        additionalProperties:
+          type: string
+        description: "Named easing functions"
+      presets:
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              type: string
+              description: "Animation name (e.g., 'fade-in', 'slide-up')"
+            css:
+              type: string
+              description: "CSS animation or transition"
+            usage:
+              type: string
+            tailwind_class:
+              type: string
+              description: "Tailwind CSS class if applicable"
+
+  responsive_design:
+    type: object
+    description: "Responsive design specifications"
+    properties:
+      breakpoints:
+        type: object
+        additionalProperties:
+          type: string
+        description: "Named breakpoints with pixel values"
+      container_widths:
+        type: object
+        additionalProperties:
+          type: string
+        description: "Max container widths per breakpoint"
+      mobile_first:
+        type: boolean
+        description: "Whether to use mobile-first approach"
+      touch_targets:
+        type: object
+        properties:
+          minimum_size:
+            type: string
+            description: "Minimum touch target size (e.g., '44px')"
+          spacing:
+            type: string
+            description: "Minimum spacing between touch targets"
+
+  component_states:
+    type: object
+    description: "Standard states for interactive components"
+    properties:
+      interactive_states:
+        type: array
+        items:
+          type: string
+        description: "Standard states (e.g., ['default', 'hover', 'focus', 'active', 'disabled'])"
+      state_colors:
+        type: object
+        additionalProperties:
+          type: object
+          properties:
+            background:
+              type: string
+            text:
+              type: string
+            border:
+              type: string
+      loading_states:
+        type: object
+        properties:
+          spinner:
+            type: object
+            properties:
+              size:
+                type: string
+              color:
+                type: string
+              animation:
+                type: string
+          skeleton:
+            type: object
+            properties:
+              background:
+                type: string
+              animation:
+                type: string
+
+  design_tokens:
+    type: object
+    description: "Design tokens for systematic design"
+    properties:
+      format:
+        type: string
+        description: "Token format (e.g., 'CSS variables', 'Tailwind config')"
+      naming_convention:
+        type: string
+        description: "How tokens are named (e.g., '--color-primary-500')"
+      categories:
+        type: array
+        items:
+          type: string
+        description: "Token categories (e.g., ['color', 'spacing', 'typography', 'shadow'])"
+
+  prd_cross_references:
+    type: object
+    description: "Links to PRD features for UI consistency"
+    properties:
+      feature_to_components:
+        type: array
+        items:
+          type: object
+          properties:
+            feature_id:
+              type: string
+              description: "Feature ID from PRD (e.g., 'F-001')"
+            ui_components:
+              type: array
+              items:
+                type: string
+              description: "Components used by this feature"
+            color_usage:
+              type: array
+              items:
+                type: string
+              description: "Colors used (e.g., ['primary', 'success'])"
+      persona_to_themes:
+        type: array
+        items:
+          type: object
+          properties:
+            persona:
+              type: string
+            design_considerations:
+              type: array
+              items:
+                type: string

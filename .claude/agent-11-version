@@ -1,0 +1,9 @@
+{
+  "version": "6.2.0+unreleased",
+  "installed_at": "2026-08-05T10:47:04Z",
+  "mode": "upgrade",
+  "source_repo": "TheWayWithin/agent-11",
+  "source_branch": "main",
+  "source_commit": "01ca86b",
+  "backups": "external:/Users/jamiewatters/.agent-11/backups/DevProjects_BOS-AI"
+}
